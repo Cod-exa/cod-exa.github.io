@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy – Hanoi Kulesi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+
+    :root {
+      --gold: #D4A017;
+      --gold-light: #F0C040;
+      --dark: #0e0c09;
+      --dark2: #1a1712;
+      --dark3: #242018;
+      --text: #d6cdb8;
+      --text-muted: #8a8070;
+      --border: rgba(212,160,23,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* Background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212,160,23,0.08) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(212,160,23,0.02) 40px,
+          rgba(212,160,23,0.02) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1c1a12 0%, #2e2810 100%);
+      border: 1px solid rgba(212,160,23,0.3);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(212,160,23,0.1), inset 0 1px 0 rgba(212,160,23,0.1);
+    }
+
+    .logo-wrap svg { width: 40px; height: 40px; }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 18px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: rgba(212,160,23,0.04);
+      letter-spacing: 0.06em;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 52px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    p { margin-bottom: 16px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      padding: 8px 0 8px 20px;
+      position: relative;
+      color: var(--text);
+      border-bottom: 1px solid rgba(212,160,23,0.06);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: linear-gradient(135deg, rgba(212,160,23,0.06) 0%, rgba(212,160,23,0.02) 100%);
+      border: 1px solid rgba(212,160,23,0.18);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+
+    .highlight p { color: var(--text); }
+
+    a {
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(240,192,64,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: var(--gold-light); }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    footer strong { color: var(--gold); font-weight: 400; }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo-wrap">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="6" width="4" height="26" rx="2" fill="#D4A017" opacity="0.9"/>
+        <rect x="13" y="26" width="14" height="4" rx="2" fill="#D4A017"/>
+        <rect x="10" y="30" width="20" height="3" rx="1.5" fill="#D4A017" opacity="0.6"/>
+        <rect x="9" y="14" width="6" height="4" rx="2" fill="#D4A017" opacity="0.7"/>
+        <rect x="25" y="20" width="7" height="4" rx="2" fill="#D4A017" opacity="0.5"/>
+      </svg>
+    </div>
+    <h1>Privacy Policy</h1>
+    <div class="subtitle">Hanoi Kulesi · Zeka Oyunu</div>
+    <div class="updated">Last updated: May 2026</div>
+  </header>
+
+  <section>
+    <h2>Overview</h2>
+    <div class="highlight">
+      <p><strong style="color:var(--gold-light)">Hanoi Kulesi does not collect, store, or share any personal information.</strong> This app is a standalone puzzle game that works entirely on your device without any account registration or data transmission to external servers.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Information We Do Not Collect</h2>
+    <p>We do not collect any of the following:</p>
+    <ul>
+      <li>Name, email address, or any contact information</li>
+      <li>Location or GPS data</li>
+      <li>Device identifiers or advertising IDs</li>
+      <li>Usage analytics or behavioral data</li>
+      <li>Photos, camera, or microphone access</li>
+      <li>Contacts or calendar data</li>
+      <li>Health or fitness data</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data Stored on Your Device</h2>
+    <p>All game progress, scores, settings, and achievements are stored locally on your device only. This data never leaves your device and is not accessible to us.</p>
+    <ul>
+      <li>Game progress and level completions</li>
+      <li>Best scores and move counts</li>
+      <li>App settings (theme, language, sound)</li>
+      <li>Achievement status</li>
+    </ul>
+    <p>You can delete all locally stored data at any time from the app's Settings → Reset Data option.</p>
+  </section>
+
+  <section>
+    <h2>Advertising</h2>
+    <p>The free version of Hanoi Kulesi displays advertisements provided by third-party ad networks. These networks may use cookies or device identifiers in accordance with their own privacy policies to serve relevant ads.</p>
+    <p>You can remove all advertisements by purchasing the <strong style="color:var(--gold-light)">"Tapınak Koruması"</strong> in-app purchase.</p>
+    <p>For more information on how ad networks handle data, please refer to their respective privacy policies.</p>
+  </section>
+
+  <section>
+    <h2>In-App Purchases</h2>
+    <p>In-app purchases are processed entirely by Apple through the App Store. We do not receive or store any payment information. Apple's privacy policy governs all transaction data.</p>
+  </section>
+
+  <section>
+    <h2>Children's Privacy</h2>
+    <p>Hanoi Kulesi is suitable for all ages and includes a dedicated Children Mode. We do not knowingly collect any personal information from children under the age of 13. The app does not require any personal information to function.</p>
+  </section>
+
+  <section>
+    <h2>Third-Party Services</h2>
+    <p>The app may use the following third-party services:</p>
+    <ul>
+      <li>Apple App Store — for distribution and in-app purchases</li>
+      <li>Third-party ad networks — for displaying advertisements in the free version</li>
+    </ul>
+    <p>These services have their own privacy policies and data practices independent of this app.</p>
+  </section>
+
+  <section>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. Continued use of the app after changes constitutes acceptance of the new policy.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+    <p><a href="mailto:erdinc@exaque.github.io">Support via GitHub</a> &nbsp;·&nbsp; <a href="https://exaque.github.io">exaque.github.io</a></p>
+  </section>
+
+  <footer>
+    <p>© 2026 <strong>Erdinç</strong> · All rights reserved</p>
+    <p style="margin-top:8px">Hanoi Kulesi · Mistik Mithra Tapınağı & Bulmaca Oyunu</p>
+  </footer>
+
+</div>
+</body>
+</html>
