@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exaque | Mobil Uygulama Geliştiricisi</title>
+    <meta name="description" content="Mobil uygulama geliştiricisi. Flutter, iOS, Android uygulamaları. Hanoi Kulesi geliştiricisi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="animate">
+            <div class="logo">E.</div>
+            <nav>
+                <ul>
+                    <li><a href="#hakkimda">Hakkımda</a></li>
+                    <li><a href="#projeler">Projeler</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main>
+            <section class="hero" id="hakkimda">
+                <p class="greeting animate delay-1">Merhaba, ben</p>
+                <h1 class="animate delay-2">Exaque.</h1>
+                <h2 class="animate delay-2">Mobil dünyalar inşa ediyorum.</h2>
+                <p class="description animate delay-3">
+                    Modern, hızlı ve kullanıcı deneyimi odaklı mobil uygulamalar tasarlıyor ve geliştiriyorum. 
+                    Flutter, iOS ve Android ekosistemlerinde oyunlar ve uygulamalar üretiyorum.
+                </p>
+                <div class="animate delay-3">
+                    <a href="#projeler" class="btn btn-primary">Projelerimi Gör</a>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projeler">
+                <h2 class="section-title">Neler Yaptım?</h2>
+                <div class="projects-grid">
+                    
+                    <!-- Hanoi Kulesi Card -->
+                    <div class="card">
+                        <h3>Hanoi Kulesi</h3>
+                        <p>Klasik matematiksel zeka oyununun modern, karanlık temalı ve 3D görünümlü mobil uyarlaması. Google Play Store ve App Store'da yayında.</p>
+                        <div class="tech-stack">
+                            <span>Flutter</span>
+                            <span>Dart</span>
+                            <span>Firebase</span>
+                            <span>iOS/Android</span>
+                        </div>
+                        <a href="mailto:exaque@hotmail.com" class="btn">Detaylar</a>
+                    </div>
+                    
+                    <!-- Gelecek Proje Card -->
+                    <div class="card">
+                        <h3>Yeni Proje Yakında</h3>
+                        <p>Kullanıcıların hayatını kolaylaştıracak harika bir mobil uygulama üzerinde çalışıyorum. Çok yakında detayları paylaşacağım.</p>
+                        <div class="tech-stack">
+                            <span>Mobile</span>
+                            <span>UI/UX Tasarım</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact" id="iletisim">
+                <h2 class="section-title" style="justify-content: center; margin-bottom: 1rem;">İletişimde Kalalım</h2>
+                <p>Yeni bir proje fikriniz mi var veya sadece merhaba mı demek istiyorsunuz? Gelen kutum her zaman açık. Bana oradan veya e-posta yoluyla ulaşabilirsiniz.</p>
+                <a href="mailto:exaque@hotmail.com" class="btn btn-primary">Bana E-Posta Gönder</a>
+                <p style="margin-top: 2rem; font-family: monospace; color: var(--primary-color);">exaque@hotmail.com</p>
+                <p style="margin-top: 0.5rem; font-family: monospace; color: var(--primary-color);">+90 555 805 82 76</p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>© <span id="year"></span> Exaque. Tasarım ve Kodlama.</p>
+            <p style="font-size: 0.8rem; margin-top: 5px;">GitHub Pages ile barındırılmaktadır.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
