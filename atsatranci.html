@@ -12,10 +12,10 @@
     
     <style>
         :root {
-            --gold: #3B82F6; /* Neon Blue */
-            --gold-light: #60A5FA;
-            --gold-alpha: rgba(59, 130, 246, 0.12);
-            --gold-border: rgba(59, 130, 246, 0.3);
+            --gold: #F59E0B; /* Orange */
+            --gold-light: #FBBF24;
+            --gold-alpha: rgba(245, 158, 11, 0.12);
+            --gold-border: rgba(245, 158, 11, 0.3);
             --dark: #0F172A; /* Slate 900 */
             --dark-card: rgba(30, 41, 59, 0.7); /* Glassmorphism */
             --dark-hover: rgba(30, 41, 59, 0.9);
@@ -47,8 +47,8 @@
             position: fixed;
             inset: 0;
             background-image:
-                radial-gradient(ellipse 60% 40% at 50% -10%, rgba(59, 130, 246, 0.15) 0%, transparent 70%),
-                radial-gradient(circle 300px at 10% 30%, rgba(59, 130, 246, 0.05), transparent 80%),
+                radial-gradient(ellipse 60% 40% at 50% -10%, rgba(245, 158, 11, 0.1) 0%, transparent 70%),
+                radial-gradient(circle 300px at 10% 30%, rgba(56, 189, 248, 0.05), transparent 80%),
                 radial-gradient(circle 400px at 90% 70%, rgba(245, 158, 11, 0.05), transparent 80%);
             pointer-events: none;
             z-index: 0;
@@ -63,7 +63,7 @@
             pointer-events: none;
             background-image: 
                 radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 150px 80px, rgba(59, 130, 246, 0.8), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 150px 80px, rgba(56, 189, 248, 0.5), rgba(0,0,0,0)),
                 radial-gradient(1px 1px at 80px 240px, #ffffff, rgba(0,0,0,0)),
                 radial-gradient(2px 2px at 250px 180px, rgba(245, 158, 11, 0.6), rgba(0,0,0,0));
             background-size: 300px 300px;
@@ -145,7 +145,7 @@
             border: 2px solid var(--gold);
             padding: 12px;
             background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(245, 158, 11, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -307,7 +307,7 @@
         <!-- Header -->
         <header>
             <h1 data-i18n="header_h1">AT SATRANCI</h1>
-            <p data-i18n="header_p">Antik Tapınak Mantık & Zeka Oyunu</p>
+            <p data-i18n="header_p">Stratejik Zeka Oyunu</p>
         </header>
 
         <!-- Main app card -->
@@ -315,18 +315,15 @@
             <!-- App Icon -->
             <div class="app-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C8.68629 2 6 4.68629 6 8C6 9.87321 6.86178 11.5453 8.19941 12.6373L7.14777 15.2662C6.83789 16.0409 7.40939 16.8571 8.24264 16.8571H15.7574C16.5906 16.8571 17.1621 16.0409 16.8522 15.2662L15.8006 12.6373C17.1382 11.5453 18 9.87321 18 8C18 4.68629 15.3137 2 12 2Z" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M5 21H19" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 17L7 21" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 17L17 21" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="12" cy="7" r="1.5" fill="#F59E0B"/>
+                    <path d="M14.5 3L11 6V8L9 11V15L6 16V20H18V15L17 12V6L14.5 3Z" fill="#F59E0B" />
+                    <path d="M12 7C12 7 11.5 8 10 8" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
             </div>
             
             <!-- App Details -->
             <div class="app-details">
                 <h3 data-i18n="game_title">At Satrancı: Zeka Oyunu</h3>
-                <p class="app-tagline" data-i18n="game_tagline">Antik Mithra Tapınağı Bulmacası / Puzzle of the Ancient Temple</p>
+                <p class="app-tagline" data-i18n="game_tagline">Stratejik Zeka Oyunu / Strategic Brain Game</p>
                 
                 <p class="app-desc" data-i18n="game_desc">
                     At Satrancı bulmacasını modern, yüksek kaliteli grafikler, antik temalı atmosferik müzikler ve zorlayıcı modlar ile deneyimleyin! 
@@ -424,8 +421,8 @@
                 "ru": "ХАНОЙСКАЯ БАШНЯ"
             },
             "header_p": {
-                "tr": "Antik Tapınak Mantık & Zeka Oyunu",
-                "en": "Ancient Temple Logic & Brain Game",
+                "tr": "Stratejik Zeka Oyunu",
+                "en": "Strategic Brain Game",
                 "de": "Logik- & Denkspiel im antiken Tempel",
                 "zh": "古庙逻辑与脑力游戏",
                 "hi": "प्राचीन मंदिर तर्क और ब्रेन गेम",
@@ -448,8 +445,8 @@
                 "ru": "Ханойская башня: Игра на логику"
             },
             "game_tagline": {
-                "tr": "Antik Mithra Tapınağı Bulmacası",
-                "en": "Ancient Mithra Temple Puzzle",
+                "tr": "Stratejik Zeka Oyunu",
+                "en": "Strategic Brain Game",
                 "de": "Rätsel des antiken Mithra-Tempels",
                 "zh": "古代米特拉神庙谜题",
                 "hi": "प्राचीन मित्रा मंदिर पहेली",
@@ -460,8 +457,8 @@
                 "ru": "Головоломка древнего храма Митры"
             },
             "game_desc": {
-                "tr": "At Satrancı bulmacasını modern, yüksek kaliteli grafikler, antik temalı atmosferik müzikler ve zorlayıcı modlar ile deneyimleyin! Klasik 3 diskten başlayarak zihninizi zorlayacak 8 diske kadar olan bulmacaları en az hamleyle çözmeye çalışın. Seviyeleri geçerek mistik altınlar toplayın ve tapınak rütbelerini kazanın.",
-                "en": "Experience the classic Knight Tour puzzle with modern, high-quality graphics, ancient themed atmospheric music, and challenging game modes! Try to solve puzzles from classic 3 disks up to 8 disks that will test your brain in the fewest moves. Collect mystical gold by passing levels and earn ancient temple ranks.",
+                "tr": "At Satrancı bulmacasını modern, şık grafikler ve farklı oyun modlarıyla (Klasik, Engelli) deneyimleyin! 5x5'ten başlayıp zihninizi zorlayacak daha büyük tahtalara kadar olan bulmacaları en az hamleyle çözmeye çalışın. Günün Bulmacasını çözerek istatistiklerinizi zirveye taşıyın.",
+                "en": "Experience the Knight Tour puzzle with modern graphics and varied modes (Classic, Obstacle)! Start from 5x5 and challenge your brain on larger boards to solve puzzles in the fewest moves. Solve the Daily Puzzle and climb the statistics.",
                 "de": "Erleben Sie das klassische Knight-Turm-Rätsel mit moderner, hochwertiger Grafik, stimmungsvoller Musik im antiken Stil und herausfordernden Spielmodi! Versuchen Sie, Rätsel von klassischen 3 Scheiben bis hin zu 8 Scheiben zu lösen, die Ihr Gehirn in den wenigsten Zügen testen. Sammeln Sie mystisches Gold, indem Sie Levels bestehen, und verdienen Sie sich antike Tempelränge.",
                 "zh": "体验经典的河内塔谜题，拥有现代、高品质的画面，古老主题的氛围音乐，以及极具挑战性的游戏模式！尝试用最少的步数解决从经典的 3 个圆盘到 8 个圆盘的谜题，测试您的脑力。通过关卡收集神秘黄金，获得古老神庙等级。",
                 "hi": "आधुनिक, उच्च गुणवत्ता वाले ग्राफिक्स, प्राचीन थीम वाले वायुमंडलीय संगीत और चुनौतीपूर्ण गेम मोड के साथ क्लासिक हनोई टॉवर पहेली का अनुभव करें! क्लासिक 3 डिस्क से लेकर 8 डिस्क तक की पहेलियों को कम से कम चालों में हल करने का प्रयास करें जो आपके मस्तिष्क का परीक्षण करेंगी। स्तरों को पार करके रहस्यमय सोना एकत्र करें और प्राचीन मंदिर रैंक अर्जित करें।",
@@ -532,8 +529,8 @@
                 "ru": "Особенности игры"
             },
             "feat_1": {
-                "tr": "<strong>Glassmorphism Arayüz:</strong> Derin lacivert ve neon mavi parıltılarla göz alıcı modern tasarım.",
-                "en": "<strong>Glassmorphism UI:</strong> Eye-catching modern design with deep navy and neon blue glows.",
+                "tr": "<strong>Farklı Oyun Modları:</strong> Klasik mod veya engellerle dolu Günün Bulmacası modu.",
+                "en": "<strong>Different Game Modes:</strong> Classic mode or the obstacle-filled Daily Puzzle mode.",
                 "de": "<strong>Glassmorphismus-UI:</strong> Auffälliges modernes Design mit tiefblauem und neonblauem Leuchten.",
                 "zh": "<strong>玻璃拟物化 UI：</strong> 醒目的现代设计，深海军蓝和霓虹蓝发光。",
                 "hi": "<strong>ग्लासमॉर्फिज्म यूआई:</strong> गहरे नेवी और नियॉन ब्लू चमक के साथ आकर्षक आधुनिक डिजाइन।",
@@ -544,8 +541,8 @@
                 "ru": "<strong>Интерфейс Glassmorphism:</strong> Привлекательный современный дизайн с темно-синим и неоново-синим свечением."
             },
             "feat_2": {
-                "tr": "<strong>L-Hamle Doğrulama:</strong> Sadece atın kurallara uygun geçerli hamlelerine izin veren sistem.",
-                "en": "<strong>L-Move Validation:</strong> System allowing only valid knight moves according to the rules.",
+                "tr": "<strong>Kapsamlı Zorluk Seviyeleri:</strong> 5x5'ten başlayıp daha büyük tahtalara uzanan zeka testleri.",
+                "en": "<strong>Extensive Difficulty Levels:</strong> Brain tests ranging from 5x5 to larger boards.",
                 "de": "<strong>L-Züge-Validierung:</strong> System, das nur gültige Springer-Züge zulässt.",
                 "zh": "<strong>L 步验证：</strong> 仅允许根据规则进行有效骑士移动的系统。",
                 "hi": "<strong>एल-मूव वैलिडेशन:</strong> नियमों के अनुसार केवल मान्य नाइट चालों की अनुमति देने वाली प्रणाली।",
@@ -556,8 +553,8 @@
                 "ru": "<strong>Проверка хода буквой Г:</strong> Система, допускающая только правильные ходы коня."
             },
             "feat_3": {
-                "tr": "<strong>Warnsdorff AI Çözücü:</strong> Tıkandığınızda anında ipucu veren güçlü yapay zeka algoritması.",
-                "en": "<strong>Warnsdorff AI Solver:</strong> Powerful AI algorithm that instantly gives hints when you're stuck.",
+                "tr": "<strong>Akıllı Yardımcılar & İstatistik:</strong> Tıkandığınızda İpucu, Geri Al özellikleri ve detaylı oyun geçmişi (Galibiyetler, Başarı Oranı).",
+                "en": "<strong>Smart Helpers & Stats:</strong> Hint, Undo features and detailed game history (Wins, Success Rate) when stuck.",
                 "de": "<strong>Warnsdorff-KI-Löser:</strong> Leistungsstarker KI-Algorithmus, der sofort Hinweise gibt.",
                 "zh": "<strong>Warnsdorff AI 求解器：</strong> 强大的 AI 算法，在卡住时立即给出提示。",
                 "hi": "<strong>वॉर्न्सडॉर्फ AI सॉल्वर:</strong> शक्तिशाली AI जो अटकने पर तुरंत संकेत देता है।",
