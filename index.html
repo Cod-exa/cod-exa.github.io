@@ -240,16 +240,18 @@
             letter-spacing: -0.5px;
         }
 
-        .title-link {
+        .project-card-link {
             text-decoration: none;
             color: inherit;
+            display: block;
+            cursor: pointer;
         }
 
-        .title-link h3 {
+        .project-card-link h3 {
             transition: var(--transition);
         }
 
-        .title-link:hover h3 {
+        .project-card-link:hover h3 {
             color: var(--accent-primary);
         }
 
@@ -483,7 +485,7 @@
             
             <div class="projects-grid">
                 <!-- Hanoi Kulesi Card -->
-                <div class="project-card">
+                <a href="hanoikulesi.html" class="project-card project-card-link">
                     <!-- App Icon -->
                     <div class="app-icon-wrap">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -499,9 +501,7 @@
                     <!-- App Details -->
                     <div class="app-details">
                         <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
-                        <a href="hanoikulesi.html" class="title-link">
-                            <h3 data-i18n="game_title">Hanoi Kulesi</h3>
-                        </a>
+                        <h3 data-i18n="game_title">Hanoi Kulesi</h3>
                         
                         <p class="app-desc" data-i18n="game_desc">
                             Hanoi Kulesi bulmacasını modern, göz alıcı grafikler, antik temalı müzikler ve zorlayıcı modlar ile yeniden keşfedin! Seviyeleri geçerek mistik altınlar toplayın ve tapınaktaki derecenizi yükseltin.
@@ -513,11 +513,11 @@
                         </div>
                         
                         <!-- Navigates to hanoikulesi.html -->
-                        <a href="hanoikulesi.html" class="btn-inspect" data-i18n="btn_inspect">
+                        <span class="btn-inspect" data-i18n="btn_inspect">
                             Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </a>
+                        </span>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Future educational games (like Çarpma Oyunu) will be added here -->
             </div>
