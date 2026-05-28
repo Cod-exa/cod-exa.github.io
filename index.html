@@ -240,6 +240,19 @@
             letter-spacing: -0.5px;
         }
 
+        .title-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .title-link h3 {
+            transition: var(--transition);
+        }
+
+        .title-link:hover h3 {
+            color: var(--accent-primary);
+        }
+
         .app-desc {
             color: var(--text-body);
             font-size: 1.05rem;
@@ -486,7 +499,9 @@
                     <!-- App Details -->
                     <div class="app-details">
                         <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title">Hanoi Kulesi</h3>
+                        <a href="hanoikulesi.html" class="title-link">
+                            <h3 data-i18n="game_title">Hanoi Kulesi</h3>
+                        </a>
                         
                         <p class="app-desc" data-i18n="game_desc">
                             Hanoi Kulesi bulmacasını modern, göz alıcı grafikler, antik temalı müzikler ve zorlayıcı modlar ile yeniden keşfedin! Seviyeleri geçerek mistik altınlar toplayın ve tapınaktaki derecenizi yükseltin.
