@@ -3,95 +3,791 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exaque | Mobil Uygulama Geliştiricisi</title>
-    <meta name="description" content="Mobil uygulama geliştiricisi. Flutter, iOS, Android uygulamaları. Hanoi Kulesi geliştiricisi.">
+    <title>CodExa – Erdinç TOPAL - Eğitim Projeleri & Uygulamalar</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            /* Modern Indigo/Purple Accent Palette */
+            --accent-primary: #6366f1; /* Indigo 500 */
+            --accent-secondary: #a855f7; /* Purple 500 */
+            --accent-glow: rgba(99, 102, 241, 0.25);
+            --gradient-primary: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            
+            /* Sleek Dark Mode Palette */
+            --bg-main: #0f172a; /* Slate 900 */
+            --bg-card: rgba(30, 41, 59, 0.6); /* Slate 800 with opacity for glassmorphism */
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border-color: rgba(148, 163, 184, 0.15); /* Slate 400 with opacity */
+            --border-highlight: rgba(99, 102, 241, 0.5);
+            
+            /* Text Colors */
+            --text-heading: #f8fafc; /* Slate 50 */
+            --text-body: #cbd5e1; /* Slate 300 */
+            --text-muted: #94a3b8; /* Slate 400 */
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Ambient background glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%; left: -10%; width: 120%; height: 120%;
+            background-image:
+                radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
+                radial-gradient(circle 500px at 10% 40%, rgba(168, 85, 247, 0.08), transparent 70%),
+                radial-gradient(circle 600px at 90% 80%, rgba(99, 102, 241, 0.1), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Area */
+        header {
+            text-align: center;
+            margin-bottom: 70px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .lang-badge {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-heading);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        /* Modern Project Card (Glassmorphism) */
+        .project-card {
+            background-color: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            transition: var(--transition);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: var(--radius-lg);
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-highlight);
+            background-color: var(--bg-card-hover);
+            box-shadow: 0 20px 40px -10px var(--accent-glow);
+        }
+
+        .app-icon-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        
+        /* Subtle glow behind icon */
+        .app-icon-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: var(--gradient-primary);
+            filter: blur(30px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .app-icon-wrap svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .app-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .app-category {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-secondary);
+            margin-bottom: 8px;
+        }
+
+        .app-details h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .app-desc {
+            color: var(--text-body);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+        
+        .status-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.6; transform: scale(0.8); }
+        }
+
+        .btn-inspect {
+            background: var(--text-heading);
+            color: var(--bg-main);
+            border: none;
+            padding: 14px 32px;
+            border-radius: var(--radius-md);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            width: fit-content;
+        }
+
+        .btn-inspect:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            opacity: 0.5;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            color: var(--text-heading);
+            margin-bottom: 10px;
+        }
+
+        .contact-header p {
+            color: var(--text-muted);
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-full {
+            grid-column: span 2;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: var(--text-heading);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control::placeholder {
+            color: #475569;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background-color: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn-submit {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .project-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            .app-icon-wrap {
+                margin: 0 auto;
+            }
+            .app-category {
+                margin-top: 10px;
+            }
+            .status-badge {
+                margin: 0 auto 24px auto;
+            }
+            .btn-inspect {
+                width: 100%;
+                justify-content: center;
+            }
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            .form-full {
+                grid-column: span 1;
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    
     <div class="container">
-        <!-- Header -->
-        <header class="animate">
-            <div class="logo">E.</div>
-            <nav>
-                <ul>
-                    <li><a href="#hakkimda">Hakkımda</a></li>
-                    <li><a href="#projeler">Projeler</a></li>
-                    <li><a href="#iletisim">İletişim</a></li>
-                </ul>
-            </nav>
+        <!-- Main Portfolio Header -->
+        <header>
+            <h1>CodExa</h1>
+            <p data-i18n="header_subtitle">Erdinç TOPAL – Mobil Oyun & Uygulama Geliştirici / Mobile Developer</p>
+            <div class="lang-badge" data-i18n="header_badge">🌐 Çok Dilli Portal / Multi-language Portal</div>
         </header>
 
-        <!-- Hero Section -->
-        <main>
-            <section class="hero" id="hakkimda">
-                <p class="greeting animate delay-1">Merhaba, ben</p>
-                <h1 class="animate delay-2">Exaque.</h1>
-                <h2 class="animate delay-2">Mobil dünyalar inşa ediyorum.</h2>
-                <p class="description animate delay-3">
-                    Modern, hızlı ve kullanıcı deneyimi odaklı mobil uygulamalar tasarlıyor ve geliştiriyorum. 
-                    Flutter, iOS ve Android ekosistemlerinde oyunlar ve uygulamalar üretiyorum.
-                </p>
-                <div class="animate delay-3">
-                    <a href="#projeler" class="btn btn-primary">Projelerimi Gör</a>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projeler">
-                <h2 class="section-title">Neler Yaptım?</h2>
-                <div class="projects-grid">
-                    
-                    <!-- Hanoi Kulesi Card -->
-                    <div class="card">
-                        <h3>Hanoi Kulesi</h3>
-                        <p>Klasik matematiksel zeka oyununun modern, karanlık temalı ve 3D görünümlü mobil uyarlaması. Google Play Store ve App Store'da yayında.</p>
-                        <div class="tech-stack">
-                            <span>Flutter</span>
-                            <span>Dart</span>
-                            <span>Firebase</span>
-                            <span>iOS/Android</span>
-                        </div>
-                        <a href="mailto:exaque@hotmail.com" class="btn">Detaylar</a>
+        <!-- Educational Projects Section -->
+        <section class="projects-wrapper">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="section_edu_projects">Eğitim Projeleri</h2>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Hanoi Kulesi Card -->
+                <div class="project-card">
+                    <!-- App Icon -->
+                    <div class="app-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Modernized Icon using indigo/slate tones instead of gold -->
+                            <rect x="11" y="2" width="2" height="20" rx="1" fill="#6366f1"/>
+                            <rect x="5" y="16" width="14" height="2" rx="1" fill="#a855f7" opacity="0.8"/>
+                            <rect x="3" y="19" width="18" height="2" rx="1" fill="#6366f1"/>
+                            <ellipse cx="12" cy="11" rx="4" ry="1.5" fill="#a855f7"/>
+                            <ellipse cx="12" cy="14" rx="6" ry="2" fill="#818cf8"/>
+                        </svg>
                     </div>
                     
-                    <!-- Gelecek Proje Card -->
-                    <div class="card">
-                        <h3>Yeni Proje Yakında</h3>
-                        <p>Kullanıcıların hayatını kolaylaştıracak harika bir mobil uygulama üzerinde çalışıyorum. Çok yakında detayları paylaşacağım.</p>
-                        <div class="tech-stack">
-                            <span>Mobile</span>
-                            <span>UI/UX Tasarım</span>
+                    <!-- App Details -->
+                    <div class="app-details">
+                        <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
+                        <h3 data-i18n="game_title">Hanoi Kulesi</h3>
+                        
+                        <p class="app-desc" data-i18n="game_desc">
+                            Hanoi Kulesi bulmacasını modern, göz alıcı grafikler, antik temalı müzikler ve zorlayıcı modlar ile yeniden keşfedin! Seviyeleri geçerek mistik altınlar toplayın ve tapınaktaki derecenizi yükseltin.
+                        </p>
+
+                        <div class="status-badge" data-i18n="coming_soon">
+                            <span class="dot"></span>
+                            Yakında App Store & Google Play'de!
                         </div>
+                        
+                        <!-- Navigates to hanoikulesi.html -->
+                        <a href="hanoikulesi.html" class="btn-inspect" data-i18n="btn_inspect">
+                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </a>
                     </div>
-
                 </div>
-            </section>
+                
+                <!-- Future educational games (like Çarpma Oyunu) will be added here -->
+            </div>
+        </section>
 
-            <!-- Contact Section -->
-            <section class="contact" id="iletisim">
-                <h2 class="section-title" style="justify-content: center; margin-bottom: 1rem;">İletişimde Kalalım</h2>
-                <p>Yeni bir proje fikriniz mi var veya sadece merhaba mı demek istiyorsunuz? Gelen kutum her zaman açık. Bana oradan veya e-posta yoluyla ulaşabilirsiniz.</p>
-                <a href="mailto:exaque@hotmail.com" class="btn btn-primary">Bana E-Posta Gönder</a>
-                <p style="margin-top: 2rem; font-family: monospace; color: var(--primary-color);">exaque@hotmail.com</p>
-                <p style="margin-top: 0.5rem; font-family: monospace; color: var(--primary-color);">+90 555 805 82 76</p>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer>
-            <p>© <span id="year"></span> Exaque. Tasarım ve Kodlama.</p>
-            <p style="font-size: 0.8rem; margin-top: 5px;">GitHub Pages ile barındırılmaktadır.</p>
-        </footer>
+        <!-- Direct Contact Form -->
+        <section class="contact-section">
+            <div class="contact-header">
+                <h2 data-i18n="section_contact">İletişime Geçin</h2>
+                <p data-i18n="contact_desc">Projeler veya işbirlikleri için mesaj bırakabilirsiniz.</p>
+            </div>
+            
+            <form onsubmit="handleFormSubmit(event)" class="contact-form">
+                <div class="form-group">
+                    <label for="name" data-i18n="label_name">Adınız / Name</label>
+                    <input type="text" id="name" class="form-control" data-i18n-placeholder="placeholder_name" placeholder="Adınız / Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="label_email">E-posta / Email</label>
+                    <input type="email" id="email" class="form-control" data-i18n-placeholder="placeholder_email" placeholder="ornek@mail.com" required>
+                </div>
+                <div class="form-group form-full">
+                    <label for="message" data-i18n="label_message">Mesajınız / Message</label>
+                    <textarea id="message" class="form-control" data-i18n-placeholder="placeholder_message" placeholder="Mesajınızı yazın..." required></textarea>
+                </div>
+                <div class="form-full">
+                    <button type="submit" class="btn-submit">
+                        <span data-i18n="btn_submit">Gönder / Send</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+            </form>
+        </section>
     </div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- Main Footer -->
+    <footer>
+        <p data-i18n="footer_text">&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = encodeURIComponent(`İletişim Talebi (Portal) - ${name}`);
+            const body = encodeURIComponent(`Adı: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+            
+            window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
+        }
+
+        // Local Translations Dictionary
+        window.PAGE_TRANSLATIONS = {
+            "page_title": {
+                "tr": "CodExa – Erdinç TOPAL - Eğitim Projeleri",
+                "en": "CodExa – Erdinç TOPAL - Educational Projects",
+                "de": "CodExa – Erdinç TOPAL - Bildungsprojekte",
+                "zh": "CodExa – Erdinç TOPAL - 教育项目",
+                "hi": "CodExa – Erdinç TOPAL - शैक्षिक परियोजनाएं",
+                "es": "CodExa – Erdinç TOPAL - Proyectos Educativos",
+                "fr": "CodExa – Erdinç TOPAL - Projets Éducatifs",
+                "ar": "CodExa – Erdinç TOPAL - مشاريع تعليمية",
+                "pt": "CodExa – Erdinç TOPAL - Projetos Educacionais",
+                "ru": "CodExa – Erdinç TOPAL - Образовательные проекты"
+            },
+            "header_subtitle": {
+                "tr": "Erdinç TOPAL – Mobil Oyun & Uygulama Geliştirici",
+                "en": "Erdinç TOPAL – Mobile Game & App Developer",
+                "de": "Erdinç TOPAL – Mobile Game & App Entwickler",
+                "zh": "Erdinç TOPAL – 移动游戏和应用开发者",
+                "hi": "Erdinç TOPAL – मोबाइल गेम और ऐप डेवलपर",
+                "es": "Erdinç TOPAL – Desarrollador de Juegos y Apps",
+                "fr": "Erdinç TOPAL – Développeur de Jeux et Applications",
+                "ar": "Erdinç TOPAL – مطور ألعاب وتطبيقات هواتف",
+                "pt": "Erdinç TOPAL – Desenvolvedor de Jogos e Apps",
+                "ru": "Erdinç TOPAL – Разработчик мобильных игр и приложений"
+            },
+            "header_badge": {
+                "tr": "🌐 Çok Dilli Portal",
+                "en": "🌐 Multi-language Portal",
+                "de": "🌐 Multilinguales Portal",
+                "zh": "🌐 多语言门户",
+                "hi": "🌐 बहुभाषी पोर्टल",
+                "es": "🌐 Portal Multilingüe",
+                "fr": "🌐 Portail Multilingue",
+                "ar": "🌐 بوابة متعددة اللغات",
+                "pt": "🌐 Portal Multilíngue",
+                "ru": "🌐 Мультиязычный портал"
+            },
+            "section_edu_projects": {
+                "tr": "Eğitim Projeleri",
+                "en": "Educational Projects",
+                "de": "Bildungsprojekte",
+                "zh": "教育项目",
+                "hi": "शैक्षिक परियोजनाएं",
+                "es": "Proyectos Educativos",
+                "fr": "Projets Éducatifs",
+                "ar": "مشاريع تعليمية",
+                "pt": "Projetos Educacionais",
+                "ru": "Образовательные проекты"
+            },
+            "category_puzzle": {
+                "tr": "Zeka & Bulmaca",
+                "en": "Puzzle & Brain",
+                "de": "Rätsel & Denkspiel",
+                "zh": "益智与大脑",
+                "hi": "पहेली और मस्तिष्क",
+                "es": "Rompecabezas y Mente",
+                "fr": "Casse-tête & Réflexion",
+                "ar": "لغز وعقل",
+                "pt": "Quebra-cabeça e Lógica",
+                "ru": "Головоломка и логика"
+            },
+            "game_title": {
+                "tr": "Hanoi Kulesi",
+                "en": "Hanoi Tower",
+                "de": "Hanoi Turm",
+                "zh": "河内塔",
+                "hi": "हनोई टॉवर",
+                "es": "Torre de Hanoi",
+                "fr": "Tour de Hanoï",
+                "ar": "برج هانوي",
+                "pt": "Torre de Hanoi",
+                "ru": "Ханойская башня"
+            },
+            "game_desc": {
+                "tr": "Hanoi Kulesi bulmacasını modern, göz alıcı grafikler, antik temalı müzikler ve zorlayıcı modlar ile yeniden keşfedin! Seviyeleri geçerek mistik altınlar toplayın ve tapınaktaki derecenizi yükseltin.",
+                "en": "Rediscover the classic Hanoi Tower puzzle with modern, stunning graphics, ancient themed atmospheric music, and challenging modes! Solve levels, collect mystical gold, and raise your rank in the temple.",
+                "de": "Entdecken Sie das klassische Hanoi-Turm-Rätsel neu – mit modernen, atemberaubenden Grafiken, stimmungsvoller Musik im antiken Stil und herausfordernden Modi!",
+                "zh": "重新探索经典的河内塔谜题，拥有现代、精美的画面，古老主题的氛围音乐，以及极具挑战性的模式！",
+                "hi": "आधुनिक, शानदार ग्राफिक्स, प्राचीन थीम वाले वायुमंडलीय संगीत और चुनौतीपूर्ण मोड के साथ क्लासिक हनोई टॉवर पहेली को फिर से खोजें!",
+                "es": "¡Redescubre el clásico rompecabezas de la Torre de Hanoi con gráficos modernos e impresionantes, música atmosférica y modos desafiantes!",
+                "fr": "Redécouvrez le casse-tête classique de la Tour de Hanoï avec des graphismes modernes époustouflants, des musiques d'ambiance et des modes stimulants !",
+                "ar": "أعد اكتشاف لغز برج هانوي الكلاسيكي برسومات حديثة ومذهلة، وموسيقى تصويرية غامضة من أجواء المعابد القديمة!",
+                "pt": "Revisite o clássico quebra-cabeça da Torre de Hanoi com gráficos modernos e impressionantes, trilha sonora atmosférica e modos desafiadores!",
+                "ru": "Откройте для себя заново классическую головоломку «Ханойская башня» с современной потрясающей графикой и сложными режимами!"
+            },
+            "coming_soon": {
+                "tr": "Yakında App Store & Google Play'de!",
+                "en": "Coming Soon to App Store & Google Play!",
+                "de": "Demnächst im App Store & Google Play!",
+                "zh": "即将登陆 App Store 和 Google Play！",
+                "hi": "जल्द ही ऐप स्टोर और गूगल प्ले पर!",
+                "es": "¡Próximamente en App Store y Google Play!",
+                "fr": "Bientôt sur l'App Store et Google Play !",
+                "ar": "قريباً على متجر التطبيقات وجوجل بلاي!",
+                "pt": "Em breve na App Store e Google Play!",
+                "ru": "Скоро в App Store и Google Play!"
+            },
+            "btn_inspect": {
+                "tr": "Proje Sayfası",
+                "en": "Project Page",
+                "de": "Projektseite",
+                "zh": "项目页面",
+                "hi": "परियोजना पृष्ठ",
+                "es": "Página del Proyecto",
+                "fr": "Page du Projet",
+                "ar": "صفحة المشروع",
+                "pt": "Página do Projeto",
+                "ru": "Страница проекта"
+            },
+            "section_contact": {
+                "tr": "İletişime Geçin",
+                "en": "Contact Me",
+                "de": "Kontakt",
+                "zh": "联系我",
+                "hi": "संपर्क करें",
+                "es": "Contacto",
+                "fr": "Contact",
+                "ar": "اتصل بي",
+                "pt": "Contato",
+                "ru": "Связаться со мной"
+            },
+            "contact_desc": {
+                "tr": "Projeler veya işbirlikleri için mesaj bırakabilirsiniz.",
+                "en": "Leave a message for projects or collaborations.",
+                "de": "Hinterlassen Sie eine Nachricht für Projekte oder Kooperationen.",
+                "zh": "为项目或合作留言。",
+                "hi": "प्रोजेक्ट या सहयोग के लिए संदेश छोड़ें।",
+                "es": "Deja un mensaje para proyectos o colaboraciones.",
+                "fr": "Laissez un message pour des projets ou collaborations.",
+                "ar": "اترك رسالة للمشاريع أو التعاون.",
+                "pt": "Deixe uma mensagem para projetos ou colaborações.",
+                "ru": "Оставьте сообщение для проектов или сотрудничества."
+            },
+            "label_name": {
+                "tr": "Adınız / Name",
+                "en": "Your Name",
+                "de": "Ihr Name",
+                "zh": "您的姓名",
+                "hi": "आपका नाम",
+                "es": "Su Nombre",
+                "fr": "Votre Nom",
+                "ar": "الاسم الكامل",
+                "pt": "Seu Nome",
+                "ru": "Ваше имя"
+            },
+            "placeholder_name": {
+                "tr": "Adınız / Your Name",
+                "en": "Enter your name",
+                "de": "Geben Sie Ihren Namen ein",
+                "zh": "输入您的姓名",
+                "hi": "अपना नाम दर्ज करें",
+                "es": "Escriba su nombre",
+                "fr": "Entrez votre nom",
+                "ar": "أدخل اسمك الكامل",
+                "pt": "Digite seu nome",
+                "ru": "Введите ваше имя"
+            },
+            "label_email": {
+                "tr": "E-posta / Email",
+                "en": "Email Address",
+                "de": "E-Mail",
+                "zh": "电子邮件",
+                "hi": "ईमेल",
+                "es": "Correo",
+                "fr": "E-mail",
+                "ar": "البريد الإلكتروني",
+                "pt": "E-mail",
+                "ru": "E-mail"
+            },
+            "placeholder_email": {
+                "tr": "ornek@mail.com",
+                "en": "e.g. explorer@gmail.com",
+                "de": "z.B. entdecker@gmail.com",
+                "zh": "例如：explorer@gmail.com",
+                "hi": "जैसे: explorer@gmail.com",
+                "es": "Ej: explorador@gmail.com",
+                "fr": "Ex : explorateur@gmail.com",
+                "ar": "مثال: explorer@gmail.com",
+                "pt": "Ex: explorador@gmail.com",
+                "ru": "Например: explorer@gmail.com"
+            },
+            "label_message": {
+                "tr": "Mesajınız / Message",
+                "en": "Your Message",
+                "de": "Ihre Nachricht",
+                "zh": "您的留言",
+                "hi": "आपका संदेश",
+                "es": "Su Mensaje",
+                "fr": "Votre Message",
+                "ar": "نص الرسالة",
+                "pt": "Sua Mensagem",
+                "ru": "Ваше сообщение"
+            },
+            "placeholder_message": {
+                "tr": "Mesajınızı yazın...",
+                "en": "Write your message...",
+                "de": "Schreiben Sie Ihre Nachricht...",
+                "zh": "写下您的留言...",
+                "hi": "अपना संदेश लिखें...",
+                "es": "Escriba su mensaje...",
+                "fr": "Rédigez votre message...",
+                "ar": "اكتب رسالتك...",
+                "pt": "Escreva sua mensagem...",
+                "ru": "Напишите сообщение..."
+            },
+            "btn_submit": {
+                "tr": "Gönder",
+                "en": "Send",
+                "de": "Senden",
+                "zh": "发送",
+                "hi": "भेजें",
+                "es": "Enviar",
+                "fr": "Envoyer",
+                "ar": "إرسال",
+                "pt": "Enviar",
+                "ru": "Отправить"
+            },
+            "footer_text": {
+                "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır.",
+                "en": "&copy; 2026 Erdinç TOPAL (CodExa). All Rights Reserved.",
+                "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+                "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+                "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+                "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+                "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+                "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+                "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+                "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+            }
+        };
+    </script>
+    <script src="i18n.js"></script>
 </body>
 </html>
