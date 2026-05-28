@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>At Satrancı: Zeka Oyunu – CodExa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #3B82F6; /* Neon Blue */
+            --gold-light: #60A5FA;
+            --gold-alpha: rgba(59, 130, 246, 0.12);
+            --gold-border: rgba(59, 130, 246, 0.3);
+            --dark: #0F172A; /* Slate 900 */
+            --dark-card: rgba(30, 41, 59, 0.7); /* Glassmorphism */
+            --dark-hover: rgba(30, 41, 59, 0.9);
+            --text-gold: #CBD5E1; /* Slate 300 */
+            --text-gray: #94A3B8;
+            --white: #F8FAFC;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Ambient background glow and stars */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse 60% 40% at 50% -10%, rgba(59, 130, 246, 0.15) 0%, transparent 70%),
+                radial-gradient(circle 300px at 10% 30%, rgba(59, 130, 246, 0.05), transparent 80%),
+                radial-gradient(circle 400px at 90% 70%, rgba(245, 158, 11, 0.05), transparent 80%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 150px 80px, rgba(59, 130, 246, 0.8), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 80px 240px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 250px 180px, rgba(245, 158, 11, 0.6), rgba(0,0,0,0));
+            background-size: 300px 300px;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            color: var(--gold-light);
+            transform: translateX(-4px);
+        }
+
+        /* Header Area */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1.5px solid var(--gold-border);
+            padding-bottom: 30px;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--gold-light);
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-gold);
+            opacity: 0.85;
+        }
+
+        /* App Showcase Card */
+        .app-card {
+            background-color: var(--dark-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid var(--gold-border);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .app-icon-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: 30px;
+            border: 2px solid var(--gold);
+            padding: 12px;
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(59, 130, 246, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-icon-wrap svg {
+            width: 80px;
+            height: 80px;
+        }
+
+        .app-details h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .app-tagline {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .app-desc {
+            color: var(--text-gold);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
+            opacity: 0.9;
+        }
+
+        /* Coming Soon Banner */
+        .coming-soon-banner {
+            background-color: var(--gold-alpha);
+            border: 1px solid var(--gold-border);
+            color: var(--gold-light);
+            padding: 14px 24px;
+            border-radius: 16px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(212, 160, 23, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        /* STRICT COMPLIANCE LEGAL & SUPPORT CHIPS */
+        .legal-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid rgba(212, 160, 23, 0.15);
+            padding-top: 24px;
+        }
+
+        .legal-chip {
+            background-color: var(--gold-alpha);
+            border: 1px solid var(--gold-border);
+            color: var(--gold-light);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .legal-chip:hover {
+            background-color: var(--gold-light);
+            color: var(--dark);
+            border-color: var(--gold-light);
+            box-shadow: 0 0 15px rgba(240, 192, 64, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* App Gallery Section */
+        .gallery-section {
+            background-color: var(--dark-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--gold-border);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-gold);
+            font-size: 1rem;
+        }
+
+        .feature-item svg {
+            color: var(--gold);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .app-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+                justify-items: center;
+            }
+            .legal-chips {
+                justify-content: center;
+            }
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(212, 160, 23, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <!-- Back to Portfolio -->
+        <a href="index.html" class="back-btn" data-i18n="back_btn">
+            ← Portfolyoya Dön / Back to Portfolio
+        </a>
+
+        <!-- Header -->
+        <header>
+            <h1 data-i18n="header_h1">AT SATRANCI</h1>
+            <p data-i18n="header_p">Antik Tapınak Mantık & Zeka Oyunu</p>
+        </header>
+
+        <!-- Main app card -->
+        <div class="app-card">
+            <!-- App Icon -->
+            <div class="app-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.68629 2 6 4.68629 6 8C6 9.87321 6.86178 11.5453 8.19941 12.6373L7.14777 15.2662C6.83789 16.0409 7.40939 16.8571 8.24264 16.8571H15.7574C16.5906 16.8571 17.1621 16.0409 16.8522 15.2662L15.8006 12.6373C17.1382 11.5453 18 9.87321 18 8C18 4.68629 15.3137 2 12 2Z" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 21H19" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 17L7 21" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 17L17 21" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="7" r="1.5" fill="#F59E0B"/>
+                </svg>
+            </div>
+            
+            <!-- App Details -->
+            <div class="app-details">
+                <h3 data-i18n="game_title">At Satrancı: Zeka Oyunu</h3>
+                <p class="app-tagline" data-i18n="game_tagline">Antik Mithra Tapınağı Bulmacası / Puzzle of the Ancient Temple</p>
+                
+                <p class="app-desc" data-i18n="game_desc">
+                    At Satrancı bulmacasını modern, yüksek kaliteli grafikler, antik temalı atmosferik müzikler ve zorlayıcı modlar ile deneyimleyin! 
+                    Klasik 3 diskten başlayarak zihninizi zorlayacak 8 diske kadar olan bulmacaları en az hamleyle çözmeye çalışın. 
+                    Seviyeleri geçerek mistik altınlar toplayın ve tapınak rütbelerini kazanın.
+                </p>
+
+                <!-- Coming Soon Banner (No placeholders!) -->
+                <div class="coming-soon-banner" data-i18n="coming_soon">
+                    ✨ Yakında App Store ve Google Play Store'da! / Coming Soon to App Store & Google Play!
+                </div>
+                
+                <!-- Compliant Legal & Support Links -->
+                <div class="legal-chips">
+                    <a href="atsatranci_privacy.html" class="legal-chip" data-i18n="chip_privacy">
+                        📜 Gizlilik Politikası (Privacy Policy)
+                    </a>
+                    <a href="atsatranci_terms.html" class="legal-chip" data-i18n="chip_terms">
+                        ⚖️ Kullanım Koşulları (Terms of Use)
+                    </a>
+                    <a href="atsatranci_support.html" class="legal-chip" data-i18n="chip_support">
+                        💬 Destek & İletişim (Support & Feedback)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features & Preview Section -->
+        <section class="gallery-section">
+            <h3 class="gallery-title" data-i18n="gallery_title">Oyun Özellikleri / Game Features</h3>
+            
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_1"><strong>Antik Mithra Teması:</strong> Büyüleyici, mistik tapınak görselleri ve ses efektleri.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_2"><strong>Çoklu Zorluk Seviyeleri:</strong> 3 diskten 8 diske kadar geniş ölçekli bulmaca zorlukları.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_3"><strong>İstatistik & Hamle Sayacı:</strong> En az hamleyle çözerek altın madalya ve mistik rütbeleri toplayın.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_4"><strong>Güvenli Bulut Kaydı:</strong> Apple & Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p data-i18n="footer_text">&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Local Translations Dictionary
+        window.PAGE_TRANSLATIONS = {
+            "page_title": {
+                "tr": "At Satrancı: Zeka Oyunu – CodExa",
+                "en": "Knight Tour: Brain Game – CodExa",
+                "de": "Knight Turm: Denkspiel – CodExa",
+                "zh": "河内塔：脑力益智游戏 – CodExa",
+                "hi": "हनोई टॉवर: ब्रेन गेम – CodExa",
+                "es": "Torre de Knight: Juego Mental – CodExa",
+                "fr": "Tour de Hanoï : Jeu de Réflexion – CodExa",
+                "ar": "برج هانوي: لعبة ذكاء – CodExa",
+                "pt": "Torre de Knight: Jogo de Raciocínio – CodExa",
+                "ru": "Ханойская башня: Игра на логику – CodExa"
+            },
+            "back_btn": {
+                "tr": "← Portfolyoya Dön / Back to Portfolio",
+                "en": "← Back to Portfolio",
+                "de": "← Zurück zum Portfolio",
+                "zh": "← 返回作品集",
+                "hi": "← पोर्टफोलियो पर वापस जाएं",
+                "es": "← Volver al Portafolio",
+                "fr": "← Retour au Portfolio",
+                "ar": "← العودة إلى المعرض",
+                "pt": "← Voltar ao Portfólio",
+                "ru": "← Назад в портфолио"
+            },
+            "header_h1": {
+                "tr": "AT SATRANCI",
+                "en": "KNIGHT TOUR",
+                "de": "KNIGHT TURM",
+                "zh": "河内塔",
+                "hi": "हनोई टॉवर",
+                "es": "TORRE DE KNIGHT",
+                "fr": "TOUR DE HANOÏ",
+                "ar": "برج هانوي",
+                "pt": "TORRE DE KNIGHT",
+                "ru": "ХАНОЙСКАЯ БАШНЯ"
+            },
+            "header_p": {
+                "tr": "Antik Tapınak Mantık & Zeka Oyunu",
+                "en": "Ancient Temple Logic & Brain Game",
+                "de": "Logik- & Denkspiel im antiken Tempel",
+                "zh": "古庙逻辑与脑力游戏",
+                "hi": "प्राचीन मंदिर तर्क और ब्रेन गेम",
+                "es": "Juego de Lógica y Mente en el Antiguo Templo",
+                "fr": "Jeu de Logique & de Réflexion du Temple Antique",
+                "ar": "لعبة منطق وذكاء المعبد القديم",
+                "pt": "Jogo de Lógica e Raciocínio do Antigo Templo",
+                "ru": "Логическая игра в древнем храме"
+            },
+            "game_title": {
+                "tr": "At Satrancı: Zeka Oyunu",
+                "en": "Knight Tour: Brain Game",
+                "de": "Knight Turm: Denkspiel",
+                "zh": "河内塔：脑力益智游戏",
+                "hi": "हनोई टॉवर: ब्रेन गेम",
+                "es": "Torre de Knight: Juego Mental",
+                "fr": "Tour de Hanoï : Jeu de Réflexion",
+                "ar": "برج هانوي: لعبة ذكاء",
+                "pt": "Torre de Knight: Jogo de Raciocínio",
+                "ru": "Ханойская башня: Игра на логику"
+            },
+            "game_tagline": {
+                "tr": "Antik Mithra Tapınağı Bulmacası",
+                "en": "Ancient Mithra Temple Puzzle",
+                "de": "Rätsel des antiken Mithra-Tempels",
+                "zh": "古代米特拉神庙谜题",
+                "hi": "प्राचीन मित्रा मंदिर पहेली",
+                "es": "Rompecabezas del Antiguo Templo de Mitra",
+                "fr": "Énigme du Temple Antique de Mithra",
+                "ar": "لغز معبد ميثرا القديم",
+                "pt": "Enigma do Antigo Templo de Mitra",
+                "ru": "Головоломка древнего храма Митры"
+            },
+            "game_desc": {
+                "tr": "At Satrancı bulmacasını modern, yüksek kaliteli grafikler, antik temalı atmosferik müzikler ve zorlayıcı modlar ile deneyimleyin! Klasik 3 diskten başlayarak zihninizi zorlayacak 8 diske kadar olan bulmacaları en az hamleyle çözmeye çalışın. Seviyeleri geçerek mistik altınlar toplayın ve tapınak rütbelerini kazanın.",
+                "en": "Experience the classic Knight Tour puzzle with modern, high-quality graphics, ancient themed atmospheric music, and challenging game modes! Try to solve puzzles from classic 3 disks up to 8 disks that will test your brain in the fewest moves. Collect mystical gold by passing levels and earn ancient temple ranks.",
+                "de": "Erleben Sie das klassische Knight-Turm-Rätsel mit moderner, hochwertiger Grafik, stimmungsvoller Musik im antiken Stil und herausfordernden Spielmodi! Versuchen Sie, Rätsel von klassischen 3 Scheiben bis hin zu 8 Scheiben zu lösen, die Ihr Gehirn in den wenigsten Zügen testen. Sammeln Sie mystisches Gold, indem Sie Levels bestehen, und verdienen Sie sich antike Tempelränge.",
+                "zh": "体验经典的河内塔谜题，拥有现代、高品质的画面，古老主题的氛围音乐，以及极具挑战性的游戏模式！尝试用最少的步数解决从经典的 3 个圆盘到 8 个圆盘的谜题，测试您的脑力。通过关卡收集神秘黄金，获得古老神庙等级。",
+                "hi": "आधुनिक, उच्च गुणवत्ता वाले ग्राफिक्स, प्राचीन थीम वाले वायुमंडलीय संगीत और चुनौतीपूर्ण गेम मोड के साथ क्लासिक हनोई टॉवर पहेली का अनुभव करें! क्लासिक 3 डिस्क से लेकर 8 डिस्क तक की पहेलियों को कम से कम चालों में हल करने का प्रयास करें जो आपके मस्तिष्क का परीक्षण करेंगी। स्तरों को पार करके रहस्यमय सोना एकत्र करें और प्राचीन मंदिर रैंक अर्जित करें।",
+                "es": "¡Disfruta del clásico rompecabezas de la Torre de Knight con gráficos modernos de alta calidad, música atmosférica de temática antigua y desafiantes modos de juego! Intenta resolver rompecabezas desde los clásicos 3 discos hasta los 8 discos que pondrán a prueba tu cerebro con el menor número de movimientos. Reúne oro místico superando niveles y gana rangos del templo antiguo.",
+                "fr": "Découvrez le casse-tête classique de la Tour de Hanoï avec des graphismes modernes de haute qualité, des musiques d'ambiance sur le thème antique et des modes de jeu stimulants ! Essayez de résoudre des énigmes de 3 disques classiques jusqu'à 8 disques pour tester votre réflexion en un minimum de mouvements. Collectionnez de l'or mystique en réussissant les niveaux et gagnez des rangs de temple antique.",
+                "ar": "جرب لغز برج هانوي الكلاسيكي برسومات حديثة وعالية الجودة، وموسيقى تصويرية غامضة من أجواء المعابد القديمة، وأنماط لعب مليئة بالتحدي! حاول حل الألغاز بداية من 3 أقراص كلاسيكية وحتى 8 أقراص ستختبر ذكاءك بأقل عدد من الحركات. اجمع الذهب الغامض عبر اجتياز المستويات واحصل على رتب المعبد القديم.",
+                "pt": "Experimente o clássico quebra-cabeça da Torre de Knight com gráficos modernos de alta qualidade, música atmosférica de temática antiga e modos de jogo desafiadores! Tente resolver desafios desde os clássicos 3 discos até 8 discos que testarão seu raciocínio com o menor número de movimentos. Colete ouro místico passando de nível e ganhe títulos no templo antigo.",
+                "ru": "Испытайте классическую головоломку «Ханойская башня» с современной высококачественной графикой, атмосферной музыкой в древнем стиле и сложными режимами игры! Попробуйте решить головоломки от классических 3 дисков до 8 дисков за минимальное число ходов. Собирайте мистическое золото, проходя уровни, и зарабатывайте ранги в древнем храме."
+            },
+            "coming_soon": {
+                "tr": "✨ Yakında App Store ve Google Play Store'da! / Coming Soon to App Store & Google Play!",
+                "en": "✨ Coming Soon to App Store & Google Play!",
+                "de": "✨ Demnächst im App Store & Google Play!",
+                "zh": "✨ 即将登陆 App Store 和 Google Play！",
+                "hi": "✨ जल्द ही ऐप स्टोर और गूगल प्ले स्टोर पर!",
+                "es": "✨ ¡Próximamente en App Store y Google Play!",
+                "fr": "✨ Bientôt disponible sur l'App Store et Google Play !",
+                "ar": "✨ قريباً على متجر التطبيقات وجوجل بلاي!",
+                "pt": "✨ Em breve na App Store e Google Play!",
+                "ru": "✨ Скоро в App Store и Google Play!"
+            },
+            "chip_privacy": {
+                "tr": "📜 Gizlilik Politikası (Privacy Policy)",
+                "en": "📜 Privacy Policy",
+                "de": "📜 Datenschutzrichtlinie (Privacy Policy)",
+                "zh": "📜 隐私政策 (Privacy Policy)",
+                "hi": "📜 गोपनीयता नीति (Privacy Policy)",
+                "es": "📜 Política de Privacidad (Privacy Policy)",
+                "fr": "📜 Politique de Confidentialité",
+                "ar": "📜 سياسة الخصوصية (Privacy Policy)",
+                "pt": "📜 Política de Privacidade",
+                "ru": "📜 Политика конфиденциальности"
+            },
+            "chip_terms": {
+                "tr": "⚖️ Kullanım Koşulları (Terms of Use)",
+                "en": "⚖️ Terms of Use",
+                "de": "⚖️ Nutzungsbedingungen (Terms of Use)",
+                "zh": "⚖️ 使用条款 (Terms of Use)",
+                "hi": "⚖️ उपयोग की शर्तें (Terms of Use)",
+                "es": "⚖️ Condiciones de Uso (Terms of Use)",
+                "fr": "⚖️ Conditions d'Utilisation",
+                "ar": "⚖️ شروط الاستخدام (Terms of Use)",
+                "pt": "⚖️ Termos de Uso",
+                "ru": "⚖️ Условия использования"
+            },
+            "chip_support": {
+                "tr": "💬 Destek & İletişim (Support & Feedback)",
+                "en": "💬 Support & Feedback",
+                "de": "💬 Support & Feedback",
+                "zh": "💬 支持 & 反馈 (Support & Feedback)",
+                "hi": "💬 समर्थन और प्रतिक्रिया (Support & Feedback)",
+                "es": "💬 Soporte y Comentarios (Support & Feedback)",
+                "fr": "💬 Support & Retour",
+                "ar": "💬 الدعم والملاحظات (Support & Feedback)",
+                "pt": "💬 Suporte e Feedback",
+                "ru": "💬 Поддержка и обратная связь"
+            },
+            "gallery_title": {
+                "tr": "Oyun Özellikleri / Game Features",
+                "en": "Game Features",
+                "de": "Spielfunktionen",
+                "zh": "游戏特色",
+                "hi": "गेम की विशेषताएं",
+                "es": "Características del Juego",
+                "fr": "Caractéristiques du Jeu",
+                "ar": "ميزات اللعبة",
+                "pt": "Recursos do Jogo",
+                "ru": "Особенности игры"
+            },
+            "feat_1": {
+                "tr": "<strong>Glassmorphism Arayüz:</strong> Derin lacivert ve neon mavi parıltılarla göz alıcı modern tasarım.",
+                "en": "<strong>Glassmorphism UI:</strong> Eye-catching modern design with deep navy and neon blue glows.",
+                "de": "<strong>Glassmorphismus-UI:</strong> Auffälliges modernes Design mit tiefblauem und neonblauem Leuchten.",
+                "zh": "<strong>玻璃拟物化 UI：</strong> 醒目的现代设计，深海军蓝和霓虹蓝发光。",
+                "hi": "<strong>ग्लासमॉर्फिज्म यूआई:</strong> गहरे नेवी और नियॉन ब्लू चमक के साथ आकर्षक आधुनिक डिजाइन।",
+                "es": "<strong>Interfaz Glassmorphism:</strong> Llamativo diseño moderno con brillos azul marino y azul neón.",
+                "fr": "<strong>Interface Glassmorphism :</strong> Design moderne accrocheur avec des lueurs bleu marine et bleu néon.",
+                "ar": "<strong>واجهة Glassmorphism:</strong> تصميم حديث ملفت للنظر بلمسات أزرق داكن ونيون.",
+                "pt": "<strong>Interface Glassmorphism:</strong> Design moderno e atraente com brilhos azul-marinho e azul neon.",
+                "ru": "<strong>Интерфейс Glassmorphism:</strong> Привлекательный современный дизайн с темно-синим и неоново-синим свечением."
+            },
+            "feat_2": {
+                "tr": "<strong>L-Hamle Doğrulama:</strong> Sadece atın kurallara uygun geçerli hamlelerine izin veren sistem.",
+                "en": "<strong>L-Move Validation:</strong> System allowing only valid knight moves according to the rules.",
+                "de": "<strong>L-Züge-Validierung:</strong> System, das nur gültige Springer-Züge zulässt.",
+                "zh": "<strong>L 步验证：</strong> 仅允许根据规则进行有效骑士移动的系统。",
+                "hi": "<strong>एल-मूव वैलिडेशन:</strong> नियमों के अनुसार केवल मान्य नाइट चालों की अनुमति देने वाली प्रणाली।",
+                "es": "<strong>Validación de Movimiento L:</strong> Sistema que permite solo movimientos válidos del caballo.",
+                "fr": "<strong>Validation du Mouvement en L :</strong> Système autorisant uniquement les mouvements de cavalier valides.",
+                "ar": "<strong>التحقق من حركة L:</strong> نظام يسمح فقط بحركات الفارس الصحيحة.",
+                "pt": "<strong>Validação de Movimento em L:</strong> Sistema que permite apenas movimentos válidos do cavalo.",
+                "ru": "<strong>Проверка хода буквой Г:</strong> Система, допускающая только правильные ходы коня."
+            },
+            "feat_3": {
+                "tr": "<strong>Warnsdorff AI Çözücü:</strong> Tıkandığınızda anında ipucu veren güçlü yapay zeka algoritması.",
+                "en": "<strong>Warnsdorff AI Solver:</strong> Powerful AI algorithm that instantly gives hints when you're stuck.",
+                "de": "<strong>Warnsdorff-KI-Löser:</strong> Leistungsstarker KI-Algorithmus, der sofort Hinweise gibt.",
+                "zh": "<strong>Warnsdorff AI 求解器：</strong> 强大的 AI 算法，在卡住时立即给出提示。",
+                "hi": "<strong>वॉर्न्सडॉर्फ AI सॉल्वर:</strong> शक्तिशाली AI जो अटकने पर तुरंत संकेत देता है।",
+                "es": "<strong>Solucionador de IA Warnsdorff:</strong> Potente algoritmo de IA que da pistas instantáneas.",
+                "fr": "<strong>Solveur IA Warnsdorff :</strong> Algorithme IA puissant offrant des indices instantanés.",
+                "ar": "<strong>حل الذكاء الاصطناعي Warnsdorff:</strong> خوارزمية ذكاء اصطناعي قوية تقدم تلميحات فورية.",
+                "pt": "<strong>Solucionador IA Warnsdorff:</strong> Poderoso algoritmo IA que dá dicas instantâneas.",
+                "ru": "<strong>ИИ-решатель Варнсдорфа:</strong> Мощный алгоритм ИИ, мгновенно дающий подсказки."
+            },
+            "feat_4": {
+                "tr": "<strong>Güvenli Bulut Kaydı:</strong> Apple & Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.",
+                "en": "<strong>Secure Cloud Save:</strong> Never lose your progress thanks to Apple & Google Sign-In.",
+                "de": "<strong>Sichere Cloud-Speicherung:</strong> Verlieren Sie dank Apple- & Google-Anmeldung nie Ihren Fortschritt.",
+                "zh": "<strong>安全云端存档：</strong> 得益于 Apple 和 Google 登录，您的进度永不丢失。",
+                "hi": "<strong>सुरक्षित क्लाउड सेव:</strong> Apple और Google साइन-ин की मदद से अपनी प्रगति कभी न खोएं।",
+                "es": "<strong>Guardado Seguro en la Nube:</strong> No pierdas nunca tu progreso gracias al inicio de sesión con Apple y Google.",
+                "fr": "<strong>Sauvegarde Cloud Sécurisée :</strong> Ne perdez jamais votre progression grâce à la connexion Apple & Google.",
+                "ar": "<strong>حفظ سحابي آمن:</strong> لا تفقد تقدمك أبداً بفضل تسجيل الدخول بواسطة Apple و Google.",
+                "pt": "<strong>Salvamento Seguro em Nuvem:</strong> Nunca perca seu progresso graças ao login com Apple e Google.",
+                "ru": "<strong>Безопасное облачное сохранение:</strong> Никогда не теряйте прогресс благодаря авторизации через Apple и Google."
+            },
+            "footer_text": {
+                "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.",
+                "en": "&copy; 2026 Erdinç TOPAL (CodExa). All Rights Reserved.",
+                "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+                "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+                "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+                "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+                "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+                "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+                "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+                "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+            }
+        };
+    </script>
+    <script src="i18n.js"></script>
+</body>
+</html>
