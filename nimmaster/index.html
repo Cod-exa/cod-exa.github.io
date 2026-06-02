@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nim Master: Matematiksel Strateji & Yapay Zeka – CodExa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --purple: #8B5CF6;
+            --purple-light: #A78BFA;
+            --purple-alpha: rgba(139, 92, 246, 0.12);
+            --purple-border: rgba(139, 92, 246, 0.3);
+            --pink: #D946EF;
+            --dark: #0F172A; /* Slate 900 */
+            --dark-card: rgba(30, 41, 59, 0.7); /* Glassmorphism */
+            --dark-hover: rgba(30, 41, 59, 0.9);
+            --text-purple: #CBD5E1; /* Slate 300 */
+            --text-gray: #94A3B8;
+            --white: #F8FAFC;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Ambient background glow and stars */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse 60% 40% at 50% -10%, rgba(139, 92, 246, 0.1) 0%, transparent 70%),
+                radial-gradient(circle 300px at 10% 30%, rgba(217, 70, 239, 0.05), transparent 80%),
+                radial-gradient(circle 400px at 90% 70%, rgba(139, 92, 246, 0.05), transparent 80%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 150px 80px, rgba(167, 139, 250, 0.5), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 80px 240px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 250px 180px, rgba(139, 92, 246, 0.6), rgba(0,0,0,0));
+            background-size: 300px 300px;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--purple-light);
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            color: var(--white);
+            transform: translateX(-4px);
+        }
+
+        /* Header Area */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1.5px solid var(--purple-border);
+            padding-bottom: 30px;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--purple-light);
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-purple);
+            opacity: 0.85;
+        }
+
+        /* App Showcase Card */
+        .app-card {
+            background-color: var(--dark-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid var(--purple-border);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .app-icon-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: 30px;
+            border: 2px solid var(--purple);
+            padding: 12px;
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(139, 92, 246, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-icon-wrap svg {
+            width: 80px;
+            height: 80px;
+        }
+
+        .app-details h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .app-tagline {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--purple-light);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .app-desc {
+            color: var(--text-purple);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
+            opacity: 0.9;
+        }
+
+        /* Coming Soon Banner */
+        .coming-soon-banner {
+            background-color: var(--purple-alpha);
+            border: 1px solid var(--purple-border);
+            color: var(--purple-light);
+            padding: 14px 24px;
+            border-radius: 16px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        /* STRICT COMPLIANCE LEGAL & SUPPORT CHIPS */
+        .legal-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid rgba(139, 92, 246, 0.15);
+            padding-top: 24px;
+        }
+
+        .legal-chip {
+            background-color: var(--purple-alpha);
+            border: 1px solid var(--purple-border);
+            color: var(--purple-light);
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .legal-chip:hover {
+            background-color: var(--purple-light);
+            color: var(--dark);
+            border-color: var(--purple-light);
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* App Gallery Section */
+        .gallery-section {
+            background-color: var(--dark-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--purple-border);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--purple-light);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-purple);
+            font-size: 1rem;
+        }
+
+        .feature-item svg {
+            color: var(--purple-light);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .app-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+                justify-items: center;
+            }
+            .legal-chips {
+                justify-content: center;
+            }
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <!-- Back to Portfolio -->
+        <a href="../index.html" class="back-btn" data-i18n="back_btn">
+            ← Portfolyoya Dön / Back to Portfolio
+        </a>
+
+        <!-- Header -->
+        <header>
+            <h1 data-i18n="header_h1">NIM MASTER</h1>
+            <p data-i18n="header_p">Matematiksel Strateji & Yapay Zeka Oyunu</p>
+        </header>
+
+        <!-- Main app card -->
+        <div class="app-card">
+            <!-- App Icon -->
+            <div class="app-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Table surface line -->
+                    <line x1="2" y1="21" x2="22" y2="21" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/>
+                    
+                    <!-- Pile 1 (Left - 3 stones) -->
+                    <ellipse cx="6" cy="18" rx="3" ry="1.2" fill="#8B5CF6" />
+                    <ellipse cx="6" cy="14.5" rx="3" ry="1.2" fill="#8B5CF6" opacity="0.8" />
+                    <ellipse cx="6" cy="11" rx="3" ry="1.2" fill="#8B5CF6" opacity="0.6" />
+                    
+                    <!-- Pile 2 (Middle - 4 stones) -->
+                    <ellipse cx="12" cy="18" rx="3" ry="1.2" fill="#A78BFA" />
+                    <ellipse cx="12" cy="14.5" rx="3" ry="1.2" fill="#A78BFA" opacity="0.85" />
+                    <ellipse cx="12" cy="11" rx="3" ry="1.2" fill="#A78BFA" opacity="0.7" />
+                    <ellipse cx="12" cy="7.5" rx="3" ry="1.2" fill="#A78BFA" opacity="0.5" />
+                    
+                    <!-- Pile 3 (Right - 5 stones) -->
+                    <ellipse cx="18" cy="18" rx="3" ry="1.2" fill="#D946EF" />
+                    <ellipse cx="18" cy="14.5" rx="3" ry="1.2" fill="#D946EF" opacity="0.85" />
+                    <ellipse cx="18" cy="11" rx="3" ry="1.2" fill="#D946EF" opacity="0.7" />
+                    <ellipse cx="18" cy="7.5" rx="3" ry="1.2" fill="#D946EF" opacity="0.5" />
+                    <ellipse cx="18" cy="4" rx="3" ry="1.2" fill="#D946EF" opacity="0.3" />
+                </svg>
+            </div>
+            
+            <!-- App Details -->
+            <div class="app-details">
+                <h3 data-i18n="game_title">Nim Master: Strateji Oyunu</h3>
+                <p class="app-tagline" data-i18n="game_tagline">Matematiksel Mantık & Yapay Zeka Oyunu / Mathematical Strategy Game</p>
+                
+                <p class="app-desc" data-i18n="game_desc">
+                    Nim Master, antik çağlardan beri oynanan ve tamamen matematiksel mantığa dayanan ünlü Nim oyununun modern, premium ve eğitici bir mobil uyarlamasıdır. Şans faktörünün olmadığı bu oyunda yapay zeka rakibe karşı en ideal hamleleri planlayın!
+                </p>
+
+                <!-- Coming Soon Banner (No placeholders!) -->
+                <div class="coming-soon-banner" data-i18n="coming_soon">
+                    ✨ Yakında App Store ve Google Play Store'da! / Coming Soon to App Store & Google Play!
+                </div>
+                
+                <!-- Compliant Legal & Support Links -->
+                <div class="legal-chips">
+                    <a href="privacy.html" class="legal-chip" data-i18n="chip_privacy">
+                        📜 Gizlilik Politikası (Privacy Policy)
+                    </a>
+                    <a href="terms.html" class="legal-chip" data-i18n="chip_terms">
+                        ⚖️ Kullanım Koşulları (Terms of Use)
+                    </a>
+                    <a href="support.html" class="legal-chip" data-i18n="chip_support">
+                        💬 Destek & İletişim (Support & Feedback)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features & Preview Section -->
+        <section class="gallery-section">
+            <h3 class="gallery-title" data-i18n="gallery_title">Oyun Özellikleri / Game Features</h3>
+            
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_1"><strong>Normal & Misère Modları:</strong> Son taşı alanın kazandığı klasik mod veya son taşı alanın kaybettiği ileri düzey strateji gerektiren Misère modu.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_2"><strong>Özelleştirilebilir Oyun Tahtası:</strong> 3 veya 4 yığın ve her yığındaki taş sayısını dinamik olarak 1 ile 15 arasında ayarlama olanağı.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_3"><strong>Fuzzy AI Yapay Zeka:</strong> Matematiksel kusursuzluk ile insan hatalarını harmanlayan 3 farklı zorluk seviyesine (Kolay, Orta, Zor) sahip rakip.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_4"><strong>XOR Akademi (Strateji Analizörü):</strong> Yığın sayılarının ikili (binary) tabandaki karşılıklarını ve Nim-Sum (XOR toplamı) değerini gösteren eğitici panel.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_5"><strong>3D Animasyonlu Yazı-Tura:</strong> El başında kimin başlayacağını belirleyen gerçekçi fizik tabanlı başlangıç aşaması.</span>
+                </li>
+                <li class="feature-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span data-i18n="feat_6"><strong>Premium Temalar & 10 Dil:</strong> Cosmic Dark (derin mor), Light Mode ve Cyberpunk Neon temaları ile RTL dahil tam 10 dil desteği.</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p data-i18n="footer_text">&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Local Translations Dictionary
+        window.PAGE_TRANSLATIONS = {
+            "page_title": {
+                "tr": "Nim Master: Matematiksel Strateji & Yapay Zeka – CodExa",
+                "en": "Nim Master: Mathematical Strategy & AI – CodExa",
+                "de": "Nim Master: Mathematische Strategie & KI – CodExa",
+                "zh": "Nim Master：数理逻辑与人工智能 – CodExa",
+                "hi": "Nim Master: गणितीय रणनीति और एआई – CodExa",
+                "es": "Nim Master: Estrategia Matemática e IA – CodExa",
+                "fr": "Nim Master : Stratégie Mathématique & IA – CodExa",
+                "ar": "نيم ماستر: الاستراتيجية الرياضية والذكاء الاصطناعي – CodExa",
+                "pt": "Nim Master: Estratégia Matemática & IA – CodExa",
+                "ru": "Nim Master: Математическая стратегия и ИИ – CodExa"
+            },
+            "back_btn": {
+                "tr": "← Portfolyoya Dön / Back to Portfolio",
+                "en": "← Back to Portfolio",
+                "de": "← Zurück zum Portfolio",
+                "zh": "← 返回作品集",
+                "hi": "← पोर्टफोलियो पर वापस जाएं",
+                "es": "← Volver al Portafolio",
+                "fr": "← Retour au Portfolio",
+                "ar": "← العودة إلى المعرض",
+                "pt": "← Voltar ao Portfólio",
+                "ru": "← Назад в портфолио"
+            },
+            "header_h1": {
+                "tr": "NIM MASTER",
+                "en": "NIM MASTER",
+                "de": "NIM MASTER",
+                "zh": "NIM MASTER",
+                "hi": "NIM MASTER",
+                "es": "NIM MASTER",
+                "fr": "NIM MASTER",
+                "ar": "نيم ماستر",
+                "pt": "NIM MASTER",
+                "ru": "НИМ МАСТЕР"
+            },
+            "header_p": {
+                "tr": "Matematiksel Strateji & Yapay Zeka Oyunu",
+                "en": "Mathematical Strategy & AI Game",
+                "de": "Mathematisches Strategie- und KI-Spiel",
+                "zh": "数理逻辑与人工智能游戏",
+                "hi": "गणितीय रणनीति और एआई गेम",
+                "es": "Juego de Estrategia Matemática e IA",
+                "fr": "Jeu de Stratégie Mathématique & d'IA",
+                "ar": "لعبة الاستراتيجية الرياضية والذكاء الاصطناعي",
+                "pt": "Jogo de Estratégia Matemática e Inteligência Artificial",
+                "ru": "Математическая стратегия и игра с ИИ"
+            },
+            "game_title": {
+                "tr": "Nim Master: Strateji Oyunu",
+                "en": "Nim Master: Strategy Game",
+                "de": "Nim Master: Strategiespiel",
+                "zh": "Nim Master：策略游戏",
+                "hi": "Nim Master: रणनीति खेल",
+                "es": "Nim Master: Juego de Estrategia",
+                "fr": "Nim Master : Jeu de Stratégie",
+                "ar": "نيم ماستر: لعبة استراتيجية",
+                "pt": "Nim Master: Jogo de Estratégia",
+                "ru": "Nim Master: Стратегическая игра"
+            },
+            "game_tagline": {
+                "tr": "Matematiksel Mantık & Yapay Zeka Oyunu",
+                "en": "Mathematical Logic & AI Game",
+                "de": "Mathematische Logik & KI-Spiel",
+                "zh": "数理逻辑与人工智能游戏",
+                "hi": "गणितीय तर्क और एआई गेम",
+                "es": "Juego de Lógica Matemática e IA",
+                "fr": "Jeu de Logique Mathématique & d'IA",
+                "ar": "لعبة المنطق الرياضي والذكاء الاصطناعي",
+                "pt": "Jogo de Lógica Matemática & IA",
+                "ru": "Математическая логика и игра с ИИ"
+            },
+            "game_desc": {
+                "tr": "Nim Master, antik çağlardan beri oynanan ve tamamen matematiksel mantığa dayanan ünlü Nim oyununun modern, premium ve eğitici bir mobil uyarlamasıdır. Şans faktörünün olmadığı bu oyunda yapay zeka rakibe karşı en ideal hamleleri planlayın!",
+                "en": "Nim Master is a modern, premium, and educational mobile adaptation of the famous ancient Nim game based entirely on mathematical logic. Plan your optimal moves against the AI opponent with zero luck factor!",
+                "de": "Nim Master ist eine moderne, erstklassige und lehrreiche mobile Adaption des berühmten antiken Nim-Spiels, das vollständig auf mathematischer Logik basiert. Planen Sie Ihre optimalen Züge gegen den KI-Gegner ohne Glücksfaktor!",
+                "zh": "Nim Master 是一款现代、优质且具有教育意义的移动端游戏，改编自著名的古代 Nim 游戏，完全基于数理逻辑。在没有运气因素的情况下，规划对抗 AI 对手的最佳步骤！",
+                "hi": "निम मास्टर पूरी तरह से गणितीय तर्क पर आधारित प्रसिद्ध प्राचीन निम खेल का एक आधुनिक, प्रीमियम और शैक्षिक मोबाइल रूपांतरण है। शून्य भाग्य कारक के साथ एआई प्रतिद्वंद्वी के खिलाफ अपनी इष्टतम चालों की योजना बनाएं!",
+                "es": "Nim Master es una adaptación móvil moderna, premium y educativa del famoso juego antiguo Nim basado completamente en la lógica matemática. ¡Planifica tus movimientos óptimos contra el oponente de IA sin factor de suerte!",
+                "fr": "Nim Master est une adaptation mobile moderne, haut de gamme et éducative du célèbre jeu ancien Nim, entièrement basé sur la logique mathématique. Planifiez vos mouvements optimaux contre l'adversaire IA sans facteur chance !",
+                "ar": "نيم ماستر هي نسخة محمولة حديثة وممتازة وتعليمية من لعبة نيم القديمة الشهيرة القائمة بالكامل على المنطق الرياضي. خطط لتحركاتك المثالية ضد منافس الذكاء الاصطناعي مع انعدام عامل الحظ!",
+                "pt": "Nim Master é uma adaptação móvel moderna, premium e educacional do famoso jogo antigo Nim, baseado inteiramente na lógica matemática. Planeje suas jogadas ideais contra o oponente de IA com fator de sorte zero!",
+                "ru": "Nim Master — это современная, премиальная и обучающая мобильная адаптация знаменитой древней игры Ним, основанная исключительно на математической логике. Планируйте свои оптимальные ходы против ИИ-соперника с нулевым фактором удачи!"
+            },
+            "coming_soon": {
+                "tr": "✨ Yakında App Store ve Google Play Store'da! / Coming Soon to App Store & Google Play!",
+                "en": "✨ Coming Soon to App Store & Google Play!",
+                "de": "✨ Demnächst im App Store & Google Play!",
+                "zh": "✨ 即将登陆 App Store 和 Google Play！",
+                "hi": "✨ जल्द ही ऐप स्टोर और गूगल प्ले स्टोर पर!",
+                "es": "✨ ¡Próximamente en App Store y Google Play!",
+                "fr": "✨ Bientôt disponible sur l'App Store et Google Play !",
+                "ar": "✨ قريباً على متجر التطبيقات وجوجل بلاي!",
+                "pt": "✨ Em breve na App Store e Google Play!",
+                "ru": "✨ Скоро в App Store и Google Play!"
+            },
+            "chip_privacy": {
+                "tr": "📜 Gizlilik Politikası (Privacy Policy)",
+                "en": "📜 Privacy Policy",
+                "de": "📜 Datenschutzrichtlinie (Privacy Policy)",
+                "zh": "📜 隐私政策 (Privacy Policy)",
+                "hi": "📜 गोपनीयता नीति (Privacy Policy)",
+                "es": "📜 Política de Privacidad (Privacy Policy)",
+                "fr": "📜 Politique de Confidentialité",
+                "ar": "📜 سياسة الخصوصية (Privacy Policy)",
+                "pt": "📜 Política de Privacidade",
+                "ru": "📜 Политика конфиденциальности"
+            },
+            "chip_terms": {
+                "tr": "⚖️ Kullanım Koşulları (Terms of Use)",
+                "en": "⚖️ Terms of Use",
+                "de": "⚖️ Nutzungsbedingungen (Terms of Use)",
+                "zh": "⚖️ 使用条款 (Terms of Use)",
+                "hi": "⚖️ उपयोग की शर्तें (Terms of Use)",
+                "es": "⚖️ Condiciones de Uso (Terms of Use)",
+                "fr": "⚖️ Conditions d'Utilisation",
+                "ar": "⚖️ شروط الاستخدام (Terms of Use)",
+                "pt": "⚖️ Termos de Uso",
+                "ru": "⚖️ Условия использования"
+            },
+            "chip_support": {
+                "tr": "💬 Destek & İletişim (Support & Feedback)",
+                "en": "💬 Support & Feedback",
+                "de": "💬 Support & Feedback",
+                "zh": "💬 支持 & 反馈 (Support & Feedback)",
+                "hi": "💬 समर्थन और प्रतिक्रिया (Support & Feedback)",
+                "es": "💬 Soporte y Comentarios (Support & Feedback)",
+                "fr": "💬 Support & Retour",
+                "ar": "💬 الدعم والملاحظات (Support & Feedback)",
+                "pt": "💬 Suporte e Feedback",
+                "ru": "💬 Поддержка и обратная связь"
+            },
+            "gallery_title": {
+                "tr": "Oyun Özellikleri / Game Features",
+                "en": "Game Features",
+                "de": "Spielfunktionen",
+                "zh": "游戏特色",
+                "hi": "गेम की विशेषताएं",
+                "es": "Características del Juego",
+                "fr": "Caractéristiques du Jeu",
+                "ar": "ميزات اللعبة",
+                "pt": "Recursos do Jogo",
+                "ru": "Особенности игры"
+            },
+            "feat_1": {
+                "tr": "<strong>Normal & Misère Modları:</strong> Son taşı alanın kazandığı klasik mod veya son taşı alanın kaybettiği ileri düzey strateji gerektiren Misère modu.",
+                "en": "<strong>Normal & Misère Play:</strong> Classic rules where the player taking the last object wins, or the advanced Misère rules where the last object taker loses.",
+                "de": "<strong>Normal & Misère-Spiel:</strong> Klassische Regeln, bei denen der Spieler gewinnt, der das letzte Objekt nimmt, oder die fortgeschrittenen Misère-Regeln, bei denen derjenige verliert, der das letzte Objekt nimmt.",
+                "zh": "<strong>普通与 Misère 模式：</strong> 普通规则中拿走最后一个物品的玩家获胜，而在高级 Misère 规则中拿走最后一个物品的玩家失败。",
+                "hi": "<strong>सामान्य और मिसेरे प्ले:</strong> क्लासिक नियम जहां आखिरी वस्तु लेने वाला खिलाड़ी जीतता है, या उन्नत मिसेरे नियम जहां आखिरी वस्तु लेने वाला हार जाता है।",
+                "es": "<strong>Modos Normal y Misère:</strong> Reglas clásicas donde gana el jugador que toma el último objeto, o las reglas avanzadas de Misère donde pierde el que toma el último objeto.",
+                "fr": "<strong>Modes Normal & Misère :</strong> Règles classiques où le joueur qui prend le dernier objet gagne, ou les règles avancées de Misère où celui qui prend le dernier objet perd.",
+                "ar": "<strong>وضعا عادي وميسير:</strong> القواعد الكلاسيكية حيث يفوز اللاعب الذي يأخذ الشيء الأخير، أو قواعد ميسير المتقدمة حيث يخسر من يأخذ الشيء الأخير.",
+                "pt": "<strong>Modos Normal & Misère:</strong> Regras clássicas onde o jogador que retira o último objeto vence, ou as regras avançadas do Misère onde quem retira o último objeto perde.",
+                "ru": "<strong>Режимы Normal и Misère:</strong> Классические правила, по которым побеждает игрок, забравший последний предмет, или продвинутые правила Misère, по которым забравший последний предмет проигрывает."
+            },
+            "feat_2": {
+                "tr": "<strong>Özelleştirilebilir Oyun Tahtası:</strong> 3 veya 4 yığın ve her yığındaki taş sayısını dinamik olarak 1 ile 15 arasında ayarlama olanağı.",
+                "en": "<strong>Customizable Board:</strong> Set 3 or 4 piles and dynamically adjust the number of objects in each pile from 1 to 15.",
+                "de": "<strong>Anpassbares Spielfeld:</strong> Legen Sie 3 oder 4 Stapel fest und passen Sie die Anzahl der Objekte in jedem Stapel dynamisch von 1 bis 15 an.",
+                "zh": "<strong>可自定义的棋盘：</strong> 设置 3 或 4 个堆，并动态调整每个堆中的物品数量（从 1 到 15）。",
+                "hi": "<strong>अनुकूलन योग्य बोर्ड:</strong> 3 या 4 ढेर सेट करें और प्रत्येक ढेर में वस्तुओं की संख्या को 1 से 15 तक गतिशील रूप से समायोजित करें।",
+                "es": "<strong>Tablero Personalizable:</strong> Configura 3 o 4 pilas y ajusta dinámicamente la cantidad de objetos en cada pila de 1 a 15.",
+                "fr": "<strong>Plateau Personnalisable :</strong> Configurez 3 ou 4 tas et ajustez dynamiquement le nombre d'objets dans chaque tas de 1 à 15.",
+                "ar": "<strong>لوحة قابلة للتخصيص:</strong> قم بتعيين 3 أو 4 أكوام واضبط عدد الأشياء في كل كومة ديناميكياً من 1 إلى 15.",
+                "pt": "<strong>Tabuleiro Personalizável:</strong> Defina 3 ou 4 pilhas e ajuste dinamicamente o número de objetos em cada pilha de 1 a 15.",
+                "ru": "<strong>Настраиваемое поле:</strong> Задавайте 3 или 4 кучки предметов и динамически регулируйте их количество в каждой кучке от 1 до 15."
+            },
+            "feat_3": {
+                "tr": "<strong>Fuzzy AI Yapay Zeka:</strong> Matematiksel kusursuzluk ile insan hatalarını harmanlayan 3 farklı zorluk seviyesine (Kolay, Orta, Zor) sahip rakip.",
+                "en": "<strong>Fuzzy AI Opponent:</strong> Play against 3 difficulty levels (Easy, Medium, Hard) that blend mathematical perfection with human-like mistakes.",
+                "de": "<strong>Fuzzy-KI-Gegner:</strong> Spielen Sie gegen 3 Schwierigkeitsgrade (Einfach, Mittel, Schwer), die mathematische Perfektion mit menschlichen Fehlern verbinden.",
+                "zh": "<strong>模糊智能 AI 对手：</strong> 挑战 3 个难度级别（简单、中等、困难），将完美的数学计算与人类的失误巧妙融合。",
+                "hi": "<strong>फजी एआई प्रतिद्वंद्वी:</strong> 3 कठिनाई स्तरों (आसान, मध्यम, कठिन) के खिलाफ खेलें जो गणितीय पूर्णता को मानवीय गलतियों के साथ मिलाते हैं।",
+                "es": "<strong>Oponente de IA Difusa:</strong> Juega contra 3 niveles de dificultad (Fácil, Medio, Difícil) que mezclan la perfección matemática con errores humanos.",
+                "fr": "<strong>Adversaire IA Floue :</strong> Jouez contre 3 niveaux de difficulté (Facile, Moyen, Difficile) qui mélangent la perfection mathématique avec des erreurs humaines.",
+                "ar": "<strong>منافس ذكاء اصطناعي غامض (Fuzzy AI):</strong> العب ضد 3 مستويات صعوبة (سهل، متوسط، صعب) تدمج الدقة الرياضية مع الأخطاء البشرية.",
+                "pt": "<strong>Oponente de IA Difusa:</strong> Jogue contra 3 níveis de dificuldade (Fácil, Médio, Difícil) que combinam perfeição matemática com erros semelhantes aos humanos.",
+                "ru": "<strong>Соперник с нечетким ИИ:</strong> Играйте на 3 уровнях сложности (Легкий, Средний, Сложный), сочетающих математическую точность с человеческими ошибками."
+            },
+            "feat_4": {
+                "tr": "<strong>XOR Akademi (Strateji Analizörü):</strong> Yığın sayılarının ikili (binary) tabandaki karşılıklarını ve Nim-Sum (XOR toplamı) değerini gösteren eğitici panel.",
+                "en": "<strong>XOR Academy (Strategy Analyzer):</strong> A unique educational panel showing pile sizes in binary and the Nim-Sum (XOR sum) winning strategy.",
+                "de": "<strong>XOR-Akademie (Strategie-Analysator):</strong> Ein einzigartiges Bildungsfenster, das die Stapelgrößen im Binärsystem und die gewinnende Nim-Summe (XOR-Summe) anzeigt.",
+                "zh": "<strong>XOR 学院（策略分析器）：</strong> 独特的教育面板，以二进制形式显示各堆大小，并展示 Nim-Sum（XOR 和）获胜策略。",
+                "hi": "<strong>एक्सओआर अकादमी (रणनीति विश्लेषक):</strong> एक अनूठा शैक्षिक पैनल जो बाइनरी में ढेर के आकार और निम-सम (एक्सओआर योग) जीतने की रणनीति दिखाता है।",
+                "es": "<strong>Academia XOR (Analizador de Estrategia):</strong> Un panel educativo único que muestra los tamaños de pila en binario y la estrategia ganadora de Nim-Sum (suma XOR).",
+                "fr": "<strong>Académie XOR (Analyseur de Stratégie) :</strong> Un panneau éducatif unique affichant la taille des tas en binaire et la stratégie gagnante du Nim-Sum (somme XOR).",
+                "ar": "<strong>أكاديمية XOR (محلل الاستراتيجية):</strong> لوحة تعليمية فريدة تعرض أحجام الأكوام بالنظام الثنائي وقيمة Nim-Sum (مجموع XOR) لاستراتيجية الفوز.",
+                "pt": "<strong>Academia XOR (Analisador de Estratégia):</strong> Um painel educacional exclusivo que mostra o tamanho das pilhas em binário e a estratégia de vitória baseada em Nim-Sum (soma XOR).",
+                "ru": "<strong>Академия XOR (Анализатор стратегии):</strong> Уникальная обучающая панель, показывающая размер кучек в двоичном коде и выигрышную стратегию через Nim-Sum (сумма XOR)."
+            },
+            "feat_5": {
+                "tr": "<strong>3D Animasyonlu Yazı-Tura:</strong> El başında kimin başlayacağını belirleyen gerçekçi fizik tabanlı başlangıç aşaması.",
+                "en": "<strong>3D Animated Coin Toss:</strong> An interactive start phase with realistic Y-axis rotation physics to determine who goes first.",
+                "de": "<strong>3D-animierter Münzwurf:</strong> Eine interaktive Startphase mit realistischer Y-Achsen-Rotationsphysik zur Bestimmung des Startspielers.",
+                "zh": "<strong>3D 动画硬币投掷：</strong> 具有逼真的 Y 轴旋转物理特性的互动开始阶段，用于决定谁先手。",
+                "hi": "<strong>3D एनिमेटेड सिक्का उछालना:</strong> कौन पहले जाएगा यह निर्धारित करने के लिए यथार्थवादी वाई-अक्ष रोटेशन भौतिकी के साथ एक इंटरैक्टिव शुरुआत चरण।",
+                "es": "<strong>Lanzamiento de Moneda Animado en 3D:</strong> Una fase inicial interactiva con física realista de rotación en el eje Y para determinar quién va primero.",
+                "fr": "<strong>Lancer de Pièce Animé en 3D :</strong> Une phase de démarrage interactive avec une physique de rotation réaliste sur l'axe Y pour déterminer qui commence.",
+                "ar": "<strong>رمية قرعة ثلاثية الأبعاد متحركة:</strong> مرحلة بدء تفاعلية مع فيزياء دوران واقعية حول محور Y لتحديد من يبدأ أولاً.",
+                "pt": "<strong>Cara ou Coroa Animado em 3D:</strong> Uma fase inicial interativa com física realista de rotação no eixo Y para determinar quem joga primeiro.",
+                "ru": "<strong>3D-анимированное подбрасывание монеты:</strong> Интерактивная начальная фаза с реалистичной физикой вращения по оси Y для определения первого хода."
+            },
+            "feat_6": {
+                "tr": "<strong>Premium Temalar & 10 Dil:</strong> Cosmic Dark (derin mor), Light Mode ve Cyberpunk Neon temaları ile RTL dahil tam 10 dil desteği.",
+                "en": "<strong>Premium Themes & 10 Languages:</strong> Cosmic Dark (default), Light Mode, and Cyberpunk Neon themes with 10 languages (including RTL mirror).",
+                "de": "<strong>Premium-Themen & 10 Sprachen:</strong> Die Themen Cosmic Dark (Standard), Light Mode und Cyberpunk Neon in 10 Sprachen (inkl. RTL-Spiegelung).",
+                "zh": "<strong>高级主题与 10 种语言：</strong> Cosmic Dark（默认）、Light Mode 和 Cyberpunk Neon 主题，支持 10 种语言（包括 RTL 镜像）。",
+                "hi": "<strong>प्रीमियम थीम और 10 भाषाएं:</strong> कॉस्मिक डार्क (डिफ़ॉल्ट), लाइट मोड और साइबरपंक नियॉन थीम 10 भाषाओं (आरटीएल मिररिंग सहित) के साथ।",
+                "es": "<strong>Temas Premium y 10 Idiomas:</strong> Temas Cosmic Dark (predeterminado), Light Mode y Cyberpunk Neon con soporte para 10 idiomas (incluyendo espejo RTL).",
+                "fr": "<strong>Thèmes Premium & 10 Langues :</strong> Thèmes Cosmic Dark (par défaut), Light Mode et Cyberpunk Neon avec 10 langues (y compris l'alignement RTL).",
+                "ar": "<strong>سمات ممتازة و10 لغات:</strong> سمات كوزميك دارك (افتراضي)، الوضع المضيء، وسايبربانك نيون مع دعم 10 لغات (بما في ذلك الاتجاه من اليمين إلى اليسار).",
+                "pt": "<strong>Temas Premium & 10 Idiomas:</strong> Temas Cosmic Dark (padrão), Light Mode e Cyberpunk Neon com suporte a 10 idiomas (incluindo espelhamento RTL).",
+                "ru": "<strong>Премиальные темы и 10 языков:</strong> Темы Cosmic Dark (по умолчанию), Light Mode и Cyberpunk Neon с поддержкой 10 языков (включая RTL-зеркало)."
+            },
+            "footer_text": {
+                "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.",
+                "en": "&copy; 2026 Erdinç TOPAL (CodExa). All Rights Reserved.",
+                "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+                "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+                "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+                "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+                "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+                "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+                "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+                "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+            }
+        };
+    </script>
+    <script src="../i18n.js"></script>
+</body>
+</html>

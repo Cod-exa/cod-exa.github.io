@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kullanım Koşulları (Terms of Use) – Nim Master</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --purple: #8B5CF6;
+      --purple-light: #A78BFA;
+      --purple-alpha: rgba(139, 92, 246, 0.08);
+      --purple-border: rgba(139, 92, 246, 0.2);
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --dark3: #334155;
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border: rgba(139, 92, 246, 0.15);
+      --transition: all 0.25s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* Background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(139, 92, 246, 0.02) 40px,
+          rgba(139, 92, 246, 0.02) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(139, 92, 246, 0.1), inset 0 1px 0 rgba(139, 92, 246, 0.1);
+    }
+
+    .logo-wrap svg { width: 40px; height: 40px; }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 700;
+      color: var(--purple-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 18px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: rgba(139, 92, 246, 0.04);
+      letter-spacing: 0.06em;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 52px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--purple-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    ul {
+      margin: 0 0 24px 24px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    a {
+      color: var(--purple-light);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(167, 139, 250, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--purple-light);
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--white);
+      transform: translateX(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">
+      ← Oyuna Dön / Back to Game
+    </a>
+
+    <header>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="2" y1="21" x2="22" y2="21" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/>
+            <ellipse cx="6" cy="18" rx="3" ry="1.2" fill="#8B5CF6" />
+            <ellipse cx="6" cy="14.5" rx="3" ry="1.2" fill="#8B5CF6" opacity="0.8" />
+            <ellipse cx="12" cy="18" rx="3" ry="1.2" fill="#A78BFA" />
+            <ellipse cx="12" cy="14.5" rx="3" ry="1.2" fill="#A78BFA" opacity="0.85" />
+            <ellipse cx="18" cy="18" rx="3" ry="1.2" fill="#D946EF" />
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Kullanım Koşulları</h1>
+      <div class="subtitle" data-i18n="subtitle">Terms of Service – Nim Master</div>
+      <div class="updated" data-i18n="updated">Son Güncelleme: 2 Haziran 2026</div>
+    </header>
+
+    <main>
+      <section>
+        <h2 data-i18n="sec_intro_title">Giriş ve Kabul</h2>
+        <p data-i18n="sec_intro_p">
+          Nim Master uygulamasına hoş geldiniz. <strong>CodExa</strong> (Erdinç TOPAL) tarafından sunulan bu mobil uygulamayı ("Uygulama") indirerek, kurarak veya kullanarak bu Kullanım Koşullarına ("Koşullar") bağlı kalmayı kabul etmiş olursunuz. Bu Koşulları kabul etmiyorsanız lütfen Uygulamayı kullanmayın.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec_1_title">1. Lisans ve Kullanım Kapsamı</h2>
+        <p data-i18n="sec_1_p">
+          Uygulamayı, sahip olduğunuz veya kontrol ettiğiniz uyumlu mobil cihazlarda tamamen kişisel, ticari olmayan eğlence amaçlarınız için kullanmanız üzere size kişisel, münhasır olmayan, devredilemez, geri alınabilir ve sınırlı bir lisans vermekteyiz.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec_2_title">2. Kullanıcı Hesapları ve Veriler</h2>
+        <p data-i18n="sec_2_p">
+          Uygulamaya Google, Apple, E-posta veya Misafir (Guest) girişiyle erişebilirsiniz. Misafir girişlerinde ilerlemeleriniz yerel olarak saklanır. Güvenli giriş bilgilerinizi gizli tutmaktan siz sorumlusunuz. İstediğiniz zaman uygulama ayarlarından <strong>"Hesabı Sil" (Delete Account)</strong> butonuna basarak hesabınızı sonlandırabilir ve tüm bulut verilerinizi kalıcı olarak silebilirsiniz.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec_3_title">3. Kabul Edilebilir Kullanım ve Adil Oyun</h2>
+        <p data-i18n="sec_3_p1">
+          Uygulamayı kullanırken aşağıdaki kurallara uymayı kabul edersiniz:
+        </p>
+        <ul>
+          <li data-i18n="sec_3_li1">Uygulamanın kaynak kodunu değiştirmemek, kaynak koda dönüştürmemek veya tersine mühendislik yapmaya çalışmamak.</li>
+          <li data-i18n="sec_3_li2">İstatistikleri manipüle etmek veya yapay zeka maçlarında haksız avantaj sağlamak için hile, bot veya yetkisiz otomasyon yazılımları kullanmamak.</li>
+          <li data-i18n="sec_3_li3">Reklam gösterim mekanizmalarını veya güvenlik önlemlerini atlatmaya çalışmamak.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec_4_title">4. Reklamlar ve Monetizasyon</h2>
+        <p data-i18n="sec_4_p">
+          Uygulama, Google AdMob üzerinden sunulan reklamlarla desteklenmektedir. Uygulamayı kullanarak reklam gösterimlerini kabul etmiş olursunuz. Reklam ayarlarına ve kişiselleştirmelere mobil cihazınızın gizlilik ayarlarından (Uygulama Takibi İzni vb.) müdahale edebilirsiniz.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec_5_title">5. Garantilerin Reddi ve Sorumluluk Sınırı</h2>
+        <p data-i18n="sec_5_p">
+          Uygulama "olduğu gibi" ve "mevcut olduğu şekilde" sunulmaktadır. Kesintisiz veya hatasız çalışacağına dair hiçbir garanti verilmemektedir. Yasaların izin verdiği azami ölçüde, CodExa (Erdinç TOPAL), uygulamanın kullanımından doğabilecek doğrudan veya dolaylı hiçbir zarardan sorumlu tutulamaz.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec_6_title">6. Uygulanacak Hukuk</h2>
+        <p data-i18n="sec_6_p">
+          Bu Koşullar, kanunlar ihtilafı ilkelerine bakılmaksızın Türkiye yasalarına tabi olacak ve bu yasalara göre yorumlanacaktır.
+        </p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec_7_title">7. İletişim</h2>
+        <p data-i18n="sec_7_p">
+          Bu Kullanım Koşulları ile ilgili tüm sorularınız için bizimle e-posta yoluyla iletişime geçebilirsiniz: <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</p>
+    </footer>
+  </div>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      "page_title": {
+        "tr": "Kullanım Koşulları (Terms of Use) – Nim Master",
+        "en": "Terms of Service – Nim Master",
+        "de": "Nutzungsbedingungen – Nim Master",
+        "zh": "服务条款 – Nim Master",
+        "hi": "सेवा की शर्तें – Nim Master",
+        "es": "Términos de Servicio – Nim Master",
+        "fr": "Conditions d'Utilisation – Nim Master",
+        "ar": "شروط الخدمة – نيم ماستر",
+        "pt": "Termos de Serviço – Nim Master",
+        "ru": "Условия использования – Ним Мастер"
+      },
+      "back_btn": {
+        "tr": "← Oyuna Dön / Back to Game",
+        "en": "← Back to Game",
+        "de": "← Zurück zum Spiel",
+        "zh": "← 返回游戏",
+        "hi": "← खेल पर वापस जाएं",
+        "es": "← Volver al Juego",
+        "fr": "← Retour au Jeu",
+        "ar": "← العودة إلى اللعبة",
+        "pt": "← Voltar ao Jogo",
+        "ru": "← Вернуться к игре"
+      },
+      "h1": {
+        "tr": "Kullanım Koşulları",
+        "en": "Terms of Service",
+        "de": "Nutzungsbedingungen",
+        "zh": "服务条款",
+        "hi": "सेवा की शर्तें",
+        "es": "Condiciones de Uso",
+        "fr": "Conditions d'Utilisation",
+        "ar": "شروط الخدمة",
+        "pt": "Termos de Serviço",
+        "ru": "Условия использования"
+      },
+      "subtitle": {
+        "tr": "Terms of Service – Nim Master",
+        "en": "Terms of Service – Nim Master",
+        "de": "Nutzungsbedingungen – Nim Master",
+        "zh": "服务条款 – Nim Master",
+        "hi": "सेवा की शर्तें – Nim Master",
+        "es": "Términos de Servicio – Nim Master",
+        "fr": "Conditions d'Utilisation – Nim Master",
+        "ar": "شروط الخدمة – نيم ماستر",
+        "pt": "Termos de Serviço – Nim Master",
+        "ru": "Условия использования – Ним Мастер"
+      },
+      "updated": {
+        "tr": "Son Güncelleme: 2 Haziran 2026",
+        "en": "Last Updated: June 2, 2026",
+        "de": "Letzte Aktualisierung: 2. Juni 2026",
+        "zh": "最后更新：2026年6月2日",
+        "hi": "अंतिम अपडेट: 2 जून, 2026",
+        "es": "Última actualización: 2 de junio de 2026",
+        "fr": "Dernière mise à jour : 2 juin 2026",
+        "ar": "آخر تحديث: 2 يونيو 2026",
+        "pt": "Última Atualização: 2 de junho de 2026",
+        "ru": "Последнее обновление: 2 июня 2026 г."
+      },
+      "sec_intro_title": {
+        "tr": "Giriş ve Kabul",
+        "en": "Introduction and Acceptance",
+        "de": "Einführung und Akzeptanz",
+        "zh": "介绍与接受",
+        "hi": "प्रस्तावना और स्वीकृति",
+        "es": "Introducción y Aceptación",
+        "fr": "Introduction et Acceptation",
+        "ar": "مقدمة وقبول الشروط",
+        "pt": "Introdução e Aceitação",
+        "ru": "Введение и согласие с условиями"
+      },
+      "sec_intro_p": {
+        "tr": "Nim Master uygulamasına hoş geldiniz. <strong>CodExa</strong> (Erdinç TOPAL) tarafından sunulan bu mobil uygulamayı (\"Uygulama\") indirerek, kurarak veya kullanarak bu Kullanım Koşullarına (\"Koşullar\") bağlı kalmayı kabul etmiş olursunuz. Bu Koşulları kabul etmiyorsanız lütfen Uygulamayı kullanmayın.",
+        "en": "Welcome to Nim Master. By downloading, installing, or using this mobile application (\"App\") provided by <strong>CodExa</strong> (Erdinç TOPAL), you agree to be bound by these Terms of Service (\"Terms\"). If you do not agree to these Terms, please do not use the App.",
+        "de": "Willkommen bei Nim Master. Durch das Herunterladen, Installieren oder Verwenden dieser von <strong>CodExa</strong> (Erdinç TOPAL) bereitgestellten mobilen Anwendung (\"App\") erklären Sie sich mit diesen Nutzungsbedingungen (\"Bedingungen\") einverstanden. Wenn Sie diesen Bedingungen nicht zustimmen, verwenden Sie die App bitte nicht.",
+        "zh": "欢迎使用 Nim Master。通过下载、安装或使用由 <strong>CodExa</strong> (Erdinç TOPAL) 提供的此移动应用程序（“应用”），即/表示您同意接受这些服务条款（“条款”）的约束。如果您不同意这些条款，请勿使用该应用。",
+        "hi": "निम मास्टर में आपका स्वागत है। <strong>CodExa</strong> (Erdinç TOPAL) द्वारा प्रदान किए गए इस मोबाइल एप्लिकेशन (\"ऐप\") को डाउनलोड, इंस्टॉल या उपयोग करके, आप इन सेवा की शर्तों (\"शर्तों\") से बंधे होने के लिए सहमत हैं। यदि आप इन शर्तों से सहमत नहीं हैं, तो कृपया ऐप का उपयोग न करें।",
+        "es": "Bienvenido a Nim Master. Al descargar, instalar o utilizar esta aplicación móvil (\"App\") proporcionada por <strong>CodExa</strong> (Erdinç TOPAL), acepta estar sujeto a estos Términos de servicio (\"Términos\"). Si no está de acuerdo con estos Términos, no utilice la aplicación.",
+        "fr": "Bienvenue sur Nim Master. En téléchargeant, installant ou utilisant cette application mobile (\"App\") fournie par <strong>CodExa</strong> (Erdinç TOPAL), vous acceptez d'être lié par ces Conditions d'utilisation (\"Conditions\"). Si vous n'acceptez pas ces Conditions, veuillez ne pas utiliser l'App.",
+        "ar": "مرحباً بكم في نيم ماستر. بتنزيل أو تثبيت أو استخدام هذا التطبيق الهاتفي المحمول (\"التطبيق\") المقدم من <strong>CodExa</strong> (Erdinç TOPAL)، فإنك توافق على الالتزام بشروط الخدمة هذه (\"الشروط\"). إذا كنت لا توافق على هذه الشروط، يرجى عدم استخدام التطبيق.",
+        "pt": "Bem-vindo ao Nim Master. Ao baixar, instalar ou usar este aplicativo móvel (\"App\") fornecido pela <strong>CodExa</strong> (Erdinç TOPAL), você concorda em cumprir estes Termos de Serviço (\"Termos\"). Se você não concordar com estes Termos, não use o App.",
+        "ru": "Добро пожаловать в Nim Master. Загружая, устанавливая или используя это мобильное приложение («Приложение»), предоставленное <strong>CodExa</strong> (Erdinç TOPAL), вы соглашаетесь соблюдать настоящие Условия использования («Условия»). Если вы не согласны с этими Условиями, пожалуйста, не используйте Приложение."
+      },
+      "sec_1_title": {
+        "tr": "1. Lisans ve Kullanım Kapsamı",
+        "en": "1. License and Scope of Use",
+        "de": "1. Lizenz und Nutzungsumfang",
+        "zh": "1. 许可与使用范围",
+        "hi": "1. लाइसेंस और उपयोग का दायरा",
+        "es": "1. Licencia y Alcance de Uso",
+        "fr": "1. Licence et Portée de l'Utilisation",
+        "ar": "1. الترخيص ونطاق الاستخدام",
+        "pt": "1. Licença e Escopo de Uso",
+        "ru": "1. Лицензия и сфера применения"
+      },
+      "sec_1_p": {
+        "tr": "Uygulamayı, sahip olduğunuz veya kontrol ettiğiniz uyumlu mobil cihazlarda tamamen kişisel, ticari olmayan eğlence amaçlarınız için kullanmanız üzere size kişisel, münhasır olmayan, devredilemez, geri alınabilir ve sınırlı bir lisans vermekteyiz.",
+        "en": "We grant you a personal, non-exclusive, non-transferable, revocable, and limited license to use the App for your personal, non-commercial entertainment purposes on compatible mobile devices owned or controlled by you.",
+        "de": "Wir gewähren Ihnen eine persönliche, nicht ausschließliche, nicht übertragbare, widerrufliche und begrenzte Lizenz zur Nutzung der App für Ihre persönlichen, nicht gewerblichen Unterhaltungszwecke auf kompatiblen Mobilgeräten, die in Ihrem Besitz sind oder von Ihnen kontrolliert werden.",
+        "zh": "我们授予您个人、非排他性、不可转ar、可撤销且有限的的许可，允许您在您拥有或控制的兼容移动设备上将该应用用于个人、非商业娱乐用途。",
+        "hi": "हम आपको आपके स्वामित्व या नियंत्रण वाले संगत मोबाइल उपकरणों पर व्यक्तिगत, गैर-व्यावसायिक मनोरंजन उद्देश्यों के लिए ऐप का उपयोग करने के लिए एक व्यक्तिगत, गैर-अनन्य, गैर-हस्तांतरणीय, प्रतिवर्तनीय और सीमित लाइसेंस प्रदान करते हैं।",
+        "es": "Le otorgamos una licencia personal, no exclusiva, no transferible, revocable y limitada para usar la aplicación para sus fines de entretenimiento personal y no comercial en dispositivos móviles compatibles de su propiedad o bajo su control.",
+        "fr": "Nous vous accordons une licence personnelle, non exclusive, non transférable, révocable et limitée pour utiliser l'App à des fins de divertissement personnel et non commercial sur des appareils mobiles compatibles vous appartenant ou sous votre contrôle.",
+        "ar": "نمنحك ترخيصاً شخصياً، غير حصري، غير قابل للنقل، قابلاً للإلغاء ومحدوداً لاستخدام التطبيق لأغراض الترفيه الشخصي غير التجاري على الأجهزة المحمولة المتوافقة التي تملكها أو تتحكم فيها.",
+        "pt": "Concedemos a você uma licença pessoal, não exclusiva, não transferível, revogável e limitada para usar o App para seus fins pessoais e não comerciais de entretenimento em dispositivos móveis compatíveis de sua propriedade ou controlados por você.",
+        "ru": "Мы предоставляем вам личную, неисключительную, непередаваемую, отзывную и ограниченную лицензию на использование Приложения в личных некоммерческих развлекательных целях на совместимых мобильных устройствах, принадлежащих вам или контролируемых вами."
+      },
+      "sec_2_title": {
+        "tr": "2. Kullanıcı Hesapları ve Veriler",
+        "en": "2. User Accounts and Data",
+        "de": "2. Benutzerkonten und Daten",
+        "zh": "2. 用户帐户与数据",
+        "hi": "2. उपयोगकर्ता खाते और डेटा",
+        "es": "2. Cuentas de Usuario y Datos",
+        "fr": "2. Comptes d'Utilisateur et Données",
+        "ar": "2. حسابات المستخدمين والبيانات",
+        "pt": "2. Contas de Usuário e Dados",
+        "ru": "2. Учетные записи пользователей и данные"
+      },
+      "sec_2_p": {
+        "tr": "Uygulamaya Google, Apple, E-posta veya Misafir (Guest) girişiyle erişebilirsiniz. Misafir girişlerinde ilerlemeleriniz yerel olarak saklanır. Güvenli giriş bilgilerinizi gizli tutmaktan siz sorumlusunuz. İstediğiniz zaman uygulama ayarlarından <strong>\"Hesabı Sil\" (Delete Account)</strong> butonuna basarak hesabınızı sonlandırabilir ve tüm bulut verilerinizi kalıcı olarak silebilirsiniz.",
+        "en": "You may access the App via Google Sign-In, Apple Sign-In, Email registration, or Guest login. For Guest logins, progress is stored locally. You are responsible for keeping your login credentials confidential. You have the right to terminate your account and wipe all database records at any time using the <strong>\"Delete Account\"</strong> button within the app settings.",
+        "de": "Sie können über Google Sign-In, Apple Sign-In, E-Mail-Registrierung oder Gast-Login auf die App zugreifen. Bei Gast-Logins wird der Fortschritt lokal gespeichert. Sie sind dafür verantwortlich, Ihre Zugangsdaten vertraulich zu behandeln. Sie haben das Recht, Ihr Konto jederzeit über die Schaltfläche <strong>\"Konto löschen\"</strong> in den App-Einstellungen zu kündigen und alle Datenbankeinträge zu löschen.",
+        "zh": "您可以通过 Google 登录、Apple 登录、邮箱注册或游客登录来访问该应用。对于游客登录，进度会存储在本地。您有责任对您的登录凭据保密。您有权随时使用应用设置中的<strong>“删除帐户”</strong>按钮终止您的帐户并清除所有数据库记录。",
+        "hi": "आप Google साइन-इन, Apple साइन-इन, ईमेल पंजीकरण, या गेस्ट लॉगिन के माध्यम से ऐप का उपयोग कर सकते हैं। गेस्ट लॉगिन के लिए, प्रगति स्थानीय रूप से संग्रहीत की जाती है। आप अपने लॉगिन क्रेडेंशियल को गोपनीय रखने के लिए ज़िम्मेदार हैं। आपके पास ऐप सेटिंग्स के भीतर <strong>\"खाता हटाएं\"</strong> बटन का उपयोग करके किसी भी समय अपने खाते को समाप्त करने और सभी डेटाबेस रिकॉर्ड को मिटाने का अधिकार है।",
+        "es": "Puede acceder a la aplicación a través de Google Sign-In, Apple Sign-In, registro de correo electrónico o inicio de sesión de Invitado. Para los inicios de sesión de Invitados, el progreso se almacena localmente. Es responsable de mantener confidenciales sus credenciales de inicio de sesión. Tiene derecho a cancelar su cuenta y borrar todos los registros de la base de datos en cualquier momento utilizando el botón <strong>\"Eliminar cuenta\"</strong> dentro de la configuración de la aplicación.",
+        "fr": "Vous pouvez accéder à l'App via Google, Apple, enregistrement par e-mail ou connexion Invité. Pour les connexions Invité, la progression est stockée localement. Vous êtes responsable du maintien de la confidentialité de vos identifiants. Vous avez le droit de résilier votre compte et d'effacer tous les enregistrements de la base de données à tout moment à l'aide du bouton <strong>\"Supprimer le compte\"</strong> dans les paramètres de l'App.",
+        "ar": "يمكنك الوصول إلى التطبيق عبر تسجيل الدخول بواسطة Google أو Apple أو تسجيل البريد الإلكتروني أو تسجيل الدخول كضيف. في تسجيل الدخول كضيف، يتم تخزين التقدم محلياً. أنت مسؤول عن الحفاظ على سرية بيانات اعتماد تسجيل الدخول الخاصة بك. يحق لك إنهاء حسابك ومسح جميع سجلات قاعدة البيانات في أي وقت باستخدام زر <strong>\"حذف الحساب\"</strong> داخل إعدادات التطبيق.",
+        "pt": "Você pode acessar o App por meio do Login do Google, Apple, registro de E-mail ou login de Convidado. Para logins de Convidados, o progresso é armazenado localmente. Você é responsável por manter a confidencialidade das suas credenciais de login. Você tem o direito de encerrar sua conta e apagar todos os registros do banco de datos a qualquer momento usando o botão <strong>\"Excluir conta\"</strong> nas configurações do app.",
+        "ru": "Вы можете получить доступ к Приложению через вход с помощью Google, Apple, регистрацию по электронной почте или гостевой вход. При гостевом входе прогресс сохраняется локально. Вы несете ответственность за сохранение конфиденциальности своих данных для входа. Вы имеете право закрыть свою учетную запись и стереть все записи в базе данных в любое время, нажав кнопку <strong>«Удалить аккаунт»</strong> в настройках приложения."
+      },
+      "sec_3_title": {
+        "tr": "3. Kabul Edilebilir Kullanım ve Adil Oyun",
+        "en": "3. Acceptable Use and Fair Play",
+        "de": "3. Zulässige Nutzung und Fairplay",
+        "zh": "3. 合理使用与公平竞争",
+        "hi": "3. स्वीकार्य उपयोग और निष्पक्ष खेल",
+        "es": "3. Uso Aceptable y Juego Limpio",
+        "fr": "3. Utilisation Acceptable et Fair-Play",
+        "ar": "3. الاستخدام المقبول واللعب العادل",
+        "pt": "3. Uso Aceitável e Fair Play",
+        "ru": "3. Правила использования и честная игра"
+      },
+      "sec_3_p1": {
+        "tr": "Uygulamayı kullanırken aşağıdaki kurallara uymayı kabul edersiniz:",
+        "en": "You agree not to perform the following actions while using the App:",
+        "de": "Sie erklären sich damit einverstanden, die folgenden Aktionen während der Nutzung der App nicht durchzuführen:",
+        "zh": "您同意在使用该应用时不得执行以下操作：",
+        "hi": "आप ऐप का उपयोग करते समय निम्नलिखित कार्य न करने के लिए सहमत हैं:",
+        "es": "Acepta no realizar las siguientes acciones mientras utiliza la aplicación:",
+        "fr": "Vous acceptez de ne pas effectuer les actions suivantes lors de l'utilisation de l'App :",
+        "ar": "أنت توافق على عدم القيام بالأفعال التالية أثناء استخدام التطبيق:",
+        "pt": "Você concorda em não realizar as seguintes ações ao usar o App:",
+        "ru": "Вы соглашаетесь не совершать следующие действия при использовании Приложения:"
+      },
+      "sec_3_li1": {
+        "tr": "Uygulamanın kaynak kodunu değiştirmemek, kaynak koda dönüştürmemek veya tersine mühendislik yapmaya çalışmamak.",
+        "en": "Modify, decompile, reverse engineer, or attempt to extract the source code of the App.",
+        "de": "Quellcode der App ändern, dekompilieren, zurückentwerfen oder versuchen, ihn zu extrahieren.",
+        "zh": "修改、反编译、逆向工程或试图提取应用的源代码。",
+        "hi": "ऐप के सोर्स कोड को संशोधित करना, डीकंपाइल करना, रिवर्स इंजीनियर करना, या निकालने का प्रयास करना।",
+        "es": "Modificar, descompilar, realizar ingeniería inversa o intentar extraer el código fuente de la aplicación.",
+        "fr": "Modifier, décompiler, désosser ou tenter d'extraire le code source de l'App.",
+        "ar": "تعديل أو فك تشفير أو هندسة عكسية أو محاولة استخراج الكود المصدري للتطبيق.",
+        "pt": "Modificar, decompilar, fazer engenharia reversa ou tentar extrair o código-fonte do App.",
+        "ru": "Модифицировать, декомпилировать, реверс-инжинирить или пытаться извлечь исходный код Приложения."
+      },
+      "sec_3_li2": {
+        "tr": "İstatistikleri manipüle etmek veya yapay zeka maçlarında haksız avantaj sağlamak için hile, bot veya yetkisiz otomasyon yazılımları kullanmamak.",
+        "en": "Use cheats, automation tools (bots), hacks, or any unauthorized software to manipulate game stats or AI matches.",
+        "de": "Cheats, Automatisierungstools (Bots), Hacks oder nicht autorisierte Software verwenden, um Spielstatistiken oder KI-Spiele zu manipulieren.",
+        "zh": "使用作弊工具、自动化工具（机器人）、外挂或任何未经授权的软件来操控游戏统计数据或 AI 比赛。",
+        "hi": "गेम के आंकड़ों या एआई मैचों में हेरफेर करने के लिए चीट्स, ऑटोमेशन टूल्स (बॉट्स), हैक्स या किसी अनधिकृत सॉफ़्टवेयर का उपयोग करना।",
+        "es": "Usar trucos, herramientas de automatización (bots), hacks o cualquier software no autorizado para manipular las estadísticas del juego o las partidas de IA.",
+        "fr": "Utiliser des tricheurs, des outils d'automatisation (bots), des hacks ou tout logiciel non autorisé untuk manipuler les statistiques du jeu ou les matchs de l'IA.",
+        "ar": "استخدام الغش أو أدوات الأتمتة (البوتات) أو الاختراقات أو أي برامج غير مصرح بها للتلاعب بإحصاءات اللعبة أو مباريات الذكاء الاصطناعي.",
+        "pt": "Usar trapaças, ferramentas de automação (bots), hacks ou qualquer software não autorizado para manipular estatísticas de jogo ou partidas de IA.",
+        "ru": "Использовать читы, инструменты автоматизации (боты), хаки или любое несанкционированное ПО для манипулирования игровой статистикой или матчами с ИИ."
+      },
+      "sec_3_li3": {
+        "tr": "Reklam gösterim mekanizmalarını veya güvenlik önlemlerini atlatmaya çalışmamak.",
+        "en": "Attempt to bypass ad delivery or fraud detection mechanisms.",
+        "de": "Versuchen, die Anzeigenbereitstellung oder Betrugserkennungsmechanismen zu umgehen.",
+        "zh": "试图绕过广告投递或欺诈检测机制。",
+        "hi": "विज्ञापन वितरण या धोखाधड़ी का पता लगाने वाले तंत्र को बायपास करने का प्रयास करना।",
+        "es": "Intentar eludir la entrega de anuncios o los mecanismos de detección de fraude.",
+        "fr": "Tenter de contourner la diffusion d'annonces ou les mécanismes de détection des fraudes.",
+        "ar": "محاولة تجاوز تسليم الإعلانات أو آليات الكشف عن الاحتيال.",
+        "pt": "Tentar contornar a veiculação de anúncios ou mecanismos de detecção de fraude.",
+        "ru": "Пытаться обойти доставку рекламы или механизмы обнаружения мошенничества."
+      },
+      "sec_4_title": {
+        "tr": "4. Reklamlar ve Monetizasyon",
+        "en": "4. Ads and Monetization",
+        "de": "4. Werbung und Monetarisierung",
+        "zh": "4. 广告与商业化",
+        "hi": "4. विज्ञापन और मुद्रीकरण",
+        "es": "4. Anuncios y Monetización",
+        "fr": "4. Publicités et Monétisation",
+        "ar": "4. الإعلانات والربح",
+        "pt": "4. Anúncios e Monetização",
+        "ru": "4. Реклама и монетизация"
+      },
+      "sec_4_p": {
+        "tr": "Uygulama, Google AdMob üzerinden sunulan reklamlarla desteklenmektedir. Uygulamayı kullanarak reklam gösterimlerini kabul etmiş olursunuz. Reklam ayarlarına ve kişiselleştirmelere mobil cihazınızın gizlilik ayarlarından (Uygulama Takibi İzni vb.) müdahale edebilirsiniz.",
+        "en": "The App is supported by advertisements (Google AdMob). By using the App, you acknowledge that ads (banners and interstitials) will be displayed. You can manage personalized ad settings via your mobile OS privacy settings (App Tracking Transparency / Ad Customization settings).",
+        "de": "Die App wird durch Werbung (Google AdMob) unterstützt. Durch die Nutzung der App stimmen Sie zu, dass Werbung (Banner und Interstitials) angezeigt wird. Sie können personalisierte Werbeeinstellungen über die Datenschutzeinstellungen Ihres Mobilgeräts (z.B. App-Tracking-Transparenz) verwalten.",
+        "zh": "应用通过广告（Google AdMob）来支持运营。使用应用即表示您知晓并同意应用将展示广告（横幅和插屏广告）。您可以通过移动操作系统的隐私设置（应用bh跟踪透明度/广告自定义设置）来管理个性化广告设置。",
+        "hi": "ऐप विज्ञापनों (Google AdMob) द्वारा समर्थित है। ऐप का उपयोग करके, आप स्वीकार करते हैं कि विज्ञापन (बैनर और मध्यवर्ती) प्रदर्शित किए जाएंगे। आप अपने मोबाइल ओएस गोपनीयता सेटिंग्स (ऐप ट्रैकिंग ट्रांसपेरेंसी / विज्ञापन अनुकूलन सेटिंग्स) के माध्यम से व्यक्तिगत विज्ञापन सेटिंग्स प्रबंधित कर सकते हैं।",
+        "es": "La aplicación está respaldada por anuncios (Google AdMob). Al usar la aplicación, reconoce que se mostrarán anuncios (banners e intersticiales). Puede administrar la configuración de anuncios personalizados a través de la configuración de privacidad de su sistema operativo móvil (configuración de Transparencia de seguimiento de aplicaciones / Personalización de anuncios).",
+        "fr": "L'App est financée par la publicité (Google AdMob). En utilisant l'App, vous reconnaissez que des publicités (bannières et interstitiels) seront affichées. Vous pouvez gérer les paramètres publicitaires personnalisés via les paramètres de confidentialité de votre système d'exploitation mobile (Transparence du suivi des applications / paramètres de personnalisation des annonces).",
+        "ar": "يتم دعم التطبيق من خلال الإعلانات (Google AdMob). باستخدام التطبيق، فإنك تقر بأنه سيتم عرض الإعلانات (البانر والإعلانات البينية). يمكنك إدارة إعدادات الإعلانات المخصصة عبر إعدادات خصوصية نظام تشغيل هاتفك (إعدادات شفافية تتبع التطبيق / تخصيص الإعلانات).",
+        "pt": "O App é suportado por anúncios (Google AdMob). Ao usar o App, você reconhece que os anúncios (banners e intersticiais) serão exibidos. Você pode gerenciar as configurações de anúncios personalizados por meio das configurações de privacidade do seu sistema operacional móvel (configurações de Transparência do Rastreamento de Apps / Personalização de Anúncios).",
+        "ru": "Приложение поддерживается за счет рекламы (Google AdMob). Используя Приложение, вы соглашаетесь с тем, что в нем будут отображаться объявления (баннеры и межстраничные объявления). Вы можете управлять настройками персонализированной рекламы в настройках конфиденциальности вашей мобильной ОС (параметры App Tracking Transparency / настройки персонализации рекламы)."
+      },
+      "sec_5_title": {
+        "tr": "5. Garantilerin Reddi ve Sorumluluk Sınırı",
+        "en": "5. Disclaimer of Warranties and Liability Limit",
+        "de": "5. Gewährleistungsausschluss und Haftungsbeschränkung",
+        "zh": "5. 免责声明与责任限制",
+        "hi": "5. वारंटी का अस्वीकरण और दायित्व सीमा",
+        "es": "5. Descargo de Responsabilidad y Límite de Responsabilidad",
+        "fr": "5. Exclusion de Garanties et Limite de Responsabilité",
+        "ar": "5. إخلاء المسؤولية وحدودها",
+        "pt": "5. Isenção de Garantias e Limite de Responsabilidade",
+        "ru": "5. Отказ от гарантий и ограничение ответственности"
+      },
+      "sec_5_p": {
+        "tr": "Uygulama \"olduğu gibi\" ve \"mevcut olduğu şekilde\" sunulmaktadır. Kesintisiz veya hatasız çalışacağına dair hiçbir garanti verilmemektedir. Yasaların izin verdiği azami ölçüde, CodExa (Erdinç TOPAL), uygulamanın kullanımından doğabilecek doğrudan veya dolaylı hiçbir zarardan sorumlu tutulamaz.",
+        "en": "The App is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. We make no warranties, express or implied, regarding continuous availability or error-free operation. To the maximum extent permitted by law, CodExa (Erdinç TOPAL) shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use the App.",
+        "de": "Die App wird auf einer \"AS IS\"- und \"AS AVAILABLE\"-Basis bereitgestellt. Wir übernehmen keine ausdrückliche oder stillschweigende Gewährleistung für die ständige Verfügbarkeit oder den fehlerfreien Betrieb. Soweit gesetzlich zulässig, haftet CodExa (Erdinç TOPAL) nicht für direkte, indirekte, zufällige oder Folgeschäden, die aus der Nutzung oder der Unfähigkeit zur Nutzung der App resultieren.",
+        "zh": "该应用按“原样”和“现有”基础提供。我们不作任何关于持续可用性或无错运行的明示或暗示保证。在法律允许的最大范围内，对于因使用或无法使用该应用而导致的任何直接、间接、附带或后果性损害，CodExa (Erdinç TOPAL) 概不负责。",
+        "hi": "ऐप \"जैसा है\" और \"जैसी उपलब्धता है\" के आधार पर प्रदान किया जाता है। हम निरंतर उपलब्धता या त्रुटि मुक्त संचालन के संबंध में कोई वारंटी नहीं देते हैं। कानून द्वारा अनुमत अधिकतम सीमा तक, ऐप के उपयोग या अनुपयोग के परिणामस्वरूप होने वाले किसी भी प्रत्यक्ष, अप्रत्यक्ष, आकस्मिक या परिणामी नुकसान के लिए CodExa (Erdinç TOPAL) उत्तरदायी नहीं होगा।",
+        "es": "La aplicación se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". No ofrecemos garantías, expresas o implícitas, con respecto a la disponibilidad continua o el funcionamiento libre de errores. En la medida máxima permitida por la ley, CodExa (Erdinç TOPAL) no será responsable de ningún daño directo, indirecto, incidental o consecuente que resulte del uso o la imposibilidad de usar la aplicación.",
+        "fr": "L'App est fournie \"EN L'ÉTAT\" et \"SELON DISPONIBILITÉ\". Nous n'offrons aucune garantie, expresse ou implicite, concernant la disponibilité continue ou le fonctionnement sans erreur. Dans la mesure maximale autorisée par la loi, CodExa (Erdinç TOPAL) ne sera pas responsable des dommages directs, indirects, accessoires ou consécutifs résultant de l'utilisation ou de l'incapacité d'utiliser l'App.",
+        "ar": "يتم تقديم التطبيق على أساس \"كما هو\" و\"كما هو متاح\". نحن لا نقدم أي ضمانات، صريحة أو ضمنية، فيما يتعلق بالتوفر المستمر أو التشغيل الخالي من الأخطاء. إلى أقصى حد يسمح به القانون، لا تتحمل CodExa (Erdinç TOPAL) المسؤولية عن أية أضرار مباشرة أو غير مباشرة أو عرضية أو تبعية تنتج عن استخدام التطبيق أو عدم القدرة على استخدامه.",
+        "pt": "O App é fornecido \"COMO ESTÁ\" e \"CONFORME DISPONÍVEL\". Não oferecemos garantias, expressas ou implícitas, quanto à disponibilidade contínua ou operação livre de erros. Na extensão máxima permitida por lei, a CodExa (Erdinç TOPAL) não será responsável por quaisquer danos diretos, indiretos, incidentais ou consequenciais resultantes do uso ou incapacidade de usar o App.",
+        "ru": "Приложение предоставляется на условиях «КАК ЕСТЬ» и «КАК ДОСТУПНО». Мы не даем никаких явных или подразумеваемых гарантий относительно постоянной доступности или безошибочной работы. В максимальной степени, разрешенной законом, CodExa (Erdinç TOPAL) не несет ответственности за любые прямые, косвенные, случайные или побочные убытки, возникшие в результате использования или невозможности использования Приложения."
+      },
+      "sec_6_title": {
+        "tr": "6. Uygulanacak Hukuk",
+        "en": "6. Governing Law",
+        "de": "6. Anwendbares Recht",
+        "zh": "6. 适用法律",
+        "hi": "6. शासी कानून",
+        "es": "6. Ley Aplicable",
+        "fr": "6. Droit Applicable",
+        "ar": "6. القانون الحاكم",
+        "pt": "6. Lei Aplicável",
+        "ru": "6. Применимое право"
+      },
+      "sec_6_p": {
+        "tr": "Bu Koşullar, kanunlar ihtilafı ilkelerine bakılmaksızın Türkiye yasalarına tabi olacak ve bu yasalara göre yorumlanacaktır.",
+        "en": "These Terms shall be governed by and construed in accordance with the laws of Turkey, without regard to its conflict of law provisions.",
+        "de": "Diese Bedingungen unterliegen den Gesetzen der Türkei und werden in Übereinstimmung mit diesen ausgelegt, ohne Rücksicht auf die Bestimmungen des Kollisionsrechts.",
+        "zh": "这些条款应受土耳其法律管辖并按其解释，不考虑其法律冲突条款。",
+        "hi": "ये शर्तें तुर्की के कानूनों के अनुसार शासित और अर्थ की जाएंगी, इसके कानून के टकराव के प्रावधानों के संबंध के बिना।",
+        "es": "Estos Términos se regirán e interpretarán de acuerdo con las leyes de Turquía, sin tener en cuenta sus disposiciones sobre conflictos de leyes.",
+        "fr": "Les présentes Conditions sont régies et interprétées conformément aux lois de la Turquie, sans égard à ses dispositions relatives aux conflits de lois.",
+        "ar": "تخضع هذه الشروط ويتم تفسيرها وفقاً لقوانين تركيا، بغض النظر عن أحكام تعارض القوانين.",
+        "pt": "Estes Termos serão regidos e interpretados de acordo com as leis da Turquia, sem considerar suas disposições sobre conflitos de leis.",
+        "ru": "Настоящие Условия регулируются и толкуются в соответствии с законодательством Турции без учета его коллизионных норм."
+      },
+      "sec_7_title": {
+        "tr": "7. İletişim",
+        "en": "7. Contact Info",
+        "de": "7. Kontakt",
+        "zh": "7. 联系信息",
+        "hi": "7. संपर्क जानकारी",
+        "es": "7. Contacto",
+        "fr": "7. Contact",
+        "ar": "7. معلومات الاتصال",
+        "pt": "7. Contato",
+        "ru": "7. Контактная информация"
+      },
+      "sec_7_p": {
+        "tr": "Bu Kullanım Koşulları ile ilgili tüm sorularınız için bizimle e-posta yoluyla iletişime geçebilirsiniz: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "en": "For any questions regarding these Terms, please contact us at: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "de": "Bei Fragen zu diesen Bedingungen wenden Sie sich bitte an uns unter: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "zh": "如果您对这些条款有任何疑问，请通过以下方式与我们联系：<a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "hi": "इन शर्तों के संबंध में किसी भी प्रश्न के लिए, कृपया हमसे यहाँ संपर्क करें: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "es": "Para cualquier pregunta relacionada con estos Términos, contáctenos en: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "fr": "Pour toute question concernant ces Conditions, veuillez nous contacter à : <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ar": "لأية أسئلة تتعلق بهذه الشروط، يرجى الاتصال بنا على: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "pt": "Para qualquer dúvida sobre estes Termos, entre em contato conosco em: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ru": "По любым вопросам относительно этих Условий, пожалуйста, свяжитесь с нами по адресу: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
+        "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.",
+        "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+        "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+        "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+        "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+        "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+        "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+        "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+        "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>
