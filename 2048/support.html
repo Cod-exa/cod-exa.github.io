@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support - Game2048</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0F081D;
+            --card-bg: #1F1235;
+            --text-color: #E2D9F3;
+            --accent-cyan: #00FFFF;
+            --accent-pink: #FFFF007F;
+            --gold: #FFFFB703;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+        }
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+        main {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: var(--accent-cyan);
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+        input, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        button {
+            width: 100%;
+            background-color: var(--accent-pink);
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #ff0055;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        .contact-info a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2048: Ultimate Edition</h1>
+        <p>Support Center</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Contact Support</h2>
+            <p>Have you run into a bug, need help restoring a purchase, or want to suggest a new skin/mode? Send us a message and we'll get back to you as soon as possible.</p>
+            
+            <form action="mailto:support@yourcompany.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">YOUR NAME</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">HOW CAN WE HELP?</label>
+                    <input type="text" id="category" name="subject" required placeholder="e.g. Purchase Issue, Bug Report, General Question">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">MESSAGE DETAILS</label>
+                    <textarea id="message" name="message" required placeholder="Describe your request in detail..."></textarea>
+                </div>
+                
+                <button type="submit">SEND MESSAGE</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <p>Or write directly to <a href="mailto:support@yourcompany.com">support@yourcompany.com</a></p>
+            <p><a href="index.html" class="back-link">&larr; Back to Landing Page</a></p>
+        </div>
+    </main>
+</body>
+</html>

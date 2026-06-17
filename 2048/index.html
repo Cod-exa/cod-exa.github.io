@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048: Ultimate Edition - Mobile Puzzle Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0F081D;
+            --card-bg: #1F1235;
+            --text-color: #E2D9F3;
+            --accent-cyan: #00FFFF;
+            --accent-pink: #FFFF007F;
+            --gold: #FFFFB703;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 127, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+        .app-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, #ff007f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.5px;
+        }
+        .tagline {
+            font-size: 18px;
+            opacity: 0.8;
+            margin: 12px 0 32px 0;
+            letter-spacing: 0.5px;
+        }
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-pink) 0%, #ff0055 100%);
+            color: #fff;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(255, 0, 127, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 0, 127, 0.4);
+        }
+        .btn-download:active {
+            transform: translateY(0);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 255, 0.2);
+        }
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 18px;
+            color: var(--accent-cyan);
+            margin: 0 0 10px 0;
+        }
+        .feature-card p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Footer Section */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--text-color);
+            opacity: 0.7;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 14px;
+            transition: opacity 0.2s, color 0.2s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-cyan);
+        }
+        .copyright {
+            font-size: 13px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <header class="container hero">
+        <img src="app_icon.png" alt="2048 Game Icon" class="app-icon">
+        <h1>2048: Ultimate Edition</h1>
+        <p class="tagline">The most complete, polished, and customizable 2048 experience on mobile.</p>
+        <a href="#" class="btn-download">GET IT ON GOOGLE PLAY</a>
+    </header>
+
+    <main class="container features">
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📐</div>
+                <h3>Dynamic Grid Sizes</h3>
+                <p>Play on 4x4, 5x5, or 6x6 boards. Dynamic win goals scale with the size to keep gameplay balanced and fun.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Time Attack Mode</h3>
+                <p>Race against the clock in 3-minute blitz sessions. Plan fast and merge icons to secure a massive high score.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Vibrant Skins</h3>
+                <p>Customize your tiles! Swap dynamically between classic Numbers, juicy Fruits, and expressive Emojis.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👑</div>
+                <h3>Premium Ad-Free</h3>
+                <p>Upgrade to remove all banner and interstitial ads. Play offline and enjoy instant undos with zero ads.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container">
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Contact & Support</a>
+        </div>
+        <p class="copyright">&copy; 2026 Game2048 Team. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    </footer>
+</body>
+</html>
