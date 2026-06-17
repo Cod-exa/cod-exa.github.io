@@ -1,182 +1,658 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Support - Game2048</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0F081D;
-            --card-bg: #1F1235;
-            --text-color: #E2D9F3;
-            --accent-cyan: #00FFFF;
-            --accent-pink: #FFFF007F;
-            --gold: #FFFFB703;
-        }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--accent-cyan);
-            letter-spacing: 1px;
-        }
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            color: var(--text-color);
-            opacity: 0.7;
-        }
-        main {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        h2 {
-            color: var(--accent-cyan);
-            font-size: 20px;
-            margin-top: 0;
-            margin-bottom: 16px;
-        }
-        p {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 24px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--gold);
-            letter-spacing: 0.5px;
-        }
-        input, textarea {
-            width: 100%;
-            box-sizing: border-box;
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 12px;
-            color: #fff;
-            font-family: inherit;
-            font-size: 14px;
-            transition: border-color 0.2s;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-        }
-        textarea {
-            resize: vertical;
-            height: 120px;
-        }
-        button {
-            width: 100%;
-            background-color: var(--accent-pink);
-            border: none;
-            border-radius: 8px;
-            padding: 14px;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-        button:hover {
-            background-color: #ff0055;
-        }
-        button:active {
-            transform: scale(0.98);
-        }
-        .contact-info {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 13px;
-            opacity: 0.7;
-        }
-        .contact-info a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 13px;
-            color: var(--accent-cyan);
-            text-decoration: none;
-        }
-        .back-link:hover {
-            color: var(--gold);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destek & Yardım (Support & Help) – 2048</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --cyan: #00FFFF;
+      --cyan-light: #22D3EE;
+      --cyan-alpha: rgba(0, 255, 255, 0.08);
+      --cyan-border: rgba(0, 255, 255, 0.2);
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --dark3: #334155;
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border: rgba(0, 255, 255, 0.15);
+      --transition: all 0.25s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 255, 255, 0.08) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(0, 255, 255, 0.02) 40px,
+          rgba(0, 255, 255, 0.02) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(0, 255, 255, 0.1), inset 0 1px 0 rgba(0, 255, 255, 0.1);
+    }
+
+    .logo-wrap svg { width: 40px; height: 40px; }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 700;
+      color: var(--cyan-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    section {
+      background-color: var(--dark2);
+      border: 1px solid var(--cyan-border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cyan-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    /* Accordion */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      cursor: pointer;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--cyan-light);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-top: 0;
+      font-family: 'Inter', sans-serif;
+      transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 260px;
+      margin-top: 12px;
+    }
+
+    .faq-icon {
+      fill: var(--cyan);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--cyan-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--cyan-light);
+      box-shadow: 0 0 10px var(--cyan-alpha);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-light) 100%);
+      color: var(--dark);
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      width: 100%;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      background: #7df9ff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan-light);
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: #fff;
+      transform: translateX(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">
+      ← Oyuna Dön / Back to Game
+    </a>
+
     <header>
-        <h1>2048: Ultimate Edition</h1>
-        <p>Support Center</p>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="4" stroke="#00FFFF" stroke-width="2"/>
+            <text x="50%" y="62%" fill="#00FFFF" font-family="'Outfit', sans-serif" font-size="7" font-weight="900" text-anchor="middle">2048</text>
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Destek & Yardım</h1>
+      <div class="subtitle" data-i18n="subtitle">Support & FAQ – 2048</div>
     </header>
 
     <main>
-        <div class="card">
-            <h2>Contact Support</h2>
-            <p>Have you run into a bug, need help restoring a purchase, or want to suggest a new skin/mode? Send us a message and we'll get back to you as soon as possible.</p>
-            
-            <form action="mailto:support@yourcompany.com" method="post" enctype="text/plain">
-                <div class="form-group">
-                    <label for="name">YOUR NAME</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">EMAIL ADDRESS</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                </div>
+      <!-- FAQ Section -->
+      <section>
+        <h2 data-i18n="sec_faq_title">Sıkça Sorulan Sorular / FAQ</h2>
+        <div class="faq-accordion">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span data-i18n="faq_q1">Google ile giriş yaparken neden yüklenme ekranında kalıyor?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq_a1">
+              Cihazınızda aktif bir ağ bağlantısı veya Google oturumu yoksa kilitlenme yaşanabilir. Uygulamamızda artık 15 saniyelik otomatik zaman aşımı güvenliği bulunmakta olup yüklenme göstergesi sonsuza kadar dönmeyecektir. İnternet ve hesap durumunuzu kontrol edip tekrar deneyiniz.
+            </div>
+          </div>
 
-                <div class="form-group">
-                    <label for="category">HOW CAN WE HELP?</label>
-                    <input type="text" id="category" name="subject" required placeholder="e.g. Purchase Issue, Bug Report, General Question">
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">MESSAGE DETAILS</label>
-                    <textarea id="message" name="message" required placeholder="Describe your request in detail..."></textarea>
-                </div>
-                
-                <button type="submit">SEND MESSAGE</button>
-            </form>
-        </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span data-i18n="faq_q2">Oyun ilerlemem (yüksek skorlarım) kayboldu, nasıl geri alırım?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq_a2">
+              Misafir girişi yerine Google hesabınızla giriş yaparsanız, tüm yüksek skorlarınız ve oyun ilerlemeniz bulut sunucularımıza güvenle kaydedilir ve cihazınızı değiştirseniz bile asla kaybolmaz.
+            </div>
+          </div>
 
-        <div class="contact-info">
-            <p>Or write directly to <a href="mailto:support@yourcompany.com">support@yourcompany.com</a></p>
-            <p><a href="index.html" class="back-link">&larr; Back to Landing Page</a></p>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span data-i18n="faq_q3">Premium (Reklamsız) sürümü nasıl geri yüklerim?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq_a3">
+              Oyun menüsündeki "Satın Alımları Geri Yükle" (Restore Purchases) butonuna basarak Google Play üzerinden yapmış olduğunuz önceki Premium / reklamsız satın alma işleminizi anında cihazınıza geri yükleyebilirsiniz.
+            </div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span data-i18n="faq_q4">Farklı oyun tahtası boyutları (3x3 - 6x6) nasıl açılır?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq_a4">
+              Ana menüdeki tahta boyutu seçicisinden 3x3'ten 6x6'ya kadar farklı zorluk seviyelerini seçebilirsiniz. Her boyutun kendine ait ayrı bir en yüksek skoru kaydedilir.
+            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section>
+        <h2 data-i18n="sec_contact_title">Bize Mesaj Gönder / Contact Us</h2>
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="name" data-i18n="label_name">Adınız / Your Name</label>
+            <input type="text" id="name" class="form-control" data-i18n-placeholder="placeholder_name" placeholder="Adınız / Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email" data-i18n="label_email">E-posta Adresiniz / Your Email</label>
+            <input type="email" id="email" class="form-control" data-i18n-placeholder="placeholder_email" placeholder="Örn: oyuncu@gmail.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message" data-i18n="label_message">Sorununuz veya Talebiniz / Message</label>
+            <textarea id="message" class="form-control" data-i18n-placeholder="placeholder_message" placeholder="Lütfen detaylıca açıklayınız..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <span data-i18n="btn_submit">Gönder / Send Message</span>
+          </button>
+        </form>
+      </section>
     </main>
+
+    <footer>
+      <p data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleFaq(element) {
+      const isActive = element.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      if (!isActive) {
+        element.classList.add('active');
+      }
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent(`2048 Destek - ${name}`);
+      const body = encodeURIComponent(`Adı: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+
+      window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    window.PAGE_TRANSLATIONS = {
+      "page_title": {
+        "tr": "Destek & Yardım (Support & Help) – 2048",
+        "en": "Support & Help – 2048",
+        "de": "Support & Hilfe – 2048",
+        "zh": "支持与帮助 – 2048",
+        "hi": "सहायता और मदद – 2048",
+        "es": "Soporte y Ayuda – 2048",
+        "fr": "Support & Aide – 2048",
+        "ar": "الدعم والمساعدة – 2048",
+        "pt": "Suporte & Ajuda – 2048",
+        "ru": "Поддержка и помощь – 2048"
+      },
+      "back_btn": {
+        "tr": "← Oyuna Dön / Back to Game",
+        "en": "← Back to Game",
+        "de": "← Zurück zum Spiel",
+        "zh": "← 返回游戏",
+        "hi": "← खेल पर वापस जाएं",
+        "es": "← Volver al Juego",
+        "fr": "← Retour au Jeu",
+        "ar": "← العودة إلى اللعبة",
+        "pt": "← Voltar ao Jogo",
+        "ru": "← Назад к игре"
+      },
+      "h1": {
+        "tr": "Destek & Yardım",
+        "en": "Support & Help",
+        "de": "Support & Hilfe",
+        "zh": "支持与帮助",
+        "hi": "सहायता और मदद",
+        "es": "Soporte y Ayuda",
+        "fr": "Support & Aide",
+        "ar": "الدعم والمساعدة",
+        "pt": "Suporte & Ajuda",
+        "ru": "Поддержка и помощь"
+      },
+      "subtitle": {
+        "tr": "Support & FAQ – 2048",
+        "en": "Support & FAQ – 2048",
+        "de": "Support & FAQ – 2048",
+        "zh": "支持与常见问题解答 – 2048",
+        "hi": "सहायता और सामान्य प्रश्न – 2048",
+        "es": "Soporte y Preguntas Frecuentes – 2048",
+        "fr": "Support & FAQ – 2048",
+        "ar": "الدعم والأسئلة الشائعة – 2048",
+        "pt": "Suporte & FAQ – 2048",
+        "ru": "Поддержка и ответы на вопросы – 2048"
+      },
+      "sec_faq_title": {
+        "tr": "Sıkça Sorulan Sorular / FAQ",
+        "en": "Frequently Asked Questions / FAQ",
+        "de": "Häufig gestellte Fragen / FAQ",
+        "zh": "常见问题解答 / FAQ",
+        "hi": "अक्सर पूछे जाने वाले प्रश्न / FAQ",
+        "es": "Preguntas Frecuentes / FAQ",
+        "fr": "Foire Aux Questions / FAQ",
+        "ar": "الأسئلة الشائعة / FAQ",
+        "pt": "Perguntas Frequentes / FAQ",
+        "ru": "Часто задаваемые вопросы / FAQ"
+      },
+      "faq_q1": {
+        "tr": "Google ile giriş yaparken neden yüklenme ekranında kalıyor?",
+        "en": "Why does it get stuck on the loading screen when signing in with Google?",
+        "de": "Warum bleibt es beim Anmelden mit Google auf dem Ladebildschirm hängen?",
+        "zh": "使用 Google 登录时，为什么会卡在加载屏幕上？",
+        "hi": "Google के साथ साइन इन करते समय यह लोडिंग स्क्रीन पर क्यों अटक जाता है?",
+        "es": "¿Por qué se queda atascado en la pantalla de carga al iniciar sesión con Google?",
+        "fr": "Pourquoi reste-t-il bloqué sur l'écran de chargement lors de la connexion avec Google ?",
+        "ar": "لماذا يعلق التطبيق في شاشة التحميل عند تسجيل الدخول باستخدام Google؟",
+        "pt": "Por que fica travado na tela de carregamento ao fazer login com Google?",
+        "ru": "Почему игра зависает на экране загрузки при входе через Google?"
+      },
+      "faq_a1": {
+        "tr": "Cihazınızda aktif bir ağ bağlantısı veya Google oturumu yoksa kilitlenme yaşanabilir. Uygulamamızda artık 15 saniyelik otomatik zaman aşımı güvenliği bulunmakta olup yüklenme göstergesi sonsuza kadar dönmeyecektir. İnternet ve hesap durumunuzu kontrol edip tekrar deneyiniz.",
+        "en": "If your device does not have an active network connection or Google account session, it may freeze. Our application now features a strict 15-second automatic timeout security, so the loading spinner will never rotate forever. Please check your internet and account status and try again.",
+        "de": "Wenn Ihr Gerät keine aktive Netzwerkverbindung oder Google-Kontositzung hat, kann es einfrieren. Unsere Anwendung verfügt nun über eine strikte automatische 15-Sekunden-Timeout-Sicherheit, sodass sich der Ladeindikator niemals unendlich dreht. Bitte überprüfen Sie Ihren Internet- und Kontostatus und versuchen Sie es erneut.",
+        "zh": "如果您的设备没有活跃的网络连接或 Google 帐户会话，可能会导致冻结。我们的应用程序现在具有严格的 15 秒自动超时安全保护，因此加载圈绝不会永远旋转。请检查您的互联网和帐户状态并重试。",
+        "hi": "यदि आपके डिवाइस में सक्रिय नेटवर्क कनेक्शन या Google खाता सत्र नहीं है, तो यह फ्रीज हो सकता है। हमारे एप्लिकेशन में अब एक सख्त 15-सेकंड की स्वचालित टाइमआउट सुरक्षा है, इसलिए लोडिंग स्पिनर कभी भी हमेशा के लिए नहीं घूमेगा। कृपया अपने इंटरनेट और खाते की स्थिति की जांच करें और पुनः प्रयास करें।",
+        "es": "Si su dispositivo no tiene una conexión de red activa o una sesión de cuenta de Google, puede congelarse. Nuestra aplicación ahora cuenta con una seguridad de tiempo de espera automático estricto de 15 segundos, por lo que el indicador de carga nunca girará indefinidamente. Verifique el estado de su internet y cuenta e inténtelo de nuevo.",
+        "fr": "Si votre appareil ne dispose pas d'une connexion réseau active ou d'une session de compte Google, il peut se figer. Notre application dispose désormais d'une sécurité stricte de temporisation automatique de 15 secondes, de sorte que l'indicateur de chargement ne tournera jamais indéfiniment. Veuillez vérifier l'état de votre connexion Internet et de votre compte et réessayer.",
+        "ar": "إذا لم يكن جهازك متصلاً بشبكة نشطة أو لم تكن مسجلاً الدخول إلى Google، فقد يتوقف التطبيق عن الاستجابة. يتضمن تطبيقنا الآن نظام أمان تلقائي للمهلة مدته 15 ثانية، لذا لن يدور مؤشر التحميل إلى الأبد. يرجى التحقق من اتصالك بالإنترنت وحالة حسابك وإعادة المحاولة.",
+        "pt": "Se o seu dispositivo não tiver uma conexão de rede ativa ou sessão de conta Google, ele poderá travar. Nosso aplicativo agora possui uma segurança rígida de limite de tempo automático de 15 segundos, para que o indicador de carregamento nunca gire indefinidamente. Verifique o status da internet e da conta e tente novamente.",
+        "ru": "Если на вашем устройстве нет активного подключения к сети или сессии учетной записи Google, оно может зависнуть. В нашем приложении теперь реализована строгая функция автоматического тайм-аута в 15 секунд, поэтому индикатор загрузки никогда не будет вращаться бесконечно. Пожалуйста, проверьте подключение к Интернету и состояние учетной записи и попробуйте еще раз."
+      },
+      "faq_q2": {
+        "tr": "Oyun ilerlemem (yüksek skorlarım) kayboldu, nasıl geri alırım?",
+        "en": "My game progress (high scores) is lost, how do I restore it?",
+        "de": "Mein Spielfortschritt (Highscores) ist verloren, wie kann ich ihn wiederherstellen?",
+        "zh": "我的游戏进度（最高分）丢失了，该如何恢复？",
+        "hi": "मेरी गेम की प्रगति (उच्च स्कोर) खो गई है, मैं इसे कैसे बहाल करूं?",
+        "es": "Mi progreso del juego (puntuaciones altas) se ha perdido, ¿cómo lo restauro?",
+        "fr": "Ma progression dans le jeu (meilleurs scores) est perdue, comment la restaurer ?",
+        "ar": "لقد فقدت تقدمي في اللعبة (النتائج العالية)، كيف يمكنني استعادته؟",
+        "pt": "Meu progresso no jogo (recordes) foi perdido, como faço para restaurá-lo?",
+        "ru": "Мой прогресс в игре (рекорды) потерян, как его восстановить?"
+      },
+      "faq_a2": {
+        "tr": "Misafir girişi yerine Google hesabınızla giriş yaparsanız, tüm yüksek skorlarınız ve oyun ilerlemeniz bulut sunucularımıza güvenle kaydedilir ve cihazınızı değiştirseniz bile asla kaybolmaz.",
+        "en": "If you sign in with your Google account instead of a guest login, all your high scores and game progress will be securely saved on our cloud servers and will never be lost even if you change your device.",
+        "de": "Wenn Sie sich mit Ihrem Google-Konto anstelle eines Gast-Logins anmelden, werden alle Ihre Highscores und Ihr Spielfortschritt sicher auf unseren Cloud-Servern gespeichert und gehen niemals verloren, selbst wenn Sie Ihr Gerät wechseln.",
+        "zh": "如果您使用 Google 帐户而不是访客登录，您的所有最高分和游戏进度都将安全地保存在我们的云服务器上，即使您更换设备也绝不会丢失。",
+        "hi": "यदि आप अतिथि लॉगिन के बजाय अपने Google खाते से साइन इन करते हैं, तो आपके सभी उच्च स्कोर और गेम की प्रगति हमारे क्लाउड सर्वर पर सुरक्षित रूप से सहेजी जाएगी और डिवाइस बदलने पर भी कभी नहीं खोएगी।",
+        "es": "Si inicia sesión con su cuenta de Google en lugar de un inicio de sesión de invitado, todas sus puntuaciones altas y el progreso del juego se guardarán de forma segura en nuestros servidores en la nube y nunca se perderán, incluso si cambia de dispositivo.",
+        "fr": "Si vous vous connectez avec votre compte Google au lieu d'une connexion invité, tous vos meilleurs scores et votre progression seront enregistrés en toute sécurité sur nos serveurs cloud et ne seront jamais perdus, même si vous changez d'appareil.",
+        "ar": "إذا قمت بتسجيل الدخول باستخدام حساب Google الخاص بك بدلاً من تسجيل دخول الضيف، فسيتم حفظ جميع نتائجك العالية وتقدمك في اللعبة بأمان على خوادمنا السحابية ولن تفقدها أبداً حتى لو قمت بتغيير جهازك.",
+        "pt": "Se você fizer login com sua conta do Google em vez de um login de convidado, todos os seus recordes e progresso do jogo serão salvos com segurança em nossos servidores de nuvem e nunca serão perdidos, mesmo que você troque de dispositivo.",
+        "ru": "Если вы войдете под своей учетной записью Google вместо гостевого входа, все ваши рекорды и игровой прогресс будут надежно сохранены на наших облачных серверах и никогда не потеряются, даже если вы смените устройство."
+      },
+      "faq_q3": {
+        "tr": "Premium (Reklamsız) sürümü nasıl geri yüklerim?",
+        "en": "How do I restore the Premium (Ad-Free) version?",
+        "de": "Wie stelle ich die Premium-Version (werbefrei) wieder her?",
+        "zh": "如何恢复高级版（无广告）？",
+        "hi": "मैं प्रीमियम (विज्ञापन-मुक्त) संस्करण को कैसे बहाल करूं?",
+        "es": "¿Cómo restauro la versión Premium (sin anuncios)?",
+        "fr": "Comment restaurer la version Premium (sans publicité) ?",
+        "ar": "كيف يمكنني استعادة الإصدار المميز (الخالي من الإعلانات)؟",
+        "pt": "Como faço para restaurar a versão Premium (sem anúncios)?",
+        "ru": "Как восстановить версию Premium (без рекламы)?"
+      },
+      "faq_a3": {
+        "tr": "Oyun menüsündeki \"Satın Alımları Geri Yükle\" (Restore Purchases) butonuna basarak Google Play üzerinden yapmış olduğunuz önceki Premium / reklamsız satın alma işleminizi anında cihazınıza geri yükleyebilirsiniz.",
+        "en": "By pressing the \"Restore Purchases\" button in the game menu, you can instantly restore your previous Premium / ad-free purchase made via Google Play to your device.",
+        "de": "Durch Drücken der Taste \"Käufe wiederherstellen\" im Spielmenü können Sie Ihren zuvor über Google Play getätigten Premium-/werbefreien Kauf sofort auf Ihrem Gerät wiederherstellen.",
+        "zh": "通过点击游戏菜单中的“恢复购买”按钮，您可以立即将先前通过 Google Play 进行的高级版/无广告购买恢复到您的设备中。",
+        "hi": "गेम मेनू में \"Restore Purchases\" बटन दबाकर, आप Google Play के माध्यम से किए गए अपने पिछले प्रीमियम / विज्ञापन-मुक्त खरीद को तुरंत अपने डिवाइस पर बहाल कर सकते हैं।",
+        "es": "Al presionar el botón \"Restaurar Compras\" en el menú del juego, puede restaurar instantáneamente en su dispositivo su compra Premium / sin anuncios anterior realizada a través de Google Play.",
+        "fr": "En appuyant sur le bouton \"Restaurer les Achats\" dans le menu du jeu, vous pouvez restaurer instantanément sur votre appareil votre achat Premium / sans publicité précédent effectué via Google Play.",
+        "ar": "من خلال الضغط على زر \"استعادة المشتريات\" في قائمة اللعبة، يمكنك على الفور استعادة عملية الشراء المميزة / الخالية من الإعلانات السابقة التي تمت عبر Google Play إلى جهازك.",
+        "pt": "Ao pressionar o botão \"Restaurar Compras\" no menu do jogo, você pode restaurar instantaneamente em seu dispositivo sua compra Premium / sem anúncios anterior feita via Google Play.",
+        "ru": "Нажав кнопку «Восстановить покупки» в меню игры, вы можете мгновенно восстановить на своем устройстве ранее совершенную покупку Premium / без рекламы через Google Play."
+      },
+      "faq_q4": {
+        "tr": "Farklı oyun tahtası boyutları (3x3 - 6x6) nasıl açılır?",
+        "en": "How do I unlock different board sizes (3x3 - 6x6)?",
+        "de": "Wie schalte ich verschiedene Spielfeldgrößen (3x3 - 6x6) frei?",
+        "zh": "如何解锁不同的棋盘尺寸（3x3 - 6x6）？",
+        "hi": "मैं विभिन्न बोर्ड आकार (3x3 - 6x6) कैसे अनलॉक करूं?",
+        "es": "¿Cómo desbloqueo los diferentes tamaños de tablero (3x3 - 6x6)?",
+        "fr": "Comment débloquer les différentes tailles de plateau (3x3 - 6x6) ?",
+        "ar": "كيف يمكنني فتح أحجام اللوحات المختلفة (3x3 - 6x6)؟",
+        "pt": "Como desbloqueio os diferentes tamanhos de tabuleiro (3x3 - 6x6)?",
+        "ru": "Как открыть разные размеры поля (3x3 - 6x6)?"
+      },
+      "faq_a4": {
+        "tr": "Ana menüdeki tahta boyutu seçicisinden 3x3'ten 6x6'ya kadar farklı zorluk seviyelerini seçebilirsiniz. Her boyutun kendine ait ayrı bir en yüksek skoru kaydedilir.",
+        "en": "You can select different difficulty levels from 3x3 to 6x6 using the board size selector in the main menu. Each size keeps its own separate high score.",
+        "de": "Über die Spielfeldgrößenauswahl im Hauptmenü können Sie verschiedene Schwierigkeitsgrade von 3x3 bis 6x6 auswählen. Für jede Größe wird ein eigener separater Highscore gespeichert.",
+        "zh": "您可以使用主菜单中的棋盘尺寸选择器选择从 3x3 到 6x6 的不同难度级别。每个尺寸都会保存自己单独的最高分。",
+        "hi": "आप मुख्य मेनू में बोर्ड आकार चयनकर्ता का उपयोग करके 3x3 से 6x6 तक के विभिन्न कठिनाई स्तरों का चयन कर सकते हैं। प्रत्येक आकार का अपना अलग उच्च स्कोर सहेजा जाता है।",
+        "es": "Puede seleccionar diferentes niveles de dificultad de 3x3 a 6x6 mediante el selector de tamaño de tablero en el menú principal. Cada tamaño guarda su propia puntuación máxima por separado.",
+        "fr": "Vous pouvez sélectionner différents niveaux de difficulté de 3x3 à 6x6 à l'aide du sélecteur de taille de plateau dans le menu principal. Chaque taille conserve son propre meilleur score séparé.",
+        "ar": "يمكنك تحديد مستويات صعوبة مختلفة من 3x3 إلى 6x6 باستخدام محدد حجم اللوحة في القائمة الرئيسية. يحتفظ كل حجم بأعلى نتيجة خاصة به بشكل منفصل.",
+        "pt": "Você pode selecionar diferentes níveis de dificuldade de 3x3 a 6x6 usando o seletor de tamanho de tabuleiro no menu principal. Cada tamanho mantém seu próprio recorde separado.",
+        "ru": "Вы можете выбрать разные уровни сложности от 3x3 до 6x6 с помощью селектора размера поля в главном меню. Для каждого размера сохраняется отдельный рекорд."
+      },
+      "sec_contact_title": {
+        "tr": "Bize Mesaj Gönder / Contact Us",
+        "en": "Send Us a Message / Contact Us",
+        "de": "Senden Sie uns eine Nachricht / Kontaktieren Sie uns",
+        "zh": "给我们留言 / 联系我们",
+        "hi": "हमें संदेश भेजें / हमसे संपर्क करें",
+        "es": "Envíenos un Mensaje / Contáctenos",
+        "fr": "Envoyez-nous un Message / Contactez-nous",
+        "ar": "أرسل لنا رسالة / اتصل بنا",
+        "pt": "Envie-nos uma Mensagem / Fale Conosco",
+        "ru": "Отправьте нам сообщение / Связаться с нами"
+      },
+      "label_name": {
+        "tr": "Adınız / Your Name",
+        "en": "Your Name",
+        "de": "Ihr Name",
+        "zh": "您的姓名",
+        "hi": "आपका नाम",
+        "es": "Su Nombre",
+        "fr": "Votre Nom",
+        "ar": "اسمك",
+        "pt": "Seu Nome",
+        "ru": "Ваше имя"
+      },
+      "placeholder_name": {
+        "tr": "Adınız / Name",
+        "en": "Enter your name",
+        "de": "Geben Sie Ihren Namen ein",
+        "zh": "输入您的姓名",
+        "hi": "अपना नाम दर्ज करें",
+        "es": "Escriba su nombre",
+        "fr": "Entrez votre nom",
+        "ar": "أدخل اسمك",
+        "pt": "Digite seu nome",
+        "ru": "Введите ваше имя"
+      },
+      "label_email": {
+        "tr": "E-posta Adresiniz / Your Email",
+        "en": "Your Email Address",
+        "de": "Ihre E-Mail-Adresse",
+        "zh": "您的电子邮件",
+        "hi": "आपका ईमेल पता",
+        "es": "Su Correo Electrónico",
+        "fr": "Votre Adresse E-mail",
+        "ar": "البريد الإلكتروني الخاص بك",
+        "pt": "Seu Endereço de E-mail",
+        "ru": "Ваш адрес электронной почты"
+      },
+      "placeholder_email": {
+        "tr": "Örn: oyuncu@gmail.com",
+        "en": "e.g. player@gmail.com",
+        "de": "z.B. spieler@gmail.com",
+        "zh": "例如：player@gmail.com",
+        "hi": "जैसे: player@gmail.com",
+        "es": "Ej: jugador@gmail.com",
+        "fr": "Ex : joueur@gmail.com",
+        "ar": "مثال: player@gmail.com",
+        "pt": "Ex: jogador@gmail.com",
+        "ru": "Например: player@gmail.com"
+      },
+      "label_message": {
+        "tr": "Sorununuz veya Talebiniz / Message",
+        "en": "Your Issue or Request / Message",
+        "de": "Ihr Problem oder Ihre Anfrage / Nachricht",
+        "zh": "您的问题或请求 / 留言",
+        "hi": "आपकी समस्या या अनुरोध / संदेश",
+        "es": "Su Problema o Solicitud / Mensaje",
+        "fr": "Votre Problème ou Demande / Message",
+        "ar": "المشكلة أو الطلب الخاص بك / نص الرسالة",
+        "pt": "Seu Problema ou Solicitação / Mensagem",
+        "ru": "Ваша проблема или запрос / Сообщение"
+      },
+      "placeholder_message": {
+        "tr": "Lütfen detaylıca açıklayınız...",
+        "en": "Please explain in detail...",
+        "de": "Bitte erklären Sie im Detail...",
+        "zh": "请详细说明...",
+        "hi": "कृपया विस्तार से बताएं...",
+        "es": "Por favor, explique en detalle...",
+        "fr": "Veuillez expliquer en détail...",
+        "ar": "يرجى التوضيح بالتفصيل...",
+        "pt": "Por favor, explique detalhadamente...",
+        "ru": "Пожалуйста, опишите подробно..."
+      },
+      "btn_submit": {
+        "tr": "Gönder / Send Message",
+        "en": "Send",
+        "de": "Absenden",
+        "zh": "发送",
+        "hi": "भेजें",
+        "es": "Enviar",
+        "fr": "Envoyer",
+        "ar": "إرسال",
+        "pt": "Enviar",
+        "ru": "Отправить"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
+        "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.",
+        "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+        "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+        "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+        "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+        "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+        "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+        "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+        "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
 </body>
 </html>
