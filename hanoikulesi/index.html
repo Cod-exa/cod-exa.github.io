@@ -330,10 +330,11 @@
                     Seviyeleri geçerek mistik altınlar toplayın ve tapınak rütbelerini kazanın.
                 </p>
 
-                <!-- Coming Soon Banner (No placeholders!) -->
-                <div class="coming-soon-banner" data-i18n="coming_soon">
-                    ✨ Yakında App Store ve Google Play Store'da! / Coming Soon to App Store & Google Play!
-                </div>
+                <!-- Google Play Link -->
+                <a href="https://play.google.com/store/apps/details?id=com.mathquest.hanokulesi" target="_blank" class="coming-soon-banner" style="display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; cursor: pointer; background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.4); color: #4ADE80;" data-i18n="download_play_store">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
+                    Google Play'den İndirin
+                </a>
                 
                 <!-- Compliant Legal & Support Links -->
                 <div class="legal-chips">
@@ -369,7 +370,7 @@
                 </li>
                 <li class="feature-item">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span data-i18n="feat_4"><strong>Güvenli Bulut Kaydı:</strong> Apple & Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.</span>
+                    <span data-i18n="feat_4"><strong>Güvenli Bulut Kaydı:</strong> Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.</span>
                 </li>
             </ul>
         </section>
@@ -383,6 +384,18 @@
     <script>
         // Local Translations Dictionary
         window.PAGE_TRANSLATIONS = {
+            "download_play_store": {
+                "tr": "Google Play'den İndirin",
+                "en": "Get it on Google Play",
+                "de": "Bei Google Play laden",
+                "zh": "在 Google Play 下载",
+                "hi": "गूगल प्ले से डाउनलोड करें",
+                "es": "Disponible en Google Play",
+                "fr": "Disponible sur Google Play",
+                "ar": "تنزيل من Google Play",
+                "pt": "Disponível no Google Play",
+                "ru": "Скачать в Google Play"
+            },
             "page_title": {
                 "tr": "Hanoi Kulesi: Zeka Oyunu – CodExa",
                 "en": "Hanoi Tower: Brain Game – CodExa",
@@ -564,16 +577,16 @@
                 "ru": "<strong>Статистика и счетчик ходов:</strong> Решайте за минимальное число ходов, получайте золотые медали и мистические ранги."
             },
             "feat_4": {
-                "tr": "<strong>Güvenli Bulut Kaydı:</strong> Apple & Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.",
-                "en": "<strong>Secure Cloud Save:</strong> Never lose your progress thanks to Apple & Google Sign-In.",
-                "de": "<strong>Sichere Cloud-Speicherung:</strong> Verlieren Sie dank Apple- & Google-Anmeldung nie Ihren Fortschritt.",
-                "zh": "<strong>安全云端存档：</strong> 得益于 Apple 和 Google 登录，您的进度永不丢失。",
-                "hi": "<strong>सुरक्षित क्लाउड सेव:</strong> Apple और Google साइन-ин की मदद से अपनी प्रगति कभी न खोएं।",
-                "es": "<strong>Guardado Seguro en la Nube:</strong> No pierdas nunca tu progreso gracias al inicio de sesión con Apple y Google.",
-                "fr": "<strong>Sauvegarde Cloud Sécurisée :</strong> Ne perdez jamais votre progression grâce à la connexion Apple & Google.",
-                "ar": "<strong>حفظ سحابي آمن:</strong> لا تفقد تقدمك أبداً بفضل تسجيل الدخول بواسطة Apple و Google.",
-                "pt": "<strong>Salvamento Seguro em Nuvem:</strong> Nunca perca seu progresso graças ao login com Apple e Google.",
-                "ru": "<strong>Безопасное облачное сохранение:</strong> Никогда не теряйте прогресс благодаря авторизации через Apple и Google."
+                "tr": "<strong>Güvenli Bulut Kaydı:</strong> Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.",
+                "en": "<strong>Secure Cloud Save:</strong> Never lose your progress thanks to Google Sign-In.",
+                "de": "<strong>Sichere Cloud-Speicherung:</strong> Verlieren Sie dank Google-Anmeldung nie Ihren Fortschritt.",
+                "zh": "<strong>安全云端存档：</strong> 得益于 Google 登录，您的进度永不丢失。",
+                "hi": "<strong>सुरक्षित क्लाउड सेव:</strong> Google साइन-इन की मदद से अपनी प्रगति कभी न खोएं।",
+                "es": "<strong>Guardado Seguro en la Nube:</strong> No pierdas nunca tu progreso gracias al inicio de sesión con Google.",
+                "fr": "<strong>Sauvegarde Cloud Sécurisée :</strong> Ne perdez jamais votre progression grâce à la connexion Google.",
+                "ar": "<strong>حفظ سحابي آمن:</strong> لا تفقد تقدمك أبداً بفضل تسجيل الدخول بواسطة Google.",
+                "pt": "<strong>Salvamento Seguro em Nuvem:</strong> Nunca perca seu progresso graças ao login com Google.",
+                "ru": "<strong>Безопасное облачное сохранение:</strong> Никогда не теряйте прогресс благодаря авторизации через Google."
             },
             "footer_text": {
                 "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.",
