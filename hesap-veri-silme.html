@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hesap ve Veri Silme (Account & Data Deletion) – CodExa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+
+    :root {
+      --gold: #D4A017;
+      --gold-light: #F0C040;
+      --dark: #0e0c09;
+      --dark2: #1a1712;
+      --dark3: #242018;
+      --text: #d6cdb8;
+      --text-muted: #8a8070;
+      --border: rgba(212,160,23,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212,160,23,0.08) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(212,160,23,0.02) 40px,
+          rgba(212,160,23,0.02) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1c1a12 0%, #2e2810 100%);
+      border: 1px solid rgba(212,160,23,0.3);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(212,160,23,0.1), inset 0 1px 0 rgba(212,160,23,0.1);
+    }
+
+    .logo-wrap svg { width: 40px; height: 40px; }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 18px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: rgba(212,160,23,0.04);
+      letter-spacing: 0.06em;
+    }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    .lang-note {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    ul, ol {
+      margin: 0 0 24px 24px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    .apps-list {
+      list-style: none;
+      margin-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .apps-list li {
+      margin: 0;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 15px;
+      background: rgba(212,160,23,0.04);
+    }
+
+    a {
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(240, 192, 64, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    strong { color: #efe6cf; }
+
+    .highlight-box {
+      background: rgba(212,160,23,0.06);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--gold-light);
+      transform: translateX(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      ← Ana Sayfa / Home
+    </a>
+
+    <header>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="11" y="2" width="2" height="20" rx="1" fill="#D4AF37"/>
+          <rect x="5" y="16" width="14" height="2" rx="1" fill="#D4AF37" opacity="0.6"/>
+          <rect x="3" y="19" width="18" height="2" rx="1" fill="#D4AF37"/>
+          <ellipse cx="12" cy="11" rx="4" ry="1.5" fill="#D4AF37"/>
+          <ellipse cx="12" cy="14" rx="6" ry="2" fill="#D4AF37" opacity="0.8"/>
+        </svg>
+      </div>
+      <h1>Hesap ve Veri Silme</h1>
+      <div class="subtitle">Account &amp; Data Deletion – CodExa</div>
+      <div class="updated">Son Güncelleme / Last Updated: 19 Haziran 2026</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Kapsam / Scope</h2>
+        <p>
+          Bu sayfa, <strong>CodExa</strong> (Erdinç TOPAL) tarafından geliştirilen ve Google Play'de yayınlanan aşağıdaki uygulamalar için hesap ve veri silme taleplerini kapsar:
+        </p>
+        <ul class="apps-list">
+          <li>Hanoi Kulesi</li>
+          <li>At Satrancı</li>
+          <li>KenKen</li>
+          <li>Nim Master</li>
+          <li>Çarpma Oyunu</li>
+          <li>2048: Ultimate Edition</li>
+        </ul>
+        <p class="lang-note">
+          This page describes how to request deletion of your account and associated data for the mobile applications developed and published by <strong>CodExa</strong> (Erdinç TOPAL), listed above.
+        </p>
+      </section>
+
+      <section>
+        <h2>1. Hesabınızı Silme / Delete Your Account</h2>
+        <p>
+          Hesap oluşturmaya izin veren uygulamalarımızda (Google ile Giriş / E-posta Girişi), hesabınızı ve ilişkili tüm verilerinizi dilediğiniz zaman kalıcı olarak silebilirsiniz. İki yöntemden birini kullanabilirsiniz:
+        </p>
+        <p><strong>Yöntem A — Uygulama içinden (önerilen):</strong></p>
+        <ol>
+          <li>Uygulamayı açın ve <strong>Ayarlar (⚙️)</strong> menüsüne gidin.</li>
+          <li><strong>"Hesabımı Sil" (Delete My Account)</strong> seçeneğine dokunun.</li>
+          <li>Açılan onay penceresinde işlemi onaylayın. Hesabınız ve verileriniz silinir.</li>
+        </ol>
+        <p><strong>Yöntem B — E-posta ile:</strong></p>
+        <div class="highlight-box">
+          <strong>Hesap Silme Talebi</strong> konu başlığıyla <a href="mailto:exaque2@gmail.com?subject=Hesap%20Silme%20Talebi%20(Account%20Deletion%20Request)">exaque2@gmail.com</a> adresine e-posta gönderin. E-postanızda silinmesini istediğiniz <strong>uygulamanın adını</strong> ve hesabınızda kullandığınız <strong>e-posta adresini</strong> belirtin. Talebiniz kimlik doğrulamasının ardından işleme alınır.
+        </div>
+        <p class="lang-note">
+          <strong>English:</strong> To delete your account and all associated data, either use <em>Settings (⚙️) &rarr; "Delete My Account"</em> inside the app, or email <a href="mailto:exaque2@gmail.com?subject=Account%20Deletion%20Request">exaque2@gmail.com</a> with the subject "Account Deletion Request", stating the app name and the email address used for your account.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Hesabınızı Silmeden Veri Silme / Delete Data Without Deleting Account</h2>
+        <p>
+          Hesabınızı tamamen silmeden, verilerinizin bir kısmının veya tamamının (örneğin oyun ilerlemesi, istatistikler veya bulut kaydı) silinmesini de talep edebilirsiniz.
+        </p>
+        <div class="highlight-box">
+          <strong>Veri Silme Talebi</strong> konu başlığıyla <a href="mailto:exaque2@gmail.com?subject=Veri%20Silme%20Talebi%20(Data%20Deletion%20Request)">exaque2@gmail.com</a> adresine e-posta gönderin. E-postanızda <strong>uygulamanın adını</strong>, hesabınızda kullandığınız <strong>e-posta adresini</strong> ve <strong>silinmesini istediğiniz veri türünü</strong> belirtin.
+        </div>
+        <p class="lang-note">
+          <strong>English:</strong> To delete some or all of your data without deleting your account, email <a href="mailto:exaque2@gmail.com?subject=Data%20Deletion%20Request">exaque2@gmail.com</a> with the subject "Data Deletion Request", stating the app name, the email used for your account, and which data you want removed.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Silinen ve Saklanan Veriler / Deleted &amp; Retained Data</h2>
+        <p>
+          <strong>Silinen veriler:</strong> Hesap kimliğiniz, e-posta adresiniz, oyun ilerlemeniz, istatistikleriniz (galibiyet/mağlubiyet, skorlar), kazandığınız sanal jetonlar ile başarımlarınız ve bulut (Cloud Firestore) kayıtlarınız. Bu veriler, talebiniz alındıktan sonra <strong>en geç 30 gün içinde</strong> sunucularımızdan kalıcı olarak silinir.
+        </p>
+        <p>
+          <strong>Saklanan veriler:</strong> Satın alma / fatura kayıtları, yalnızca yasal ve vergisel yükümlülükler gereği zorunlu tutulan süre boyunca saklanır; bu sürenin sonunda silinir. Bu işlemler doğrudan Google Play altyapısı üzerinden yürütülür ve ödeme kartı bilgilerinize erişimimiz yoktur. Ayrıca kişisel kimlik içermeyen, anonimleştirilmiş veya toplu (agregat) analitik veriler saklanmaya devam edebilir.
+        </p>
+        <p class="lang-note">
+          <strong>English:</strong> Deleted data includes your account ID, email, game progress, statistics, virtual coins, achievements, and cloud (Cloud Firestore) records — permanently removed from our servers <strong>within 30 days</strong> of your request. Retained data: purchase/billing records are kept only for the period required by legal and tax obligations and then deleted; anonymized or aggregated analytics that contain no personal identifiers may be retained.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. İletişim / Contact</h2>
+        <p>
+          Silme talepleriniz veya sorularınız için: <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır / All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

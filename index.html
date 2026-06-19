@@ -434,6 +434,23 @@
             color: var(--text-muted);
             font-size: 0.95rem;
         }
+        .footer-links {
+            margin-bottom: 14px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            border-bottom: 1px dashed transparent;
+        }
+        .footer-links a:hover {
+            color: #fff;
+            border-bottom-color: rgba(255, 255, 255, 0.4);
+        }
+        .footer-sep {
+            margin: 0 12px;
+            opacity: 0.5;
+        }
 
         /* Responsive Breakpoints */
         @media (max-width: 768px) {
@@ -734,6 +751,11 @@
 
     <!-- Main Footer -->
     <footer>
+        <p class="footer-links">
+            <a href="privacy_policy.html" data-i18n="footer_privacy">Gizlilik Politikası</a>
+            <span class="footer-sep">·</span>
+            <a href="hesap-veri-silme.html" data-i18n="footer_deletion">Hesap ve Veri Silme</a>
+        </p>
         <p data-i18n="footer_text">&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.</p>
     </footer>
 
@@ -1111,6 +1133,30 @@
                 "ar": "إرسال",
                 "pt": "Enviar",
                 "ru": "Отправить"
+            },
+            "footer_privacy": {
+                "tr": "Gizlilik Politikası",
+                "en": "Privacy Policy",
+                "de": "Datenschutzerklärung",
+                "zh": "隐私政策",
+                "hi": "गोपनीयता नीति",
+                "es": "Política de Privacidad",
+                "fr": "Politique de Confidentialité",
+                "ar": "سياسة الخصوصية",
+                "pt": "Política de Privacidade",
+                "ru": "Политика конфиденциальности"
+            },
+            "footer_deletion": {
+                "tr": "Hesap ve Veri Silme",
+                "en": "Account & Data Deletion",
+                "de": "Konto- & Datenlöschung",
+                "zh": "帐户和数据删除",
+                "hi": "खाता और डेटा हटाना",
+                "es": "Eliminación de Cuenta y Datos",
+                "fr": "Suppression de Compte et de Données",
+                "ar": "حذف الحساب والبيانات",
+                "pt": "Exclusão de Conta e Dados",
+                "ru": "Удаление аккаунта и данных"
             },
             "footer_text": {
                 "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır.",
