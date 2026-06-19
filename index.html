@@ -426,6 +426,119 @@
             box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
         }
 
+        /* Account & Data Deletion Section */
+        .deletion-section {
+            background-color: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .deletion-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-secondary), transparent);
+            opacity: 0.5;
+        }
+        .deletion-header { text-align: center; margin-bottom: 32px; }
+        .deletion-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            color: var(--text-heading);
+            margin-bottom: 10px;
+        }
+        .deletion-header p { color: var(--text-muted); max-width: 640px; margin: 0 auto; }
+        .deletion-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto 36px auto;
+        }
+        .deletion-item {
+            background-color: rgba(15, 23, 42, 0.45);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+        .deletion-item h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            color: var(--accent-secondary);
+            margin-bottom: 12px;
+        }
+        .deletion-item p, .deletion-item li { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
+        .deletion-item ul, .deletion-item ol { margin: 0; padding-left: 18px; }
+        .deletion-cta { text-align: center; }
+        .btn-deletion {
+            background: var(--gradient-primary);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 40px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-deletion:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4); }
+
+        /* Deletion Request Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 12, 24, 0.78);
+            backdrop-filter: blur(6px);
+            z-index: 10001;
+            padding: 24px;
+            overflow-y: auto;
+        }
+        .modal-overlay.active { display: flex; align-items: flex-start; justify-content: center; }
+        .modal {
+            background: #131c30;
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 560px;
+            margin: auto;
+            padding: 36px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+        .modal h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-heading);
+            margin-bottom: 6px;
+        }
+        .modal .modal-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+        .modal-close {
+            position: absolute;
+            top: 18px; right: 18px;
+            background: rgba(148,163,184,0.12);
+            border: none;
+            color: var(--text-body);
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .modal-close:hover { background: rgba(239, 68, 68, 0.25); color: #fff; }
+        .modal .form-group { margin-bottom: 18px; }
+        .modal label { display:block; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+        .modal .form-control { border-radius: 12px; }
+        select.form-control { appearance: none; cursor: pointer; }
+
         /* Footer */
         footer {
             text-align: center;
@@ -719,6 +832,34 @@
             </div>
         </section>
 
+        <!-- Account & Data Deletion -->
+        <section class="deletion-section" id="hesap-silme">
+            <div class="deletion-header">
+                <h2 data-i18n="del_title">Hesap ve Veri Silme</h2>
+                <p data-i18n="del_intro">CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.</p>
+            </div>
+            <div class="deletion-grid">
+                <div class="deletion-item">
+                    <h3 data-i18n="del_h_account">Hesabınızı Silme</h3>
+                    <p data-i18n="del_account">Uygulama içinde <strong>Ayarlar (⚙️) → "Hesabımı Sil"</strong> adımlarını izleyin veya aşağıdaki butondan talep gönderin. Hesabınız ve ilişkili tüm verileriniz silinir.</p>
+                </div>
+                <div class="deletion-item">
+                    <h3 data-i18n="del_h_data">Yalnızca Veri Silme</h3>
+                    <p data-i18n="del_data">Hesabınızı silmeden, yalnızca verilerinizin (oyun ilerlemesi, istatistikler, bulut kaydı) silinmesini de talep edebilirsiniz.</p>
+                </div>
+                <div class="deletion-item">
+                    <h3 data-i18n="del_h_retention">Silinen / Saklanan Veriler</h3>
+                    <p data-i18n="del_retention">Hesap, e-posta, ilerleme, istatistik ve bulut kayıtları en geç <strong>30 gün</strong> içinde kalıcı silinir. Satın alma/fatura kayıtları yalnızca yasal zorunluluk süresince saklanır.</p>
+                </div>
+            </div>
+            <div class="deletion-cta">
+                <button type="button" class="btn-deletion" onclick="openDeletionModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    <span data-i18n="del_btn">Silme Talebi Gönder</span>
+                </button>
+            </div>
+        </section>
+
         <!-- Direct Contact Form -->
         <section class="contact-section">
             <div class="contact-header">
@@ -749,12 +890,57 @@
         </section>
     </div>
 
+    <!-- Deletion Request Modal -->
+    <div class="modal-overlay" id="deletionModal" onclick="if(event.target===this)closeDeletionModal()">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="deletionModalTitle">
+            <button type="button" class="modal-close" onclick="closeDeletionModal()" aria-label="Kapat">&times;</button>
+            <h3 id="deletionModalTitle" data-i18n="del_modal_title">Silme Talebi</h3>
+            <p class="modal-sub" data-i18n="del_modal_sub">Formu doldurun; "Gönder"e bastığınızda talebiniz e-posta olarak bize iletilir.</p>
+            <form onsubmit="handleDeletionSubmit(event)">
+                <div class="form-group">
+                    <label for="del_name" data-i18n="label_name">Adınız / Name</label>
+                    <input type="text" id="del_name" class="form-control" data-i18n-placeholder="placeholder_name" placeholder="Adınız / Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="del_email" data-i18n="del_label_email">Hesabınızda kullandığınız e-posta</label>
+                    <input type="email" id="del_email" class="form-control" data-i18n-placeholder="placeholder_email" placeholder="ornek@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="del_app" data-i18n="del_label_app">Uygulama / App</label>
+                    <select id="del_app" class="form-control" required>
+                        <option value="Hanoi Kulesi">Hanoi Kulesi</option>
+                        <option value="At Satrancı">At Satrancı</option>
+                        <option value="KenKen">KenKen</option>
+                        <option value="Nim Master">Nim Master</option>
+                        <option value="Çarpma Oyunu">Çarpma Oyunu</option>
+                        <option value="2048: Ultimate Edition">2048: Ultimate Edition</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="del_type" data-i18n="del_label_type">Talep Türü / Request Type</label>
+                    <select id="del_type" class="form-control" required>
+                        <option value="account" data-i18n="del_type_account">Hesabımı ve tüm verilerimi sil</option>
+                        <option value="data" data-i18n="del_type_data">Yalnızca verilerimi sil (hesabı silme)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="del_message" data-i18n="del_label_msg">Eklemek istedikleriniz (isteğe bağlı)</label>
+                    <textarea id="del_message" class="form-control" style="min-height:90px" data-i18n-placeholder="del_ph_msg" placeholder="Detay ekleyebilirsiniz..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span data-i18n="del_modal_send">Gönder / Send</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Main Footer -->
     <footer>
         <p class="footer-links">
             <a href="privacy_policy.html" data-i18n="footer_privacy">Gizlilik Politikası</a>
             <span class="footer-sep">·</span>
-            <a href="hesap-veri-silme.html" data-i18n="footer_deletion">Hesap ve Veri Silme</a>
+            <a href="#hesap-silme" data-i18n="footer_deletion">Hesap ve Veri Silme</a>
         </p>
         <p data-i18n="footer_text">&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.</p>
     </footer>
@@ -772,8 +958,265 @@
             window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
         }
 
+        // Deletion request modal
+        function openDeletionModal() {
+            document.getElementById('deletionModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDeletionModal() {
+            document.getElementById('deletionModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeDeletionModal(); });
+
+        function handleDeletionSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('del_name').value;
+            const email = document.getElementById('del_email').value;
+            const app = document.getElementById('del_app').value;
+            const typeSel = document.getElementById('del_type');
+            const typeVal = typeSel.value;
+            const typeLabel = typeSel.options[typeSel.selectedIndex].text;
+            const message = document.getElementById('del_message').value;
+
+            const kind = typeVal === 'account' ? 'Hesap Silme (Account Deletion)' : 'Veri Silme (Data Deletion)';
+            const subject = encodeURIComponent(`${kind} Talebi - ${app} - ${name}`);
+            const body = encodeURIComponent(
+                `Talep Türü / Request: ${typeLabel}\nUygulama / App: ${app}\nAd / Name: ${name}\nHesap E-postası / Account Email: ${email}\n\nEk Not / Note:\n${message}`
+            );
+            window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
+        }
+
         // Local Translations Dictionary
         window.PAGE_TRANSLATIONS = {
+            "del_title": {
+                "tr": "Hesap ve Veri Silme",
+                "en": "Account & Data Deletion",
+                "de": "Konto- & Datenlöschung",
+                "zh": "帐户和数据删除",
+                "hi": "खाता और डेटा हटाना",
+                "es": "Eliminación de Cuenta y Datos",
+                "fr": "Suppression de Compte et de Données",
+                "ar": "حذف الحساب والبيانات",
+                "pt": "Exclusão de Conta e Dados",
+                "ru": "Удаление аккаунта и данных"
+            },
+            "del_intro": {
+                "tr": "CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.",
+                "en": "For the apps published by CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — you can delete your account and data at any time.",
+                "de": "Für die von CodExa (Erdinç TOPAL) veröffentlichten Apps (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) können Sie Ihr Konto und Ihre Daten jederzeit löschen.",
+                "zh": "对于 CodExa (Erdinç TOPAL) 发布的应用（Hanoi Kulesi、At Satrancı、KenKen、Nim Master、Çarpma Oyunu、2048），您可以随时删除您的帐户和数据。",
+                "hi": "CodExa (Erdinç TOPAL) द्वारा प्रकाशित ऐप्स (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) के लिए आप किसी भी समय अपना खाता और डेटा हटा सकते हैं।",
+                "es": "Para las aplicaciones publicadas por CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — puede eliminar su cuenta y sus datos en cualquier momento.",
+                "fr": "Pour les applications publiées par CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — vous pouvez supprimer votre compte et vos données à tout moment.",
+                "ar": "بالنسبة للتطبيقات التي تنشرها CodExa (Erdinç TOPAL) — Hanoi Kulesi، At Satrancı، KenKen، Nim Master، Çarpma Oyunu، 2048 — يمكنك حذف حسابك وبياناتك في أي وقت.",
+                "pt": "Para os aplicativos publicados pela CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — você pode excluir sua conta e seus dados a qualquer momento.",
+                "ru": "Для приложений, опубликованных CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — вы можете удалить свою учетную запись и данные в любое время."
+            },
+            "del_h_account": {
+                "tr": "Hesabınızı Silme",
+                "en": "Delete Your Account",
+                "de": "Konto löschen",
+                "zh": "删除您的帐户",
+                "hi": "अपना खाता हटाएं",
+                "es": "Eliminar su Cuenta",
+                "fr": "Supprimer votre Compte",
+                "ar": "حذف حسابك",
+                "pt": "Excluir sua Conta",
+                "ru": "Удалить аккаунт"
+            },
+            "del_account": {
+                "tr": "Uygulama içinde <strong>Ayarlar (⚙️) → \"Hesabımı Sil\"</strong> adımlarını izleyin veya aşağıdaki butondan talep gönderin. Hesabınız ve ilişkili tüm verileriniz silinir.",
+                "en": "In the app, follow <strong>Settings (⚙️) → \"Delete My Account\"</strong>, or send a request via the button below. Your account and all associated data are deleted.",
+                "de": "Folgen Sie in der App <strong>Einstellungen (⚙️) → \"Mein Konto löschen\"</strong> oder senden Sie eine Anfrage über die Schaltfläche unten. Ihr Konto und alle zugehörigen Daten werden gelöscht.",
+                "zh": "在应用中，依次点击 <strong>设置 (⚙️) → “删除我的帐户”</strong>，或通过下方按钮发送请求。您的帐户及所有相关数据将被删除。",
+                "hi": "ऐप में, <strong>सेटिंग्स (⚙️) → \"मेरा खाता हटाएं\"</strong> का पालन करें, या नीचे दिए गए बटन से अनुरोध भेजें। आपका खाता और सभी संबंधित डेटा हटा दिए जाते हैं।",
+                "es": "En la app, vaya a <strong>Configuración (⚙️) → \"Eliminar mi cuenta\"</strong>, o envíe una solicitud con el botón de abajo. Se eliminan su cuenta y todos los datos asociados.",
+                "fr": "Dans l'app, suivez <strong>Paramètres (⚙️) → \"Supprimer mon compte\"</strong>, ou envoyez une demande via le bouton ci-dessous. Votre compte et toutes les données associées sont supprimés.",
+                "ar": "في التطبيق، اتبع <strong>الإعدادات (⚙️) ← \"حذف حسابي\"</strong>، أو أرسل طلباً عبر الزر أدناه. يتم حذف حسابك وجميع البيانات المرتبطة به.",
+                "pt": "No app, siga <strong>Configurações (⚙️) → \"Excluir minha conta\"</strong>, ou envie uma solicitação pelo botão abaixo. Sua conta e todos os dados associados são excluídos.",
+                "ru": "В приложении выберите <strong>Настройки (⚙️) → «Удалить мой аккаунт»</strong> или отправьте запрос с помощью кнопки ниже. Ваш аккаунт и все связанные данные удаляются."
+            },
+            "del_h_data": {
+                "tr": "Yalnızca Veri Silme",
+                "en": "Delete Data Only",
+                "de": "Nur Daten löschen",
+                "zh": "仅删除数据",
+                "hi": "केवल डेटा हटाएं",
+                "es": "Eliminar Solo Datos",
+                "fr": "Supprimer les Données Uniquement",
+                "ar": "حذف البيانات فقط",
+                "pt": "Excluir Apenas Dados",
+                "ru": "Удалить только данные"
+            },
+            "del_data": {
+                "tr": "Hesabınızı silmeden, yalnızca verilerinizin (oyun ilerlemesi, istatistikler, bulut kaydı) silinmesini de talep edebilirsiniz.",
+                "en": "Without deleting your account, you can also request deletion of just your data (game progress, statistics, cloud save).",
+                "de": "Ohne Ihr Konto zu löschen, können Sie auch nur die Löschung Ihrer Daten (Spielfortschritt, Statistiken, Cloud-Speicher) anfordern.",
+                "zh": "您也可以在不删除帐户的情况下，仅请求删除您的数据（游戏进度、统计数据、云存档）。",
+                "hi": "अपना खाता हटाए बिना, आप केवल अपने डेटा (गेम प्रगति, आंकड़े, क्लाउड सेव) को हटाने का अनुरोध भी कर सकते हैं।",
+                "es": "Sin eliminar su cuenta, también puede solicitar la eliminación solo de sus datos (progreso del juego, estadísticas, guardado en la nube).",
+                "fr": "Sans supprimer votre compte, vous pouvez aussi demander la suppression de vos seules données (progression, statistiques, sauvegarde cloud).",
+                "ar": "دون حذف حسابك، يمكنك أيضاً طلب حذف بياناتك فقط (تقدم اللعبة، الإحصائيات، الحفظ السحابي).",
+                "pt": "Sem excluir sua conta, você também pode solicitar a exclusão apenas dos seus dados (progresso do jogo, estatísticas, salvamento na nuvem).",
+                "ru": "Не удаляя аккаунт, вы также можете запросить удаление только ваших данных (игровой прогресс, статистика, облачное сохранение)."
+            },
+            "del_h_retention": {
+                "tr": "Silinen / Saklanan Veriler",
+                "en": "Deleted / Retained Data",
+                "de": "Gelöschte / Aufbewahrte Daten",
+                "zh": "删除 / 保留的数据",
+                "hi": "हटाया गया / रखा गया डेटा",
+                "es": "Datos Eliminados / Conservados",
+                "fr": "Données Supprimées / Conservées",
+                "ar": "البيانات المحذوفة / المحتفظ بها",
+                "pt": "Dados Excluídos / Retidos",
+                "ru": "Удаляемые / Сохраняемые данные"
+            },
+            "del_retention": {
+                "tr": "Hesap, e-posta, ilerleme, istatistik ve bulut kayıtları en geç <strong>30 gün</strong> içinde kalıcı silinir. Satın alma/fatura kayıtları yalnızca yasal zorunluluk süresince saklanır.",
+                "en": "Account, email, progress, statistics and cloud records are permanently deleted within <strong>30 days</strong>. Purchase/billing records are kept only for the legally required period.",
+                "de": "Konto, E-Mail, Fortschritt, Statistiken und Cloud-Daten werden innerhalb von <strong>30 Tagen</strong> endgültig gelöscht. Kauf-/Rechnungsdaten werden nur für den gesetzlich vorgeschriebenen Zeitraum aufbewahrt.",
+                "zh": "帐户、电子邮件、进度、统计数据和云记录将在 <strong>30 天</strong>内永久删除。购买/账单记录仅在法律要求的期限内保留。",
+                "hi": "खाता, ईमेल, प्रगति, आंकड़े और क्लाउड रिकॉर्ड <strong>30 दिनों</strong> के भीतर स्थायी रूप से हटा दिए जाते हैं। खरीद/बिलिंग रिकॉर्ड केवल कानूनी रूप से आवश्यक अवधि तक रखे जाते हैं।",
+                "es": "La cuenta, el correo, el progreso, las estadísticas y los registros en la nube se eliminan permanentemente en <strong>30 días</strong>. Los registros de compra/facturación se conservan solo durante el período exigido por ley.",
+                "fr": "Compte, e-mail, progression, statistiques et données cloud sont définitivement supprimés sous <strong>30 jours</strong>. Les enregistrements d'achat/facturation ne sont conservés que pour la durée légale requise.",
+                "ar": "يتم حذف الحساب والبريد الإلكتروني والتقدم والإحصائيات والسجلات السحابية نهائياً خلال <strong>30 يوماً</strong>. تُحفظ سجلات الشراء/الفواتير فقط للمدة المطلوبة قانوناً.",
+                "pt": "Conta, e-mail, progresso, estatísticas e registros na nuvem são excluídos permanentemente em <strong>30 dias</strong>. Registros de compra/faturamento são mantidos apenas pelo período exigido por lei.",
+                "ru": "Аккаунт, e-mail, прогресс, статистика и облачные записи безвозвратно удаляются в течение <strong>30 дней</strong>. Записи о покупках/счетах хранятся только в течение установленного законом срока."
+            },
+            "del_btn": {
+                "tr": "Silme Talebi Gönder",
+                "en": "Send Deletion Request",
+                "de": "Löschanfrage senden",
+                "zh": "发送删除请求",
+                "hi": "हटाने का अनुरोध भेजें",
+                "es": "Enviar Solicitud de Eliminación",
+                "fr": "Envoyer une Demande de Suppression",
+                "ar": "إرسال طلب الحذف",
+                "pt": "Enviar Solicitação de Exclusão",
+                "ru": "Отправить запрос на удаление"
+            },
+            "del_modal_title": {
+                "tr": "Silme Talebi",
+                "en": "Deletion Request",
+                "de": "Löschanfrage",
+                "zh": "删除请求",
+                "hi": "हटाने का अनुरोध",
+                "es": "Solicitud de Eliminación",
+                "fr": "Demande de Suppression",
+                "ar": "طلب الحذف",
+                "pt": "Solicitação de Exclusão",
+                "ru": "Запрос на удаление"
+            },
+            "del_modal_sub": {
+                "tr": "Formu doldurun; \"Gönder\"e bastığınızda talebiniz e-posta olarak bize iletilir.",
+                "en": "Fill in the form; when you press \"Send\", your request is emailed to us.",
+                "de": "Füllen Sie das Formular aus; wenn Sie auf \"Senden\" klicken, wird Ihre Anfrage per E-Mail an uns gesendet.",
+                "zh": "填写表单；点击“发送”后，您的请求将通过电子邮件发送给我们。",
+                "hi": "फ़ॉर्म भरें; \"भेजें\" दबाने पर आपका अनुरोध हमें ईमेल द्वारा भेजा जाता है।",
+                "es": "Complete el formulario; al pulsar \"Enviar\", su solicitud se nos envía por correo electrónico.",
+                "fr": "Remplissez le formulaire ; en appuyant sur \"Envoyer\", votre demande nous est envoyée par e-mail.",
+                "ar": "املأ النموذج؛ عند الضغط على \"إرسال\"، يتم إرسال طلبك إلينا عبر البريد الإلكتروني.",
+                "pt": "Preencha o formulário; ao pressionar \"Enviar\", sua solicitação é enviada para nós por e-mail.",
+                "ru": "Заполните форму; при нажатии «Отправить» ваш запрос отправляется нам по электронной почте."
+            },
+            "del_label_email": {
+                "tr": "Hesabınızda kullandığınız e-posta",
+                "en": "The email used for your account",
+                "de": "Die für Ihr Konto verwendete E-Mail",
+                "zh": "您帐户使用的电子邮件",
+                "hi": "आपके खाते के लिए उपयोग किया गया ईमेल",
+                "es": "El correo usado en su cuenta",
+                "fr": "L'e-mail utilisé pour votre compte",
+                "ar": "البريد الإلكتروني المستخدم لحسابك",
+                "pt": "O e-mail usado na sua conta",
+                "ru": "E-mail, использованный для аккаунта"
+            },
+            "del_label_app": {
+                "tr": "Uygulama / App",
+                "en": "App",
+                "de": "App",
+                "zh": "应用",
+                "hi": "ऐप",
+                "es": "Aplicación",
+                "fr": "Application",
+                "ar": "التطبيق",
+                "pt": "Aplicativo",
+                "ru": "Приложение"
+            },
+            "del_label_type": {
+                "tr": "Talep Türü / Request Type",
+                "en": "Request Type",
+                "de": "Anfragetyp",
+                "zh": "请求类型",
+                "hi": "अनुरोध प्रकार",
+                "es": "Tipo de Solicitud",
+                "fr": "Type de Demande",
+                "ar": "نوع الطلب",
+                "pt": "Tipo de Solicitação",
+                "ru": "Тип запроса"
+            },
+            "del_type_account": {
+                "tr": "Hesabımı ve tüm verilerimi sil",
+                "en": "Delete my account and all my data",
+                "de": "Mein Konto und alle meine Daten löschen",
+                "zh": "删除我的帐户和所有数据",
+                "hi": "मेरा खाता और मेरा सारा डेटा हटाएं",
+                "es": "Eliminar mi cuenta y todos mis datos",
+                "fr": "Supprimer mon compte et toutes mes données",
+                "ar": "احذف حسابي وجميع بياناتي",
+                "pt": "Excluir minha conta e todos os meus dados",
+                "ru": "Удалить мой аккаунт и все мои данные"
+            },
+            "del_type_data": {
+                "tr": "Yalnızca verilerimi sil (hesabı silme)",
+                "en": "Delete only my data (keep account)",
+                "de": "Nur meine Daten löschen (Konto behalten)",
+                "zh": "仅删除我的数据（保留帐户）",
+                "hi": "केवल मेरा डेटा हटाएं (खाता रखें)",
+                "es": "Eliminar solo mis datos (mantener la cuenta)",
+                "fr": "Supprimer uniquement mes données (garder le compte)",
+                "ar": "احذف بياناتي فقط (مع الاحتفاظ بالحساب)",
+                "pt": "Excluir apenas meus dados (manter a conta)",
+                "ru": "Удалить только мои данные (оставить аккаунт)"
+            },
+            "del_label_msg": {
+                "tr": "Eklemek istedikleriniz (isteğe bağlı)",
+                "en": "Anything to add (optional)",
+                "de": "Möchten Sie etwas hinzufügen (optional)",
+                "zh": "补充内容（可选）",
+                "hi": "कुछ जोड़ना चाहें (वैकल्पिक)",
+                "es": "Algo que añadir (opcional)",
+                "fr": "Quelque chose à ajouter (facultatif)",
+                "ar": "أي شيء تريد إضافته (اختياري)",
+                "pt": "Algo a acrescentar (opcional)",
+                "ru": "Дополнительно (необязательно)"
+            },
+            "del_ph_msg": {
+                "tr": "Detay ekleyebilirsiniz...",
+                "en": "You can add details...",
+                "de": "Sie können Details hinzufügen...",
+                "zh": "您可以补充详情...",
+                "hi": "आप विवरण जोड़ सकते हैं...",
+                "es": "Puede añadir detalles...",
+                "fr": "Vous pouvez ajouter des détails...",
+                "ar": "يمكنك إضافة التفاصيل...",
+                "pt": "Você pode adicionar detalhes...",
+                "ru": "Можно добавить детали..."
+            },
+            "del_modal_send": {
+                "tr": "Gönder / Send",
+                "en": "Send",
+                "de": "Senden",
+                "zh": "发送",
+                "hi": "भेजें",
+                "es": "Enviar",
+                "fr": "Envoyer",
+                "ar": "إرسال",
+                "pt": "Enviar",
+                "ru": "Отправить"
+            },
             "page_title": {
                 "tr": "CodExa – Erdinç TOPAL - Eğitim Projeleri",
                 "en": "CodExa – Erdinç TOPAL - Educational Projects",
