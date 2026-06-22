@@ -595,27 +595,128 @@
                 font-size: 2.5rem;
             }
         }
+        /* ============ v2 Redesign: navbar · hero · search/filter · compact vibrant cards ============ */
+        :root { --grad-vibrant: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); }
+        html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+        body::before {
+            background-image:
+                radial-gradient(ellipse 70% 60% at 50% -5%, rgba(99,102,241,0.18) 0%, transparent 60%),
+                radial-gradient(circle 600px at 8% 28%, rgba(168,85,247,0.13), transparent 70%),
+                radial-gradient(circle 700px at 95% 75%, rgba(236,72,153,0.10), transparent 70%);
+        }
+
+        .container { max-width: 1200px; padding-top: 28px; }
+
+        /* Sticky Navbar */
+        .navbar { position: sticky; top: 0; z-index: 9000; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); background: rgba(15,23,42,0.72); border-bottom: 1px solid var(--border-color); }
+        .navbar-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; gap: 26px; }
+        .nav-brand { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.3rem; background: var(--grad-vibrant); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 4px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.94rem; font-weight: 500; padding: 8px 14px; border-radius: 10px; transition: var(--transition); }
+        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+        @media (max-width: 600px) { .nav-links { display: none; } }
+
+        /* Hero */
+        header.hero { margin-bottom: 36px; padding-bottom: 30px; border-bottom: none; }
+        header.hero h1 { background: var(--grad-vibrant); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-stats { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+        .hero-stat { background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); border-radius: 14px; padding: 10px 20px; min-width: 92px; }
+        .hero-stat b { display: block; font-family: 'Outfit', sans-serif; font-size: 1.5rem; line-height: 1.2; background: var(--grad-vibrant); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-stat span { font-size: 0.74rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Controls: search + filters */
+        .controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+        .search-box { position: relative; flex: 1 1 240px; max-width: 340px; }
+        .search-box svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; stroke: var(--text-muted); fill: none; }
+        .search-box input { width: 100%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 14px; padding: 12px 16px 12px 42px; color: var(--text-heading); font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: var(--transition); }
+        .search-box input::placeholder { color: #475569; }
+        .search-box input:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 4px rgba(99,102,241,0.12); }
+        .filter-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        .filter-chip { background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); color: var(--text-muted); padding: 9px 16px; border-radius: 100px; font-size: 0.86rem; font-weight: 500; font-family: 'Inter', sans-serif; cursor: pointer; transition: var(--transition); }
+        .filter-chip:hover { color: #fff; border-color: var(--border-highlight); }
+        .filter-chip.active { background: var(--grad-vibrant); border-color: transparent; color: #fff; box-shadow: 0 6px 18px rgba(168,85,247,0.35); }
+
+        /* Compact vibrant cards */
+        .projects-grid { grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 22px; margin-bottom: 60px; }
+        .project-card, a.project-card-link { display: flex !important; flex-direction: column; gap: 0; padding: 24px; border-radius: 20px; }
+        .project-card { grid-template-columns: none; }
+        .project-card:hover { box-shadow: 0 18px 42px -12px rgba(168,85,247,0.45); }
+        .project-card::before {
+            content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 1px;
+            background: var(--grad-vibrant);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            opacity: 0; transition: var(--transition); pointer-events: none; z-index: 1;
+        }
+        .project-card:hover::before { opacity: 0.55; }
+        .app-icon-wrap { width: 60px; height: 60px; padding: 11px; border-radius: 15px; margin-bottom: 18px; }
+        .app-details { justify-content: flex-start; flex: 1; }
+        .app-category { font-size: 0.72rem; letter-spacing: 1px; margin-bottom: 6px; }
+        .app-details h3 { font-size: 1.25rem; margin-bottom: 8px; }
+        .app-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; max-width: none; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .status-badge { font-size: 0.76rem; padding: 6px 12px; margin-bottom: 14px; align-self: flex-start; }
+        .btn-inspect { margin-top: auto; }
+
+        /* Search/filter helpers */
+        .project-card.hidden { display: none !important; }
+        .no-results { display: none; text-align: center; color: var(--text-muted); padding: 30px 0 60px; font-size: 1rem; }
+        .no-results.show { display: block; }
     </style>
 </head>
 <body>
-    
-    <div class="container">
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#top" class="nav-brand">CodExa</a>
+            <div class="nav-links">
+                <a href="#projeler" data-i18n="nav_projects">Projeler</a>
+                <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
+                <a href="#hesap-silme" data-i18n="nav_deletion">Hesap Silme</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="top">
         <!-- Main Portfolio Header -->
-        <header>
+        <header class="hero">
             <h1>CodExa</h1>
             <p data-i18n="header_subtitle">Erdinç TOPAL – Mobil Oyun & Uygulama Geliştirici / Mobile Developer</p>
             <div class="lang-badge" data-i18n="header_badge">🌐 Çok Dilli Portal / Multi-language Portal</div>
+            <div class="hero-stats">
+                <div class="hero-stat"><b>7</b><span data-i18n="stat_total">Uygulama</span></div>
+                <div class="hero-stat"><b>3</b><span data-i18n="stat_live">Yayında</span></div>
+                <div class="hero-stat"><b>10</b><span data-i18n="stat_lang">Dil</span></div>
+            </div>
         </header>
 
         <!-- Educational Projects Section -->
-        <section class="projects-wrapper">
+        <section class="projects-wrapper" id="projeler">
             <div class="section-header">
                 <h2 class="section-title" data-i18n="section_edu_projects">Eğitim Projeleri</h2>
             </div>
-            
+
+            <!-- Search + Filters -->
+            <div class="controls">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="projectSearch" oninput="filterProjects()" data-i18n-placeholder="search_placeholder" placeholder="Uygulama ara...">
+                </div>
+                <div class="filter-group" id="catFilters">
+                    <button type="button" class="filter-chip active" data-cat="all" onclick="setCat(this)" data-i18n="filter_all">Tümü</button>
+                    <button type="button" class="filter-chip" data-cat="puzzle" onclick="setCat(this)" data-i18n="filter_puzzle">Zeka & Bulmaca</button>
+                    <button type="button" class="filter-chip" data-cat="math" onclick="setCat(this)" data-i18n="filter_math">Matematik</button>
+                </div>
+                <div class="filter-group" id="statusFilters">
+                    <button type="button" class="filter-chip active" data-status="all" onclick="setStatus(this)" data-i18n="filter_all">Tümü</button>
+                    <button type="button" class="filter-chip" data-status="live" onclick="setStatus(this)" data-i18n="filter_live">Yayında</button>
+                    <button type="button" class="filter-chip" data-status="coming" onclick="setStatus(this)" data-i18n="filter_coming">Yakında</button>
+                </div>
+            </div>
+
             <div class="projects-grid">
                 <!-- Hanoi Kulesi Card -->
-                <a href="hanoikulesi/index.html" class="project-card project-card-link">
+                <a href="hanoikulesi/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
                     <!-- App Icon -->
                     <div class="app-icon-wrap">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -650,7 +751,7 @@
                 </a>
                 
                 <!-- At Satrancı Card -->
-                <a href="atsatranci/index.html" class="project-card project-card-link">
+                <a href="atsatranci/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
                     <!-- App Icon -->
                     <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(245, 158, 11, 0.3);">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -681,7 +782,7 @@
                 </a>
                 
                 <!-- KenKen Card -->
-                <a href="kenken/index.html" class="project-card project-card-link">
+                <a href="kenken/index.html" class="project-card project-card-link" data-category="puzzle" data-status="coming">
                     <!-- App Icon -->
                     <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(99, 102, 241, 0.3);">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -717,7 +818,7 @@
                 </a>
 
                 <!-- Nim Master Card -->
-                <a href="nimmaster/index.html" class="project-card project-card-link">
+                <a href="nimmaster/index.html" class="project-card project-card-link" data-category="puzzle" data-status="coming">
                     <!-- App Icon -->
                     <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(139, 92, 246, 0.3);">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -766,7 +867,7 @@
                 </a>
                 
                 <!-- Çarpma Oyunu Card -->
-                <a href="carpma-oyunu/privacy_tr.html" class="project-card project-card-link">
+                <a href="carpma-oyunu/privacy_tr.html" class="project-card project-card-link" data-category="math" data-status="live">
                     <!-- App Icon -->
                     <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(78, 205, 196, 0.3);">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -798,7 +899,7 @@
                 </a>
                 
                 <!-- 2048 Card -->
-                <a href="2048/index.html" class="project-card project-card-link">
+                <a href="2048/index.html" class="project-card project-card-link" data-category="puzzle" data-status="coming">
                     <!-- App Icon -->
                     <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(0, 255, 255, 0.3);">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -829,7 +930,7 @@
                 </a>
                 
                 <!-- Kakuro Card -->
-                <a href="kakuro/index.html" class="project-card project-card-link">
+                <a href="kakuro/index.html" class="project-card project-card-link" data-category="puzzle" data-status="coming">
                     <!-- App Icon -->
                     <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(16, 185, 129, 0.3);">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -869,6 +970,7 @@
 
                 <!-- Future educational games will be added here -->
             </div>
+            <p class="no-results" id="noResults" data-i18n="no_results">Eşleşen uygulama bulunamadı.</p>
         </section>
 
         <!-- Account & Data Deletion -->
@@ -900,7 +1002,7 @@
         </section>
 
         <!-- Direct Contact Form -->
-        <section class="contact-section">
+        <section class="contact-section" id="iletisim">
             <div class="contact-header">
                 <h2 data-i18n="section_contact">İletişime Geçin</h2>
                 <p data-i18n="contact_desc">Projeler veya işbirlikleri için mesaj bırakabilirsiniz.</p>
@@ -1026,8 +1128,57 @@
             window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
         }
 
+        // Project search & filters
+        var curCat = 'all', curStatus = 'all';
+        function setCat(btn) {
+            document.querySelectorAll('#catFilters .filter-chip').forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            curCat = btn.getAttribute('data-cat');
+            filterProjects();
+        }
+        function setStatus(btn) {
+            document.querySelectorAll('#statusFilters .filter-chip').forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            curStatus = btn.getAttribute('data-status');
+            filterProjects();
+        }
+        function filterProjects() {
+            var input = document.getElementById('projectSearch');
+            var q = (input && input.value ? input.value : '').toLowerCase().trim();
+            var cards = document.querySelectorAll('.projects-grid .project-card');
+            var shown = 0;
+            cards.forEach(function(card) {
+                var cat = card.getAttribute('data-category') || '';
+                var st = card.getAttribute('data-status') || '';
+                var h3 = card.querySelector('h3');
+                var d = card.querySelector('.app-desc');
+                var name = (h3 ? h3.textContent : '').toLowerCase();
+                var desc = (d ? d.textContent : '').toLowerCase();
+                var okCat = (curCat === 'all' || cat === curCat);
+                var okStatus = (curStatus === 'all' || st === curStatus);
+                var okSearch = (q === '' || name.indexOf(q) !== -1 || desc.indexOf(q) !== -1);
+                if (okCat && okStatus && okSearch) { card.classList.remove('hidden'); shown++; }
+                else { card.classList.add('hidden'); }
+            });
+            var nr = document.getElementById('noResults');
+            if (nr) nr.classList.toggle('show', shown === 0);
+        }
+
         // Local Translations Dictionary
         window.PAGE_TRANSLATIONS = {
+            "nav_projects": { "tr": "Projeler", "en": "Projects", "de": "Projekte", "zh": "项目", "hi": "परियोजनाएं", "es": "Proyectos", "fr": "Projets", "ar": "المشاريع", "pt": "Projetos", "ru": "Проекты" },
+            "nav_contact": { "tr": "İletişim", "en": "Contact", "de": "Kontakt", "zh": "联系", "hi": "संपर्क", "es": "Contacto", "fr": "Contact", "ar": "اتصل", "pt": "Contato", "ru": "Контакты" },
+            "nav_deletion": { "tr": "Hesap Silme", "en": "Account Deletion", "de": "Kontolöschung", "zh": "删除帐户", "hi": "खाता हटाना", "es": "Eliminar Cuenta", "fr": "Suppression de Compte", "ar": "حذف الحساب", "pt": "Excluir Conta", "ru": "Удаление аккаунта" },
+            "stat_total": { "tr": "Uygulama", "en": "Apps", "de": "Apps", "zh": "应用", "hi": "ऐप्स", "es": "Apps", "fr": "Applications", "ar": "تطبيقات", "pt": "Apps", "ru": "Приложения" },
+            "stat_live": { "tr": "Yayında", "en": "Live", "de": "Live", "zh": "已上线", "hi": "लाइव", "es": "Publicadas", "fr": "En ligne", "ar": "متاحة", "pt": "No ar", "ru": "Опубликовано" },
+            "stat_lang": { "tr": "Dil", "en": "Languages", "de": "Sprachen", "zh": "语言", "hi": "भाषाएं", "es": "Idiomas", "fr": "Langues", "ar": "لغات", "pt": "Idiomas", "ru": "Языков" },
+            "search_placeholder": { "tr": "Uygulama ara...", "en": "Search apps...", "de": "Apps suchen...", "zh": "搜索应用...", "hi": "ऐप्स खोजें...", "es": "Buscar apps...", "fr": "Rechercher des apps...", "ar": "ابحث عن التطبيقات...", "pt": "Buscar apps...", "ru": "Поиск приложений..." },
+            "filter_all": { "tr": "Tümü", "en": "All", "de": "Alle", "zh": "全部", "hi": "सभी", "es": "Todos", "fr": "Tous", "ar": "الكل", "pt": "Todos", "ru": "Все" },
+            "filter_puzzle": { "tr": "Zeka & Bulmaca", "en": "Puzzle", "de": "Puzzle", "zh": "益智", "hi": "पहेली", "es": "Puzzle", "fr": "Puzzle", "ar": "ألغاز", "pt": "Puzzle", "ru": "Головоломки" },
+            "filter_math": { "tr": "Matematik", "en": "Math", "de": "Mathe", "zh": "数学", "hi": "गणित", "es": "Matemáticas", "fr": "Maths", "ar": "رياضيات", "pt": "Matemática", "ru": "Математика" },
+            "filter_live": { "tr": "Yayında", "en": "Live", "de": "Live", "zh": "已上线", "hi": "लाइव", "es": "Publicadas", "fr": "En ligne", "ar": "متاحة", "pt": "No ar", "ru": "Опубликовано" },
+            "filter_coming": { "tr": "Yakında", "en": "Coming Soon", "de": "Demnächst", "zh": "即将推出", "hi": "जल्द आ रहा", "es": "Próximamente", "fr": "Bientôt", "ar": "قريباً", "pt": "Em breve", "ru": "Скоро" },
+            "no_results": { "tr": "Eşleşen uygulama bulunamadı.", "en": "No matching apps found.", "de": "Keine passenden Apps gefunden.", "zh": "未找到匹配的应用。", "hi": "कोई मेल खाता ऐप नहीं मिला।", "es": "No se encontraron apps coincidentes.", "fr": "Aucune application correspondante trouvée.", "ar": "لم يتم العثور على تطبيقات مطابقة.", "pt": "Nenhum app correspondente encontrado.", "ru": "Подходящие приложения не найдены." },
             "del_title": {
                 "tr": "Hesap ve Veri Silme",
                 "en": "Account & Data Deletion",
