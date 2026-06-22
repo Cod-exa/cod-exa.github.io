@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kullanım Koşulları (Terms of Use) – Kakuro</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+    :root { --em: #10B981; --em-light: #34D399; --dark: #0F172A; --dark2: #1E293B; --text: #CBD5E1; --text-muted: #94A3B8; --border: rgba(16,185,129,0.15); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.8; min-height: 100vh; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16,185,129,0.08) 0%, transparent 70%), repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(16,185,129,0.02) 40px, rgba(16,185,129,0.02) 41px); pointer-events: none; z-index: 0; }
+    .container { max-width: 760px; margin: 0 auto; padding: 60px 28px 100px; position: relative; z-index: 1; }
+    header { text-align: center; margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .logo-wrap { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); border: 1px solid rgba(16,185,129,0.3); margin-bottom: 24px; box-shadow: 0 0 32px rgba(16,185,129,0.1), inset 0 1px 0 rgba(16,185,129,0.1); }
+    .logo-wrap svg { width: 40px; height: 40px; }
+    h1 { font-family: 'Cinzel', serif; font-size: clamp(26px, 5vw, 36px); font-weight: 700; color: var(--em-light); letter-spacing: 0.04em; margin-bottom: 10px; }
+    .subtitle { font-size: 14px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300; }
+    .updated { display: inline-block; margin-top: 20px; padding: 6px 18px; border: 1px solid var(--border); border-radius: 100px; font-size: 13px; color: var(--text-muted); background: rgba(16,185,129,0.04); letter-spacing: 0.06em; }
+    section { margin-bottom: 52px; }
+    h2 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--em-light); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    p { margin-bottom: 24px; text-align: justify; }
+    ul { margin: 0 0 24px 24px; }
+    li { margin-bottom: 12px; }
+    strong { color: #e6f5ee; }
+    a { color: var(--em-light); text-decoration: none; border-bottom: 1px dashed rgba(52,211,153,0.4); transition: all 0.2s ease; }
+    a:hover { color: #fff; border-bottom-color: #fff; }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--em-light); font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+    .back-btn:hover { color: #fff; transform: translateX(-4px); }
+    footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">← Oyuna Dön / Back to Game</a>
+    <header>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="3" stroke="#10B981" stroke-width="1.6"/>
+          <line x1="2.5" y1="9" x2="21.5" y2="9" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <line x1="2.5" y1="15" x2="21.5" y2="15" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <line x1="9" y1="2.5" x2="9" y2="21.5" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <line x1="15" y1="2.5" x2="15" y2="21.5" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <path d="M3 3 L9 9" stroke="#34D399" stroke-width="1.2" opacity="0.8"/>
+          <rect x="3" y="3" width="6" height="6" fill="#10B981" opacity="0.18"/>
+          <text x="12" y="13.4" fill="#34D399" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">7</text>
+          <text x="18" y="13.4" fill="#34D399" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">3</text>
+          <text x="12" y="19.4" fill="#34D399" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">9</text>
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Kullanım Koşulları</h1>
+      <div class="subtitle" data-i18n="subtitle">Terms of Use – Kakuro</div>
+      <div class="updated" data-i18n="updated">Son Güncelleme: 22 Haziran 2026</div>
+    </header>
+    <main>
+      <section>
+        <h2 data-i18n="sec_1_title">1. Kabul ve Koşullar</h2>
+        <p data-i18n="sec_1_p">Bu Kullanım Koşulları, <strong>CodExa</strong> (Erdinç TOPAL) tarafından geliştirilen ve yayınlanan <strong>Kakuro</strong> mobil uygulaması (bundan sonra "Uygulama" olarak anılacaktır) için geçerlidir. Uygulamayı indiren, kuran veya kullanan tüm kullanıcılar bu koşulları kayıtsız şartsız kabul etmiş sayılır.</p>
+        <p data-i18n="sec_1_eng"><i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i></p>
+      </section>
+      <section>
+        <h2 data-i18n="sec_2_title">2. Hizmetlerin Tanımı ve Fikri Mülkiyet</h2>
+        <p data-i18n="sec_2_p">Uygulamamız, sayı çapraz bulmacası (Kakuro) tabanlı bir mobil mantık oyunudur. Uygulama içerisindeki tüm tasarımlar, grafikler, müzikler, oyun modları, kaynak kodlar ve ticari markalar dahil olmak üzere her türlü fikri mülkiyet hakkı tamamen Erdinç TOPAL (CodExa) stüdyosuna ait olup uluslararası fikri mülkiyet kanunlarıyla korunmaktadır. Geliştiricinin yazılı izni olmaksızın ticari amaçla kopyalanamaz, çoğaltılamaz veya tersine mühendislik yapılamaz.</p>
+        <p data-i18n="sec_2_eng"><i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i></p>
+      </section>
+      <section>
+        <h2 data-i18n="sec_3_title">3. Uygulama İçi Satın Alımlar</h2>
+        <p data-i18n="sec_3_p">Uygulamamız, reklam kaldırma (Premium / Reklamsız sürüm) satın alma seçeneği sunabilir.</p>
+        <ul>
+          <li data-i18n="sec_3_li1">Tüm satın alma işlemleri Google Play Store ödeme altyapısı (Google Play Billing) üzerinden güvence altında gerçekleştirilir.</li>
+          <li data-i18n="sec_3_li2">Satın alımlar, Google Play politikaları veya yerel tüketici koruma kanunlarının gerektirdiği durumlar dışında iade edilemez.</li>
+          <li data-i18n="sec_3_li3">Premium durumunuz Google Play hesabınıza bağlıdır ve cihaz veya hesap değişikliğinde menüdeki "Satın Alımları Geri Yükle" (Restore Purchases) özelliği ile geri yüklenebilir.</li>
+        </ul>
+      </section>
+      <section>
+        <h2 data-i18n="sec_4_title">4. Reklamlar ve Ağ Ücretleri</h2>
+        <p data-i18n="sec_4_p">Uygulamanın ücretsiz sürümü, Google AdMob aracılığıyla yüklenen reklamlar gösterir. Uygulama; reklamları yüklemek, giriş yapmak ve satın alma durumunu sorgulamak için aktif bir internet bağlantısı gerektirir. Reklam kişiselleştirmesini Android cihazınızın gizlilik ayarlarından (Reklam Kimliği ayarları) yönetebilirsiniz. Uygulamayı kullanırken oluşabilecek mobil veri ücretlerinden geliştirici sorumlu tutulamaz.</p>
+      </section>
+      <section>
+        <h2 data-i18n="sec_5_title">5. Sorumluluk Sınırları</h2>
+        <p data-i18n="sec_5_p">Uygulamamız "olduğu gibi" (as-is) sunulmaktadır. Geliştirici, uygulamanın kesintisiz veya tamamen hatasız çalışacağını taahhüt etmez. Yazılım hatası, cihaz uyumsuzluğu, hesap bağlantısının kesilmesi veya yerel verilerin kaybı dahil olmak üzere oluşabilecek herhangi bir kayıptan geliştirici sorumlu tutulamaz.</p>
+      </section>
+      <section>
+        <h2 data-i18n="sec_6_title">6. Değişiklikler ve İletişim</h2>
+        <p style="margin-bottom: 8px;" data-i18n="sec_6_p1">Bu Kullanım Koşulları, oyun güncellemeleri veya yasal mevzuat değişiklikleri nedeniyle zaman zaman güncellenebilir. Değişiklikler bu sayfada yayınlandığı andan itibaren geçerlilik kazanır.</p>
+        <p data-i18n="sec_6_p2">Sorularınız ve geri bildirimleriniz için bizimle iletişime geçebilirsiniz: <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a></p>
+      </section>
+    </main>
+    <footer data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</footer>
+  </div>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      "page_title": { "tr": "Kullanım Koşulları (Terms of Use) – Kakuro", "en": "Terms of Use – Kakuro", "de": "Nutzungsbedingungen – Kakuro", "zh": "使用条款 – Kakuro", "hi": "उपयोग की शर्तें – Kakuro", "es": "Términos de Uso – Kakuro", "fr": "Conditions d'Utilisation – Kakuro", "ar": "شروط الاستخدام – Kakuro", "pt": "Termos de Uso – Kakuro", "ru": "Условия использования – Kakuro" },
+      "back_btn": { "tr": "← Oyuna Dön / Back to Game", "en": "← Back to Game", "de": "← Zurück zum Spiel", "zh": "← 返回游戏", "hi": "← खेल पर वापस जाएं", "es": "← Volver al Juego", "fr": "← Retour au Jeu", "ar": "← العودة إلى اللعبة", "pt": "← Voltar ao Jogo", "ru": "← Назад к игре" },
+      "h1": { "tr": "Kullanım Koşulları", "en": "Terms of Use", "de": "Nutzungsbedingungen", "zh": "使用条款", "hi": "उपयोग की शर्तें", "es": "Términos de Uso", "fr": "Conditions d'Utilisation", "ar": "شروط الاستخدام", "pt": "Termos de Uso", "ru": "Условия использования" },
+      "subtitle": { "tr": "Kullanım Koşulları – Kakuro", "en": "Terms of Use – Kakuro", "de": "Nutzungsbedingungen – Kakuro", "zh": "使用条款 – Kakuro", "hi": "उपयोग की शर्तें – Kakuro", "es": "Términos de Uso – Kakuro", "fr": "Conditions d'Utilisation – Kakuro", "ar": "شروط الاستخدام – Kakuro", "pt": "Termos de Uso – Kakuro", "ru": "Условия использования – Kakuro" },
+      "updated": { "tr": "Son Güncelleme: 22 Haziran 2026", "en": "Last Updated: June 22, 2026", "de": "Zuletzt aktualisiert: 22. Juni 2026", "zh": "最后更新：2026年6月22日", "hi": "अंतिम अपडेट: 22 जून 2026", "es": "Última actualización: 22 de junio de 2026", "fr": "Dernière mise à jour : 22 juin 2026", "ar": "آخر تحديث: 22 يونيو 2026", "pt": "Última Atualização: 22 de junho de 2026", "ru": "Последнее обновление: 22 июня 2026 г." },
+      "sec_1_title": { "tr": "1. Kabul ve Koşullar", "en": "1. Acceptance and Terms", "de": "1. Annahme und Bedingungen", "zh": "1. 接受与条款", "hi": "1. स्वीकृति और शर्तें", "es": "1. Aceptación y Términos", "fr": "1. Acceptation et Conditions", "ar": "1. القبول والشروط", "pt": "1. Aceitação e Termos", "ru": "1. Принятие и условия" },
+      "sec_1_p": {
+        "tr": "Bu Kullanım Koşulları, <strong>CodExa</strong> (Erdinç TOPAL) tarafından geliştirilen ve yayınlanan <strong>Kakuro</strong> mobil uygulaması (bundan sonra \"Uygulama\" olarak anılacaktır) için geçerlidir. Uygulamayı indiren, kuran veya kullanan tüm kullanıcılar bu koşulları kayıtsız şartsız kabul etmiş sayılır.",
+        "en": "These Terms of Use apply to the <strong>Kakuro</strong> mobile application (hereinafter the \"Application\") developed and published by <strong>CodExa</strong> (Erdinç TOPAL). All users who download, install, or use the Application are deemed to have unconditionally accepted these terms.",
+        "de": "Diese Nutzungsbedingungen gelten für die mobile Anwendung <strong>Kakuro</strong> (im Folgenden „Anwendung“), die von <strong>CodExa</strong> (Erdinç TOPAL) entwickelt und veröffentlicht wird. Alle Nutzer, die die Anwendung herunterladen, installieren oder verwenden, gelten als bedingungslos mit diesen Bedingungen einverstanden.",
+        "zh": "本使用条款适用于由 <strong>CodExa</strong> (Erdinç TOPAL) 开发并发布的 <strong>Kakuro</strong> 移动应用程序（以下简称“应用程序”）。所有下载、安装或使用该应用程序的用户均被视为无条件接受这些条款。",
+        "hi": "ये उपयोग की शर्तें <strong>CodExa</strong> (Erdinç TOPAL) द्वारा विकसित और प्रकाशित <strong>Kakuro</strong> मोबाइल एप्लिकेशन (इसके बाद \"एप्लिकेशन\") पर लागू होती हैं। एप्लिकेशन को डाउनलोड, इंस्टॉल या उपयोग करने वाले सभी उपयोगकर्ता इन शर्तों को बिना शर्त स्वीकार करते हैं।",
+        "es": "Estos Términos de Uso se aplican a la aplicación móvil <strong>Kakuro</strong> (en adelante, la \"Aplicación\") desarrollada y publicada por <strong>CodExa</strong> (Erdinç TOPAL). Todos los usuarios que descarguen, instalen o usen la Aplicación se considerarán que han aceptado incondicionalmente estos términos.",
+        "fr": "Ces Conditions d'Utilisation s'appliquent à l'application mobile <strong>Kakuro</strong> (ci-après l'« Application ») développée et publiée par <strong>CodExa</strong> (Erdinç TOPAL). Tous les utilisateurs qui téléchargent, installent ou utilisent l'Application sont réputés avoir accepté sans condition ces conditions.",
+        "ar": "تنطبق شروط الاستخدام هذه على تطبيق <strong>Kakuro</strong> للهواتف المحمولة (المشار إليه بـ \"التطبيق\") الذي طوّرته ونشرته <strong>CodExa</strong> (Erdinç TOPAL). يُعتبر جميع المستخدمين الذين ينزّلون التطبيق أو يثبّتونه أو يستخدمونه قد قبلوا هذه الشروط دون قيد أو شرط.",
+        "pt": "Estes Termos de Uso aplicam-se ao aplicativo móvel <strong>Kakuro</strong> (doravante \"Aplicativo\") desenvolvido e publicado pela <strong>CodExa</strong> (Erdinç TOPAL). Todos os usuários que baixam, instalam ou usam o Aplicativo são considerados como tendo aceitado incondicionalmente estes termos.",
+        "ru": "Настоящие Условия использования применяются к мобильному приложению <strong>Kakuro</strong> (далее — «Приложение»), разработанному и опубликованному <strong>CodExa</strong> (Erdinç TOPAL). Все пользователи, загружающие, устанавливающие или использующие Приложение, считаются безоговорочно принявшими эти условия."
+      },
+      "sec_1_eng": {
+        "tr": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "en": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "de": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "zh": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "hi": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "es": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "fr": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "ar": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "pt": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>",
+        "ru": "<i>English Summary: By downloading or using the Kakuro mobile game, you unconditionally agree to these Terms of Use.</i>"
+      },
+      "sec_2_title": { "tr": "2. Hizmetlerin Tanımı ve Fikri Mülkiyet", "en": "2. Description of Services and Intellectual Property", "de": "2. Beschreibung der Dienste und geistiges Eigentum", "zh": "2. 服务说明与知识产权", "hi": "2. सेवाओं का विवरण और बौद्धिक संपदा", "es": "2. Descripción de los Servicios y Propiedad Intelectual", "fr": "2. Description des Services et Propriété Intellectuelle", "ar": "2. وصف الخدمات والملكية الفكرية", "pt": "2. Descrição dos Serviços e Propriedade Intelectual", "ru": "2. Описание услуг и интеллектуальная собственность" },
+      "sec_2_p": {
+        "tr": "Uygulamamız, sayı çapraz bulmacası (Kakuro) tabanlı bir mobil mantık oyunudur. Uygulama içerisindeki tüm tasarımlar, grafikler, müzikler, oyun modları, kaynak kodlar ve ticari markalar dahil olmak üzere her türlü fikri mülkiyet hakkı tamamen Erdinç TOPAL (CodExa) stüdyosuna ait olup uluslararası fikri mülkiyet kanunlarıyla korunmaktadır. Geliştiricinin yazılı izni olmaksızın ticari amaçla kopyalanamaz, çoğaltılamaz veya tersine mühendislik yapılamaz.",
+        "en": "Our application is a mobile logic game based on number cross-sum puzzles (Kakuro). All intellectual property rights, including all designs, graphics, music, game modes, source code, and trademarks within the application, belong entirely to the Erdinç TOPAL (CodExa) studio and are protected by international intellectual property laws. It may not be copied, reproduced, or reverse-engineered for commercial purposes without the developer's written permission.",
+        "de": "Unsere Anwendung ist ein mobiles Logikspiel auf Basis von Zahlen-Kreuzsummenrätseln (Kakuro). Alle Rechte am geistigen Eigentum, einschließlich Designs, Grafiken, Musik, Spielmodi, Quellcode und Marken in der Anwendung, gehören ausschließlich dem Studio Erdinç TOPAL (CodExa) und sind durch internationale Gesetze zum geistigen Eigentum geschützt. Ohne schriftliche Genehmigung des Entwicklers darf sie nicht zu kommerziellen Zwecken kopiert, vervielfältigt oder zurückentwickelt werden.",
+        "zh": "我们的应用程序是一款基于数字交叉求和谜题（Kakuro）的移动逻辑游戏。应用程序中的所有知识产权，包括所有设计、图形、音乐、游戏模式、源代码和商标，完全归 Erdinç TOPAL (CodExa) 工作室所有，并受国际知识产权法保护。未经开发者书面许可，不得出于商业目的进行复制、复制或逆向工程。",
+        "hi": "हमारा एप्लिकेशन संख्या क्रॉस-सम पहेली (Kakuro) पर आधारित एक मोबाइल लॉजिक गेम है। एप्लिकेशन के भीतर सभी डिज़ाइन, ग्राफिक्स, संगीत, गेम मोड, सोर्स कोड और ट्रेडमार्क सहित सभी बौद्धिक संपदा अधिकार पूरी तरह से Erdinç TOPAL (CodExa) स्टूडियो के हैं और अंतरराष्ट्रीय कानूनों द्वारा संरक्षित हैं। डेवलपर की लिखित अनुमति के बिना इसे व्यावसायिक उद्देश्यों के लिए कॉपी, पुन: प्रस्तुत या रिवर्स-इंजीनियर नहीं किया जा सकता।",
+        "es": "Nuestra aplicación es un juego de lógica móvil basado en rompecabezas de sumas cruzadas de números (Kakuro). Todos los derechos de propiedad intelectual, incluidos diseños, gráficos, música, modos de juego, código fuente y marcas comerciales dentro de la aplicación, pertenecen por completo al estudio Erdinç TOPAL (CodExa) y están protegidos por las leyes internacionales de propiedad intelectual. No puede copiarse, reproducirse ni someterse a ingeniería inversa con fines comerciales sin el permiso por escrito del desarrollador.",
+        "fr": "Notre application est un jeu de logique mobile basé sur des puzzles de sommes croisées de nombres (Kakuro). Tous les droits de propriété intellectuelle, y compris les designs, graphismes, musiques, modes de jeu, code source et marques de l'application, appartiennent entièrement au studio Erdinç TOPAL (CodExa) et sont protégés par les lois internationales sur la propriété intellectuelle. Elle ne peut être copiée, reproduite ou faire l'objet d'une ingénierie inverse à des fins commerciales sans l'autorisation écrite du développeur.",
+        "ar": "تطبيقنا لعبة منطق للهواتف المحمولة قائمة على ألغاز جمع الأرقام المتقاطعة (Kakuro). جميع حقوق الملكية الفكرية، بما في ذلك التصاميم والرسومات والموسيقى وأنماط اللعب والشفرة المصدرية والعلامات التجارية داخل التطبيق، تعود بالكامل إلى استوديو Erdinç TOPAL (CodExa) ومحمية بموجب قوانين الملكية الفكرية الدولية. لا يجوز نسخها أو إعادة إنتاجها أو إجراء هندسة عكسية لها لأغراض تجارية دون إذن كتابي من المطور.",
+        "pt": "Nosso aplicativo é um jogo de lógica móvel baseado em quebra-cabeças de somas cruzadas de números (Kakuro). Todos os direitos de propriedade intelectual, incluindo designs, gráficos, músicas, modos de jogo, código-fonte e marcas registradas dentro do aplicativo, pertencem inteiramente ao estúdio Erdinç TOPAL (CodExa) e são protegidos por leis internacionais de propriedade intelectual. Não pode ser copiado, reproduzido ou submetido a engenharia reversa para fins comerciais sem a permissão por escrito do desenvolvedor.",
+        "ru": "Наше приложение — мобильная логическая игра на основе числовых кросс-сумм (Kakuro). Все права интеллектуальной собственности, включая дизайн, графику, музыку, игровые режимы, исходный код и товарные знаки в приложении, полностью принадлежат студии Erdinç TOPAL (CodExa) и защищены международными законами. Запрещается копировать, воспроизводить или подвергать обратной разработке в коммерческих целях без письменного разрешения разработчика."
+      },
+      "sec_2_eng": {
+        "tr": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "en": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "de": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "zh": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "hi": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "es": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "fr": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "ar": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "pt": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>",
+        "ru": "<i>English Summary: All rights, source code, visual design, audio, and intellectual property of the Kakuro game belong entirely to Erdinç TOPAL (CodExa) and are protected by copyright laws.</i>"
+      },
+      "sec_3_title": { "tr": "3. Uygulama İçi Satın Alımlar", "en": "3. In-App Purchases", "de": "3. In-App-Käufe", "zh": "3. 应用内购买", "hi": "3. इन-ऐप खरीदारी", "es": "3. Compras dentro de la Aplicación", "fr": "3. Achats Intégrés", "ar": "3. عمليات الشراء داخل التطبيق", "pt": "3. Compras no Aplicativo", "ru": "3. Встроенные покупки" },
+      "sec_3_p": {
+        "tr": "Uygulamamız, reklam kaldırma (Premium / Reklamsız sürüm) satın alma seçeneği sunabilir.",
+        "en": "Our application may offer an option to remove ads (Premium / Ad-Free version).",
+        "de": "Unsere Anwendung kann eine Option zum Entfernen von Werbung (Premium-/werbefreie Version) anbieten.",
+        "zh": "我们的应用程序可能会提供移除广告（高级版/无广告版）的选项。",
+        "hi": "हमारा एप्लिकेशन विज्ञापन हटाने (प्रीमियम / विज्ञापन-मुक्त संस्करण) का विकल्प प्रदान कर सकता है।",
+        "es": "Nuestra aplicación puede ofrecer la opción de eliminar anuncios (versión Premium / sin anuncios).",
+        "fr": "Notre application peut proposer une option pour supprimer les publicités (version Premium / sans publicité).",
+        "ar": "قد يوفر تطبيقنا خياراً لإزالة الإعلانات (الإصدار المميز / الخالي من الإعلانات).",
+        "pt": "Nosso aplicativo pode oferecer a opção de remover anúncios (versão Premium / sem anúncios).",
+        "ru": "Наше приложение может предлагать возможность убрать рекламу (Premium / версия без рекламы)."
+      },
+      "sec_3_li1": {
+        "tr": "Tüm satın alma işlemleri Google Play Store ödeme altyapısı (Google Play Billing) üzerinden güvence altında gerçekleştirilir.",
+        "en": "All purchase transactions are securely conducted through the Google Play Store payment infrastructure (Google Play Billing).",
+        "de": "Alle Kauftransaktionen werden sicher über die Zahlungsinfrastruktur des Google Play Store (Google Play Billing) abgewickelt.",
+        "zh": "所有购买交易均通过 Google Play 商店支付基础设施（Google Play Billing）安全进行。",
+        "hi": "सभी खरीदारी लेनदेन Google Play Store भुगतान बुनियादी ढांचे (Google Play Billing) के माध्यम से सुरक्षित रूप से किए जाते हैं।",
+        "es": "Todas las transacciones de compra se realizan de forma segura a través de la infraestructura de pago de Google Play Store (Google Play Billing).",
+        "fr": "Toutes les transactions d'achat sont effectuées en toute sécurité via l'infrastructure de paiement Google Play Store (Google Play Billing).",
+        "ar": "تتم جميع معاملات الشراء بأمان عبر البنية التحتية للدفع في متجر Google Play (Google Play Billing).",
+        "pt": "Todas as transações de compra são realizadas com segurança através da infraestrutura de pagamento da Google Play Store (Google Play Billing).",
+        "ru": "Все покупки безопасно проводятся через платежную инфраструктуру Google Play Store (Google Play Billing)."
+      },
+      "sec_3_li2": {
+        "tr": "Satın alımlar, Google Play politikaları veya yerel tüketici koruma kanunlarının gerektirdiği durumlar dışında iade edilemez.",
+        "en": "Purchases are non-refundable, except as required by Google Play policies or local consumer protection laws.",
+        "de": "Käufe sind nicht erstattungsfähig, außer wie von den Google Play-Richtlinien oder den örtlichen Verbraucherschutzgesetzen vorgeschrieben.",
+        "zh": "除非 Google Play 政策或当地消费者保护法要求，否则购买不可退款。",
+        "hi": "Google Play नीतियों या स्थानीय उपभोक्ता संरक्षण कानूनों द्वारा आवश्यक होने के अलावा, खरीदारी वापस नहीं की जा सकती।",
+        "es": "Las compras no son reembolsables, salvo que lo exijan las políticas de Google Play o las leyes locales de protección al consumidor.",
+        "fr": "Les achats ne sont pas remboursables, sauf si les politiques de Google Play ou les lois locales de protection des consommateurs l'exigent.",
+        "ar": "عمليات الشراء غير قابلة للاسترداد، باستثناء ما تتطلبه سياسات Google Play أو قوانين حماية المستهلك المحلية.",
+        "pt": "As compras não são reembolsáveis, exceto conforme exigido pelas políticas do Google Play ou pelas leis locais de proteção ao consumidor.",
+        "ru": "Покупки не подлежат возврату, за исключением случаев, предусмотренных политикой Google Play или местным законодательством о защите прав потребителей."
+      },
+      "sec_3_li3": {
+        "tr": "Premium durumunuz Google Play hesabınıza bağlıdır ve cihaz veya hesap değişikliğinde menüdeki \"Satın Alımları Geri Yükle\" (Restore Purchases) özelliği ile geri yüklenebilir.",
+        "en": "Your premium status is tied to your Google Play account and can be restored using the \"Restore Purchases\" feature in the menu when you change device or account.",
+        "de": "Ihr Premium-Status ist an Ihr Google Play-Konto gebunden und kann bei einem Geräte- oder Kontowechsel mit der Funktion \"Käufe wiederherstellen\" im Menü wiederhergestellt werden.",
+        "zh": "您的高级状态与您的 Google Play 帐户绑定，更换设备或帐户时可使用菜单中的“恢复购买”功能进行恢复。",
+        "hi": "आपकी प्रीमियम स्थिति आपके Google Play खाते से जुड़ी होती है और डिवाइस या खाता बदलने पर मेनू में \"Restore Purchases\" सुविधा से बहाल की जा सकती है।",
+        "es": "Su estado premium está vinculado a su cuenta de Google Play y puede restaurarse con la función \"Restaurar Compras\" del menú al cambiar de dispositivo o cuenta.",
+        "fr": "Votre statut premium est lié à votre compte Google Play et peut être restauré via la fonction \"Restaurer les Achats\" du menu lors d'un changement d'appareil ou de compte.",
+        "ar": "يرتبط وضعك المميز بحساب Google Play الخاص بك ويمكن استعادته باستخدام ميزة \"استعادة المشتريات\" في القائمة عند تغيير الجهاز أو الحساب.",
+        "pt": "Seu status premium está vinculado à sua conta do Google Play e pode ser restaurado com o recurso \"Restaurar Compras\" no menu ao trocar de dispositivo ou conta.",
+        "ru": "Ваш premium-статус привязан к учётной записи Google Play и может быть восстановлен функцией «Восстановить покупки» в меню при смене устройства или аккаунта."
+      },
+      "sec_4_title": { "tr": "4. Reklamlar ve Ağ Ücretleri", "en": "4. Advertisements and Network Fees", "de": "4. Werbung und Netzwerkgebühren", "zh": "4. 广告与网络费用", "hi": "4. विज्ञापन और नेटवर्क शुल्क", "es": "4. Publicidad y Tarifas de Red", "fr": "4. Publicités et Frais de Réseau", "ar": "4. الإعلانات ورسوم الشبكة", "pt": "4. Anúncios e Taxas de Rede", "ru": "4. Реклама и сетевые сборы" },
+      "sec_4_p": {
+        "tr": "Uygulamanın ücretsiz sürümü, Google AdMob aracılığıyla yüklenen reklamlar gösterir. Uygulama; reklamları yüklemek, giriş yapmak ve satın alma durumunu sorgulamak için aktif bir internet bağlantısı gerektirir. Reklam kişiselleştirmesini Android cihazınızın gizlilik ayarlarından (Reklam Kimliği ayarları) yönetebilirsiniz. Uygulamayı kullanırken oluşabilecek mobil veri ücretlerinden geliştirici sorumlu tutulamaz.",
+        "en": "The free version of the application displays ads loaded via Google AdMob. The app requires an active internet connection to load ads, sign in, and query purchase status. You can manage ad personalization in your Android device privacy settings (Advertising ID settings). The developer is not responsible for any mobile data charges incurred while using the app.",
+        "de": "Die kostenlose Version der Anwendung zeigt über Google AdMob geladene Werbung an. Die App benötigt eine aktive Internetverbindung, um Anzeigen zu laden, sich anzumelden und den Kaufstatus abzufragen. Die Anzeigenpersonalisierung können Sie in den Datenschutzeinstellungen Ihres Android-Geräts (Werbe-ID-Einstellungen) verwalten. Der Entwickler haftet nicht für mobile Datengebühren, die bei der Nutzung der App anfallen.",
+        "zh": "应用的免费版本会显示通过 Google AdMob 加载的广告。应用需要有效的互联网连接来加载广告、登录和查询购买状态。您可以在 Android 设备的隐私设置（广告 ID 设置）中管理广告个性化。对于使用应用时产生的任何移动数据费用，开发者概不负责。",
+        "hi": "एप्लिकेशन का मुफ्त संस्करण Google AdMob के माध्यम से लोड किए गए विज्ञापन दिखाता है। ऐप को विज्ञापन लोड करने, साइन इन करने और खरीद स्थिति जांचने के लिए सक्रिय इंटरनेट कनेक्शन की आवश्यकता होती है। आप अपने Android डिवाइस की गोपनीयता सेटिंग्स (विज्ञापन आईडी सेटिंग्स) में विज्ञापन वैयक्तिकरण प्रबंधित कर सकते हैं। ऐप का उपयोग करते समय लगने वाले किसी भी मोबाइल डेटा शुल्क के लिए डेवलपर जिम्मेदार नहीं है।",
+        "es": "La versión gratuita de la aplicación muestra anuncios cargados a través de Google AdMob. La app requiere una conexión a Internet activa para cargar anuncios, iniciar sesión y consultar el estado de las compras. Puede gestionar la personalización de anuncios en los ajustes de privacidad de su dispositivo Android (ajustes del Advertising ID). El desarrollador no se responsabiliza de los cargos de datos móviles en que incurra al usar la app.",
+        "fr": "La version gratuite de l'application affiche des publicités chargées via Google AdMob. L'app nécessite une connexion Internet active pour charger les publicités, se connecter et vérifier l'état des achats. Vous pouvez gérer la personnalisation des publicités dans les paramètres de confidentialité de votre appareil Android (paramètres de l'Advertising ID). Le développeur n'est pas responsable des frais de données mobiles encourus lors de l'utilisation de l'app.",
+        "ar": "يعرض الإصدار المجاني من التطبيق إعلانات يتم تحميلها عبر Google AdMob. يتطلب التطبيق اتصالاً نشطاً بالإنترنت لتحميل الإعلانات وتسجيل الدخول والاستعلام عن حالة الشراء. يمكنك إدارة تخصيص الإعلانات من إعدادات خصوصية جهاز Android (إعدادات Advertising ID). لا يتحمل المطور مسؤولية أي رسوم بيانات هاتف محمول تنشأ أثناء استخدام التطبيق.",
+        "pt": "A versão gratuita do aplicativo exibe anúncios carregados via Google AdMob. O app requer uma conexão ativa à internet para carregar anúncios, fazer login e consultar o status de compra. Você pode gerenciar a personalização de anúncios nas configurações de privacidade do seu dispositivo Android (configurações do Advertising ID). O desenvolvedor não se responsabiliza por cobranças de dados móveis incorridas durante o uso do app.",
+        "ru": "Бесплатная версия приложения показывает рекламу, загружаемую через Google AdMob. Приложению нужно активное интернет-соединение для загрузки рекламы, входа и проверки статуса покупок. Вы можете управлять персонализацией рекламы в настройках конфиденциальности устройства Android (настройки Advertising ID). Разработчик не несёт ответственности за расходы на мобильный трафик при использовании приложения."
+      },
+      "sec_5_title": { "tr": "5. Sorumluluk Sınırları", "en": "5. Limitation of Liability", "de": "5. Haftungsbeschränkung", "zh": "5. 责任限制", "hi": "5. दायित्व की सीमा", "es": "5. Limitación de Responsabilidad", "fr": "5. Limitation de Responsabilité", "ar": "5. حدود المسؤولية", "pt": "5. Limitação de Responsabilidade", "ru": "5. Ограничение ответственности" },
+      "sec_5_p": {
+        "tr": "Uygulamamız \"olduğu gibi\" (as-is) sunulmaktadır. Geliştirici, uygulamanın kesintisiz veya tamamen hatasız çalışacağını taahhüt etmez. Yazılım hatası, cihaz uyumsuzluğu, hesap bağlantısının kesilmesi veya yerel verilerin kaybı dahil olmak üzere oluşabilecek herhangi bir kayıptan geliştirici sorumlu tutulamaz.",
+        "en": "Our application is provided \"as-is\". The developer does not warrant that it will operate uninterrupted or completely error-free. The developer is not responsible for any loss that may occur, including software failure, device incompatibility, account disconnection, or loss of local data.",
+        "de": "Unsere Anwendung wird \"wie besehen\" bereitgestellt. Der Entwickler garantiert nicht, dass sie ununterbrochen oder völlig fehlerfrei funktioniert. Der Entwickler haftet nicht für Verluste, einschließlich Softwarefehler, Geräteinkompatibilität, Kontotrennung oder Verlust lokaler Daten.",
+        "zh": "我们的应用程序按“原样”提供。开发者不保证其将不间断或完全无错误地运行。对于可能发生的任何损失，包括软件故障、设备不兼容、帐户断开或本地数据丢失，开发者概不负责。",
+        "hi": "हमारा एप्लिकेशन \"जैसा है\" प्रदान किया जाता है। डेवलपर यह गारंटी नहीं देता कि यह निर्बाध या पूरी तरह त्रुटि-मुक्त चलेगा। सॉफ्टवेयर विफलता, डिवाइस असंगति, खाता डिस्कनेक्शन या स्थानीय डेटा हानि सहित किसी भी हानि के लिए डेवलपर जिम्मेदार नहीं है।",
+        "es": "Nuestra aplicación se proporciona \"tal cual\". El desarrollador no garantiza que funcione sin interrupciones ni completamente libre de errores. El desarrollador no es responsable de cualquier pérdida que pueda ocurrir, incluyendo fallos de software, incompatibilidad del dispositivo, desconexión de la cuenta o pérdida de datos locales.",
+        "fr": "Notre application est fournie \"telle quelle\". Le développeur ne garantit pas un fonctionnement ininterrompu ou totalement sans erreur. Le développeur n'est pas responsable des pertes éventuelles, y compris panne logicielle, incompatibilité d'appareil, déconnexion du compte ou perte de données locales.",
+        "ar": "يُقدّم تطبيقنا \"كما هو\". لا يضمن المطور أنه سيعمل دون انقطاع أو خالياً تماماً من الأخطاء. لا يتحمل المطور مسؤولية أي خسارة قد تحدث، بما في ذلك فشل البرنامج أو عدم توافق الجهاز أو قطع اتصال الحساب أو فقدان البيانات المحلية.",
+        "pt": "Nosso aplicativo é fornecido \"no estado em que se encontra\". O desenvolvedor não garante que funcionará ininterruptamente ou totalmente livre de erros. O desenvolvedor não se responsabiliza por qualquer perda que possa ocorrer, incluindo falha de software, incompatibilidade de dispositivo, desconexão de conta ou perda de dados locais.",
+        "ru": "Наше приложение предоставляется «как есть». Разработчик не гарантирует бесперебойную или полностью безошибочную работу. Разработчик не несёт ответственности за любые потери, включая сбой ПО, несовместимость устройства, отключение учётной записи или потерю локальных данных."
+      },
+      "sec_6_title": { "tr": "6. Değişiklikler ve İletişim", "en": "6. Changes and Contact", "de": "6. Änderungen und Kontakt", "zh": "6. 变更与联系", "hi": "6. परिवर्तन और संपर्क", "es": "6. Cambios y Contacto", "fr": "6. Modifications et Contact", "ar": "6. التغييرات والاتصال", "pt": "6. Alterações e Contato", "ru": "6. Изменения и контактная информация" },
+      "sec_6_p1": {
+        "tr": "Bu Kullanım Koşulları, oyun güncellemeleri veya yasal mevzuat değişiklikleri nedeniyle zaman zaman güncellenebilir. Değişiklikler bu sayfada yayınlandığı andan itibaren geçerlilik kazanır.",
+        "en": "These Terms of Use may be updated from time to time due to game updates or changes in legal regulations. Changes take effect from the moment they are published on this page.",
+        "de": "Diese Nutzungsbedingungen können aufgrund von Spielaktualisierungen oder Gesetzesänderungen von Zeit zu Zeit aktualisiert werden. Änderungen treten ab ihrer Veröffentlichung auf dieser Seite in Kraft.",
+        "zh": "由于游戏更新或法律法规变化，本使用条款可能会不时更新。更改自在此页面发布之时起生效。",
+        "hi": "गेम अपडेट या कानूनी नियमों में बदलाव के कारण इन उपयोग की शर्तों को समय-समय पर अपडेट किया जा सकता है। परिवर्तन इस पृष्ठ पर प्रकाशित होने के क्षण से प्रभावी होते हैं।",
+        "es": "Estos Términos de Uso pueden actualizarse de vez en cuando debido a actualizaciones del juego o cambios en las regulaciones legales. Los cambios entran en vigor desde el momento en que se publican en esta página.",
+        "fr": "Ces Conditions d'Utilisation peuvent être mises à jour de temps à autre en raison de mises à jour du jeu ou de modifications réglementaires. Les modifications prennent effet dès leur publication sur cette page.",
+        "ar": "قد يتم تحديث شروط الاستخدام هذه من وقت لآخر بسبب تحديثات اللعبة أو التغييرات في اللوائح القانونية. تدخل التغييرات حيز التنفيذ من لحظة نشرها على هذه الصفحة.",
+        "pt": "Estes Termos de Uso podem ser atualizados de tempos em tempos devido a atualizações do jogo ou alterações nas regulamentações legais. As alterações entram em vigor a partir do momento em que são publicadas nesta página.",
+        "ru": "Настоящие Условия могут время от времени обновляться в связи с обновлениями игры или изменениями законодательства. Изменения вступают в силу с момента публикации на этой странице."
+      },
+      "sec_6_p2": {
+        "tr": "Sorularınız ve geri bildirimleriniz için bizimle iletişime geçebilirsiniz: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "en": "You can contact us for your questions and feedback: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "de": "Sie können uns bei Fragen und Feedback kontaktieren: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "zh": "如有任何疑问和反馈，您可以联系我们：<a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "hi": "आप अपने प्रश्नों और प्रतिक्रिया के लिए हमसे संपर्क कर सकते हैं: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "es": "Puede ponerse en contacto con nosotros para sus preguntas y comentarios: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "fr": "Vous pouvez nous contacter pour vos questions et commentaires : <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ar": "يمكنك الاتصال بنا لأسئلتك وملاحظاتك: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "pt": "Você pode entrar em contato conosco para dúvidas e feedback: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ru": "Вы можете связаться с нами по вопросам и отзывам: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.", "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.", "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.", "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。", "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।", "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.", "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.", "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.", "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.", "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>

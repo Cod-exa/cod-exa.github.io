@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kakuro: Sayı Bulmaca & Mantık – CodExa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap');
+
+    :root {
+      --em: #10B981;
+      --em-light: #34D399;
+      --em-alpha: rgba(16, 185, 129, 0.12);
+      --em-border: rgba(16, 185, 129, 0.25);
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --card: rgba(30, 41, 59, 0.6);
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --white: #F8FAFC;
+      --border: rgba(16, 185, 129, 0.15);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16, 185, 129, 0.10) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(16, 185, 129, 0.02) 40px, rgba(16, 185, 129, 0.02) 41px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--em-light);
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    .back-btn:hover { color: #fff; transform: translateX(-4px); }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 80px; }
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid var(--em-border);
+      margin-bottom: 28px;
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.18), inset 0 1px 0 rgba(16, 185, 129, 0.15);
+    }
+    .logo-wrap svg { width: 54px; height: 54px; }
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 18px;
+      border: 1px solid var(--em-border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--em-light);
+      background: var(--em-alpha);
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .hero-badge .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--em);
+      box-shadow: 0 0 10px var(--em);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    h1 .accent { color: var(--em-light); }
+    .tagline {
+      font-size: clamp(16px, 3vw, 20px);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+    .hero-note { font-size: 14px; color: var(--text-muted); font-style: italic; }
+
+    /* Sections */
+    section { margin-bottom: 72px; }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .section-intro { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 40px; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .how-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .how-num {
+      width: 44px; height: 44px;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: var(--em-alpha);
+      border: 1px solid var(--em-border);
+      color: var(--em-light);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .how-step h3 { color: var(--white); font-family: 'Outfit', sans-serif; font-size: 1.05rem; margin-bottom: 8px; }
+    .how-step p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      transition: var(--transition);
+    }
+    .feature:hover { border-color: var(--em-border); transform: translateY(-3px); }
+    .feature-icon {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 12px;
+      background: var(--em-alpha);
+      margin-bottom: 16px;
+    }
+    .feature-icon svg { width: 24px; height: 24px; stroke: var(--em-light); }
+    .feature h3 { color: var(--white); font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 8px; }
+    .feature p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .legal-links a {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+    .legal-links a:hover { border-color: var(--em-border); color: #fff; background: var(--em-alpha); }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 720px) {
+      .how-grid, .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-btn" data-i18n="back_btn">← Ana Sayfa / Home</a>
+
+    <div class="hero">
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="3" stroke="#10B981" stroke-width="1.6"/>
+          <line x1="2.5" y1="9" x2="21.5" y2="9" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <line x1="2.5" y1="15" x2="21.5" y2="15" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <line x1="9" y1="2.5" x2="9" y2="21.5" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <line x1="15" y1="2.5" x2="15" y2="21.5" stroke="#10B981" stroke-width="1.1" opacity="0.6"/>
+          <path d="M3 3 L9 9" stroke="#34D399" stroke-width="1.2" opacity="0.8"/>
+          <rect x="3" y="3" width="6" height="6" fill="#10B981" opacity="0.18"/>
+          <text x="12" y="13.4" fill="#34D399" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">7</text>
+          <text x="18" y="13.4" fill="#34D399" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">3</text>
+          <text x="12" y="19.4" fill="#34D399" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">9</text>
+        </svg>
+      </div>
+      <div class="hero-badge" data-i18n="hero_badge"><span class="dot"></span>Yakında Google Play'de!</div>
+      <h1>Kakuro</h1>
+      <p class="tagline" data-i18n="hero_tagline">Sayıların çapraz bulmacası. Mantığını kullan, ipuçlarındaki toplamları yakala ve her bulmacayı çöz!</p>
+      <p class="hero-note" data-i18n="hero_note">CodExa (Erdinç TOPAL) tarafından geliştirilmektedir.</p>
+    </div>
+
+    <section>
+      <h2 class="section-title" data-i18n="about_title">Kakuro Nedir?</h2>
+      <p class="section-intro" data-i18n="about_p">Kakuro, bir tür sayı çapraz bulmacasıdır. Boş hücreleri 1-9 arası rakamlarla doldurursun; her yatay ve dikey dizinin toplamı, ipucu hücresinde yazan sayıya eşit olmalıdır. Aynı dizide bir rakamı yalnızca bir kez kullanabilirsin.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-i18n="how_title">Nasıl Oynanır?</h2>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <h3 data-i18n="how_1_t">İpuçlarını Oku</h3>
+          <p data-i18n="how_1_p">İpucu hücresindeki sayı, o satır veya sütundaki rakamların toplamını gösterir.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">2</div>
+          <h3 data-i18n="how_2_t">Rakamları Yerleştir</h3>
+          <p data-i18n="how_2_p">Boş hücreleri 1-9 arası rakamlarla doldur. Bir dizide aynı rakamı tekrar kullanamazsın.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <h3 data-i18n="how_3_t">Bulmacayı Çöz</h3>
+          <p data-i18n="how_3_p">Tüm toplamlar tutturulduğunda bulmaca tamamlanır. Mantığını kullan, tahmin etme!</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-i18n="features_title">Özellikler</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
+          <h3 data-i18n="feat_1_t">Farklı Zorluk Seviyeleri</h3>
+          <p data-i18n="feat_1_p">Yeni başlayanlardan uzmanlara kadar herkese uygun, çeşitli tahta boyutları ve zorluklar.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path></svg></div>
+          <h3 data-i18n="feat_2_t">Akıllı İpuçları</h3>
+          <p data-i18n="feat_2_p">Takıldığında yön gösteren ipuçları ve hata kontrolü ile öğrenerek ilerle.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg></div>
+          <h3 data-i18n="feat_3_t">İstatistikler</h3>
+          <p data-i18n="feat_3_p">Çözdüğün bulmacaları, sürelerini ve gelişimini takip et.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"></circle><circle cx="19" cy="13" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="10" cy="19" r="2.5"></circle></svg></div>
+          <h3 data-i18n="feat_4_t">Temalar</h3>
+          <p data-i18n="feat_4_p">Göz alıcı, modern temalar ve sade arayüz ile keyifli bir oyun deneyimi.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg></div>
+          <h3 data-i18n="feat_5_t">Çevrimdışı Oyna</h3>
+          <p data-i18n="feat_5_p">İlerlemen cihazına kaydedilir; internet olmadan da bulmaca çözebilirsin.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+          <h3 data-i18n="feat_6_t">İsteğe Bağlı Hesap</h3>
+          <p data-i18n="feat_6_p">Google ile giriş yaparak (isteğe bağlı) hesabını yönetebilir, misafir olarak da oynayabilirsin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-i18n="legal_title">Yasal & Destek</h2>
+      <div class="legal-links">
+        <a href="privacy.html" data-i18n="link_privacy">Gizlilik Politikası</a>
+        <a href="terms.html" data-i18n="link_terms">Kullanım Koşulları</a>
+        <a href="support.html" data-i18n="link_support">Destek & Yardım</a>
+      </div>
+    </section>
+
+    <footer data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</footer>
+  </div>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      "page_title": {
+        "tr": "Kakuro: Sayı Bulmaca & Mantık – CodExa",
+        "en": "Kakuro: Number Puzzle & Logic – CodExa",
+        "de": "Kakuro: Zahlenrätsel & Logik – CodExa",
+        "zh": "Kakuro：数字逻辑谜题 – CodExa",
+        "hi": "Kakuro: संख्या पहेली और तर्क – CodExa",
+        "es": "Kakuro: Rompecabezas Numérico y Lógica – CodExa",
+        "fr": "Kakuro : Puzzle de Nombres & Logique – CodExa",
+        "ar": "Kakuro: لغز الأرقام والمنطق – CodExa",
+        "pt": "Kakuro: Quebra-cabeça Numérico & Lógica – CodExa",
+        "ru": "Kakuro: числовая головоломка и логика – CodExa"
+      },
+      "back_btn": {
+        "tr": "← Ana Sayfa / Home",
+        "en": "← Home",
+        "de": "← Startseite",
+        "zh": "← 主页",
+        "hi": "← होम",
+        "es": "← Inicio",
+        "fr": "← Accueil",
+        "ar": "← الصفحة الرئيسية",
+        "pt": "← Início",
+        "ru": "← Главная"
+      },
+      "hero_badge": {
+        "tr": "Yakında Google Play'de!",
+        "en": "Coming Soon to Google Play!",
+        "de": "Demnächst bei Google Play!",
+        "zh": "即将登陆 Google Play！",
+        "hi": "जल्द ही Google Play पर!",
+        "es": "¡Próximamente en Google Play!",
+        "fr": "Bientôt sur Google Play !",
+        "ar": "قريباً على Google Play!",
+        "pt": "Em breve na Google Play!",
+        "ru": "Скоро в Google Play!"
+      },
+      "hero_tagline": {
+        "tr": "Sayıların çapraz bulmacası. Mantığını kullan, ipuçlarındaki toplamları yakala ve her bulmacayı çöz!",
+        "en": "The crossword of numbers. Use your logic, match the clue sums, and solve every puzzle!",
+        "de": "Das Kreuzworträtsel der Zahlen. Nutze deine Logik, triff die Hinweissummen und löse jedes Rätsel!",
+        "zh": "数字的填字游戏。运用逻辑，凑出提示的总和，解开每一道谜题！",
+        "hi": "संख्याओं की क्रॉसवर्ड पहेली। अपने तर्क का उपयोग करें, सुराग के योग से मिलान करें और हर पहेली हल करें!",
+        "es": "El crucigrama de los números. ¡Usa tu lógica, alcanza las sumas de las pistas y resuelve cada rompecabezas!",
+        "fr": "Les mots croisés des nombres. Utilise ta logique, atteins les sommes des indices et résous chaque puzzle !",
+        "ar": "الكلمات المتقاطعة للأرقام. استخدم منطقك، وحقّق مجاميع الأدلة، وحلّ كل لغز!",
+        "pt": "As palavras cruzadas dos números. Use sua lógica, alcance as somas das pistas e resolva cada quebra-cabeça!",
+        "ru": "Кроссворд из чисел. Используйте логику, набирайте суммы из подсказок и решайте каждую головоломку!"
+      },
+      "hero_note": {
+        "tr": "CodExa (Erdinç TOPAL) tarafından geliştirilmektedir.",
+        "en": "Developed by CodExa (Erdinç TOPAL).",
+        "de": "Entwickelt von CodExa (Erdinç TOPAL).",
+        "zh": "由 CodExa (Erdinç TOPAL) 开发。",
+        "hi": "CodExa (Erdinç TOPAL) द्वारा विकसित।",
+        "es": "Desarrollado por CodExa (Erdinç TOPAL).",
+        "fr": "Développé par CodExa (Erdinç TOPAL).",
+        "ar": "تم تطويره بواسطة CodExa (Erdinç TOPAL).",
+        "pt": "Desenvolvido por CodExa (Erdinç TOPAL).",
+        "ru": "Разработано CodExa (Erdinç TOPAL)."
+      },
+      "about_title": {
+        "tr": "Kakuro Nedir?",
+        "en": "What is Kakuro?",
+        "de": "Was ist Kakuro?",
+        "zh": "什么是 Kakuro？",
+        "hi": "Kakuro क्या है?",
+        "es": "¿Qué es Kakuro?",
+        "fr": "Qu'est-ce que le Kakuro ?",
+        "ar": "ما هو Kakuro؟",
+        "pt": "O que é Kakuro?",
+        "ru": "Что такое Kakuro?"
+      },
+      "about_p": {
+        "tr": "Kakuro, bir tür sayı çapraz bulmacasıdır. Boş hücreleri 1-9 arası rakamlarla doldurursun; her yatay ve dikey dizinin toplamı, ipucu hücresinde yazan sayıya eşit olmalıdır. Aynı dizide bir rakamı yalnızca bir kez kullanabilirsin.",
+        "en": "Kakuro is a kind of number crossword. You fill the empty cells with digits 1-9 so that the sum of each horizontal and vertical run equals the number in its clue cell. A digit may be used only once within a run.",
+        "de": "Kakuro ist eine Art Zahlen-Kreuzworträtsel. Du füllst die leeren Felder mit den Ziffern 1-9, sodass die Summe jeder waagerechten und senkrechten Reihe der Zahl im Hinweisfeld entspricht. Eine Ziffer darf in einer Reihe nur einmal vorkommen.",
+        "zh": "Kakuro 是一种数字填字游戏。你用数字 1-9 填满空白格，使每一横行和竖列的和等于提示格中的数字。同一行中每个数字只能使用一次。",
+        "hi": "Kakuro एक प्रकार की संख्या क्रॉसवर्ड पहेली है। आप खाली कक्षों को 1-9 अंकों से भरते हैं ताकि प्रत्येक क्षैतिज और ऊर्ध्वाधर पंक्ति का योग उसके सुराग कक्ष में लिखी संख्या के बराबर हो। एक पंक्ति में एक अंक केवल एक बार उपयोग किया जा सकता है।",
+        "es": "Kakuro es una especie de crucigrama numérico. Rellenas las celdas vacías con dígitos del 1 al 9 de modo que la suma de cada fila horizontal y vertical sea igual al número de su celda de pista. Un dígito solo puede usarse una vez dentro de una secuencia.",
+        "fr": "Le Kakuro est une sorte de mots croisés numériques. Tu remplis les cases vides avec les chiffres de 1 à 9 pour que la somme de chaque ligne horizontale et verticale soit égale au nombre indiqué dans sa case-indice. Un chiffre ne peut être utilisé qu'une seule fois dans une même série.",
+        "ar": "Kakuro هو نوع من الكلمات المتقاطعة الرقمية. تملأ الخلايا الفارغة بالأرقام من 1 إلى 9 بحيث يساوي مجموع كل صف أفقي وعمودي الرقم الموجود في خلية الدليل. يمكن استخدام الرقم مرة واحدة فقط ضمن السلسلة.",
+        "pt": "Kakuro é um tipo de palavras cruzadas numéricas. Você preenche as células vazias com dígitos de 1 a 9 de modo que a soma de cada sequência horizontal e vertical seja igual ao número da sua célula de pista. Um dígito só pode ser usado uma vez dentro de uma sequência.",
+        "ru": "Kakuro — это разновидность числового кроссворда. Вы заполняете пустые клетки цифрами от 1 до 9 так, чтобы сумма каждого горизонтального и вертикального ряда равнялась числу в клетке-подсказке. Цифра в одном ряду может использоваться только один раз."
+      },
+      "how_title": {
+        "tr": "Nasıl Oynanır?",
+        "en": "How to Play",
+        "de": "Spielanleitung",
+        "zh": "玩法",
+        "hi": "कैसे खेलें",
+        "es": "Cómo Jugar",
+        "fr": "Comment Jouer",
+        "ar": "كيفية اللعب",
+        "pt": "Como Jogar",
+        "ru": "Как играть"
+      },
+      "how_1_t": {
+        "tr": "İpuçlarını Oku",
+        "en": "Read the Clues",
+        "de": "Hinweise lesen",
+        "zh": "阅读提示",
+        "hi": "सुराग पढ़ें",
+        "es": "Lee las Pistas",
+        "fr": "Lis les Indices",
+        "ar": "اقرأ الأدلة",
+        "pt": "Leia as Pistas",
+        "ru": "Читайте подсказки"
+      },
+      "how_1_p": {
+        "tr": "İpucu hücresindeki sayı, o satır veya sütundaki rakamların toplamını gösterir.",
+        "en": "The number in a clue cell shows the total of the digits in that row or column.",
+        "de": "Die Zahl in einem Hinweisfeld zeigt die Summe der Ziffern in dieser Zeile oder Spalte.",
+        "zh": "提示格中的数字表示该行或该列中各数字的总和。",
+        "hi": "सुराग कक्ष में संख्या उस पंक्ति या स्तंभ के अंकों का योग दर्शाती है।",
+        "es": "El número en una celda de pista muestra la suma de los dígitos de esa fila o columna.",
+        "fr": "Le nombre dans une case-indice indique le total des chiffres de cette ligne ou colonne.",
+        "ar": "يُظهر الرقم في خلية الدليل مجموع الأرقام في ذلك الصف أو العمود.",
+        "pt": "O número em uma célula de pista mostra a soma dos dígitos daquela linha ou coluna.",
+        "ru": "Число в клетке-подсказке показывает сумму цифр в этом ряду или столбце."
+      },
+      "how_2_t": {
+        "tr": "Rakamları Yerleştir",
+        "en": "Place the Digits",
+        "de": "Ziffern platzieren",
+        "zh": "填入数字",
+        "hi": "अंक रखें",
+        "es": "Coloca los Dígitos",
+        "fr": "Place les Chiffres",
+        "ar": "ضع الأرقام",
+        "pt": "Coloque os Dígitos",
+        "ru": "Расставьте цифры"
+      },
+      "how_2_p": {
+        "tr": "Boş hücreleri 1-9 arası rakamlarla doldur. Bir dizide aynı rakamı tekrar kullanamazsın.",
+        "en": "Fill the empty cells with digits 1-9. You cannot repeat a digit within the same run.",
+        "de": "Fülle die leeren Felder mit den Ziffern 1-9. Eine Ziffer darf in derselben Reihe nicht wiederholt werden.",
+        "zh": "用数字 1-9 填满空白格。同一行中不能重复使用同一个数字。",
+        "hi": "खाली कक्षों को 1-9 अंकों से भरें। एक ही पंक्ति में एक अंक दोहराया नहीं जा सकता।",
+        "es": "Rellena las celdas vacías con dígitos del 1 al 9. No puedes repetir un dígito en la misma secuencia.",
+        "fr": "Remplis les cases vides avec les chiffres de 1 à 9. Tu ne peux pas répéter un chiffre dans la même série.",
+        "ar": "املأ الخلايا الفارغة بالأرقام من 1 إلى 9. لا يمكنك تكرار رقم في نفس السلسلة.",
+        "pt": "Preencha as células vazias com dígitos de 1 a 9. Você não pode repetir um dígito na mesma sequência.",
+        "ru": "Заполните пустые клетки цифрами 1-9. Нельзя повторять цифру в одном ряду."
+      },
+      "how_3_t": {
+        "tr": "Bulmacayı Çöz",
+        "en": "Solve the Puzzle",
+        "de": "Rätsel lösen",
+        "zh": "解开谜题",
+        "hi": "पहेली हल करें",
+        "es": "Resuelve el Rompecabezas",
+        "fr": "Résous le Puzzle",
+        "ar": "حل اللغز",
+        "pt": "Resolva o Quebra-cabeça",
+        "ru": "Решите головоломку"
+      },
+      "how_3_p": {
+        "tr": "Tüm toplamlar tutturulduğunda bulmaca tamamlanır. Mantığını kullan, tahmin etme!",
+        "en": "When every sum is matched, the puzzle is complete. Use logic, don't guess!",
+        "de": "Wenn alle Summen stimmen, ist das Rätsel gelöst. Nutze Logik, rate nicht!",
+        "zh": "当所有总和都凑齐时，谜题即完成。运用逻辑，不要猜测！",
+        "hi": "जब सभी योग मिल जाते हैं, तो पहेली पूरी हो जाती है। तर्क का उपयोग करें, अनुमान न लगाएं!",
+        "es": "Cuando todas las sumas coinciden, el rompecabezas está completo. ¡Usa la lógica, no adivines!",
+        "fr": "Lorsque toutes les sommes correspondent, le puzzle est terminé. Utilise la logique, ne devine pas !",
+        "ar": "عند تحقيق جميع المجاميع، يكتمل اللغز. استخدم المنطق ولا تخمّن!",
+        "pt": "Quando todas as somas coincidem, o quebra-cabeça está completo. Use a lógica, não adivinhe!",
+        "ru": "Когда все суммы совпадут, головоломка решена. Используйте логику, не угадывайте!"
+      },
+      "features_title": {
+        "tr": "Özellikler",
+        "en": "Features",
+        "de": "Funktionen",
+        "zh": "功能特点",
+        "hi": "विशेषताएं",
+        "es": "Características",
+        "fr": "Fonctionnalités",
+        "ar": "الميزات",
+        "pt": "Recursos",
+        "ru": "Возможности"
+      },
+      "feat_1_t": {
+        "tr": "Farklı Zorluk Seviyeleri",
+        "en": "Various Difficulty Levels",
+        "de": "Verschiedene Schwierigkeitsgrade",
+        "zh": "多种难度等级",
+        "hi": "विभिन्न कठिनाई स्तर",
+        "es": "Varios Niveles de Dificultad",
+        "fr": "Différents Niveaux de Difficulté",
+        "ar": "مستويات صعوبة متنوعة",
+        "pt": "Vários Níveis de Dificuldade",
+        "ru": "Разные уровни сложности"
+      },
+      "feat_1_p": {
+        "tr": "Yeni başlayanlardan uzmanlara kadar herkese uygun, çeşitli tahta boyutları ve zorluklar.",
+        "en": "Various board sizes and difficulties suitable for everyone, from beginners to experts.",
+        "de": "Verschiedene Spielfeldgrößen und Schwierigkeitsgrade für alle, vom Anfänger bis zum Experten.",
+        "zh": "适合所有人的多种棋盘尺寸和难度，从新手到专家。",
+        "hi": "शुरुआती से लेकर विशेषज्ञों तक सभी के लिए उपयुक्त विभिन्न बोर्ड आकार और कठिनाइयां।",
+        "es": "Varios tamaños de tablero y dificultades adecuados para todos, desde principiantes hasta expertos.",
+        "fr": "Différentes tailles de grille et difficultés adaptées à tous, des débutants aux experts.",
+        "ar": "أحجام لوحات ومستويات صعوبة متنوعة تناسب الجميع، من المبتدئين إلى الخبراء.",
+        "pt": "Vários tamanhos de tabuleiro e dificuldades adequados para todos, de iniciantes a especialistas.",
+        "ru": "Разные размеры поля и уровни сложности для всех — от новичков до экспертов."
+      },
+      "feat_2_t": {
+        "tr": "Akıllı İpuçları",
+        "en": "Smart Hints",
+        "de": "Intelligente Hinweise",
+        "zh": "智能提示",
+        "hi": "स्मार्ट संकेत",
+        "es": "Pistas Inteligentes",
+        "fr": "Indices Intelligents",
+        "ar": "تلميحات ذكية",
+        "pt": "Dicas Inteligentes",
+        "ru": "Умные подсказки"
+      },
+      "feat_2_p": {
+        "tr": "Takıldığında yön gösteren ipuçları ve hata kontrolü ile öğrenerek ilerle.",
+        "en": "Progress while learning, with guiding hints and mistake checking when you get stuck.",
+        "de": "Komme voran, während du lernst – mit hilfreichen Hinweisen und Fehlerprüfung, wenn du nicht weiterkommst.",
+        "zh": "卡住时提供引导提示和错误检查，让你边学边进步。",
+        "hi": "अटकने पर मार्गदर्शक संकेत और गलती जांच के साथ सीखते हुए आगे बढ़ें।",
+        "es": "Avanza mientras aprendes, con pistas orientadoras y comprobación de errores cuando te atascas.",
+        "fr": "Progresse en apprenant, avec des indices guidés et une vérification des erreurs lorsque tu bloques.",
+        "ar": "تقدّم وأنت تتعلّم، مع تلميحات إرشادية وفحص الأخطاء عندما تتوقف.",
+        "pt": "Avance enquanto aprende, com dicas orientadoras e verificação de erros quando você empaca.",
+        "ru": "Прогрессируйте, обучаясь, — с направляющими подсказками и проверкой ошибок, когда вы застряли."
+      },
+      "feat_3_t": {
+        "tr": "İstatistikler",
+        "en": "Statistics",
+        "de": "Statistiken",
+        "zh": "统计数据",
+        "hi": "आंकड़े",
+        "es": "Estadísticas",
+        "fr": "Statistiques",
+        "ar": "الإحصائيات",
+        "pt": "Estatísticas",
+        "ru": "Статистика"
+      },
+      "feat_3_p": {
+        "tr": "Çözdüğün bulmacaları, sürelerini ve gelişimini takip et.",
+        "en": "Track the puzzles you've solved, your times, and your progress.",
+        "de": "Verfolge die gelösten Rätsel, deine Zeiten und deinen Fortschritt.",
+        "zh": "追踪你已解开的谜题、用时和进度。",
+        "hi": "हल की गई पहेलियों, अपने समय और प्रगति को ट्रैक करें।",
+        "es": "Sigue los rompecabezas que has resuelto, tus tiempos y tu progreso.",
+        "fr": "Suis les puzzles que tu as résolus, tes temps et ta progression.",
+        "ar": "تتبّع الألغاز التي حللتها وأوقاتك وتقدمك.",
+        "pt": "Acompanhe os quebra-cabeças que você resolveu, seus tempos e seu progresso.",
+        "ru": "Отслеживайте решённые головоломки, своё время и прогресс."
+      },
+      "feat_4_t": {
+        "tr": "Temalar",
+        "en": "Themes",
+        "de": "Themes",
+        "zh": "主题",
+        "hi": "थीम",
+        "es": "Temas",
+        "fr": "Thèmes",
+        "ar": "السمات",
+        "pt": "Temas",
+        "ru": "Темы"
+      },
+      "feat_4_p": {
+        "tr": "Göz alıcı, modern temalar ve sade arayüz ile keyifli bir oyun deneyimi.",
+        "en": "An enjoyable experience with eye-catching modern themes and a clean interface.",
+        "de": "Ein angenehmes Erlebnis mit ansprechenden modernen Themes und einer klaren Oberfläche.",
+        "zh": "通过引人注目的现代主题和简洁的界面，带来愉悦的游戏体验。",
+        "hi": "आकर्षक आधुनिक थीम और स्वच्छ इंटरफ़ेस के साथ एक सुखद अनुभव।",
+        "es": "Una experiencia agradable con temas modernos llamativos y una interfaz limpia.",
+        "fr": "Une expérience agréable avec des thèmes modernes attrayants et une interface épurée.",
+        "ar": "تجربة ممتعة مع سمات حديثة جذابة وواجهة بسيطة.",
+        "pt": "Uma experiência agradável com temas modernos atraentes e uma interface limpa.",
+        "ru": "Приятный опыт с яркими современными темами и понятным интерфейсом."
+      },
+      "feat_5_t": {
+        "tr": "Çevrimdışı Oyna",
+        "en": "Play Offline",
+        "de": "Offline spielen",
+        "zh": "离线游玩",
+        "hi": "ऑफ़लाइन खेलें",
+        "es": "Juega sin Conexión",
+        "fr": "Joue Hors Ligne",
+        "ar": "العب دون اتصال",
+        "pt": "Jogue Offline",
+        "ru": "Играйте офлайн"
+      },
+      "feat_5_p": {
+        "tr": "İlerlemen cihazına kaydedilir; internet olmadan da bulmaca çözebilirsin.",
+        "en": "Your progress is saved on your device; you can solve puzzles even without internet.",
+        "de": "Dein Fortschritt wird auf deinem Gerät gespeichert; du kannst auch ohne Internet Rätsel lösen.",
+        "zh": "你的进度保存在设备上；即使没有网络也能解谜。",
+        "hi": "आपकी प्रगति आपके डिवाइस पर सहेजी जाती है; आप इंटरनेट के बिना भी पहेलियां हल कर सकते हैं।",
+        "es": "Tu progreso se guarda en tu dispositivo; puedes resolver rompecabezas incluso sin internet.",
+        "fr": "Ta progression est enregistrée sur ton appareil ; tu peux résoudre des puzzles même sans internet.",
+        "ar": "يتم حفظ تقدمك على جهازك؛ يمكنك حل الألغاز حتى بدون إنترنت.",
+        "pt": "Seu progresso é salvo no seu dispositivo; você pode resolver quebra-cabeças mesmo sem internet.",
+        "ru": "Ваш прогресс сохраняется на устройстве; решать головоломки можно даже без интернета."
+      },
+      "feat_6_t": {
+        "tr": "İsteğe Bağlı Hesap",
+        "en": "Optional Account",
+        "de": "Optionales Konto",
+        "zh": "可选帐户",
+        "hi": "वैकल्पिक खाता",
+        "es": "Cuenta Opcional",
+        "fr": "Compte Optionnel",
+        "ar": "حساب اختياري",
+        "pt": "Conta Opcional",
+        "ru": "Необязательный аккаунт"
+      },
+      "feat_6_p": {
+        "tr": "Google ile giriş yaparak (isteğe bağlı) hesabını yönetebilir, misafir olarak da oynayabilirsin.",
+        "en": "Sign in with Google (optional) to manage your account, or simply play as a guest.",
+        "de": "Melde dich (optional) mit Google an, um dein Konto zu verwalten, oder spiele einfach als Gast.",
+        "zh": "可选择使用 Google 登录以管理帐户，也可以直接以访客身份游玩。",
+        "hi": "अपने खाते को प्रबंधित करने के लिए Google से साइन इन करें (वैकल्पिक), या बस अतिथि के रूप में खेलें।",
+        "es": "Inicia sesión con Google (opcional) para gestionar tu cuenta, o simplemente juega como invitado.",
+        "fr": "Connecte-toi avec Google (facultatif) pour gérer ton compte, ou joue simplement en tant qu'invité.",
+        "ar": "سجّل الدخول عبر Google (اختياري) لإدارة حسابك، أو العب ببساطة كضيف.",
+        "pt": "Faça login com o Google (opcional) para gerenciar sua conta, ou simplesmente jogue como convidado.",
+        "ru": "Войдите через Google (необязательно), чтобы управлять аккаунтом, или просто играйте как гость."
+      },
+      "legal_title": {
+        "tr": "Yasal & Destek",
+        "en": "Legal & Support",
+        "de": "Rechtliches & Support",
+        "zh": "法律与支持",
+        "hi": "कानूनी और सहायता",
+        "es": "Legal y Soporte",
+        "fr": "Légal & Support",
+        "ar": "القانونية والدعم",
+        "pt": "Jurídico & Suporte",
+        "ru": "Правовая информация и поддержка"
+      },
+      "link_privacy": {
+        "tr": "Gizlilik Politikası",
+        "en": "Privacy Policy",
+        "de": "Datenschutzerklärung",
+        "zh": "隐私政策",
+        "hi": "गोपनीयता नीति",
+        "es": "Política de Privacidad",
+        "fr": "Politique de Confidentialité",
+        "ar": "سياسة الخصوصية",
+        "pt": "Política de Privacidade",
+        "ru": "Политика конфиденциальности"
+      },
+      "link_terms": {
+        "tr": "Kullanım Koşulları",
+        "en": "Terms of Use",
+        "de": "Nutzungsbedingungen",
+        "zh": "使用条款",
+        "hi": "उपयोग की शर्तें",
+        "es": "Términos de Uso",
+        "fr": "Conditions d'Utilisation",
+        "ar": "شروط الاستخدام",
+        "pt": "Termos de Uso",
+        "ru": "Условия использования"
+      },
+      "link_support": {
+        "tr": "Destek & Yardım",
+        "en": "Support & Help",
+        "de": "Support & Hilfe",
+        "zh": "支持与帮助",
+        "hi": "सहायता और मदद",
+        "es": "Soporte y Ayuda",
+        "fr": "Support & Aide",
+        "ar": "الدعم والمساعدة",
+        "pt": "Suporte & Ajuda",
+        "ru": "Поддержка и помощь"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
+        "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.",
+        "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+        "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+        "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+        "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+        "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+        "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+        "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+        "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>
