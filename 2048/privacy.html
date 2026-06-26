@@ -1,161 +1,557 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Game2048</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0F081D;
-            --card-bg: #1F1235;
-            --text-color: #E2D9F3;
-            --accent-cyan: #00FFFF;
-            --accent-pink: #FFFF007F;
-            --gold: #FFFFB703;
-        }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--accent-cyan);
-            letter-spacing: 1px;
-        }
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            color: var(--text-color);
-            opacity: 0.7;
-        }
-        main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        section {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        h2 {
-            color: var(--accent-cyan);
-            font-size: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 8px;
-            margin-top: 0;
-        }
-        h3 {
-            color: var(--gold);
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        p, li {
-            font-size: 15px;
-            opacity: 0.9;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        a:hover {
-            color: var(--gold);
-        }
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 13px;
-            opacity: 0.6;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 60px;
-        }
-        .highlight {
-            color: var(--gold);
-            font-weight: 600;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gizlilik Politikası (Privacy Policy) – 2048</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --cyan: #00FFFF;
+      --cyan-light: #22D3EE;
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --dark3: #334155;
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border: rgba(0, 255, 255, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* Background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 255, 255, 0.08) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(0, 255, 255, 0.02) 40px,
+          rgba(0, 255, 255, 0.02) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(0, 255, 255, 0.1), inset 0 1px 0 rgba(0, 255, 255, 0.1);
+    }
+
+    .logo-wrap svg { width: 40px; height: 40px; }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 700;
+      color: var(--cyan-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 18px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--text-muted);
+      background: rgba(0, 255, 255, 0.04);
+      letter-spacing: 0.06em;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 52px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cyan-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      margin-bottom: 24px;
+      text-align: justify;
+    }
+
+    ul {
+      margin: 0 0 24px 24px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    a {
+      color: var(--cyan-light);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(34, 211, 238, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan-light);
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: #fff;
+      transform: translateX(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">
+      ← Oyuna Dön / Back to Game
+    </a>
+
     <header>
-        <h1>2048: Ultimate Edition</h1>
-        <p>Privacy Policy</p>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="4" stroke="#00FFFF" stroke-width="2"/>
+            <text x="50%" y="62%" fill="#00FFFF" font-family="'Outfit', sans-serif" font-size="7" font-weight="900" text-anchor="middle">2048</text>
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Gizlilik Politikası</h1>
+      <div class="subtitle" data-i18n="subtitle">Privacy Policy – 2048</div>
+      <div class="updated" data-i18n="updated">Son Güncelleme: 18 Haziran 2026</div>
     </header>
 
     <main>
-        <section id="introduction">
-            <h2>1. Introduction</h2>
-            <p>Welcome to <strong>2048: Ultimate Edition</strong> ("we", "our", or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share information when you play our mobile application.</p>
-            <p>By using our game, you agree to the collection and use of information in accordance with this policy.</p>
-        </section>
+      <section>
+        <h2 data-i18n="sec_intro_title">Giriş ve Kapsam</h2>
+        <p data-i18n="sec_intro_p">
+          Bu gizlilik politikası, <strong>CodExa</strong> (Erdinç TOPAL) stüdyosu tarafından geliştirilen ve yayınlanan <strong>2048: Ultimate Edition</strong> mobil uygulaması (bundan sonra "Uygulama" olarak anılacaktır) için geçerlidir. Uygulamayı indirerek, kurarak veya kullanarak bu politikada belirtilen veri uygulamalarını kabul etmiş olursunuz.
+        </p>
+      </section>
 
-        <section id="data-collection">
-            <h2>2. Information Collection and Use</h2>
-            <p>For a better experience while playing, we use third-party services that may collect information used to identify you. Below is the list of services we use and the data they collect:</p>
-            
-            <h3>Firebase Authentication (Identity Management)</h3>
-            <p>If you register or log in using Google Sign-In or Email/Password, Firebase Authentication secures your credentials and provides a unique User ID. This allows your score and premium settings to be saved securely. No authentication data is shared with other third parties.</p>
+      <section>
+        <h2 data-i18n="sec_1_title">1. Toplanan Bilgiler ve Kullanım Amaçları</h2>
+        <p data-i18n="sec_1_p">
+          Uygulamamız kullanıcı deneyimini iyileştirmek, oyun ilerlemesini kaydetmek ve reklam gösterimleri sunmak amacıyla güvenilir üçüncü taraf hizmet sağlayıcılarını kullanmaktadır. Doğrudan kimliğinizi tanımlayan hassas kişisel veriler toplamıyoruz. Ancak aşağıdaki üçüncü taraf entegrasyonları aracılığıyla veri toplanabilmektedir:
+        </p>
+        <ul>
+          <li data-i18n="sec_1_li1"><strong>Firebase Authentication (Google Sign-In):</strong> Oyuncuların güvenli şekilde hesap oluşturması, bulut kaydı yapması ve oyun ilerlemelerini (seviyeler, jetonlar, başarımlar) farklı cihazlar arasında senkronize etmesi amacıyla kullanılır. E-posta adresiniz yalnızca kimlik doğrulama amacıyla işlenir.</li>
+          <li data-i18n="sec_1_li2"><strong>Cloud Firestore:</strong> Oyun içi ilerlemeniz, kazandığınız sanal jetonlar ve seviye başarımlarınız tamamen bulut ortamında güvenle saklanır.</li>
+          <li data-i18n="sec_1_li3"><strong>Google Mobile Ads (AdMob):</strong> Uygulama içinde banner ve ödüllü geçiş reklamları sunmak amacıyla kullanılır. AdMob, size ilgi alanlarınıza uygun reklamlar göstermek için cihaz reklam kimliğinizi (IDFA veya Android Reklam Kimliği) işleyebilir.</li>
+          <li data-i18n="sec_1_li4"><strong>Uygulama İçi Satın Alımlar (In-App Purchases):</strong> Satın alma işlemleriniz doğrudan Google Play Store altyapısı üzerinden güvenle gerçekleştirilir. Ödeme bilgilerinize (kredi kartı numarası vb.) uygulamalarımız hiçbir şekilde erişemez veya bunları saklayamaz.</li>
+        </ul>
+      </section>
 
-            <h3>Google AdMob (Advertising)</h3>
-            <p>Our app serves ads using Google AdMob. To serve relevant, personalized, or non-personalized advertisements, AdMob collects details including:</p>
-            <ul>
-                <li>Advertising ID (Ad ID)</li>
-                <li>Device information and manufacturer models</li>
-                <li>IP address and coarse location</li>
-                <li>Ad interaction and impression statistics</li>
-            </ul>
-            <p>We use the mandatory <span class="highlight">AD_ID permission</span> in our manifest to support advertising attribution and SDK performance.</p>
+      <section>
+        <h2 data-i18n="sec_2_title">2. Çerezler (Cookies) ve Cihaz Tanımlayıcılar</h2>
+        <p data-i18n="sec_2_p">
+          Üçüncü taraf reklam ve analiz servisleri, reklam kişiselleştirme ve analiz raporlamaları sunmak amacıyla cihazınıza ait benzersiz reklam kimliklerini (IDFA/AAID) kullanabilir. Dilediğiniz takdirde cihazınızın gizlilik ayarlarından reklam takibini sınırlandırabilirsiniz.
+        </p>
+      </section>
 
-            <h3>Google Play Billing (In-App Purchases)</h3>
-            <p>When you purchase the Premium Ad-Free upgrade, Google Play handles all transaction details. Our app only receives a receipt token to verify your purchase and unlock the feature. We do not store or collect credit card details or financial information.</p>
-        </section>
+      <section>
+        <h2 data-i18n="sec_3_title">3. Çocukların Gizliliği</h2>
+        <p data-i18n="sec_3_p">
+          Uygulamamız çocukların da oynayabileceği özellikler ve modlar içerebilir. 13 yaşın altındaki çocuklardan bilerek ve isteyerek kişisel olarak tanımlanabilir bilgi toplamıyoruz. Eğer 13 yaşın altındaki bir çocuğun bize kişisel bilgi verdiğini fark edersek, bu bilgileri sunucularımızdan derhal sileriz. Eğer ebeveyn olarak çocuğunuzun bizimle veri paylaştığını düşünüyorsanız, lütfen bizimle iletişime geçin.
+        </p>
+      </section>
 
-        <section id="legal-basis">
-            <h2>3. Third-Party Privacy Policies</h2>
-            <p>We highly recommend reviewing the privacy policies of our service providers to understand how they use your data:</p>
-            <ul>
-                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy & Terms</a></li>
-                <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">Google AdMob Privacy Policy</a></li>
-                <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a></li>
-            </ul>
-        </section>
+      <section>
+        <h2 data-i18n="sec_4_title">4. Güvenlik</h2>
+        <p data-i18n="sec_4_p">
+          Verilerinizin güvenliğini korumak bizim için son derece önemlidir. Sunucularımızda saklanan tüm oyun ilerleme verileri güvenli bulut mimarisi ve modern şifreleme yöntemleriyle korunmaktadır.
+        </p>
+      </section>
 
-        <section id="childrens-privacy">
-            <h2>4. Children's Privacy</h2>
-            <p>This game is <strong>not intended</strong> for children under the age of 13 (or under 16 in the European Union). We do not knowingly collect personally identifiable information from children. If we discover that a child under these limits has provided us with personal data, we immediately delete it from our servers.</p>
-        </section>
+      <section>
+        <h2 data-i18n="sec_5_title">5. Hesap ve Veri Silme</h2>
+        <p data-i18n="sec_5_p">
+          Kullanıcılar hesaplarını ve ilişkili tüm verilerini (oyun ilerlemeleri, istatistikler vb.) diledikleri zaman tamamen silebilirler. Hesabınızı ve verilerinizi silmek için oyun içindeki <strong>Ayarlar > Hesabımı Sil</strong> seçeneğini kullanabilirsiniz. Bu işlem geri alınamaz ve tüm verileriniz sunucularımızdan kalıcı olarak temizlenir.
+        </p>
+      </section>
 
-        <section id="contact-info">
-            <h2>5. Contact Us</h2>
-            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us:</p>
-            <p>Email: <a href="mailto:support@yourcompany.com" class="highlight">support@yourcompany.com</a></p>
-            <p>Website: <a href="index.html">support.html</a></p>
-        </section>
+      <section>
+        <h2 data-i18n="sec_6_title">6. Değişiklikler ve İletişim</h2>
+        <p style="margin-bottom: 8px;" data-i18n="sec_6_p1">Bu Gizlilik Politikası zaman zaman güncellenebilir. Herhangi bir değişiklik durumunda yeni politikayı bu sayfada yayınlayarak sizi bilgilendireceğiz.</p>
+        <p data-i18n="sec_6_p2">Her türlü soru, görüş veya veri silme talepleriniz için bizimle iletişime geçebilirsiniz: <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a></p>
+      </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Game2048 Team. All rights reserved. Last updated: June 18, 2026.</p>
+    <footer data-i18n="footer">
+      &copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.
     </footer>
+  </div>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      "back_btn": {
+        "tr": "← Oyuna Dön / Back to Game",
+        "en": "← Back to Game",
+        "de": "← Zurück zum Spiel",
+        "zh": "← 返回游戏",
+        "hi": "← खेल पर वापस जाएं",
+        "es": "← Volver al Juego",
+        "fr": "← Retour au Jeu",
+        "ar": "← العودة إلى اللعبة",
+        "pt": "← Voltar ao Jogo",
+        "ru": "← Назад к игре"
+      },
+      "h1": {
+        "tr": "Gizlilik Politikası",
+        "en": "Privacy Policy",
+        "de": "Datenschutzerklärung",
+        "zh": "隐私政策",
+        "hi": "गोपनीयता नीति",
+        "es": "Política de Privacidad",
+        "fr": "Politique de Confidentialité",
+        "ar": "سياسة الخصوصية",
+        "pt": "Política de Privacidade",
+        "ru": "Политика конфиденциальности"
+      },
+      "subtitle": {
+        "tr": "Gizlilik Politikası – 2048",
+        "en": "Privacy Policy – 2048",
+        "de": "Datenschutzerklärung – 2048",
+        "zh": "隐私政策 – 2048",
+        "hi": "गोपनीयता नीति – 2048",
+        "es": "Política de Privacidad – 2048",
+        "fr": "Politique de Confidentialité – 2048",
+        "ar": "سياسة الخصوصية – 2048",
+        "pt": "Política de Privacidade – 2048",
+        "ru": "Политика конфиденциальности – 2048"
+      },
+      "updated": {
+        "tr": "Son Güncelleme: 18 Haziran 2026",
+        "en": "Last Updated: June 18, 2026",
+        "de": "Zuletzt aktualisiert: 18. Juni 2026",
+        "zh": "最后更新：2026年6月18日",
+        "hi": "अंतिम अपडेट: 18 जून 2026",
+        "es": "Última actualización: 18 de junio de 2026",
+        "fr": "Dernière mise à jour : 18 juin 2026",
+        "ar": "آخر تحديث: 18 يونيو 2026",
+        "pt": "Última Atualização: 18 de junho de 2026",
+        "ru": "Последнее обновление: 18 июня 2026 г."
+      },
+      "sec_intro_title": {
+        "tr": "Giriş ve Kapsam",
+        "en": "Introduction and Scope",
+        "de": "Einführung und Geltungsbereich",
+        "zh": "简介与范围",
+        "hi": "परिचय और दायरा",
+        "es": "Introducción y Alcance",
+        "fr": "Introduction et Portée",
+        "ar": "المقدمة والنطاق",
+        "pt": "Introdução e Escopo",
+        "ru": "Введение и область действия"
+      },
+      "sec_intro_p": {
+        "tr": "Bu gizlilik politikası, <strong>CodExa</strong> (Erdinç TOPAL) stüdyosu tarafından geliştirilen ve yayınlanan <strong>2048: Ultimate Edition</strong> mobil uygulaması (bundan sonra \"Uygulama\" olarak anılacaktır) için geçerlidir. Uygulamayı indirerek, kurarak veya kullanarak bu politikada belirtilen veri uygulamalarını kabul etmiş olursunuz.",
+        "en": "This privacy policy applies to the <strong>2048: Ultimate Edition</strong> mobile application (hereinafter referred to as the \"Application\") developed and published by <strong>CodExa</strong> (Erdinç TOPAL) studio. By downloading, installing, or using the Application, you agree to the data practices described in this policy.",
+        "de": "Diese Datenschutzerklärung gilt für die mobile Anwendung <strong>2048: Ultimate Edition</strong> (im Folgenden als „Anwendung“ bezeichnet), die vom Studio <strong>CodExa</strong> (Erdinç TOPAL) entwickelt und veröffentlicht wurde. Durch Herunterladen, Installieren oder Verwenden der Anwendung stimmen Sie den in dieser Richtlinie beschriebenen Datenpraktiken zu.",
+        "zh": "本隐私政策适用于 <strong>CodExa</strong> (Erdinç TOPAL) 工作室开发并发布的 <strong>2048: Ultimate Edition</strong> 移动应用程序（以下简称“应用程序”）。下载、安装或使用该应用程序即表示您同意本政策中描述的数据处理方式。",
+        "hi": "यह गोपनीयता नीति <strong>CodExa</strong> (Erdinç TOPAL) स्टूडियो द्वारा विकसित और प्रकाशित <strong>2048: Ultimate Edition</strong> मोबाइल एप्लिकेशन (इसके बाद \"एप्लिकेशन\" के रूप में संदर्भित) पर लागू होती है। एप्लिकेशन को डाउनलोड, इंस्टॉल বা उपयोग करके, आप इस नीति में वर्णित डेटा प्रथाओं से सहमत होते हैं।",
+        "es": "Esta política de privacidad se aplica a la aplicación móvil <strong>2048: Ultimate Edition</strong> (en adelante, la \"Aplicación\") desarrollada y publicada por el estudio <strong>CodExa</strong> (Erdinç TOPAL). Al descargar, instalar o utilizar la Aplicación, acepta las prácticas de datos descritas en esta política.",
+        "fr": "Cette politique de confidentialité s'applique à l'application mobile <strong>2048: Ultimate Edition</strong> (ci-après dénommée l'\"Application\") développée et publiée par le studio <strong>CodExa</strong> (Erdinç TOPAL). En téléchargeant, installant ou utilisant l'Application, vous acceptez les pratiques relatives aux données décrites dans cette politique.",
+        "ar": "تنطبق سياسة الخصوصية هذه على تطبيق الهواتف المحمولة <strong>2048: Ultimate Edition</strong> (يشار إليه فيما بعد بـ \"التطبيق\") الذي تم تطويره ونشره بواسطة استوديو <strong>CodExa</strong> (أردينش توبال). بتنزيل التطبيق أو تثبيته أو استخدامه، فإنك توافق على ممارسات البيانات الموضحة في هذه السياسة.",
+        "pt": "Esta política de privacidade se aplica ao aplicativo móvel <strong>2048: Ultimate Edition</strong> (doravante denominado \"Aplicativo\") desenvolvido e publicado pelo estúdio <strong>CodExa</strong> (Erdinç TOPAL). Ao baixar, instalar ou usar o Aplicativo, você concorda con as práticas de dados descritas nesta política.",
+        "ru": "Настоящая политика конфиденциальности применяется к мобильному приложению <strong>2048: Ultimate Edition</strong> (далее — «Приложение»), разработанному и опубликованному студией <strong>CodExa</strong> (Эрдинч ТОПАЛ). Загружая, устанавливая или используя Приложение, вы соглашаетесь с правилами обработки данных, описанными в этой политике."
+      },
+      "sec_1_title": {
+        "tr": "1. Toplanan Bilgiler ve Kullanım Amaçları",
+        "en": "1. Collected Information and Purposes of Use",
+        "de": "1. Erhobene Daten und Verwendungszwecke",
+        "zh": "1. 收集的信息和使用目的",
+        "hi": "1. एकत्रित जानकारी और उपयोग के उद्देश्य",
+        "es": "1. Información Recopilada y Fines de Uso",
+        "fr": "1. Informations Collectées et Finalités d'Utilisation",
+        "ar": "1. المعلومات التي يتم جمعها وأغراض الاستخدام",
+        "pt": "1. Informações Coletadas e Finalidades de Uso",
+        "ru": "1. Сбор информации и цели использования"
+      },
+      "sec_1_p": {
+        "tr": "Uygulamamız kullanıcı deneyimini iyileştirmek, oyun ilerlemesini kaydetmek ve reklam gösterimleri sunmak amacıyla güvenilir üçüncü taraf hizmet sağlayıcılarını kullanmaktadır. Doğrudan kimliğinizi tanımlayan hassas kişisel veriler toplamıyoruz. Ancak aşağıdaki üçüncü taraf entegrasyonları aracılığıyla veri toplanabilmektedir:",
+        "en": "Our application uses reliable third-party service providers to improve user experience, save game progress, and deliver advertisements. We do not directly collect sensitive personal data that identifies your identity. However, data may be collected through the following third-party integrations:",
+        "de": "Unsere Anwendung verwendet zuverlässige Drittanbieter, um die Benutzererfahrung zu verbessern, den Spielfortschritt zu speichern und Werbung bereitzustellen. Wir erheben keine sensiblen personenbezogenen Daten, die Ihre Identität direkt identifizieren. Daten können jedoch über die folgenden Drittanbieter-Integrationen erhoben werden:",
+        "zh": "我们的应用程序使用可靠 de 第三方服务提供商来改善用户体验、保存游戏进度并投放广告。我们不会直接收集可识别您身份的敏感个人数据。但是，可能会通过以下第三方集成收集数据：",
+        "hi": "हमारा एप्लिकेशन उपयोगकर्ता के अनुभव को बेहतर बनाने, गेम की प्रगति को सहेजने और विज्ञापन देने के लिए विश्वसनीय तृतीय-पक्ष सेवा प्रदाताओं का उपयोग करता है। हम सीधे संवेदनशील व्यक्तिगत डेटा एकत्र नहीं करते हैं जो आपकी पहचान करता है। हालांकि, निम्नलिखित तृतीय-पक्ष एकीकरणों के माध्यम से डेटा एकत्र किया जा सकता है:",
+        "es": "Nuestra aplicación utiliza proveedores de servicios de terceros confiables para mejorar la experiencia del usuario, guardar el progreso del juego y ofrecer anuncios. No recopilamos directamente datos personales sensibles que identifiquen su identidad. Sin embargo, se pueden recopilar datos a través de las siguientes integraciones de terceros:",
+        "fr": "Notre application utilise des prestataires de services tiers fiables pour améliorer l'expérience utilisateur, enregistrer la progression du jeu et diffuser des publicités. Nous ne collectons pas directement de données personnelles sensibles vous identifiant. Cependant, des données peuvent être collectées via les intégrations tierces suivantes :",
+        "ar": "يستخدم تطبيقنا موفري خدمات موثوقين من جهات خارجية لتحسين تجربة المستخدم، وحفظ تقدم اللعبة، وتقديم الإعلانات. نحن لا نجمع بشكل مباشر بيانات شخصية حساسة تحدد هويتك. ومع ذلك، قد يتم جمع البيانات من خلال عمليات التكامل التالية مع أطراف خارجية:",
+        "pt": "Nosso aplicativo usa provedores de serviços terceirizados confiáveis para melhorar a experiência do usuário, salvar o progresso do jogo e exibir anúncios. Não coletamos diretamente dados pessoais confidenciais que identifiquem você. No entanto, os dados podem ser coletados por meio das seguintes integrações de terceiros:",
+        "ru": "Наше приложение использует надежных сторонних поставщиков услуг для улучшения пользовательского опыта, сохранения игрового прогресса и показа рекламы. Мы не собираем напрямую конфиденциальные личные данные, идентифицирующие вашу личность. Однако данные могут собираться с помощью следующих сторонних интеграций:"
+      },
+      "sec_1_li1": {
+        "tr": "<strong>Firebase Authentication (Google Sign-In):</strong> Oyuncuların güvenli şekilde hesap oluşturması, bulut kaydı yapması ve oyun ilerlemelerini (seviyeler, jetonlar, başarımlar) farklı cihazlar arasında senkronize etmesi amacıyla kullanılır. E-posta adresiniz yalnızca kimlik doğrulama amacıyla işlenir.",
+        "en": "<strong>Firebase Authentication (Google Sign-In):</strong> Used to allow players to securely create accounts, cloud save, and sync game progress (levels, coins, achievements) across different devices. Your email address is processed solely for authentication.",
+        "de": "<strong>Firebase Authentication (Google-Login):</strong> Ermöglicht es Spielern, sicher Konten zu erstellen, in der Cloud zu speichern und den Spielfortschritt (Levels, Münzen, Erfolge) auf verschiedenen Geräten zu synchronisieren. Ihre E-Mail-Adresse wird ausschließlich zur Authentifizierung verarbeitet.",
+        "zh": "<strong>Firebase Authentication (Google 登录)：</strong> 用于允许玩家安全地创建帐户、云端存檔并在不同设备之间同步游戏进度（等级、金币、成就）。您的电子邮件地址仅用于身份验证目的。",
+        "hi": "<strong>Firebase Authentication (Google साइन-इन):</strong> इसका उपयोग खिलाड़ियों को सुरक्षित रूप से खाता बनाने, क्लाउड सेव करने और विभिन्न उपकरणों में गेम प्रगति (स्तर, सिक्के, उपलब्धियां) सिंक करने की अनुमति देने के लिए किया जाता है। आपका ईमेल पता केवल प्रमाणीकरण के उद्देश्य से संसाधित किया जाता है।",
+        "es": "<strong>Firebase Authentication (Google Sign-In):</strong> se utiliza para permitir a los jugadores crear cuentas de forma segura, guardar en la nube y sincronizar el progreso del juego (niveles, monedas, logros) en diferentes dispositivos. Su dirección de correo electrónico se procesa únicamente para la autenticación.",
+        "fr": "<strong>Firebase Authentication (Google Sign-In) :</strong> Utilisé pour permettre aux joueurs de créer des comptes en toute sécurité, de sauvegarder dans le cloud et de synchroniser leur progression (niveaux, pièces, succès) sur différents appareils. Votre adresse e-mail est traitée uniquement à des fins d'authentification.",
+        "ar": "<strong>Firebase Authentication (Google Sign-In):</strong> تُستخدم لتتيح للاعبين إنشاء حسابات بشكل آمن، وحفظ سحابي، ومزامنة تقدم اللعبة (المستويات، العملات، الإنجازات) عبر أجهزة مختلفة. تتم معالجة بريدك الإلكتروني لأغراض التحقق من الهوية فقط.",
+        "pt": "<strong>Firebase Authentication (Google Sign-In):</strong> Usado para permitir que os jogadores criem contas com segurança, salvem na nuvem e sincronizem o progresso do jogo (níveis, moedas, conquistas) em diferentes dispositivos. Seu endereço de e-mail é processado apenas para fins de autenticação.",
+        "ru": "<strong>Firebase Authentication (Google Sign-In):</strong> Используется для безопасного создания учетных записей, облачного сохранения и синхронизации игрового прогресса (уровней, монет, достижений) между устройствами. Ваш адрес электронной почты обрабатывается исключительно для аутентификации."
+      },
+      "sec_1_li2": {
+        "tr": "<strong>Cloud Firestore:</strong> Oyun içi ilerlemeniz, kazandığınız sanal jetonlar ve seviye başarımlarınız tamamen bulut ortamında güvenle saklanır.",
+        "en": "<strong>Cloud Firestore:</strong> Your in-game progress, virtual coins earned, and level achievements are securely stored completely in the cloud environment.",
+        "de": "<strong>Cloud Firestore:</strong> Ihr Spielfortschritt, verdiente virtuelle Münzen und Level-Erfolge werden absolut sicher in der Cloud-Umgebung gespeichert.",
+        "zh": "<strong>Cloud Firestore：</strong> 您的游戏进度、赚取的虚拟金币和关卡成就在云端环境中安全地存储。",
+        "hi": "<strong>Cloud Firestore:</strong> आपका इन-गेम प्रोग्रेस, अर्जित किए गए वर्चुअल सिक्के, और स्तर की उपलब्धियां पूरी तरह से क्लाउड वातावरण में सुरक्षित रूप से संग्रहीत की जाती हैं।",
+        "es": "<strong>Cloud Firestore:</strong> el progreso en el juego, las monedas virtuales obtenidas y los logros de nivel se almacenan de forma segura por completo en la nube.",
+        "fr": "<strong>Cloud Firestore :</strong> Votre progression dans le jeu, les pièces virtuelles gagnées et les succès de niveau sont stockés en toute sécurité dans l'environnement cloud.",
+        "ar": "<strong>Cloud Firestore:</strong> يتم تخزين تقدمك في اللعبة، والعملات الافتراضية المكتسبة، وإنجازات المستويات بأمان تام في البيئة السحابية.",
+        "pt": "<strong>Cloud Firestore:</strong> O progresso no jogo, as moedas virtuais ganhas e as conquistas de nível são armazenados com total segurança em ambiente de nuvem.",
+        "ru": "<strong>Cloud Firestore:</strong> Ваш игровой прогресс, заработанные виртуальные монеты и достижения уровней надежно хранятся в облаке."
+      },
+      "sec_1_li3": {
+        "tr": "<strong>Google Mobile Ads (AdMob):</strong> Uygulama içinde banner ve ödüllü geçiş reklamları sunmak amacıyla kullanılır. AdMob, size ilgi alanlarınıza uygun reklamlar göstermek için cihaz reklam kimliğinizi (IDFA veya Android Reklam Kimliği) işleyebilir.",
+        "en": "<strong>Google Mobile Ads (AdMob):</strong> Used to deliver banner and rewarded interstitial ads within the application. AdMob may process your device advertising ID (IDFA or Android Advertising ID) to show you personalized ads.",
+        "de": "<strong>Google Mobile Ads (AdMob):</strong> Wird verwendet, um Banner- und belohnte Interstitial-Anzeigen innerhalb der Anwendung bereitzustellen. AdMob verarbeitet möglicherweise Ihre Geräte-Werbe-ID (IDFA oder Android-Werbe-ID), um Ihnen personalisierte Werbung anzuzeigen.",
+        "zh": "<strong>Google Mobile Ads (AdMob)：</strong> 用于在应用程序内投放横幅广告和插屏激励广告。AdMob可能会处理您的设备广告ID（IDFA或Android广告ID）以向您展示个性化广告。",
+        "hi": "<strong>Google Mobile Ads (AdMob):</strong> इसका उपयोग एप्लिकेशन के भीतर बैनर और पुरस्कृत मध्यवर्ती विज्ञापन देने के लिए किया जाता है। AdMob आपको विज्ञापन दिखाने के लिए आपके डिवाइस विज्ञापन ID को संसाधित कर सकता है।",
+        "es": "<strong>Google Mobile Ads (AdMob):</strong> se utiliza para ofrecer anuncios de banner e intersticiales recompensados dentro de la aplicación. AdMob puede procesar la identificación de publicidad de su dispositivo (IDFA o Android Advertising ID) para mostrarle anuncios personalizados.",
+        "fr": "<strong>Google Mobile Ads (AdMob) :</strong> Utilisé pour diffuser des bannières et des publicités interstitielles avec récompense au sein de l'application. AdMob peut traiter l'identifiant publicitaire de votre appareil (IDFA ou Android Advertising ID) pour vous présenter des publicités personnalisées.",
+        "ar": "<strong>Google Mobile Ads (AdMob):</strong> تُستخدم لتقديم إعلانات البانر والإعلانات البينية بمكافأة داخل التطبيق. قد تقوم AdMob بمعالجة معرف إعلانات جهازك (IDFA أو معرّف إعلانات Android) لعرض إعلانات مخصصة لك.",
+        "pt": "<strong>Google Mobile Ads (AdMob):</strong> Usado para veicular anúncios em banner e intersticiais premiados no aplicativo. O AdMob pode processar o ID de publicidade do seu dispositivo (IDFA ou ID de publicidade do Android) para mostrar anúncios personalizados.",
+        "ru": "<strong>Google Mobile Ads (AdMob):</strong> используется для показа баннеров и межстраничных объявлений с вознаграждением внутри приложения. AdMob может обрабатывать рекламный идентификатор вашего устройства (IDFA или рекламный ID Android) для показа персонализированной рекламы."
+      },
+      "sec_1_li4": {
+        "tr": "<strong>Uygulama İçi Satın Alımlar (In-App Purchases):</strong> Satın alma işlemleriniz doğrudan Google Play Store altyapısı üzerinden güvenle gerçekleştirilir. Ödeme bilgilerinize (kredi kartı numarası vb.) uygulamalarımız hiçbir şekilde erişemez veya bunları saklayamaz.",
+        "en": "<strong>In-App Purchases:</strong> Your purchase transactions are safely conducted directly through Google Play Store infrastructure. Our applications can never access or store your payment details (credit card number, etc.).",
+        "de": "<strong>In-App-Käufe:</strong> Ihre Transaktionen werden sicher direkt über die Infrastruktur des Google Play Store abgewickelt. Unsere Anwendungen können niemals auf Ihre Zahlungsdaten (Kreditkartennummer usw.) zugreifen oder diese speichern.",
+        "zh": "<strong>应用内购买 (In-App Purchases)：</strong> 您的购买交易直接通过 Google Play 商店基础设施安全地进行。我们的应用程序绝无法访问或存储您的支付信息（信用卡号等）。",
+        "hi": "<strong>इन-ऐप खरीदारी (In-App Purchases):</strong> आपकी खरीदारी के लेनदेन सीधे Google Play Store के बुनियादी ढांचे के माध्यम से सुरक्षित रूप से किए जाते हैं। हमारा एप्लिकेशन आपके भुगतान विवरण (क्रेडिट कार्ड नंबर, आदि) को किसी भी तरह से एक्सेस या संग्रहीत नहीं कर सकता है।",
+        "es": "<strong>Compras dentro de la aplicación (In-App Purchases):</strong> sus transacciones de compra se realizan de forma segura directamente a través de la infraestructura de Google Play Store. Nuestras aplicaciones nunca pueden acceder ni almacenar sus datos de pago (número de tarjeta de crédito, etc.).",
+        "fr": "<strong>Achats intégrés (In-App Purchases) :</strong> Vos transactions d'achat sont effectuées en toute sécurité directement via l'infrastructure Google Play Store. Nos applications ne peuvent en aucun cas accéder à vos coordonnées de paiement (numéro de carte de crédit, etc.) ni les stocker.",
+        "ar": "<strong>عمليات الشراء داخل التطبيق (In-App Purchases):</strong> تُجرى معاملات الشراء الخاصة بك بأمان مباشر عبر البنية التحتية لمتجر Google Play. لا يمكن لتطبيقنا الوصول إلى تفاصيل الدفع الخاصة بك أو تخزينها بأي شكل من الأشكال (رقم بطاقة الائتمان، إلخ).",
+        "pt": "<strong>Compras no Aplicativo (In-App Purchases):</strong> Suas transações de compra são realizadas com segurança diretamente pela infraestrutura da Google Play Store. Nossos aplicativos nunca podem acessar ou armazenar seus dados de pagamento (número do cartão de crédito, etc.).",
+        "ru": "<strong>Встроенные покупки (In-App Purchases):</strong> ваши транзакции по покупкам безопасно проводятся непосредственно через инфраструктуру Google Play Store. Наши приложения никоим образом не могут получить доступ к вашим платежным данным (номер кредитной карты и т. д.) или сохранять их."
+      },
+      "sec_2_title": {
+        "tr": "2. Çerezler (Cookies) ve Cihaz Tanımlayıcılar",
+        "en": "2. Cookies and Device Identifiers",
+        "de": "2. Cookies und Gerätekennungen",
+        "zh": "2. Cookie 与设备标识符",
+        "hi": "2. कुकीज़ और डिवाइस पहचानकर्ता",
+        "es": "2. Cookies e Identificadores de Dispositivos",
+        "fr": "2. Cookies et Identifiants d'Appareil",
+        "ar": "2. ملفات تعريف الارتباط (Cookies) ومعرفات الأجهزة",
+        "pt": "2. Cookies e Identificadores de Dispositivos",
+        "ru": "2. Файлы cookie и идентификаторы устройств"
+      },
+      "sec_2_p": {
+        "tr": "Üçüncü taraf reklam ve analiz servisleri, reklam kişiselleştirme ve analiz raporlamaları sunmak amacıyla cihazınıza ait benzersiz reklam kimliklerini (IDFA/AAID) kullanabilir. Dilediğiniz takdirde cihazınızın gizlilik ayarlarından reklam takibini sınırlandırabilirsiniz.",
+        "en": "Third-party advertising and analytics services may use unique advertising identifiers (IDFA/AAID) belonging to your device to provide personalized ads and analytics reports. You can limit ad tracking from your device's privacy settings at any time.",
+        "de": "Werbe- und Analysedienste von Drittanbietern können eindeutige Werbekennungen (IDFA/AAID) Ihres Geräts verwenden, um personalisierte Anzeigen und Analyseberichte bereitzustellen. Sie können das Werbetracking in den Datenschutzeinstellungen Ihres Geräts jederzeit einschränken.",
+        "zh": "第三方广告和分析服务可能会使用您设备的唯一广告标识符（IDFA/AAID），以提供个性化广告和分析报告。您可以随时从设备的隐私设置中限制广告跟踪。",
+        "hi": "तृतीय-पक्ष विज्ञापन और विश्लेषणात्मक सेवाएं विज्ञापन व्यक्तिगत और विश्लेषण रिपोर्ट प्रदान करने के लिए आपके डिवाइस से संबंधित विशिष्ट विज्ञापन पहचानकर्ताओं (IDFA/AAID) का उपयोग कर सकती हैं।",
+        "es": "Los servicios de publicidad y análisis de terceros pueden utilizar identificadores de publicidad únicos (IDFA/AAID) pertenecientes a su dispositivo para ofrecer anuncios personalizados e informes de análisis. Puede limitar el seguimiento de anuncios desde la configuración de privacidad de su dispositivo en cualquier momento.",
+        "fr": "Les services de publicité et d'analyse tiers peuvent utiliser des identifiants publicitaires uniques (IDFA/AAID) propres à votre appareil pour proposer des publicités personnalisées et des rapports d'analyse. Vous pouvez limiter le suivi publicitaire à tout moment dans les paramètres de confidentialité de votre appareil.",
+        "ar": "قد تستخدم خدمات الإعلانات والتحليلات التابعة لجهات خارجية معرفات إعلانية فريدة (IDFA/AAID) خاصة بجهازك لتقديم إعلانات مخصصة وتقارير تحليلات. يمكنك تقييد تتبع الإعلانات من إعدادات خصوصية جهازك في أي وقت.",
+        "pt": "Serviços de publicidade e análise de terceiros podem usar identificadores de publicidade exclusivos (IDFA/AAID) pertencentes ao seu dispositivo para fornecer anúncios personalizados e relatórios de análise. Você pode limitar o rastreamento de anúncios nas configurações de privacidade do seu dispositivo a qualquer momento.",
+        "ru": "Сторонние рекламные и аналитические службы могут использовать уникальные рекламные идентификаторы (IDFA/AAID) вашего устройства для предоставления персонализированной рекламы и аналитических отчетов. Вы можете в любое время ограничить отслеживание рекламы в настройках конфиденциальности вашего устройства."
+      },
+      "sec_3_title": {
+        "tr": "3. Çocukların Gizliliği",
+        "en": "3. Children's Privacy",
+        "de": "3. Privatsphäre von Kindern",
+        "zh": "3. 儿童隐私权",
+        "hi": "3. बच्चों की गोपनीयता",
+        "es": "3. Privacidad de los Niños",
+        "fr": "3. Confidentialité des Enfants",
+        "ar": "3. خصوصية الأطفال",
+        "pt": "3. Privacidade das Crianças",
+        "ru": "3. Конфиденциальность детей"
+      },
+      "sec_3_p": {
+        "tr": "Uygulamamız çocukların da oynayabileceği özellikler ve modlar içerebilir. 13 yaşın altındaki çocuklardan bilerek ve isteyerek kişisel olarak tanımlanabilir bilgi toplamıyoruz. Eğer 13 yaşın altındaki bir çocuğun bize kişisel bilgi verdiğini fark edersek, bu bilgileri sunucularımızdan derhal sileriz. Eğer ebeveyn olarak çocuğunuzun bizimle veri paylaştığını düşünüyorsanız, lütfen bizimle iletişime geçin.",
+        "en": "Our application may contain features and modes suitable for children. We do not knowingly collect personally identifiable information from children under 13. If we discover that a child under 13 has provided us with personal information, we delete this from our servers immediately. If you are a parent and believe your child has shared data with us, please contact us.",
+        "de": "Unsere Anwendung kann Funktionen und Modi enthalten, die für Kinder geeignet sind. Wir erfassen wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren. Wenn wir feststellen, dass ein Kind unter 13 Jahren uns personenbezogene Daten zur Verfügung gestellt hat, löschen wir diese unverzüglich von unseren Servern. Wenn Sie als Elternteil glauben, dass Ihr Kind Daten an uns übermittelt hat, kontaktieren Sie uns bitte.",
+        "zh": "我们的应用程序可能包含适合儿童玩耍的特征和模式。我们不会故意收集13岁以下儿童的个人身份信息。如果我们发现13岁以下的儿童向我们提供了个人信息，我们会立即从我们的服务器中删除这些信息。如果您是家长并认为您的孩子与我们分享了数据，请与我们联系。",
+        "hi": "हमारा एप्लिकेशन बच्चों के लिए भी खेलने योग्य सुविधाएँ और मोड शामिल कर सकता है। हम जानबूझकर 13 वर्ष से कम उम्र के बच्चों से व्यक्तिगत रूप से पहचान योग्य जानकारी एकत्र नहीं करते हैं।",
+        "es": "Nuestra aplicación puede contener características y modos aptos para niños. No recopilamos a sabiendas información de identificación personal de niños menores de 13 años. Si descubrimos que un niño menor de 13 años nos ha proporcionado información personal, la eliminamos de nuestros servidores de inmediato. Si es padre y cree que su hijo ha compartido datos con nosotros, comuníquese con nosotros.",
+        "fr": "Notre application peut contenir des fonctionnalités et des modes adaptés aux enfants. Nous ne collectons pas sciemment d'informations personnellement identifiables auprès d'enfants de moins de 13 ans. Si nous découvrons qu'un enfant de moins de 13 ans nous a fourni des informations personnelles, nous les supprimons immédiatement de nos serveurs. Si vous êtes un parent et pensez que votre enfant a partagé des données avec nous, veuillez nous contacter.",
+        "ar": "قد يحتوي تطبيقنا على ميزات وأنماط مناسبة للأطفال. نحن لا نجمع عن علم معلومات تعريف شخصية من الأطفال دون سن 13 عاماً. إذا اكتشفنا أن طفلاً دون سن 13 عاماً قد زودنا بمعلومات شخصية، فإننا نقوم بحذفها من خوادمنا فوراً. إذا كنت ولي أمر وتعتقد أن طفلك قد شارك بياناته معنا، يرجى الاتصال بنا.",
+        "pt": "Nosso aplicativo pode conter recursos e modos adequados para crianças. Não coletamos intencionalmente informações de identificação pessoal de crianças menores de 13 anos. Se descobrirmos que uma criança menor de 13 anos nos forneceu informações pessoais, excluiremos esses dados de nossos servidores imediatamente. Se você for pai ou responsável e acreditar que seu filho compartilhou dados conosco, entre em contato conosco.",
+        "ru": "Наше приложение может содержать функции и режимы, подходящие для детей. Мы намеренно не собираем личную информацию от детей младше 13 лет. Если мы обнаружим, что ребенок младше 13 лет предоставил нам личную информацию, мы немедленно удалим ее с наших серверов. Если вы являетесь родителем и считаете, что ваш ребенок поделился с нами данными, свяжитесь с нами."
+      },
+      "sec_4_title": {
+        "tr": "4. Güvenlik",
+        "en": "4. Security",
+        "de": "4. Sicherheit",
+        "zh": "4. 安全性",
+        "hi": "4. सुरक्षा",
+        "es": "4. Seguridad",
+        "fr": "4. Sécurité",
+        "ar": "4. الأمان",
+        "pt": "4. Segurança",
+        "ru": "4. Безопасность"
+      },
+      "sec_4_p": {
+        "tr": "Verilerinizin güvenliğini korumak bizim için son derece önemlidir. Sunucularımızda saklanan tüm oyun ilerleme verileri güvenli bulut mimarisi ve modern şifreleme yöntemleriyle korunmaktadır.",
+        "en": "Protecting the security of your data is extremely important to us. All game progress data stored on our servers are protected by a secure cloud architecture and modern encryption methods.",
+        "de": "Der Schutz Ihrer Daten ist uns ein großes Anliegen. Alle auf unseren Servern gespeicherten Spielfortschrittsdaten werden durch eine sichere Cloud-Architektur und moderne Verschlüsselungsmethoden geschützt.",
+        "zh": "保护您的数据安全对我们至关重要。我们服务器上存储的所有游戏进度 data 均受到安全云架构和现代加密方法的保护。",
+        "hi": "आपके डेटा की सुरक्षा की रक्षा करना हमारे लिए बेहद महत्वपूर्ण है। हमारे सर्वर पर संग्रहीत सभी गेम प्रगति डेटा सुरक्षित क्लाउड आर्किटेक्चर द्वारा सुरक्षित हैं।",
+        "es": "Proteger la seguridad de sus datos es extremadamente importante para nosotros. Todos los datos de progreso del juego almacenados en nuestros servidores están protegidos por una arquitectura de nube segura y métodos de cifrado modernos.",
+        "fr": "La protection de la sécurité de vos données est extrêmement importante pour nous. Toutes les données de progression du jeu stockées sur nos serveurs sont protégées par une architecture cloud sécurisée et des méthodes de chiffrement modernes.",
+        "ar": "إن حماية أمن بياناتك أمر بالغ الأهمية بالنسبة لنا. جميع بيانات تقدم اللعبة المخزنة على خوادمنا محمية ببنية سحابية آمنة وطرق تشفير حديثة.",
+        "pt": "Proteger a segurança dos seus dados é extremamente importante para nós. Todos os dados de progresso do jogo armazenados em nossos servidores são protegidos por uma arquitetura de nuvem segura e métodos modernos de criptografia.",
+        "ru": "Защита безопасности ваших данных чрезвычайно важна для нас. Все данные о прохождении игры, хранящиеся на наших серверах, защищены безопасной облачной архитектурой и современными методами шифрования."
+      },
+      "sec_5_title": {
+        "tr": "5. Hesap ve Veri Silme",
+        "en": "5. Account and Data Deletion",
+        "de": "5. Konto- und Datenlöschung",
+        "zh": "5. 帐户和数据删除",
+        "hi": "5. खाता और डेटा हटाना",
+        "es": "5. Eliminación de Cuenta y Datos",
+        "fr": "5. Suppression de Compte et de Données",
+        "ar": "5. حذف الحساب والبيانات",
+        "pt": "5. Exclusão de Conta e Dados",
+        "ru": "5. Удаление учетной записи и данных"
+      },
+      "sec_5_p": {
+        "tr": "Kullanıcılar hesaplarını ve ilişkili tüm verilerini (oyun ilerlemeleri, istatistikler vb.) diledikleri zaman tamamen silebilirler. Hesabınızı ve verilerinizi silmek için oyun içindeki <strong>Ayarlar > Hesabımı Sil</strong> seçeneğini kullanabilirsiniz. Bu işlem geri alınamaz ve tüm verileriniz sunucularımızdan kalıcı olarak temizlenir.",
+        "en": "Users can completely delete their accounts and all associated data (game progress, statistics, etc.) at any time. To delete your account and data, you can use the <strong>Settings > Delete My Account</strong> option within the game. This action is irreversible and all your data will be permanently removed from our servers.",
+        "de": "Nutzer können ihre Konten und alle zugehörigen Daten (Spielfortschritte, Statistiken usw.) jederzeit vollständig löschen. Um Ihr Konto und Ihre Daten zu löschen, können Sie die Option <strong>Einstellungen > Mein Konto löschen</strong> im Spiel verwenden. Diese Aktion ist irreversibel und alle Ihre Daten werden dauerhaft von unseren Servern entfernt.",
+        "zh": "用户可以随时完全删除其帐户及所有相关数据（游戏进度、统计数据等）。要删除您的帐户和数据，您可以使用游戏内的 <strong>设置 > 删除我的帐户</strong> 选项。此操作不可逆，您的所有数据将从我们的服务器中永久删除。",
+        "hi": "उपयोगकर्ता किसी भी समय अपने खाते और सभी संबंधित डेटा (गेम प्रगति, सांख्यिकी, आदि) को पूरी तरह से हटा सकते हैं।",
+        "es": "Los usuarios pueden eliminar por completo sus cuentas y todos los datos asociados (progreso del juego, estadísticas, etc.) en cualquier momento. Para eliminar su cuenta y sus datos, puede utilizar la opción <strong>Configuración > Eliminar mi cuenta</strong> dentro del juego. Esta acción es irreversible y todos sus datos se eliminarán permanentemente de nuestros servidores.",
+        "fr": "Les utilisateurs peuvent supprimer complètement leurs comptes et toutes les données associées (progression du jeu, statistiques, etc.) à tout moment. Pour supprimer votre compte et vos données, vous pouvez utiliser l'option <strong>Paramètres > Supprimer mon compte</strong> dans le jeu. Cette action est irréversible et toutes vos données seront supprimées de façon permanente de nos serveurs.",
+        "ar": "يمكن للمستخدمين حذف حساباتهم بالكامل وجميع البيانات المرتبطة بها (تقدم اللعبة، الإحصائيات، إلخ) في أي وقت. لحذف حسابك وبياناتك، يمكنك استخدام خيار <strong>الإعدادات > حذف حسابي</strong> داخل اللعبة. هذا الإجراء لا يمكن التراجع عنه وسيتم إزالة جميع بياناتك بشكل دائم من خوادمنا.",
+        "pt": "Os usuários podem excluir totalmente suas contas e todos os dados associados (progresso do jogo, estatísticas, etc.) a qualquer momento. Para excluir sua conta e seus dados, você pode usar a opção <strong>Configurações > Excluir Minha Conta</strong> no jogo. Esta ação é irreversível e todos os seus dados serão removidos permanentemente de nossos servidores.",
+        "ru": "Пользователи могут в любое время полностью удалить свои учетные записи и все связанные с ними данные (игровой прогресс, статистику и т. д.). Чтобы удалить свою учетную запись и данные, вы можете использовать опцию <strong>Настройки > Удалить мой аккаунт</strong> в игре. Это действие необратимо, и все ваши данные будут навсегда удалены с наших серверов."
+      },
+      "sec_6_title": {
+        "tr": "6. Değişiklikler ve İletişim",
+        "en": "6. Changes and Contact",
+        "de": "6. Änderungen und Kontakt",
+        "zh": "6. 变更与联系",
+        "hi": "6. परिवर्तन और संपर्क",
+        "es": "6. Cambios y Contacto",
+        "fr": "6. Modifications et Contact",
+        "ar": "6. التغييرات والاتصال",
+        "pt": "6. Alterações e Contato",
+        "ru": "6. Изменения и контактная информация"
+      },
+      "sec_6_p1": {
+        "tr": "Bu Gizlilik Politikası zaman zaman güncellenebilir. Herhangi bir değişiklik durumunda yeni politikayı bu sayfada yayınlayarak sizi bilgilendireceğiz.",
+        "en": "This Privacy Policy may be updated from time to time. In case of any changes, we will notify you by publishing the new policy on this page.",
+        "de": "Diese Datenschutzerklärung kann von Zeit zu Zeit aktualisiert werden. Im Falle von Änderungen werden wir Sie informieren, indem wir die neue Richtlinie auf dieser Seite veröffentlichen.",
+        "zh": "本隐私政策可能会不时更新。如有任何变更，我们将通过在此页面上发布新政策来通知您。",
+        "hi": "यह गोपनीयता नीति समय-समय पर अपडेट की जा सकती है।",
+        "es": "Esta Política de Privacidad puede actualizarse de vez en cuando. En caso de cualquier cambio, le informaremos publicando la nueva política en esta página.",
+        "fr": "Cette Politique de Confidentialité peut être mise à jour de temps à autre. En cas de modification, nous vous en informerons en publiant la nouvelle politique sur cette page.",
+        "ar": "قد يتم تحديث سياسة الخصوصية هذه من وقت لآخر. في حالة حدوث أي تغييرات, سنقوم بإعلامك عن طريق نشر السياسة الجديدة على هذه الصفحة.",
+        "pt": "Esta Política de Privacidade pode ser atualizada de tempos em tempos. Em caso de alterações, notificaremos você publicando a nova política nesta página.",
+        "ru": "Настоящая Политика конфиденциальности может время от времени обновляться. В случае каких-либо изменений мы уведомим вас, опубликовав новую политику на этой странице."
+      },
+      "sec_6_p2": {
+        "tr": "Her türlü soru, görüş veya veri silme talepleriniz için bizimle iletişime geçebilirsiniz: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "en": "You can contact us for any questions, opinions, or data deletion requests: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "de": "Sie können uns bei Fragen, Meinungen oder Anfragen zur Datenlöschung kontaktieren: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "zh": "如有任何疑问、意见或数据删除请求，您可以通过以下方式与我们联系： <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "hi": "आप किसी भी प्रश्न, विचार, या डेटा हटाने के अनुरोधों के लिए हमसे संपर्क कर सकते हैं: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "es": "Puede ponerse en contacto con nosotros para cualquier pregunta, opinión o solicitud de eliminación de datos: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "fr": "Vous pouvez nous contacter pour toute question, avis ou demande de suppression de données : <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ar": "يمكنك الاتصال بنا لأي أسئلة أو آراء أو طلبات حذف البيانات: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "pt": "Você pode entrar em contato conosco para tirar dúvidas, dar opiniões ou solicitar a exclusão de dados: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ru": "Вы можете связаться с нами по любым вопросам, мнениям или запросам на удаление данных: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
+        "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.",
+        "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+        "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+        "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+        "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+        "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+        "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+        "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+        "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
 </body>
 </html>
