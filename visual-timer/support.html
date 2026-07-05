@@ -77,7 +77,7 @@
           </div>
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question"><span data-i18n="faq_q4">Hesabımı ve verilerimi nasıl silerim?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-            <div class="faq-answer" data-i18n="faq_a4">Yerel verileri uygulama içindeki "İlerlemeyi Sıfırla" ile veya uygulamayı kaldırarak silebilirsin. Hesabını silmek için giriş yaparken kullandığın e-posta ile exaque2@gmail.com adresine yazman yeterli; talebini makul sürede işleme alırız.</div>
+            <div class="faq-answer" data-i18n="faq_a4">Yerel verileri uygulama içindeki "İlerlemeyi Sıfırla" ile veya uygulamayı kaldırarak silebilirsin. Hesabını silmek için giriş yaparken kullandığın e-posta ile erdinctopal.et@gmail.com adresine yazman yeterli; talebini makul sürede işleme alırız.</div>
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@
       const message = document.getElementById('message').value;
       const subject = encodeURIComponent(`Visual Timer Destek - ${name}`);
       const body = encodeURIComponent(`Adı: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
-      window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:erdinctopal.et@gmail.com?subject=${subject}&body=${body}`;
     }
 
     window.PAGE_TRANSLATIONS = {
@@ -128,57 +128,101 @@
       "h1": { "tr": "Destek & Yardım", "en": "Support & Help", "de": "Support & Hilfe", "zh": "支持与帮助", "hi": "सहायता और मदद", "es": "Soporte y Ayuda", "fr": "Support & Aide", "ar": "الدعم والمساعدة", "pt": "Suporte & Ajuda", "ru": "Поддержка и помощь" },
       "subtitle": { "tr": "Support & FAQ – Visual Timer", "en": "Support & FAQ – Visual Timer", "de": "Support & FAQ – Visual Timer", "zh": "支持与常见问题 – Visual Timer", "hi": "सहायता और सामान्य प्रश्न – Visual Timer", "es": "Soporte y Preguntas Frecuentes – Visual Timer", "fr": "Support & FAQ – Visual Timer", "ar": "الدعم والأسئلة الشائعة – Visual Timer", "pt": "Suporte & FAQ – Visual Timer", "ru": "Поддержка и вопросы – Visual Timer" },
       "sec_faq_title": { "tr": "Sıkça Sorulan Sorular / FAQ", "en": "Frequently Asked Questions / FAQ", "de": "Häufig gestellte Fragen / FAQ", "zh": "常见问题解答 / FAQ", "hi": "अक्सर पूछे जाने वाले प्रश्न / FAQ", "es": "Preguntas Frecuentes / FAQ", "fr": "Foire Aux Questions / FAQ", "ar": "الأسئلة الشائعة / FAQ", "pt": "Perguntas Frequentes / FAQ", "ru": "Часто задаваемые вопросы / FAQ" },
-      "faq_q1": { "tr": "Visual Timer nasıl oynanır?", "en": "How do I play Visual Timer?", "de": "Wie spielt man Visual Timer?", "zh": "Visual Timer 怎么玩？", "hi": "Visual Timer कैसे खेलें?", "es": "¿Cómo se juega al Visual Timer?", "fr": "Comment jouer au Visual Timer ?", "ar": "كيف ألعب Visual Timer؟", "pt": "Como jogar Visual Timer?", "ru": "Как играть в Visual Timer?" },
+      "faq_q1": {
+        "tr": "Visual Timer nasıl çalışır?",
+        "en": "How does Visual Timer work?",
+        "de": "Wie funktioniert Visual Timer?",
+        "zh": "Visual Timer 如何工作？",
+        "hi": "विज़ुअल टाइमर कैसे काम करता है?",
+        "es": "¿Cómo funciona Visual Timer?",
+        "fr": "Comment fonctionne Visual Timer ?",
+        "ar": "كيف يعمل Visual Timer؟",
+        "pt": "Como funciona o Visual Timer?",
+        "ru": "Как работает Visual Timer?"
+      },
       "faq_a1": {
-        "tr": "Boş hücreleri 1-9 arası rakamlarla doldurursun; her yatay ve dikey dizinin toplamı, ipucu hücresindeki sayıya eşit olmalı ve aynı dizide bir rakam yalnızca bir kez kullanılır. Uygulama içindeki eğitim ve ipuçları başlamana yardımcı olur.",
-        "en": "Fill the empty cells with digits 1-9 so that each horizontal and vertical run sums to the number in its clue cell, with no digit repeated within a run. The in-app tutorial and hints help you get started.",
-        "de": "Fülle die leeren Felder mit den Ziffern 1-9, sodass jede waagerechte und senkrechte Reihe die Summe im Hinweisfeld ergibt und keine Ziffer in einer Reihe wiederholt wird. Das In-App-Tutorial und Hinweise helfen beim Einstieg.",
-        "zh": "用数字 1-9 填满空白格，使每个横行和竖列的和等于提示格中的数字，且同一行中数字不重复。应用内的教程和提示会帮助你上手。",
-        "hi": "खाली कक्षों को 1-9 अंकों से भरें ताकि प्रत्येक क्षैतिज और ऊर्ध्वाधर पंक्ति का योग उसके सुराग कक्ष की संख्या के बराबर हो, और एक पंक्ति में कोई अंक न दोहराया जाए। ऐप का ट्यूटोरियल और संकेत शुरू करने में मदद करते हैं।",
-        "es": "Rellena las celdas vacías con dígitos del 1 al 9 de modo que cada secuencia horizontal y vertical sume el número de su celda de pista, sin repetir un dígito dentro de una secuencia. El tutorial y las pistas de la app te ayudan a empezar.",
-        "fr": "Remplis les cases vides avec les chiffres 1-9 pour que chaque série horizontale et verticale donne la somme indiquée dans sa case-indice, sans répéter un chiffre dans une série. Le tutoriel et les indices de l'app t'aident à démarrer.",
-        "ar": "املأ الخلايا الفارغة بالأرقام من 1 إلى 9 بحيث يساوي مجموع كل سلسلة أفقية وعمودية الرقم في خلية الدليل، دون تكرار رقم في السلسلة نفسها. يساعدك الدليل التعليمي والتلميحات داخل التطبيق على البدء.",
-        "pt": "Preencha as células vazias com dígitos de 1 a 9 para que cada sequência horizontal e vertical some o número da sua célula de pista, sem repetir um dígito dentro de uma sequência. O tutorial e as dicas no app ajudam você a começar.",
-        "ru": "Заполняйте пустые клетки цифрами 1-9 так, чтобы каждый горизонтальный и вертикальный ряд давал сумму из клетки-подсказки, не повторяя цифру в ряду. Обучение и подсказки в приложении помогут начать."
+        "tr": "Süreyi belirlemek için hızlı ön ayarlara (5, 10, 15, 25 dk) dokunabilir veya kaydırıcıyı kullanarak 1 ila 120 dakika arasında özel bir süre seçebilirsiniz. Geri sayım başladığında, renkli disk (yeşilden kırmızıya dönerek) sürenin akışını görsel olarak gösterir. Süre dolduğunda ise sesli, titreşimli veya sessiz sınav modunda görsel uyarı alırsınız.",
+        "en": "To set a duration, you can tap one of the quick presets (5, 10, 15, 25 min) or use the slider to set a custom duration between 1 and 120 minutes. Once the timer starts, the colored disk fades visually (transitioning from green to red). When the time is up, a gentle audio alert, vibration, or a silent flashing screen will notify you.",
+        "de": "Um eine Dauer festzulegen, tippen Sie auf die Voreinstellungen (5, 10, 15, 25 Min.) oder wischen Sie für eine Dauer bis 120 Min. Bei Ablauf ertönt ein Signal oder der Bildschirm blinkt lautlos.",
+        "zh": "设置时间只需点击预设（5、10、15、25 分钟）或滑动滑块。计时器启动后，彩色圆盘逐渐缩小。结束后会通过声音、震动或屏幕闪烁提醒您。",
+        "hi": "अवधि सेट करने के लिए प्रीसेट (5, 10, 15, 25 मिनट) टैप करें या स्लाइडर का उपयोग करें। समय समाप्त होने पर सिग्नल या चमकती स्क्रीन से सूचित किया जाएगा।",
+        "es": "Para establecer la duración, toca los preajustes (5, 10, 15, 25 min) o desliza para una duración personalizada. Recibe alertas de sonido, vibración o pantalla parpadeante.",
+        "fr": "Réglez la durée via les préréglages (5, 10, 15, 25 min) ou glissez pour une durée personnalisée. Alertes sonores, vibrations ou écran clignotant une fois terminé.",
+        "ar": "لتحديد المدة، اضغط على الإعدادات المسبقة (5، 10، 15، 25 دقيقة) أو اسحب لتحديد مدة مخصصة. ستحصل على تنبيه بالصوت أو الاهتزاز أو الوميض.",
+        "pt": "Para definir a duração, toque nos pré-ajustes (5, 10, 15, 25 min) ou deslize para uma duração personalizada. Receba alertas sonoros, vibração ou tela piscando.",
+        "ru": "Задайте время с помощью пресетов (5, 10, 15, 25 минут) или ползунка. По истечении сработает сигнал, вибрация или мигание экрана."
       },
-      "faq_q2": { "tr": "İlerlemem kayboldu, nasıl geri alırım?", "en": "My progress is lost, how do I restore it?", "de": "Mein Fortschritt ist weg, wie stelle ich ihn wieder her?", "zh": "我的进度丢失了，如何恢复？", "hi": "मेरी प्रगति खो गई है, इसे कैसे बहाल करूं?", "es": "Mi progreso se perdió, ¿cómo lo restauro?", "fr": "Ma progression est perdue, comment la restaurer ?", "ar": "فقدت تقدمي، كيف أستعيده؟", "pt": "Meu progresso foi perdido, como restaurá-lo?", "ru": "Мой прогресс пропал, как восстановить?" },
+      "faq_q2": {
+        "tr": "Rutin zinciri ve Pro sürümü nedir?",
+        "en": "What is routine chain and the Pro version?",
+        "de": "Was ist eine Routinekette und die Pro-Version?",
+        "zh": "什么是日常例程链和 Pro 版本？",
+        "hi": "रूटीन चेन और प्रो संस्करण क्या है?",
+        "es": "¿Qué es una cadena de rutinas y la versión Pro?",
+        "fr": "Qu'est-ce qu'une chaîne de routines et la version Pro ?",
+        "ar": "ما هي سلسلة الروتين وإصدار Pro؟",
+        "pt": "O que é a cadeia de rotinas e a versão Pro?",
+        "ru": "Что такое цепочка рутин и версия Pro?"
+      },
       "faq_a2": {
-        "tr": "Oyun ilerlemen ve ayarların cihazında yerel olarak saklanır. Uygulamayı kaldırırsan veya \"İlerlemeyi Sıfırla\"yı kullanırsan yerel veriler silinir. Google ile giriş yaptıysan hesabın yönetilir; ancak oyun verileri cihazda tutulduğu için cihaz değişikliğinde önceki ilerleme geri gelmeyebilir.",
-        "en": "Your game progress and settings are stored locally on your device. They are deleted if you uninstall the app or use \"Reset progress\". If you signed in with Google, your account is managed; however, since game data is kept on the device, previous progress may not return when you switch devices.",
-        "de": "Spielfortschritt und Einstellungen werden lokal auf deinem Gerät gespeichert. Sie werden gelöscht, wenn du die App deinstallierst oder „Fortschritt zurücksetzen“ nutzt. Bei Google-Anmeldung wird dein Konto verwaltet; da die Spieldaten aber auf dem Gerät liegen, kehrt der vorherige Fortschritt bei einem Gerätewechsel möglicherweise nicht zurück.",
-        "zh": "你的游戏进度和设置保存在设备本地。如果卸载应用或使用“重置进度”，本地数据将被删除。若使用 Google 登录，会管理你的帐户；但由于游戏数据保存在设备上，更换设备时之前的进度可能不会恢复。",
-        "hi": "आपकी गेम प्रगति और सेटिंग्स आपके डिवाइस पर स्थानीय रूप से संग्रहीत होती हैं। ऐप अनइंस्टॉल करने या \"प्रगति रीसेट करें\" का उपयोग करने पर स्थानीय डेटा हट जाता है। यदि आपने Google से साइन इन किया है तो आपका खाता प्रबंधित होता है; लेकिन चूंकि गेम डेटा डिवाइस पर रहता है, डिवाइस बदलने पर पिछली प्रगति वापस नहीं आ सकती।",
-        "es": "El progreso y los ajustes del juego se almacenan localmente en tu dispositivo. Se eliminan si desinstalas la app o usas \"Restablecer progreso\". Si iniciaste sesión con Google, tu cuenta se gestiona; sin embargo, como los datos del juego se guardan en el dispositivo, el progreso anterior puede no volver al cambiar de dispositivo.",
-        "fr": "Ta progression et tes réglages sont stockés localement sur ton appareil. Ils sont supprimés si tu désinstalles l'app ou utilises « Réinitialiser la progression ». Si tu t'es connecté avec Google, ton compte est géré ; cependant, comme les données de jeu sont conservées sur l'appareil, la progression précédente peut ne pas revenir en cas de changement d'appareil.",
-        "ar": "يُخزَّن تقدمك وإعداداتك محلياً على جهازك. تُحذف عند إلغاء تثبيت التطبيق أو استخدام \"إعادة تعيين التقدم\". إذا سجّلت الدخول عبر Google، تتم إدارة حسابك؛ لكن نظراً لأن بيانات اللعبة محفوظة على الجهاز، قد لا يعود التقدم السابق عند تغيير الجهاز.",
-        "pt": "Seu progresso e configurações são armazenados localmente no dispositivo. Eles são excluídos se você desinstalar o app ou usar \"Redefinir progresso\". Se você fez login com o Google, sua conta é gerenciada; porém, como os dados do jogo ficam no dispositivo, o progresso anterior pode não retornar ao trocar de dispositivo.",
-        "ru": "Прогресс и настройки хранятся локально на устройстве. Они удаляются при удалении приложения или использовании «Сбросить прогресс». При входе через Google управляется ваша учётная запись; но поскольку игровые данные хранятся на устройстве, прежний прогресс может не вернуться при смене устройства."
+        "tr": "Pro sürümü, ardışık görevlerinizi (örneğin: 20 dk Okuma -> 5 dk Mola -> 15 dk Test) bir zincir halinde otomatik olarak çalıştırmanızı sağlar. Ayrıca Pro sürümüyle reklamsız deneyim, özel sınıf temaları ve kendi sesinizi bitiş sesi olarak kaydetme özellikleri açılır.",
+        "en": "The Pro version allows you to run sequential tasks (e.g. 20 min Reading -> 5 min Break -> 15 min Quiz) in a chain automatically. The Pro upgrade also unlocks an ad-free experience, premium classroom themes, and the ability to record your own custom alert sounds.",
+        "de": "Mit der Pro-Version können Sie aufeinanderfolgende Aufgaben automatisch in einer Kette ausführen. Das Upgrade schaltet zudem Werbefreiheit und eigene Töne frei.",
+        "zh": "Pro 版本允许您自动链式运行连续任务。升级还可以解锁无广告体验和自定义声音录制。",
+        "hi": "प्रो संस्करण आपको लगातार कार्यों को स्वचालित रूप से चलाने की अनुमति देता है। अपग्रेड विज्ञापनों को हटाता है और कस्टम ध्वनियों को अनलॉक करता है।",
+        "es": "La versión Pro te permite ejecutar tareas secuenciales en cadena automáticamente. La actualización elimina anuncios y desbloquea sonidos personalizados.",
+        "fr": "La version Pro vous permet d'exécuter automatiquement des tâches séquentielles en chaîne. La mise à niveau supprime les publicités et débloque des sons personnalisés.",
+        "ar": "يتيح لك إصدار Pro تشغيل المهام المتتالية تلقائياً في سلسلة. كما يزيل الإعلانات ويفتح الأصوات المخصصة.",
+        "pt": "A versão Pro permite que você execute tarefas sequenciais em cadeia automaticamente. O upgrade remove anúncios e desbloqueia sons personalizados.",
+        "ru": "Версия Pro позволяет автоматически запускать последовательные задачи по цепочке. Обновление отключает рекламу и открывает запись звуков."
       },
-      "faq_q3": { "tr": "Premium (Reklamsız) sürümü nasıl geri yüklerim?", "en": "How do I restore the Premium (Ad-Free) version?", "de": "Wie stelle ich die Premium-Version (werbefrei) wieder her?", "zh": "如何恢复高级版（无广告）？", "hi": "प्रीमियम (विज्ञापन-मुक्त) संस्करण कैसे बहाल करूं?", "es": "¿Cómo restauro la versión Premium (sin anuncios)?", "fr": "Comment restaurer la version Premium (sans publicité) ?", "ar": "كيف أستعيد الإصدار المميز (بدون إعلانات)؟", "pt": "Como restauro a versão Premium (sem anúncios)?", "ru": "Как восстановить версию Premium (без рекламы)?" },
+      "faq_q3": {
+        "tr": "Pro (Premium) satın alımımı nasıl geri yüklerim?",
+        "en": "How do I restore my Pro (Premium) purchase?",
+        "de": "Wie stelle ich meinen Pro-Kauf wieder her?",
+        "zh": "如何恢复我的 Pro 购买？",
+        "hi": "मैं अपनी प्रो खरीद को कैसे बहाल करूं?",
+        "es": "¿Cómo restauro mi compra Pro?",
+        "fr": "Comment restaurer mon achat Pro ?",
+        "ar": "كيف يمكنني استعادة عملية شراء Pro؟",
+        "pt": "Como restauro minha compra Pro?",
+        "ru": "Как восстановить покупку Pro?"
+      },
       "faq_a3": {
-        "tr": "Oyun menüsündeki \"Satın Alımları Geri Yükle\" (Restore Purchases) butonuna basarak Google Play üzerinden yaptığın Premium / reklamsız satın alımı anında cihazına geri yükleyebilirsin.",
-        "en": "Press the \"Restore Purchases\" button in the game menu to instantly restore your Premium / ad-free purchase made via Google Play to your device.",
-        "de": "Drücke im Spielmenü auf „Käufe wiederherstellen“, um deinen über Google Play getätigten Premium-/werbefreien Kauf sofort auf deinem Gerät wiederherzustellen.",
-        "zh": "点击游戏菜单中的“恢复购买”按钮，即可将你通过 Google Play 进行的高级版/无广告购买立即恢复到设备上。",
-        "hi": "गेम मेनू में \"Restore Purchases\" बटन दबाकर Google Play के माध्यम से की गई अपनी प्रीमियम / विज्ञापन-मुक्त खरीद को तुरंत अपने डिवाइस पर बहाल करें।",
-        "es": "Pulsa el botón \"Restaurar Compras\" en el menú del juego para restaurar al instante en tu dispositivo tu compra Premium / sin anuncios realizada a través de Google Play.",
-        "fr": "Appuie sur « Restaurer les Achats » dans le menu du jeu pour restaurer instantanément sur ton appareil ton achat Premium / sans publicité effectué via Google Play.",
-        "ar": "اضغط على زر \"استعادة المشتريات\" في قائمة اللعبة لاستعادة عملية شراء Premium / بدون إعلانات التي تمت عبر Google Play إلى جهازك فوراً.",
-        "pt": "Pressione o botão \"Restaurar Compras\" no menu do jogo para restaurar instantaneamente no seu dispositivo sua compra Premium / sem anúncios feita via Google Play.",
-        "ru": "Нажмите кнопку «Восстановить покупки» в меню игры, чтобы мгновенно восстановить на устройстве покупку Premium / без рекламы, сделанную через Google Play."
+        "tr": "Uygulama ayarlarındaki "Satın Alımları Geri Yükle" (Restore Purchases) butonuna tıklayarak Google Play veya Apple App Store üzerinden yaptığınız Pro satın alımını cihazınıza anında geri yükleyebilirsiniz.",
+        "en": "By tapping the "Restore Purchases" button in the app settings, you can instantly restore your previous Pro purchase made via Google Play Store or Apple App Store to your device.",
+        "de": "Durch Tippen auf "Käufe wiederherstellen" in den Einstellungen können Sie Ihren Pro-Kauf über Google Play oder App Store sofort wiederherstellen.",
+        "zh": "点击设置中的“恢复购买”按钮，即可将先前在 Google Play 或 App Store 进行的 Pro 购买恢复到设备上。",
+        "hi": "ऐप सेटिंग्स में "Restore Purchases" बटन दबाकर आप Google Play या App Store खरीद को तुरंत बहाल कर सकते हैं।",
+        "es": "Al tocar "Restaurar compras" en los ajustes, puedes restaurar instantáneamente tu compra Pro a través de Google Play o App Store.",
+        "fr": "En appuyant sur « Restaurer les achats » dans les paramètres, vous pouvez restaurer votre achat Pro via Google Play ou l'App Store.",
+        "ar": "من خلال الضغط على زر "استعادة المشتريات" في الإعدادات، يمكنك على الفور استعادة عملية شراء Pro عبر Google Play أو App Store.",
+        "pt": "Ao tocar em "Restaurar Compras" nas configurações, você pode restaurar sua compra Pro via Google Play ou App Store.",
+        "ru": "Нажав кнопку «Восстановить покупки» в настройках, вы можете восстановить покупку Pro через Google Play или App Store."
       },
-      "faq_q4": { "tr": "Hesabımı ve verilerimi nasıl silerim?", "en": "How do I delete my account and data?", "de": "Wie lösche ich mein Konto und meine Daten?", "zh": "如何删除我的帐户和数据？", "hi": "मैं अपना खाता और डेटा कैसे हटाऊं?", "es": "¿Cómo elimino mi cuenta y mis datos?", "fr": "Comment supprimer mon compte et mes données ?", "ar": "كيف أحذف حسابي وبياناتي؟", "pt": "Como excluo minha conta e meus dados?", "ru": "Как удалить аккаунт и данные?" },
+      "faq_q4": {
+        "tr": "Verilerimi nasıl sıfırlarım veya silerim?",
+        "en": "How do I reset or delete my data?",
+        "de": "Wie setze ich meine Daten zurück oder lösche sie?",
+        "zh": "如何重置或删除我的数据？",
+        "hi": "मैं अपना डेटा कैसे रीसेट या हटाऊं?",
+        "es": "¿Cómo restablezco o elimino mi datos?",
+        "fr": "Comment réinitialiser ou supprimer mes données ?",
+        "ar": "كيف يمكنني إعادة تعيين أو حذف بياناتي؟",
+        "pt": "Como redefino ou excluo meus dados?",
+        "ru": "Как сбросить или удалить мои данные?"
+      },
       "faq_a4": {
-        "tr": "Yerel verileri uygulama içindeki \"İlerlemeyi Sıfırla\" ile veya uygulamayı kaldırarak silebilirsin. Hesabını silmek için giriş yaparken kullandığın e-posta ile exaque2@gmail.com adresine yazman yeterli; talebini makul sürede işleme alırız.",
-        "en": "You can delete local data via \"Reset progress\" in the app or by uninstalling it. To delete your account, just email exaque2@gmail.com using the address you signed in with; we will process your request within a reasonable time.",
-        "de": "Lokale Daten kannst du über „Fortschritt zurücksetzen“ in der App oder durch Deinstallation löschen. Um dein Konto zu löschen, schreibe einfach an exaque2@gmail.com mit der für die Anmeldung verwendeten Adresse; wir bearbeiten deine Anfrage in angemessener Zeit.",
-        "zh": "你可以通过应用内的“重置进度”或卸载应用来删除本地数据。要删除帐户，只需使用你登录所用的邮箱发送邮件至 exaque2@gmail.com；我们将在合理时间内处理你的请求。",
-        "hi": "आप ऐप में \"प्रगति रीसेट करें\" से या ऐप अनइंस्टॉल करके स्थानीय डेटा हटा सकते हैं। अपना खाता हटाने के लिए, साइन इन करते समय उपयोग किए गए ईमेल से बस exaque2@gmail.com पर लिखें; हम आपके अनुरोध को उचित समय में संसाधित करेंगे।",
-        "es": "Puedes eliminar los datos locales con \"Restablecer progreso\" en la app o desinstalándola. Para eliminar tu cuenta, basta con escribir a exaque2@gmail.com con la dirección que usaste para iniciar sesión; procesaremos tu solicitud en un plazo razonable.",
-        "fr": "Tu peux supprimer les données locales via « Réinitialiser la progression » dans l'app ou en la désinstallant. Pour supprimer ton compte, écris simplement à exaque2@gmail.com avec l'adresse utilisée pour te connecter ; nous traiterons ta demande dans un délai raisonnable.",
-        "ar": "يمكنك حذف البيانات المحلية عبر \"إعادة تعيين التقدم\" في التطبيق أو بإلغاء تثبيته. لحذف حسابك، راسل exaque2@gmail.com من العنوان الذي سجّلت الدخول به؛ وسنعالج طلبك خلال فترة معقولة.",
-        "pt": "Você pode excluir os dados locais com \"Redefinir progresso\" no app ou desinstalando-o. Para excluir sua conta, basta enviar um e-mail para exaque2@gmail.com com o endereço usado para fazer login; processaremos sua solicitação em um prazo razoável.",
-        "ru": "Локальные данные можно удалить через «Сбросить прогресс» в приложении или удалив его. Чтобы удалить аккаунт, просто напишите на exaque2@gmail.com с адреса, использованного для входа; мы обработаем запрос в разумный срок."
+        "tr": "Visual Timer tamamen çevrimdışı çalışır ve sunucularımızda hiçbir kişisel veriniz saklanmaz. Verilerinizi silmek için uygulamayı kaldırmanız veya cihaz ayarlarından uygulamanın verilerini temizlemeniz yeterlidir.",
+        "en": "Visual Timer works fully offline and no personal data is stored on our servers. To delete or reset your data, simply uninstall the app or clear the app's storage in your device settings.",
+        "de": "Visual Timer arbeitet offline und speichert keine Daten auf Servern. Zum Löschen deinstallieren Sie die App oder löschen Sie den App-Speicher.",
+        "zh": "Visual Timer 完全离线工作，服务器上不存储任何数据。要删除或重置数据，只需卸载应用或清除应用缓存。",
+        "hi": "विज़ुअल टाइमर ऑफ़लाइन काम करता है और कोई डेटा संग्रहीत नहीं करता है। हटाने के लिए ऐप को अनइंस्टॉल करें या स्टोरेज साफ़ करें।",
+        "es": "Visual Timer funciona fuera de línea y no almacena datos en servidores. Para borrarlos, desinstala la app o borra su almacenamiento.",
+        "fr": "Visual Timer fonctionne hors ligne et ne stocke pas de données. Pour les supprimer, désinstallez l'app ou videz le stockage.",
+        "ar": "يعمل Visual Timer دون اتصال ولا يخزن بيانات على خوادم. لحذفها، ما عليك سوى إلغاء تثبيت التطبيق أو مسح التخزين.",
+        "pt": "O Visual Timer funciona offline e não armazena dados em servidores. Para excluir, desinstale o app ou limpe o armazenamento.",
+        "ru": "Visual Timer работает офлайн и не хранит данные на серверах. Для удаления просто удалите приложение или очистите данные."
       },
       "sec_contact_title": { "tr": "Bize Mesaj Gönder / Contact Us", "en": "Send Us a Message / Contact Us", "de": "Senden Sie uns eine Nachricht / Kontakt", "zh": "给我们留言 / 联系我们", "hi": "हमें संदेश भेजें / संपर्क करें", "es": "Envíenos un Mensaje / Contáctenos", "fr": "Envoyez-nous un Message / Contactez-nous", "ar": "أرسل لنا رسالة / اتصل بنا", "pt": "Envie-nos uma Mensagem / Fale Conosco", "ru": "Напишите нам / Связаться с нами" },
       "label_name": { "tr": "Adınız / Your Name", "en": "Your Name", "de": "Ihr Name", "zh": "您的姓名", "hi": "आपका नाम", "es": "Su Nombre", "fr": "Votre Nom", "ar": "اسمك", "pt": "Seu Nome", "ru": "Ваше имя" },
