@@ -1191,7 +1191,7 @@
                 var name = (h3 ? h3.textContent : '').toLowerCase();
                 var desc = (d ? d.textContent : '').toLowerCase();
                 var okCat = (curCat === 'all' || cat === curCat);
-                var okStatus = (curStatus === 'all' || st === curStatus);
+                var okStatus = (curStatus === 'all' || st === curStatus || (curStatus === 'live' && st === 'available'));
                 var okSearch = (q === '' || name.indexOf(q) !== -1 || desc.indexOf(q) !== -1);
                 if (okCat && okStatus && okSearch) { card.classList.remove('hidden'); shown++; }
                 else { card.classList.add('hidden'); }
