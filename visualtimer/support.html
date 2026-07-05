@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destek & Yardım (Support & Help) – Visual Timer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+    :root { --em: #EF4444; --em-light: #F87171; --em-alpha: rgba(16,185,129,0.08); --em-border: rgba(16,185,129,0.2); --dark: #0F172A; --dark2: #1E293B; --text: #CBD5E1; --text-muted: #94A3B8; --border: rgba(16,185,129,0.15); --transition: all 0.25s ease; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.8; min-height: 100vh; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16,185,129,0.08) 0%, transparent 70%), repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(16,185,129,0.02) 40px, rgba(16,185,129,0.02) 41px); pointer-events: none; z-index: 0; }
+    .container { max-width: 800px; margin: 0 auto; padding: 60px 28px 100px; position: relative; z-index: 1; }
+    header { text-align: center; margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .logo-wrap { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); border: 1px solid rgba(16,185,129,0.3); margin-bottom: 24px; box-shadow: 0 0 32px rgba(16,185,129,0.1), inset 0 1px 0 rgba(16,185,129,0.1); }
+    .logo-wrap svg { width: 40px; height: 40px; }
+    h1 { font-family: 'Cinzel', serif; font-size: clamp(26px, 5vw, 36px); font-weight: 700; color: var(--em-light); letter-spacing: 0.04em; margin-bottom: 10px; }
+    .subtitle { font-size: 14px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300; }
+    section { background-color: var(--dark2); border: 1px solid var(--em-border); border-radius: 20px; padding: 32px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+    h2 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--em-light); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; cursor: pointer; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { font-size: 15px; font-weight: 600; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: var(--transition); }
+    .faq-question:hover { color: var(--em-light); }
+    .faq-answer { max-height: 0; overflow: hidden; color: var(--text-muted); font-size: 15px; margin-top: 0; transition: max-height 0.3s ease-out, margin-top 0.3s ease-out; }
+    .faq-item.active .faq-answer { max-height: 280px; margin-top: 12px; }
+    .faq-icon { fill: var(--em); transition: var(--transition); flex-shrink: 0; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-muted); font-weight: 500; }
+    .form-control { width: 100%; background-color: rgba(0,0,0,0.3); border: 1px solid var(--em-border); border-radius: 10px; padding: 12px 16px; color: #fff; font-family: 'Inter', sans-serif; font-size: 14px; transition: var(--transition); }
+    .form-control:focus { outline: none; border-color: var(--em-light); box-shadow: 0 0 10px var(--em-alpha); }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+    .btn-submit { background: linear-gradient(135deg, var(--em) 0%, var(--em-light) 100%); color: #06281d; border: none; border-radius: 10px; padding: 14px 28px; font-family: 'Cinzel', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.05em; cursor: pointer; width: 100%; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-submit:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--em-light); font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+    .back-btn:hover { color: #fff; transform: translateX(-4px); }
+    footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">← Oyuna Dön / Back to Game</a>
+    <header>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="3" stroke="#EF4444" stroke-width="1.6"/>
+          <line x1="2.5" y1="9" x2="21.5" y2="9" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="2.5" y1="15" x2="21.5" y2="15" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="9" y1="2.5" x2="9" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="15" y1="2.5" x2="15" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <path d="M3 3 L9 9" stroke="#F87171" stroke-width="1.2" opacity="0.8"/>
+          <rect x="3" y="3" width="6" height="6" fill="#EF4444" opacity="0.18"/>
+          <text x="12" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">7</text>
+          <text x="18" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">3</text>
+          <text x="12" y="19.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">9</text>
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Destek & Yardım</h1>
+      <div class="subtitle" data-i18n="subtitle">Support & FAQ – Visual Timer</div>
+    </header>
+    <main>
+      <section>
+        <h2 data-i18n="sec_faq_title">Sıkça Sorulan Sorular / FAQ</h2>
+        <div class="faq-accordion">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q1">Visual Timer nasıl oynanır?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a1">Boş hücreleri 1-9 arası rakamlarla doldurursun; her yatay ve dikey dizinin toplamı, ipucu hücresindeki sayıya eşit olmalı ve aynı dizide bir rakam yalnızca bir kez kullanılır. Uygulama içindeki eğitim ve ipuçları başlamana yardımcı olur.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q2">İlerlemem kayboldu, nasıl geri alırım?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a2">Oyun ilerlemen ve ayarların cihazında yerel olarak saklanır. Uygulamayı kaldırırsan veya "İlerlemeyi Sıfırla"yı kullanırsan yerel veriler silinir. Google ile giriş yaptıysan hesabın yönetilir; ancak oyun verileri cihazda tutulduğu için cihaz değişikliğinde önceki ilerleme geri gelmeyebilir.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q3">Premium (Reklamsız) sürümü nasıl geri yüklerim?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a3">Oyun menüsündeki "Satın Alımları Geri Yükle" (Restore Purchases) butonuna basarak Google Play üzerinden yaptığın Premium / reklamsız satın alımı anında cihazına geri yükleyebilirsin.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q4">Hesabımı ve verilerimi nasıl silerim?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a4">Yerel verileri uygulama içindeki "İlerlemeyi Sıfırla" ile veya uygulamayı kaldırarak silebilirsin. Hesabını silmek için giriş yaparken kullandığın e-posta ile exaque2@gmail.com adresine yazman yeterli; talebini makul sürede işleme alırız.</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 data-i18n="sec_contact_title">Bize Mesaj Gönder / Contact Us</h2>
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="name" data-i18n="label_name">Adınız / Your Name</label>
+            <input type="text" id="name" class="form-control" data-i18n-placeholder="placeholder_name" placeholder="Adınız / Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="label_email">E-posta Adresiniz / Your Email</label>
+            <input type="email" id="email" class="form-control" data-i18n-placeholder="placeholder_email" placeholder="Örn: oyuncu@gmail.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="label_message">Sorununuz veya Talebiniz / Message</label>
+            <textarea id="message" class="form-control" data-i18n-placeholder="placeholder_message" placeholder="Lütfen detaylıca açıklayınız..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <span data-i18n="btn_submit">Gönder / Send Message</span>
+          </button>
+        </form>
+      </section>
+    </main>
+    <footer><p data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</p></footer>
+  </div>
+
+  <script>
+    function toggleFaq(el) {
+      const isActive = el.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) el.classList.add('active');
+    }
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const subject = encodeURIComponent(`Visual Timer Destek - ${name}`);
+      const body = encodeURIComponent(`Adı: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+      window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    window.PAGE_TRANSLATIONS = {
+      "page_title": { "tr": "Destek & Yardım (Support & Help) – Visual Timer", "en": "Support & Help – Visual Timer", "de": "Support & Hilfe – Visual Timer", "zh": "支持与帮助 – Visual Timer", "hi": "सहायता और मदद – Visual Timer", "es": "Soporte y Ayuda – Visual Timer", "fr": "Support & Aide – Visual Timer", "ar": "الدعم والمساعدة – Visual Timer", "pt": "Suporte & Ajuda – Visual Timer", "ru": "Поддержка и помощь – Visual Timer" },
+      "back_btn": { "tr": "← Oyuna Dön / Back to Game", "en": "← Back to Game", "de": "← Zurück zum Spiel", "zh": "← 返回游戏", "hi": "← खेल पर वापस जाएं", "es": "← Volver al Juego", "fr": "← Retour au Jeu", "ar": "← العودة إلى اللعبة", "pt": "← Voltar ao Jogo", "ru": "← Назад к игре" },
+      "h1": { "tr": "Destek & Yardım", "en": "Support & Help", "de": "Support & Hilfe", "zh": "支持与帮助", "hi": "सहायता और मदद", "es": "Soporte y Ayuda", "fr": "Support & Aide", "ar": "الدعم والمساعدة", "pt": "Suporte & Ajuda", "ru": "Поддержка и помощь" },
+      "subtitle": { "tr": "Support & FAQ – Visual Timer", "en": "Support & FAQ – Visual Timer", "de": "Support & FAQ – Visual Timer", "zh": "支持与常见问题 – Visual Timer", "hi": "सहायता और सामान्य प्रश्न – Visual Timer", "es": "Soporte y Preguntas Frecuentes – Visual Timer", "fr": "Support & FAQ – Visual Timer", "ar": "الدعم والأسئلة الشائعة – Visual Timer", "pt": "Suporte & FAQ – Visual Timer", "ru": "Поддержка и вопросы – Visual Timer" },
+      "sec_faq_title": { "tr": "Sıkça Sorulan Sorular / FAQ", "en": "Frequently Asked Questions / FAQ", "de": "Häufig gestellte Fragen / FAQ", "zh": "常见问题解答 / FAQ", "hi": "अक्सर पूछे जाने वाले प्रश्न / FAQ", "es": "Preguntas Frecuentes / FAQ", "fr": "Foire Aux Questions / FAQ", "ar": "الأسئلة الشائعة / FAQ", "pt": "Perguntas Frequentes / FAQ", "ru": "Часто задаваемые вопросы / FAQ" },
+      "faq_q1": { "tr": "Visual Timer nasıl oynanır?", "en": "How do I play Visual Timer?", "de": "Wie spielt man Visual Timer?", "zh": "Visual Timer 怎么玩？", "hi": "Visual Timer कैसे खेलें?", "es": "¿Cómo se juega al Visual Timer?", "fr": "Comment jouer au Visual Timer ?", "ar": "كيف ألعب Visual Timer؟", "pt": "Como jogar Visual Timer?", "ru": "Как играть в Visual Timer?" },
+      "faq_a1": {
+        "tr": "Boş hücreleri 1-9 arası rakamlarla doldurursun; her yatay ve dikey dizinin toplamı, ipucu hücresindeki sayıya eşit olmalı ve aynı dizide bir rakam yalnızca bir kez kullanılır. Uygulama içindeki eğitim ve ipuçları başlamana yardımcı olur.",
+        "en": "Fill the empty cells with digits 1-9 so that each horizontal and vertical run sums to the number in its clue cell, with no digit repeated within a run. The in-app tutorial and hints help you get started.",
+        "de": "Fülle die leeren Felder mit den Ziffern 1-9, sodass jede waagerechte und senkrechte Reihe die Summe im Hinweisfeld ergibt und keine Ziffer in einer Reihe wiederholt wird. Das In-App-Tutorial und Hinweise helfen beim Einstieg.",
+        "zh": "用数字 1-9 填满空白格，使每个横行和竖列的和等于提示格中的数字，且同一行中数字不重复。应用内的教程和提示会帮助你上手。",
+        "hi": "खाली कक्षों को 1-9 अंकों से भरें ताकि प्रत्येक क्षैतिज और ऊर्ध्वाधर पंक्ति का योग उसके सुराग कक्ष की संख्या के बराबर हो, और एक पंक्ति में कोई अंक न दोहराया जाए। ऐप का ट्यूटोरियल और संकेत शुरू करने में मदद करते हैं।",
+        "es": "Rellena las celdas vacías con dígitos del 1 al 9 de modo que cada secuencia horizontal y vertical sume el número de su celda de pista, sin repetir un dígito dentro de una secuencia. El tutorial y las pistas de la app te ayudan a empezar.",
+        "fr": "Remplis les cases vides avec les chiffres 1-9 pour que chaque série horizontale et verticale donne la somme indiquée dans sa case-indice, sans répéter un chiffre dans une série. Le tutoriel et les indices de l'app t'aident à démarrer.",
+        "ar": "املأ الخلايا الفارغة بالأرقام من 1 إلى 9 بحيث يساوي مجموع كل سلسلة أفقية وعمودية الرقم في خلية الدليل، دون تكرار رقم في السلسلة نفسها. يساعدك الدليل التعليمي والتلميحات داخل التطبيق على البدء.",
+        "pt": "Preencha as células vazias com dígitos de 1 a 9 para que cada sequência horizontal e vertical some o número da sua célula de pista, sem repetir um dígito dentro de uma sequência. O tutorial e as dicas no app ajudam você a começar.",
+        "ru": "Заполняйте пустые клетки цифрами 1-9 так, чтобы каждый горизонтальный и вертикальный ряд давал сумму из клетки-подсказки, не повторяя цифру в ряду. Обучение и подсказки в приложении помогут начать."
+      },
+      "faq_q2": { "tr": "İlerlemem kayboldu, nasıl geri alırım?", "en": "My progress is lost, how do I restore it?", "de": "Mein Fortschritt ist weg, wie stelle ich ihn wieder her?", "zh": "我的进度丢失了，如何恢复？", "hi": "मेरी प्रगति खो गई है, इसे कैसे बहाल करूं?", "es": "Mi progreso se perdió, ¿cómo lo restauro?", "fr": "Ma progression est perdue, comment la restaurer ?", "ar": "فقدت تقدمي، كيف أستعيده؟", "pt": "Meu progresso foi perdido, como restaurá-lo?", "ru": "Мой прогресс пропал, как восстановить?" },
+      "faq_a2": {
+        "tr": "Oyun ilerlemen ve ayarların cihazında yerel olarak saklanır. Uygulamayı kaldırırsan veya \"İlerlemeyi Sıfırla\"yı kullanırsan yerel veriler silinir. Google ile giriş yaptıysan hesabın yönetilir; ancak oyun verileri cihazda tutulduğu için cihaz değişikliğinde önceki ilerleme geri gelmeyebilir.",
+        "en": "Your game progress and settings are stored locally on your device. They are deleted if you uninstall the app or use \"Reset progress\". If you signed in with Google, your account is managed; however, since game data is kept on the device, previous progress may not return when you switch devices.",
+        "de": "Spielfortschritt und Einstellungen werden lokal auf deinem Gerät gespeichert. Sie werden gelöscht, wenn du die App deinstallierst oder „Fortschritt zurücksetzen“ nutzt. Bei Google-Anmeldung wird dein Konto verwaltet; da die Spieldaten aber auf dem Gerät liegen, kehrt der vorherige Fortschritt bei einem Gerätewechsel möglicherweise nicht zurück.",
+        "zh": "你的游戏进度和设置保存在设备本地。如果卸载应用或使用“重置进度”，本地数据将被删除。若使用 Google 登录，会管理你的帐户；但由于游戏数据保存在设备上，更换设备时之前的进度可能不会恢复。",
+        "hi": "आपकी गेम प्रगति और सेटिंग्स आपके डिवाइस पर स्थानीय रूप से संग्रहीत होती हैं। ऐप अनइंस्टॉल करने या \"प्रगति रीसेट करें\" का उपयोग करने पर स्थानीय डेटा हट जाता है। यदि आपने Google से साइन इन किया है तो आपका खाता प्रबंधित होता है; लेकिन चूंकि गेम डेटा डिवाइस पर रहता है, डिवाइस बदलने पर पिछली प्रगति वापस नहीं आ सकती।",
+        "es": "El progreso y los ajustes del juego se almacenan localmente en tu dispositivo. Se eliminan si desinstalas la app o usas \"Restablecer progreso\". Si iniciaste sesión con Google, tu cuenta se gestiona; sin embargo, como los datos del juego se guardan en el dispositivo, el progreso anterior puede no volver al cambiar de dispositivo.",
+        "fr": "Ta progression et tes réglages sont stockés localement sur ton appareil. Ils sont supprimés si tu désinstalles l'app ou utilises « Réinitialiser la progression ». Si tu t'es connecté avec Google, ton compte est géré ; cependant, comme les données de jeu sont conservées sur l'appareil, la progression précédente peut ne pas revenir en cas de changement d'appareil.",
+        "ar": "يُخزَّن تقدمك وإعداداتك محلياً على جهازك. تُحذف عند إلغاء تثبيت التطبيق أو استخدام \"إعادة تعيين التقدم\". إذا سجّلت الدخول عبر Google، تتم إدارة حسابك؛ لكن نظراً لأن بيانات اللعبة محفوظة على الجهاز، قد لا يعود التقدم السابق عند تغيير الجهاز.",
+        "pt": "Seu progresso e configurações são armazenados localmente no dispositivo. Eles são excluídos se você desinstalar o app ou usar \"Redefinir progresso\". Se você fez login com o Google, sua conta é gerenciada; porém, como os dados do jogo ficam no dispositivo, o progresso anterior pode não retornar ao trocar de dispositivo.",
+        "ru": "Прогресс и настройки хранятся локально на устройстве. Они удаляются при удалении приложения или использовании «Сбросить прогресс». При входе через Google управляется ваша учётная запись; но поскольку игровые данные хранятся на устройстве, прежний прогресс может не вернуться при смене устройства."
+      },
+      "faq_q3": { "tr": "Premium (Reklamsız) sürümü nasıl geri yüklerim?", "en": "How do I restore the Premium (Ad-Free) version?", "de": "Wie stelle ich die Premium-Version (werbefrei) wieder her?", "zh": "如何恢复高级版（无广告）？", "hi": "प्रीमियम (विज्ञापन-मुक्त) संस्करण कैसे बहाल करूं?", "es": "¿Cómo restauro la versión Premium (sin anuncios)?", "fr": "Comment restaurer la version Premium (sans publicité) ?", "ar": "كيف أستعيد الإصدار المميز (بدون إعلانات)؟", "pt": "Como restauro a versão Premium (sem anúncios)?", "ru": "Как восстановить версию Premium (без рекламы)?" },
+      "faq_a3": {
+        "tr": "Oyun menüsündeki \"Satın Alımları Geri Yükle\" (Restore Purchases) butonuna basarak Google Play üzerinden yaptığın Premium / reklamsız satın alımı anında cihazına geri yükleyebilirsin.",
+        "en": "Press the \"Restore Purchases\" button in the game menu to instantly restore your Premium / ad-free purchase made via Google Play to your device.",
+        "de": "Drücke im Spielmenü auf „Käufe wiederherstellen“, um deinen über Google Play getätigten Premium-/werbefreien Kauf sofort auf deinem Gerät wiederherzustellen.",
+        "zh": "点击游戏菜单中的“恢复购买”按钮，即可将你通过 Google Play 进行的高级版/无广告购买立即恢复到设备上。",
+        "hi": "गेम मेनू में \"Restore Purchases\" बटन दबाकर Google Play के माध्यम से की गई अपनी प्रीमियम / विज्ञापन-मुक्त खरीद को तुरंत अपने डिवाइस पर बहाल करें।",
+        "es": "Pulsa el botón \"Restaurar Compras\" en el menú del juego para restaurar al instante en tu dispositivo tu compra Premium / sin anuncios realizada a través de Google Play.",
+        "fr": "Appuie sur « Restaurer les Achats » dans le menu du jeu pour restaurer instantanément sur ton appareil ton achat Premium / sans publicité effectué via Google Play.",
+        "ar": "اضغط على زر \"استعادة المشتريات\" في قائمة اللعبة لاستعادة عملية شراء Premium / بدون إعلانات التي تمت عبر Google Play إلى جهازك فوراً.",
+        "pt": "Pressione o botão \"Restaurar Compras\" no menu do jogo para restaurar instantaneamente no seu dispositivo sua compra Premium / sem anúncios feita via Google Play.",
+        "ru": "Нажмите кнопку «Восстановить покупки» в меню игры, чтобы мгновенно восстановить на устройстве покупку Premium / без рекламы, сделанную через Google Play."
+      },
+      "faq_q4": { "tr": "Hesabımı ve verilerimi nasıl silerim?", "en": "How do I delete my account and data?", "de": "Wie lösche ich mein Konto und meine Daten?", "zh": "如何删除我的帐户和数据？", "hi": "मैं अपना खाता और डेटा कैसे हटाऊं?", "es": "¿Cómo elimino mi cuenta y mis datos?", "fr": "Comment supprimer mon compte et mes données ?", "ar": "كيف أحذف حسابي وبياناتي؟", "pt": "Como excluo minha conta e meus dados?", "ru": "Как удалить аккаунт и данные?" },
+      "faq_a4": {
+        "tr": "Yerel verileri uygulama içindeki \"İlerlemeyi Sıfırla\" ile veya uygulamayı kaldırarak silebilirsin. Hesabını silmek için giriş yaparken kullandığın e-posta ile exaque2@gmail.com adresine yazman yeterli; talebini makul sürede işleme alırız.",
+        "en": "You can delete local data via \"Reset progress\" in the app or by uninstalling it. To delete your account, just email exaque2@gmail.com using the address you signed in with; we will process your request within a reasonable time.",
+        "de": "Lokale Daten kannst du über „Fortschritt zurücksetzen“ in der App oder durch Deinstallation löschen. Um dein Konto zu löschen, schreibe einfach an exaque2@gmail.com mit der für die Anmeldung verwendeten Adresse; wir bearbeiten deine Anfrage in angemessener Zeit.",
+        "zh": "你可以通过应用内的“重置进度”或卸载应用来删除本地数据。要删除帐户，只需使用你登录所用的邮箱发送邮件至 exaque2@gmail.com；我们将在合理时间内处理你的请求。",
+        "hi": "आप ऐप में \"प्रगति रीसेट करें\" से या ऐप अनइंस्टॉल करके स्थानीय डेटा हटा सकते हैं। अपना खाता हटाने के लिए, साइन इन करते समय उपयोग किए गए ईमेल से बस exaque2@gmail.com पर लिखें; हम आपके अनुरोध को उचित समय में संसाधित करेंगे।",
+        "es": "Puedes eliminar los datos locales con \"Restablecer progreso\" en la app o desinstalándola. Para eliminar tu cuenta, basta con escribir a exaque2@gmail.com con la dirección que usaste para iniciar sesión; procesaremos tu solicitud en un plazo razonable.",
+        "fr": "Tu peux supprimer les données locales via « Réinitialiser la progression » dans l'app ou en la désinstallant. Pour supprimer ton compte, écris simplement à exaque2@gmail.com avec l'adresse utilisée pour te connecter ; nous traiterons ta demande dans un délai raisonnable.",
+        "ar": "يمكنك حذف البيانات المحلية عبر \"إعادة تعيين التقدم\" في التطبيق أو بإلغاء تثبيته. لحذف حسابك، راسل exaque2@gmail.com من العنوان الذي سجّلت الدخول به؛ وسنعالج طلبك خلال فترة معقولة.",
+        "pt": "Você pode excluir os dados locais com \"Redefinir progresso\" no app ou desinstalando-o. Para excluir sua conta, basta enviar um e-mail para exaque2@gmail.com com o endereço usado para fazer login; processaremos sua solicitação em um prazo razoável.",
+        "ru": "Локальные данные можно удалить через «Сбросить прогресс» в приложении или удалив его. Чтобы удалить аккаунт, просто напишите на exaque2@gmail.com с адреса, использованного для входа; мы обработаем запрос в разумный срок."
+      },
+      "sec_contact_title": { "tr": "Bize Mesaj Gönder / Contact Us", "en": "Send Us a Message / Contact Us", "de": "Senden Sie uns eine Nachricht / Kontakt", "zh": "给我们留言 / 联系我们", "hi": "हमें संदेश भेजें / संपर्क करें", "es": "Envíenos un Mensaje / Contáctenos", "fr": "Envoyez-nous un Message / Contactez-nous", "ar": "أرسل لنا رسالة / اتصل بنا", "pt": "Envie-nos uma Mensagem / Fale Conosco", "ru": "Напишите нам / Связаться с нами" },
+      "label_name": { "tr": "Adınız / Your Name", "en": "Your Name", "de": "Ihr Name", "zh": "您的姓名", "hi": "आपका नाम", "es": "Su Nombre", "fr": "Votre Nom", "ar": "اسمك", "pt": "Seu Nome", "ru": "Ваше имя" },
+      "placeholder_name": { "tr": "Adınız / Name", "en": "Enter your name", "de": "Geben Sie Ihren Namen ein", "zh": "输入您的姓名", "hi": "अपना नाम दर्ज करें", "es": "Escriba su nombre", "fr": "Entrez votre nom", "ar": "أدخل اسمك", "pt": "Digite seu nome", "ru": "Введите ваше имя" },
+      "label_email": { "tr": "E-posta Adresiniz / Your Email", "en": "Your Email Address", "de": "Ihre E-Mail-Adresse", "zh": "您的电子邮件", "hi": "आपका ईमेल पता", "es": "Su Correo Electrónico", "fr": "Votre Adresse E-mail", "ar": "بريدك الإلكتروني", "pt": "Seu Endereço de E-mail", "ru": "Ваш адрес эл. почты" },
+      "placeholder_email": { "tr": "Örn: oyuncu@gmail.com", "en": "e.g. player@gmail.com", "de": "z.B. spieler@gmail.com", "zh": "例如：player@gmail.com", "hi": "जैसे: player@gmail.com", "es": "Ej: jugador@gmail.com", "fr": "Ex : joueur@gmail.com", "ar": "مثال: player@gmail.com", "pt": "Ex: jogador@gmail.com", "ru": "Например: player@gmail.com" },
+      "label_message": { "tr": "Sorununuz veya Talebiniz / Message", "en": "Your Issue or Request / Message", "de": "Ihr Problem oder Ihre Anfrage / Nachricht", "zh": "您的问题或请求 / 留言", "hi": "आपकी समस्या या अनुरोध / संदेश", "es": "Su Problema o Solicitud / Mensaje", "fr": "Votre Problème ou Demande / Message", "ar": "مشكلتك أو طلبك / الرسالة", "pt": "Seu Problema ou Solicitação / Mensagem", "ru": "Проблема или запрос / Сообщение" },
+      "placeholder_message": { "tr": "Lütfen detaylıca açıklayınız...", "en": "Please explain in detail...", "de": "Bitte erklären Sie im Detail...", "zh": "请详细说明...", "hi": "कृपया विस्तार से बताएं...", "es": "Por favor, explique en detalle...", "fr": "Veuillez expliquer en détail...", "ar": "يرجى التوضيح بالتفصيل...", "pt": "Por favor, explique detalhadamente...", "ru": "Пожалуйста, опишите подробно..." },
+      "btn_submit": { "tr": "Gönder / Send Message", "en": "Send", "de": "Absenden", "zh": "发送", "hi": "भेजें", "es": "Enviar", "fr": "Envoyer", "ar": "إرسال", "pt": "Enviar", "ru": "Отправить" },
+      "footer": { "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.", "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.", "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.", "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。", "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।", "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.", "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.", "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.", "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.", "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены." }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gizlilik Politikası (Privacy Policy) – Visual Timer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --em: #EF4444;
+      --em-light: #F87171;
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border: rgba(239, 68, 68, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(239, 68, 68, 0.08) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(239, 68, 68, 0.02) 40px, rgba(239, 68, 68, 0.02) 41px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 60px 28px 100px; position: relative; z-index: 1; }
+
+    header { text-align: center; margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+
+    .logo-wrap {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px; border-radius: 18px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(239, 68, 68, 0.1), inset 0 1px 0 rgba(239, 68, 68, 0.1);
+    }
+    .logo-wrap svg { width: 40px; height: 40px; }
+
+    h1 { font-family: 'Cinzel', serif; font-size: clamp(26px, 5vw, 36px); font-weight: 700; color: var(--em-light); letter-spacing: 0.04em; margin-bottom: 10px; }
+    .subtitle { font-size: 14px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300; }
+    .updated { display: inline-block; margin-top: 20px; padding: 6px 18px; border: 1px solid var(--border); border-radius: 100px; font-size: 13px; color: var(--text-muted); background: rgba(239, 68, 68, 0.04); letter-spacing: 0.06em; }
+    .meta { margin-top: 16px; font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+    section { margin-bottom: 52px; }
+    h2 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--em-light); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    p { margin-bottom: 24px; text-align: justify; }
+    ul { margin: 0 0 24px 24px; }
+    li { margin-bottom: 12px; }
+    strong { color: #e6f5ee; }
+    a { color: var(--em-light); text-decoration: none; border-bottom: 1px dashed rgba(52, 211, 153, 0.4); transition: all 0.2s ease; word-break: break-word; }
+    a:hover { color: #fff; border-bottom-color: #fff; }
+
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--em-light); font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+    .back-btn:hover { color: #fff; transform: translateX(-4px); }
+
+    footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">← Oyuna Dön / Back to Game</a>
+
+    <header>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="3" stroke="#EF4444" stroke-width="1.6"/>
+          <line x1="2.5" y1="9" x2="21.5" y2="9" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="2.5" y1="15" x2="21.5" y2="15" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="9" y1="2.5" x2="9" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="15" y1="2.5" x2="15" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <path d="M3 3 L9 9" stroke="#F87171" stroke-width="1.2" opacity="0.8"/>
+          <rect x="3" y="3" width="6" height="6" fill="#EF4444" opacity="0.18"/>
+          <text x="12" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">7</text>
+          <text x="18" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">3</text>
+          <text x="12" y="19.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">9</text>
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Gizlilik Politikası</h1>
+      <div class="subtitle" data-i18n="subtitle">Privacy Policy – Visual Timer</div>
+      <div class="updated" data-i18n="updated">Yürürlük Tarihi: 22 Haziran 2026</div>
+      <div class="meta" data-i18n="meta">Uygulama: Visual Timer (Android) · Paket: com.codexa.visualtimer · İletişim: <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a></div>
+    </header>
+
+    <main>
+      <section>
+        <p data-i18n="intro">Bu Gizlilik Politikası, <strong>Visual Timer</strong> uygulamasının ("uygulama", "biz") hangi bilgileri topladığını, bunların nasıl kullanıldığını ve sahip olduğunuz seçimleri açıklar. Uygulamayı kullanarak bu politikayı kabul etmiş olursunuz. Uygulama, <strong>CodExa</strong> (Erdinç TOPAL) tarafından geliştirilmiştir.</p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec1_title">1. Topladığımız Bilgiler</h2>
+        <p data-i18n="sec1_p">Uygulamamız, deneyiminizi sunabilmek için aşağıdaki bilgileri işleyebilir:</p>
+        <ul>
+          <li data-i18n="sec1_li_account"><strong>Hesap bilgileri (yalnızca giriş yaparsanız):</strong> Uygulama, Google'ın Firebase Authentication hizmetini kullanır. <em>Misafir / Anonim:</em> kişisel bilgi toplanmaz, geçici bir anonim kimlik oluşturulur. <em>E-posta & şifre:</em> hesabınızı yönetmek için e-posta adresiniz saklanır. <em>Google ile Giriş:</em> Google'dan adınız, e-posta adresiniz ve Google hesap kimliğiniz alınır. Kimlik doğrulama verileri Google/Firebase sunucularında (proje: visualtimer-b5686) saklanır.</li>
+          <li data-i18n="sec1_li_ads"><strong>Reklam bilgileri:</strong> Uygulama, Google AdMob aracılığıyla reklam gösterir. AdMob; reklamları sunmak ve ölçmek için cihaz reklam kimliğini (Advertising ID), IP adresini ve reklam etkileşim verilerini toplayıp işleyebilir.</li>
+          <li data-i18n="sec1_li_purchases"><strong>Satın alımlar:</strong> Premium (reklamsız) durumunuz, özellikleri sizin için açabilmemiz amacıyla kaydedilir.</li>
+          <li data-i18n="sec1_li_local"><strong>Cihazınızda saklanan oyun verileri:</strong> Oyun ilerlemesi, istatistikler, jetonlar, seçili tema, ses/titreşim ve dil ayarları cihazınızda yerel olarak (Android DataStore) saklanır. Bu veriler tarafımızca yüklenmez.</li>
+        </ul>
+        <p data-i18n="sec1_note">Konum, kişiler, fotoğraflar, mikrofon veya kamera verilerinizi toplamıyoruz.</p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec2_title">2. Bilgileri Nasıl Kullanırız</h2>
+        <ul>
+          <li data-i18n="sec2_li1">Hesabınızı oluşturmak, yönetmek ve giriş yapmanızı sağlamak.</li>
+          <li data-i18n="sec2_li2">Oyun ilerlemenizi ve tercihlerinizi kaydetmek ve göstermek.</li>
+          <li data-i18n="sec2_li3">Reklam göstermek ve ölçmek.</li>
+          <li data-i18n="sec2_li4">Premium (reklamsız) deneyimi sunmak.</li>
+          <li data-i18n="sec2_li5">Güvenliği sağlamak ve kötüye kullanımı önlemek.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec3_title">3. İzinler</h2>
+        <ul>
+          <li data-i18n="sec3_li1"><strong>INTERNET, ACCESS_NETWORK_STATE</strong> — giriş ve reklamlar için gereklidir.</li>
+          <li data-i18n="sec3_li2"><strong>com.google.android.gms.permission.AD_ID</strong> — reklamlar için Reklam Kimliğine (Advertising ID) erişim.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec4_title">4. Üçüncü Taraf Servisler</h2>
+        <p data-i18n="sec4_p">Uygulama, her biri kendi gizlilik politikasına tabi olan aşağıdaki Google hizmetlerine dayanır:</p>
+        <ul>
+          <li data-i18n="sec4_li1">Google / Firebase Authentication — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></li>
+          <li data-i18n="sec4_li2">Google AdMob (reklamlar) — <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">support.google.com/admob/answer/6128543</a></li>
+          <li data-i18n="sec4_li3">Google Play services — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+        </ul>
+        <p data-i18n="sec4_note">Reklam kişiselleştirmesini cihaz ayarlarınızdan (Ayarlar → Google → Reklamlar) kontrol edebilir, Reklam Kimliğinizi buradan sıfırlayabilir veya silebilirsiniz.</p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec5_title">5. Çocukların Gizliliği</h2>
+        <p data-i18n="sec5_p">Uygulamanın eğlenceli, renkli bir görünümü vardır. Uygulama, Google Play sayfasında açıkça belirtilmediği sürece ülkenizdeki yasal yaşın altındaki çocuklara yönelik değildir. Uygulamanın Play sayfası çocuklara yönelikse, Google Play Aileler Politikası ve ilgili mevzuata (ör. COPPA, GDPR-K) uygun olarak yalnızca Google sertifikalı çocuklara yönelik reklamlar ve kişiselleştirilmemiş reklamlar kullanılır. Burada açıklananın ötesinde çocuklardan bilerek kişisel bilgi toplamayız. Bir çocuğun kişisel veri verdiğini düşünüyorsanız bizimle iletişime geçin, bu bilgileri sileriz.</p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec6_title">6. Verilerin Saklanması ve Silinmesi</h2>
+        <ul>
+          <li data-i18n="sec6_li1">Yerel oyun verileri, siz temizleyene (uygulama içi "İlerlemeyi Sıfırla") veya uygulamayı kaldırana kadar saklanır.</li>
+          <li data-i18n="sec6_li2">Hesap verileri, silme talebinde bulunana kadar saklanır. Hesabınızı ve ilişkili verilerinizi silmek için giriş yaparken kullandığınız e-posta ile <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a> adresine e-posta gönderin. Talebinizi makul bir süre içinde işleme alırız.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec7_title">7. Güvenlik</h2>
+        <p data-i18n="sec7_p">Bilgilerinizi korumak için endüstri standardı önlemler (Google Firebase altyapısı, şifreli bağlantılar) kullanırız. Hiçbir iletim veya saklama yöntemi %100 güvenli değildir.</p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec8_title">8. Bu Politikadaki Değişiklikler</h2>
+        <p data-i18n="sec8_p">Bu politikayı güncelleyebiliriz. Değişiklikler, yeni bir yürürlük tarihiyle bu sayfada yayınlanır.</p>
+      </section>
+
+      <section>
+        <h2 data-i18n="sec9_title">9. İletişim</h2>
+        <p data-i18n="sec9_p">Sorularınız veya talepleriniz için: <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a></p>
+      </section>
+    </main>
+
+    <footer data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</footer>
+  </div>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      "page_title": {
+        "tr": "Gizlilik Politikası (Privacy Policy) – Visual Timer",
+        "en": "Privacy Policy – Visual Timer",
+        "de": "Datenschutzerklärung – Visual Timer",
+        "zh": "隐私政策 – Visual Timer",
+        "hi": "गोपनीयता नीति – Visual Timer",
+        "es": "Política de Privacidad – Visual Timer",
+        "fr": "Politique de Confidentialité – Visual Timer",
+        "ar": "سياسة الخصوصية – Visual Timer",
+        "pt": "Política de Privacidade – Visual Timer",
+        "ru": "Политика конфиденциальности – Visual Timer"
+      },
+      "back_btn": {
+        "tr": "← Oyuna Dön / Back to Game", "en": "← Back to Game", "de": "← Zurück zum Spiel", "zh": "← 返回游戏", "hi": "← खेल पर वापस जाएं", "es": "← Volver al Juego", "fr": "← Retour au Jeu", "ar": "← العودة إلى اللعبة", "pt": "← Voltar ao Jogo", "ru": "← Назад к игре"
+      },
+      "h1": {
+        "tr": "Gizlilik Politikası", "en": "Privacy Policy", "de": "Datenschutzerklärung", "zh": "隐私政策", "hi": "गोपनीयता नीति", "es": "Política de Privacidad", "fr": "Politique de Confidentialité", "ar": "سياسة الخصوصية", "pt": "Política de Privacidade", "ru": "Политика конфиденциальности"
+      },
+      "subtitle": {
+        "tr": "Gizlilik Politikası – Visual Timer", "en": "Privacy Policy – Visual Timer", "de": "Datenschutzerklärung – Visual Timer", "zh": "隐私政策 – Visual Timer", "hi": "गोपनीयता नीति – Visual Timer", "es": "Política de Privacidad – Visual Timer", "fr": "Politique de Confidentialité – Visual Timer", "ar": "سياسة الخصوصية – Visual Timer", "pt": "Política de Privacidade – Visual Timer", "ru": "Политика конфиденциальности – Visual Timer"
+      },
+      "updated": {
+        "tr": "Yürürlük Tarihi: 22 Haziran 2026", "en": "Effective Date: June 22, 2026", "de": "Gültig ab: 22. Juni 2026", "zh": "生效日期：2026年6月22日", "hi": "प्रभावी तिथि: 22 जून 2026", "es": "Fecha de entrada en vigor: 22 de junio de 2026", "fr": "Date d'entrée en vigueur : 22 juin 2026", "ar": "تاريخ السريان: 22 يونيو 2026", "pt": "Data de vigência: 22 de junho de 2026", "ru": "Дата вступления в силу: 22 июня 2026 г."
+      },
+      "meta": {
+        "tr": "Uygulama: Visual Timer (Android) · Paket: com.codexa.visualtimer · İletişim: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "en": "App: Visual Timer (Android) · Package: com.codexa.visualtimer · Contact: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "de": "App: Visual Timer (Android) · Paket: com.codexa.visualtimer · Kontakt: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "zh": "应用：Visual Timer (Android) · 包名：com.codexa.visualtimer · 联系方式：<a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "hi": "ऐप: Visual Timer (Android) · पैकेज: com.codexa.visualtimer · संपर्क: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "es": "App: Visual Timer (Android) · Paquete: com.codexa.visualtimer · Contacto: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "fr": "App : Visual Timer (Android) · Package : com.codexa.visualtimer · Contact : <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ar": "التطبيق: Visual Timer (Android) · الحزمة: com.codexa.visualtimer · للتواصل: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "pt": "App: Visual Timer (Android) · Pacote: com.codexa.visualtimer · Contato: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ru": "Приложение: Visual Timer (Android) · Пакет: com.codexa.visualtimer · Контакт: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>"
+      },
+      "intro": {
+        "tr": "Bu Gizlilik Politikası, <strong>Visual Timer</strong> uygulamasının (\"uygulama\", \"biz\") hangi bilgileri topladığını, bunların nasıl kullanıldığını ve sahip olduğunuz seçimleri açıklar. Uygulamayı kullanarak bu politikayı kabul etmiş olursunuz. Uygulama, <strong>CodExa</strong> (Erdinç TOPAL) tarafından geliştirilmiştir.",
+        "en": "This Privacy Policy explains what information the <strong>Visual Timer</strong> app (\"the app\", \"we\") collects, how it is used, and the choices you have. By using the app you agree to this policy. The app is developed by <strong>CodExa</strong> (Erdinç TOPAL).",
+        "de": "Diese Datenschutzerklärung erläutert, welche Informationen die <strong>Visual Timer</strong>-App („die App“, „wir“) erfasst, wie sie verwendet werden und welche Wahlmöglichkeiten Sie haben. Durch die Nutzung der App stimmen Sie dieser Richtlinie zu. Die App wird von <strong>CodExa</strong> (Erdinç TOPAL) entwickelt.",
+        "zh": "本隐私政策说明 <strong>Visual Timer</strong> 应用（“本应用”、“我们”）收集哪些信息、如何使用以及您拥有的选择。使用本应用即表示您同意本政策。本应用由 <strong>CodExa</strong> (Erdinç TOPAL) 开发。",
+        "hi": "यह गोपनीयता नीति बताती है कि <strong>Visual Timer</strong> ऐप (\"ऐप\", \"हम\") कौन सी जानकारी एकत्र करता है, उसका उपयोग कैसे किया जाता है और आपके पास कौन से विकल्प हैं। ऐप का उपयोग करके आप इस नीति से सहमत होते हैं। ऐप <strong>CodExa</strong> (Erdinç TOPAL) द्वारा विकसित किया गया है।",
+        "es": "Esta Política de Privacidad explica qué información recopila la app <strong>Visual Timer</strong> (\"la app\", \"nosotros\"), cómo se utiliza y las opciones que tiene. Al usar la app, acepta esta política. La app está desarrollada por <strong>CodExa</strong> (Erdinç TOPAL).",
+        "fr": "Cette Politique de Confidentialité explique quelles informations l'application <strong>Visual Timer</strong> (« l'application », « nous ») collecte, comment elles sont utilisées et les choix dont vous disposez. En utilisant l'application, vous acceptez cette politique. L'application est développée par <strong>CodExa</strong> (Erdinç TOPAL).",
+        "ar": "توضّح سياسة الخصوصية هذه المعلومات التي يجمعها تطبيق <strong>Visual Timer</strong> (\"التطبيق\"، \"نحن\")، وكيفية استخدامها، والخيارات المتاحة لك. باستخدامك التطبيق فإنك توافق على هذه السياسة. تم تطوير التطبيق بواسطة <strong>CodExa</strong> (Erdinç TOPAL).",
+        "pt": "Esta Política de Privacidade explica quais informações o app <strong>Visual Timer</strong> (\"o app\", \"nós\") coleta, como são usadas e as escolhas que você tem. Ao usar o app, você concorda com esta política. O app é desenvolvido pela <strong>CodExa</strong> (Erdinç TOPAL).",
+        "ru": "Настоящая Политика конфиденциальности объясняет, какую информацию собирает приложение <strong>Visual Timer</strong> («приложение», «мы»), как она используется и какие у вас есть возможности выбора. Используя приложение, вы соглашаетесь с этой политикой. Приложение разработано <strong>CodExa</strong> (Erdinç TOPAL)."
+      },
+      "sec1_title": {
+        "tr": "1. Topladığımız Bilgiler", "en": "1. Information We Collect", "de": "1. Erfasste Informationen", "zh": "1. 我们收集的信息", "hi": "1. हम जो जानकारी एकत्र करते हैं", "es": "1. Información que Recopilamos", "fr": "1. Informations que Nous Collectons", "ar": "1. المعلومات التي نجمعها", "pt": "1. Informações que Coletamos", "ru": "1. Какую информацию мы собираем"
+      },
+      "sec1_p": {
+        "tr": "Uygulamamız, deneyiminizi sunabilmek için aşağıdaki bilgileri işleyebilir:",
+        "en": "To provide your experience, our app may process the following information:",
+        "de": "Um Ihr Erlebnis zu ermöglichen, kann unsere App die folgenden Informationen verarbeiten:",
+        "zh": "为了向您提供体验，我们的应用可能会处理以下信息：",
+        "hi": "आपका अनुभव प्रदान करने के लिए, हमारा ऐप निम्नलिखित जानकारी संसाधित कर सकता है:",
+        "es": "Para brindarle su experiencia, nuestra app puede procesar la siguiente información:",
+        "fr": "Pour vous offrir votre expérience, notre application peut traiter les informations suivantes :",
+        "ar": "لتقديم تجربتك، قد يعالج تطبيقنا المعلومات التالية:",
+        "pt": "Para oferecer sua experiência, nosso app pode processar as seguintes informações:",
+        "ru": "Чтобы обеспечить вашу работу с приложением, мы можем обрабатывать следующую информацию:"
+      },
+      "sec1_li_account": {
+        "tr": "<strong>Hesap bilgileri (yalnızca giriş yaparsanız):</strong> Uygulama, Google'ın Firebase Authentication hizmetini kullanır. <em>Misafir / Anonim:</em> kişisel bilgi toplanmaz, geçici bir anonim kimlik oluşturulur. <em>E-posta & şifre:</em> hesabınızı yönetmek için e-posta adresiniz saklanır. <em>Google ile Giriş:</em> Google'dan adınız, e-posta adresiniz ve Google hesap kimliğiniz alınır. Kimlik doğrulama verileri Google/Firebase sunucularında (proje: visualtimer-b5686) saklanır.",
+        "en": "<strong>Account information (only if you sign in):</strong> The app uses Google's Firebase Authentication. <em>Guest / Anonymous:</em> no personal information is collected; a temporary anonymous ID is created. <em>Email & password:</em> your email address is stored to manage your account. <em>Google Sign-In:</em> your name, email address and Google account ID are received from Google. Authentication data is stored on Google/Firebase servers (project: visualtimer-b5686).",
+        "de": "<strong>Kontoinformationen (nur bei Anmeldung):</strong> Die App nutzt Googles Firebase Authentication. <em>Gast / Anonym:</em> es werden keine personenbezogenen Daten erfasst; eine temporäre anonyme ID wird erstellt. <em>E-Mail & Passwort:</em> Ihre E-Mail-Adresse wird zur Verwaltung Ihres Kontos gespeichert. <em>Google-Anmeldung:</em> Name, E-Mail-Adresse und Google-Konto-ID werden von Google empfangen. Authentifizierungsdaten werden auf Google/Firebase-Servern gespeichert (Projekt: visualtimer-b5686).",
+        "zh": "<strong>帐户信息（仅当您登录时）：</strong> 应用使用 Google 的 Firebase Authentication。<em>访客 / 匿名：</em> 不收集个人信息，会创建一个临时匿名 ID。<em>电子邮件和密码：</em> 存储您的电子邮件地址以管理您的帐户。<em>Google 登录：</em> 从 Google 接收您的姓名、电子邮件地址和 Google 帐户 ID。身份验证数据存储在 Google/Firebase 服务器上（项目：visualtimer-b5686）。",
+        "hi": "<strong>खाता जानकारी (केवल यदि आप साइन इन करते हैं):</strong> ऐप Google की Firebase Authentication का उपयोग करता है। <em>अतिथि / अनाम:</em> कोई व्यक्तिगत जानकारी एकत्र नहीं की जाती; एक अस्थायी अनाम आईडी बनाई जाती है। <em>ईमेल और पासवर्ड:</em> आपके खाते को प्रबंधित करने के लिए आपका ईमेल पता संग्रहीत किया जाता है। <em>Google साइन-इन:</em> Google से आपका नाम, ईमेल पता और Google खाता आईडी प्राप्त किया जाता है। प्रमाणीकरण डेटा Google/Firebase सर्वर (प्रोजेक्ट: visualtimer-b5686) पर संग्रहीत किया जाता है।",
+        "es": "<strong>Información de la cuenta (solo si inicia sesión):</strong> La app usa Firebase Authentication de Google. <em>Invitado / Anónimo:</em> no se recopila información personal; se crea un ID anónimo temporal. <em>Correo y contraseña:</em> se almacena su correo electrónico para gestionar su cuenta. <em>Inicio de sesión con Google:</em> se reciben de Google su nombre, correo electrónico e ID de cuenta de Google. Los datos de autenticación se almacenan en servidores de Google/Firebase (proyecto: visualtimer-b5686).",
+        "fr": "<strong>Informations de compte (uniquement si vous vous connectez) :</strong> L'application utilise Firebase Authentication de Google. <em>Invité / Anonyme :</em> aucune information personnelle n'est collectée ; un identifiant anonyme temporaire est créé. <em>E-mail et mot de passe :</em> votre adresse e-mail est stockée pour gérer votre compte. <em>Connexion Google :</em> votre nom, votre adresse e-mail et votre identifiant de compte Google sont reçus de Google. Les données d'authentification sont stockées sur les serveurs Google/Firebase (projet : visualtimer-b5686).",
+        "ar": "<strong>معلومات الحساب (فقط إذا سجّلت الدخول):</strong> يستخدم التطبيق خدمة Firebase Authentication من Google. <em>ضيف / مجهول:</em> لا تُجمع أي معلومات شخصية؛ يُنشأ معرّف مجهول مؤقت. <em>البريد الإلكتروني وكلمة المرور:</em> يُخزّن بريدك الإلكتروني لإدارة حسابك. <em>تسجيل الدخول عبر Google:</em> يتم استلام اسمك وبريدك الإلكتروني ومعرّف حساب Google من Google. تُخزّن بيانات المصادقة على خوادم Google/Firebase (المشروع: visualtimer-b5686).",
+        "pt": "<strong>Informações da conta (apenas se você fizer login):</strong> O app usa o Firebase Authentication do Google. <em>Convidado / Anônimo:</em> nenhuma informação pessoal é coletada; um ID anônimo temporário é criado. <em>E-mail e senha:</em> seu e-mail é armazenado para gerenciar sua conta. <em>Login do Google:</em> seu nome, e-mail e ID da conta Google são recebidos do Google. Os dados de autenticação são armazenados nos servidores Google/Firebase (projeto: visualtimer-b5686).",
+        "ru": "<strong>Информация об учётной записи (только при входе):</strong> Приложение использует Firebase Authentication от Google. <em>Гость / Аноним:</em> личная информация не собирается; создаётся временный анонимный идентификатор. <em>Email и пароль:</em> ваш email хранится для управления учётной записью. <em>Вход через Google:</em> от Google получаются ваше имя, email и идентификатор аккаунта Google. Данные аутентификации хранятся на серверах Google/Firebase (проект: visualtimer-b5686)."
+      },
+      "sec1_li_ads": {
+        "tr": "<strong>Reklam bilgileri:</strong> Uygulama, Google AdMob aracılığıyla reklam gösterir. AdMob; reklamları sunmak ve ölçmek için cihaz reklam kimliğini (Advertising ID), IP adresini ve reklam etkileşim verilerini toplayıp işleyebilir.",
+        "en": "<strong>Advertising information:</strong> The app shows ads via Google AdMob. AdMob may collect and process the device advertising identifier (Advertising ID), IP address, and ad-interaction data to serve and measure ads.",
+        "de": "<strong>Werbeinformationen:</strong> Die App zeigt Werbung über Google AdMob an. AdMob kann die Geräte-Werbe-ID (Advertising ID), die IP-Adresse und Daten zu Anzeigeninteraktionen erfassen und verarbeiten, um Anzeigen auszuliefern und zu messen.",
+        "zh": "<strong>广告信息：</strong> 应用通过 Google AdMob 展示广告。AdMob 可能会收集并处理设备广告标识符（Advertising ID）、IP 地址和广告互动数据，以投放和衡量广告。",
+        "hi": "<strong>विज्ञापन जानकारी:</strong> ऐप Google AdMob के माध्यम से विज्ञापन दिखाता है। AdMob विज्ञापन देने और मापने के लिए डिवाइस विज्ञापन पहचानकर्ता (Advertising ID), IP पता और विज्ञापन-इंटरैक्शन डेटा एकत्र और संसाधित कर सकता है।",
+        "es": "<strong>Información publicitaria:</strong> La app muestra anuncios mediante Google AdMob. AdMob puede recopilar y procesar el identificador de publicidad del dispositivo (Advertising ID), la dirección IP y los datos de interacción con anuncios para mostrar y medir anuncios.",
+        "fr": "<strong>Informations publicitaires :</strong> L'application affiche des publicités via Google AdMob. AdMob peut collecter et traiter l'identifiant publicitaire de l'appareil (Advertising ID), l'adresse IP et les données d'interaction publicitaire pour diffuser et mesurer les publicités.",
+        "ar": "<strong>معلومات الإعلانات:</strong> يعرض التطبيق إعلانات عبر Google AdMob. قد يجمع AdMob ويعالج معرّف إعلانات الجهاز (Advertising ID) وعنوان IP وبيانات التفاعل مع الإعلانات لعرض الإعلانات وقياسها.",
+        "pt": "<strong>Informações de publicidade:</strong> O app exibe anúncios via Google AdMob. O AdMob pode coletar e processar o identificador de publicidade do dispositivo (Advertising ID), o endereço IP e os dados de interação com anúncios para veicular e medir anúncios.",
+        "ru": "<strong>Рекламная информация:</strong> Приложение показывает рекламу через Google AdMob. AdMob может собирать и обрабатывать рекламный идентификатор устройства (Advertising ID), IP-адрес и данные о взаимодействии с рекламой для показа и измерения рекламы."
+      },
+      "sec1_li_purchases": {
+        "tr": "<strong>Satın alımlar:</strong> Premium (reklamsız) durumunuz, özellikleri sizin için açabilmemiz amacıyla kaydedilir.",
+        "en": "<strong>Purchases:</strong> Your premium (ad-free) status is recorded so we can unlock features for you.",
+        "de": "<strong>Käufe:</strong> Ihr Premium-Status (werbefrei) wird gespeichert, damit wir Funktionen für Sie freischalten können.",
+        "zh": "<strong>购买：</strong> 我们会记录您的高级（无广告）状态，以便为您解锁功能。",
+        "hi": "<strong>खरीदारी:</strong> आपकी प्रीमियम (विज्ञापन-मुक्त) स्थिति दर्ज की जाती है ताकि हम आपके लिए सुविधाएं अनलॉक कर सकें।",
+        "es": "<strong>Compras:</strong> Se registra su estado premium (sin anuncios) para que podamos desbloquear funciones para usted.",
+        "fr": "<strong>Achats :</strong> Votre statut premium (sans publicité) est enregistré afin que nous puissions déverrouiller des fonctionnalités pour vous.",
+        "ar": "<strong>المشتريات:</strong> يُسجّل وضعك المميز (بدون إعلانات) حتى نتمكن من فتح الميزات لك.",
+        "pt": "<strong>Compras:</strong> Seu status premium (sem anúncios) é registrado para que possamos desbloquear recursos para você.",
+        "ru": "<strong>Покупки:</strong> Ваш статус premium (без рекламы) сохраняется, чтобы мы могли открыть для вас функции."
+      },
+      "sec1_li_local": {
+        "tr": "<strong>Cihazınızda saklanan oyun verileri:</strong> Oyun ilerlemesi, istatistikler, jetonlar, seçili tema, ses/titreşim ve dil ayarları cihazınızda yerel olarak (Android DataStore) saklanır. Bu veriler tarafımızca yüklenmez.",
+        "en": "<strong>Game data stored on your device:</strong> Game progress, statistics, coins, selected theme, sound/vibration and language settings are stored locally on your device (Android DataStore). This data is not uploaded by us.",
+        "de": "<strong>Auf Ihrem Gerät gespeicherte Spieldaten:</strong> Spielfortschritt, Statistiken, Münzen, ausgewähltes Theme, Ton-/Vibrationseinstellungen und Sprache werden lokal auf Ihrem Gerät gespeichert (Android DataStore). Diese Daten werden von uns nicht hochgeladen.",
+        "zh": "<strong>存储在您设备上的游戏数据：</strong> 游戏进度、统计数据、金币、所选主题、声音/振动和语言设置存储在您设备本地（Android DataStore）。我们不会上传这些数据。",
+        "hi": "<strong>आपके डिवाइस पर संग्रहीत गेम डेटा:</strong> गेम प्रगति, आंकड़े, सिक्के, चयनित थीम, ध्वनि/कंपन और भाषा सेटिंग्स आपके डिवाइस पर स्थानीय रूप से (Android DataStore) संग्रहीत की जाती हैं। यह डेटा हमारे द्वारा अपलोड नहीं किया जाता।",
+        "es": "<strong>Datos del juego almacenados en su dispositivo:</strong> El progreso del juego, las estadísticas, las monedas, el tema seleccionado, los ajustes de sonido/vibración e idioma se almacenan localmente en su dispositivo (Android DataStore). Nosotros no subimos estos datos.",
+        "fr": "<strong>Données de jeu stockées sur votre appareil :</strong> La progression, les statistiques, les pièces, le thème sélectionné, les réglages de son/vibration et de langue sont stockés localement sur votre appareil (Android DataStore). Ces données ne sont pas téléversées par nous.",
+        "ar": "<strong>بيانات اللعبة المخزّنة على جهازك:</strong> يتم تخزين تقدم اللعبة والإحصائيات والعملات والسمة المحددة وإعدادات الصوت/الاهتزاز واللغة محلياً على جهازك (Android DataStore). لا نقوم بتحميل هذه البيانات.",
+        "pt": "<strong>Dados do jogo armazenados no seu dispositivo:</strong> Progresso do jogo, estatísticas, moedas, tema selecionado, configurações de som/vibração e idioma são armazenados localmente no seu dispositivo (Android DataStore). Esses dados não são enviados por nós.",
+        "ru": "<strong>Игровые данные, хранящиеся на вашем устройстве:</strong> Игровой прогресс, статистика, монеты, выбранная тема, настройки звука/вибрации и языка хранятся локально на вашем устройстве (Android DataStore). Эти данные нами не загружаются."
+      },
+      "sec1_note": {
+        "tr": "Konum, kişiler, fotoğraflar, mikrofon veya kamera verilerinizi toplamıyoruz.",
+        "en": "We do not collect your location, contacts, photos, microphone or camera data.",
+        "de": "Wir erfassen weder Ihren Standort noch Kontakte, Fotos, Mikrofon- oder Kameradaten.",
+        "zh": "我们不收集您的位置、联系人、照片、麦克风或摄像头数据。",
+        "hi": "हम आपका स्थान, संपर्क, फ़ोटो, माइक्रोफ़ोन या कैमरा डेटा एकत्र नहीं करते।",
+        "es": "No recopilamos su ubicación, contactos, fotos, micrófono ni datos de cámara.",
+        "fr": "Nous ne collectons pas votre position, vos contacts, vos photos, ni les données de microphone ou de caméra.",
+        "ar": "نحن لا نجمع بيانات موقعك أو جهات اتصالك أو صورك أو الميكروفون أو الكاميرا.",
+        "pt": "Não coletamos sua localização, contatos, fotos, microfone ou dados da câmera.",
+        "ru": "Мы не собираем данные о вашем местоположении, контактах, фотографиях, микрофоне или камере."
+      },
+      "sec2_title": {
+        "tr": "2. Bilgileri Nasıl Kullanırız", "en": "2. How We Use Information", "de": "2. Wie wir Informationen verwenden", "zh": "2. 我们如何使用信息", "hi": "2. हम जानकारी का उपयोग कैसे करते हैं", "es": "2. Cómo Usamos la Información", "fr": "2. Comment Nous Utilisons les Informations", "ar": "2. كيف نستخدم المعلومات", "pt": "2. Como Usamos as Informações", "ru": "2. Как мы используем информацию"
+      },
+      "sec2_li1": {
+        "tr": "Hesabınızı oluşturmak, yönetmek ve giriş yapmanızı sağlamak.", "en": "To create and manage your account and sign you in.", "de": "Zur Erstellung und Verwaltung Ihres Kontos und zur Anmeldung.", "zh": "创建和管理您的帐户并让您登录。", "hi": "आपका खाता बनाने, प्रबंधित करने और आपको साइन इन कराने के लिए।", "es": "Para crear y gestionar su cuenta e iniciar sesión.", "fr": "Pour créer et gérer votre compte et vous connecter.", "ar": "لإنشاء حسابك وإدارته وتسجيل دخولك.", "pt": "Para criar e gerenciar sua conta e fazer seu login.", "ru": "Для создания и управления вашей учётной записью и входа."
+      },
+      "sec2_li2": {
+        "tr": "Oyun ilerlemenizi ve tercihlerinizi kaydetmek ve göstermek.", "en": "To save and show your game progress and preferences.", "de": "Zum Speichern und Anzeigen Ihres Spielfortschritts und Ihrer Einstellungen.", "zh": "保存并显示您的游戏进度和偏好。", "hi": "आपकी गेम प्रगति और प्राथमिकताओं को सहेजने और दिखाने के लिए।", "es": "Para guardar y mostrar su progreso y preferencias de juego.", "fr": "Pour enregistrer et afficher votre progression et vos préférences.", "ar": "لحفظ وعرض تقدمك في اللعبة وتفضيلاتك.", "pt": "Para salvar e mostrar seu progresso e preferências de jogo.", "ru": "Для сохранения и отображения вашего игрового прогресса и настроек."
+      },
+      "sec2_li3": {
+        "tr": "Reklam göstermek ve ölçmek.", "en": "To display and measure advertising.", "de": "Zum Anzeigen und Messen von Werbung.", "zh": "展示和衡量广告。", "hi": "विज्ञापन प्रदर्शित करने और मापने के लिए।", "es": "Para mostrar y medir la publicidad.", "fr": "Pour afficher et mesurer la publicité.", "ar": "لعرض الإعلانات وقياسها.", "pt": "Para exibir e medir a publicidade.", "ru": "Для показа и измерения рекламы."
+      },
+      "sec2_li4": {
+        "tr": "Premium (reklamsız) deneyimi sunmak.", "en": "To provide the premium (ad-free) experience.", "de": "Zur Bereitstellung des Premium-Erlebnisses (werbefrei).", "zh": "提供高级（无广告）体验。", "hi": "प्रीमियम (विज्ञापन-मुक्त) अनुभव प्रदान करने के लिए।", "es": "Para ofrecer la experiencia premium (sin anuncios).", "fr": "Pour fournir l'expérience premium (sans publicité).", "ar": "لتقديم التجربة المميزة (بدون إعلانات).", "pt": "Para oferecer a experiência premium (sem anúncios).", "ru": "Для предоставления premium-режима (без рекламы)."
+      },
+      "sec2_li5": {
+        "tr": "Güvenliği sağlamak ve kötüye kullanımı önlemek.", "en": "To maintain security and prevent abuse.", "de": "Zur Aufrechterhaltung der Sicherheit und zur Missbrauchsverhinderung.", "zh": "维护安全并防止滥用。", "hi": "सुरक्षा बनाए रखने और दुरुपयोग रोकने के लिए।", "es": "Para mantener la seguridad y prevenir el abuso.", "fr": "Pour assurer la sécurité et prévenir les abus.", "ar": "للحفاظ على الأمان ومنع إساءة الاستخدام.", "pt": "Para manter a segurança e evitar abusos.", "ru": "Для обеспечения безопасности и предотвращения злоупотреблений."
+      },
+      "sec3_title": {
+        "tr": "3. İzinler", "en": "3. Permissions", "de": "3. Berechtigungen", "zh": "3. 权限", "hi": "3. अनुमतियां", "es": "3. Permisos", "fr": "3. Autorisations", "ar": "3. الأذونات", "pt": "3. Permissões", "ru": "3. Разрешения"
+      },
+      "sec3_li1": {
+        "tr": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — giriş ve reklamlar için gereklidir.",
+        "en": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — required for sign-in and ads.",
+        "de": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — erforderlich für Anmeldung und Werbung.",
+        "zh": "<strong>INTERNET、ACCESS_NETWORK_STATE</strong> — 登录和广告所需。",
+        "hi": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — साइन-इन और विज्ञापनों के लिए आवश्यक।",
+        "es": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — necesarios para el inicio de sesión y los anuncios.",
+        "fr": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — requis pour la connexion et les publicités.",
+        "ar": "<strong>INTERNET، ACCESS_NETWORK_STATE</strong> — مطلوبة لتسجيل الدخول والإعلانات.",
+        "pt": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — necessárias para login e anúncios.",
+        "ru": "<strong>INTERNET, ACCESS_NETWORK_STATE</strong> — необходимы для входа и рекламы."
+      },
+      "sec3_li2": {
+        "tr": "<strong>com.google.android.gms.permission.AD_ID</strong> — reklamlar için Reklam Kimliğine (Advertising ID) erişim.",
+        "en": "<strong>com.google.android.gms.permission.AD_ID</strong> — access to the Advertising ID for ads.",
+        "de": "<strong>com.google.android.gms.permission.AD_ID</strong> — Zugriff auf die Advertising ID für Werbung.",
+        "zh": "<strong>com.google.android.gms.permission.AD_ID</strong> — 用于广告的广告 ID 访问权限。",
+        "hi": "<strong>com.google.android.gms.permission.AD_ID</strong> — विज्ञापनों के लिए Advertising ID तक पहुंच।",
+        "es": "<strong>com.google.android.gms.permission.AD_ID</strong> — acceso al Advertising ID para los anuncios.",
+        "fr": "<strong>com.google.android.gms.permission.AD_ID</strong> — accès à l'Advertising ID pour les publicités.",
+        "ar": "<strong>com.google.android.gms.permission.AD_ID</strong> — الوصول إلى Advertising ID للإعلانات.",
+        "pt": "<strong>com.google.android.gms.permission.AD_ID</strong> — acesso ao Advertising ID para anúncios.",
+        "ru": "<strong>com.google.android.gms.permission.AD_ID</strong> — доступ к Advertising ID для рекламы."
+      },
+      "sec4_title": {
+        "tr": "4. Üçüncü Taraf Servisler", "en": "4. Third-Party Services", "de": "4. Drittanbieterdienste", "zh": "4. 第三方服务", "hi": "4. तृतीय-पक्ष सेवाएं", "es": "4. Servicios de Terceros", "fr": "4. Services Tiers", "ar": "4. خدمات الطرف الثالث", "pt": "4. Serviços de Terceiros", "ru": "4. Сторонние сервисы"
+      },
+      "sec4_p": {
+        "tr": "Uygulama, her biri kendi gizlilik politikasına tabi olan aşağıdaki Google hizmetlerine dayanır:",
+        "en": "The app relies on these Google services, each governed by its own privacy policy:",
+        "de": "Die App nutzt diese Google-Dienste, die jeweils ihrer eigenen Datenschutzrichtlinie unterliegen:",
+        "zh": "应用依赖以下 Google 服务，每项均受其自身隐私政策约束：",
+        "hi": "ऐप इन Google सेवाओं पर निर्भर करता है, जिनमें से प्रत्येक अपनी गोपनीयता नीति द्वारा शासित है:",
+        "es": "La app se basa en estos servicios de Google, cada uno regido por su propia política de privacidad:",
+        "fr": "L'application s'appuie sur ces services Google, chacun régi par sa propre politique de confidentialité :",
+        "ar": "يعتمد التطبيق على خدمات Google التالية، وكل منها يخضع لسياسة الخصوصية الخاصة به:",
+        "pt": "O app depende destes serviços do Google, cada um regido por sua própria política de privacidade:",
+        "ru": "Приложение использует следующие сервисы Google, каждый из которых регулируется собственной политикой конфиденциальности:"
+      },
+      "sec4_li1": {
+        "tr": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "en": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "de": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "zh": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "hi": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "es": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "fr": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "ar": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "pt": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>",
+        "ru": "Google / Firebase Authentication — <a href=\"https://firebase.google.com/support/privacy\" target=\"_blank\" rel=\"noopener\">firebase.google.com/support/privacy</a>"
+      },
+      "sec4_li2": {
+        "tr": "Google AdMob (reklamlar) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "en": "Google AdMob (ads) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "de": "Google AdMob (Werbung) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "zh": "Google AdMob（广告）— <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "hi": "Google AdMob (विज्ञापन) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "es": "Google AdMob (anuncios) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "fr": "Google AdMob (publicités) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "ar": "Google AdMob (الإعلانات) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "pt": "Google AdMob (anúncios) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>",
+        "ru": "Google AdMob (реклама) — <a href=\"https://support.google.com/admob/answer/6128543\" target=\"_blank\" rel=\"noopener\">support.google.com/admob/answer/6128543</a>"
+      },
+      "sec4_li3": {
+        "tr": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "en": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "de": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "zh": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "hi": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "es": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "fr": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "ar": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "pt": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>",
+        "ru": "Google Play services — <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>"
+      },
+      "sec4_note": {
+        "tr": "Reklam kişiselleştirmesini cihaz ayarlarınızdan (Ayarlar → Google → Reklamlar) kontrol edebilir, Reklam Kimliğinizi buradan sıfırlayabilir veya silebilirsiniz.",
+        "en": "You can control ad personalization in your device settings (Settings → Google → Ads) and reset or delete your Advertising ID there.",
+        "de": "Sie können die Anzeigenpersonalisierung in den Geräteeinstellungen (Einstellungen → Google → Werbung) steuern und dort Ihre Advertising ID zurücksetzen oder löschen.",
+        "zh": "您可以在设备设置（设置 → Google → 广告）中控制广告个性化，并在那里重置或删除您的广告 ID。",
+        "hi": "आप अपने डिवाइस सेटिंग्स (सेटिंग्स → Google → विज्ञापन) में विज्ञापन वैयक्तिकरण को नियंत्रित कर सकते हैं और वहां अपना Advertising ID रीसेट या हटा सकते हैं।",
+        "es": "Puede controlar la personalización de anuncios en los ajustes de su dispositivo (Ajustes → Google → Anuncios) y restablecer o eliminar su Advertising ID allí.",
+        "fr": "Vous pouvez contrôler la personnalisation des publicités dans les paramètres de votre appareil (Paramètres → Google → Annonces) et y réinitialiser ou supprimer votre Advertising ID.",
+        "ar": "يمكنك التحكم في تخصيص الإعلانات من إعدادات جهازك (الإعدادات → Google → الإعلانات) وإعادة تعيين Advertising ID أو حذفه من هناك.",
+        "pt": "Você pode controlar a personalização de anúncios nas configurações do dispositivo (Configurações → Google → Anúncios) e redefinir ou excluir seu Advertising ID lá.",
+        "ru": "Вы можете управлять персонализацией рекламы в настройках устройства (Настройки → Google → Реклама) и сбросить или удалить свой Advertising ID там."
+      },
+      "sec5_title": {
+        "tr": "5. Çocukların Gizliliği", "en": "5. Children's Privacy", "de": "5. Privatsphäre von Kindern", "zh": "5. 儿童隐私", "hi": "5. बच्चों की गोपनीयता", "es": "5. Privacidad de los Niños", "fr": "5. Confidentialité des Enfants", "ar": "5. خصوصية الأطفال", "pt": "5. Privacidade das Crianças", "ru": "5. Конфиденциальность детей"
+      },
+      "sec5_p": {
+        "tr": "Uygulamanın eğlenceli, renkli bir görünümü vardır. Uygulama, Google Play sayfasında açıkça belirtilmediği sürece ülkenizdeki yasal yaşın altındaki çocuklara yönelik değildir. Uygulamanın Play sayfası çocuklara yönelikse, Google Play Aileler Politikası ve ilgili mevzuata (ör. COPPA, GDPR-K) uygun olarak yalnızca Google sertifikalı çocuklara yönelik reklamlar ve kişiselleştirilmemiş reklamlar kullanılır. Burada açıklananın ötesinde çocuklardan bilerek kişisel bilgi toplamayız. Bir çocuğun kişisel veri verdiğini düşünüyorsanız bizimle iletişime geçin, bu bilgileri sileriz.",
+        "en": "The app has a playful, colorful look. The app is not directed to children under the age required by law in your country unless explicitly stated on its Google Play listing. If the app's Play listing targets children, only Google-certified child-directed ads and non-personalized ads are used, in line with the Google Play Families Policy and applicable law (e.g., COPPA, GDPR-K). We do not knowingly collect personal information from children beyond what is described here. If you believe a child has provided personal data, contact us and we will delete it.",
+        "de": "Die App hat ein verspieltes, farbenfrohes Erscheinungsbild. Die App richtet sich nicht an Kinder unter dem in Ihrem Land gesetzlich vorgeschriebenen Alter, sofern dies nicht ausdrücklich auf der Google-Play-Seite angegeben ist. Richtet sich die Play-Seite an Kinder, werden gemäß der Google Play Families-Richtlinie und geltendem Recht (z. B. COPPA, DSGVO-K) nur Google-zertifizierte, kinderspezifische und nicht personalisierte Anzeigen verwendet. Über das hier Beschriebene hinaus erfassen wir wissentlich keine personenbezogenen Daten von Kindern. Wenn Sie glauben, dass ein Kind personenbezogene Daten übermittelt hat, kontaktieren Sie uns, und wir löschen sie.",
+        "zh": "应用具有活泼、色彩丰富的外观。除非在其 Google Play 商品页面上明确说明，否则本应用不面向您所在国家/地区法律规定年龄以下的儿童。如果应用的 Play 商品页面面向儿童，则将依据 Google Play 家庭政策和适用法律（如 COPPA、GDPR-K）仅使用 Google 认证的面向儿童的广告和非个性化广告。除此处所述外，我们不会有意收集儿童的个人信息。如果您认为某位儿童提供了个人数据，请联系我们，我们将删除它。",
+        "hi": "ऐप का रूप चंचल और रंगीन है। जब तक इसके Google Play लिस्टिंग पर स्पष्ट रूप से न कहा गया हो, ऐप आपके देश में कानून द्वारा आवश्यक आयु से कम के बच्चों के लिए निर्देशित नहीं है। यदि ऐप की Play लिस्टिंग बच्चों को लक्षित करती है, तो Google Play फ़ैमिलीज़ नीति और लागू कानून (जैसे COPPA, GDPR-K) के अनुरूप केवल Google-प्रमाणित बाल-निर्देशित विज्ञापन और गैर-वैयक्तिकृत विज्ञापन उपयोग किए जाते हैं। यहां वर्णित के अलावा हम जानबूझकर बच्चों से व्यक्तिगत जानकारी एकत्र नहीं करते। यदि आपको लगता है कि किसी बच्चे ने व्यक्तिगत डेटा दिया है, तो हमसे संपर्क करें, हम उसे हटा देंगे।",
+        "es": "La app tiene un aspecto lúdico y colorido. La app no está dirigida a niños menores de la edad exigida por la ley de su país, salvo que se indique explícitamente en su ficha de Google Play. Si la ficha de Play está dirigida a niños, solo se usan anuncios dirigidos a niños certificados por Google y anuncios no personalizados, conforme a la Política para Familias de Google Play y la legislación aplicable (p. ej., COPPA, GDPR-K). No recopilamos a sabiendas información personal de niños más allá de lo descrito aquí. Si cree que un niño ha proporcionado datos personales, contáctenos y los eliminaremos.",
+        "fr": "L'application a un aspect ludique et coloré. L'application ne s'adresse pas aux enfants en dessous de l'âge requis par la loi de votre pays, sauf mention explicite sur sa fiche Google Play. Si la fiche Play cible les enfants, seules des publicités certifiées par Google destinées aux enfants et des publicités non personnalisées sont utilisées, conformément à la Politique Familles de Google Play et à la législation applicable (par ex. COPPA, RGPD-K). Au-delà de ce qui est décrit ici, nous ne collectons pas sciemment d'informations personnelles auprès d'enfants. Si vous pensez qu'un enfant a fourni des données personnelles, contactez-nous et nous les supprimerons.",
+        "ar": "للتطبيق مظهر مرح وملوّن. التطبيق غير موجّه للأطفال دون السن الذي يحدده القانون في بلدك ما لم يُذكر ذلك صراحةً في صفحته على Google Play. إذا كانت صفحة التطبيق على Play موجّهة للأطفال، فلن تُستخدم سوى إعلانات معتمدة من Google موجّهة للأطفال وإعلانات غير مخصّصة، بما يتوافق مع سياسة العائلات في Google Play والقوانين المعمول بها (مثل COPPA وGDPR-K). لا نجمع عن علم معلومات شخصية من الأطفال بخلاف ما هو موضّح هنا. إذا كنت تعتقد أن طفلاً قدّم بيانات شخصية، فاتصل بنا وسنحذفها.",
+        "pt": "O app tem uma aparência divertida e colorida. O app não é direcionado a crianças abaixo da idade exigida por lei no seu país, a menos que declarado explicitamente em sua página do Google Play. Se a página do app no Play for direcionada a crianças, apenas anúncios certificados pelo Google direcionados a crianças e anúncios não personalizados são usados, de acordo com a Política para Famílias do Google Play e a legislação aplicável (por ex., COPPA, GDPR-K). Não coletamos intencionalmente informações pessoais de crianças além do descrito aqui. Se você acredita que uma criança forneceu dados pessoais, entre em contato e nós os excluiremos.",
+        "ru": "Приложение имеет игривый, красочный вид. Приложение не предназначено для детей младше возраста, установленного законом вашей страны, если иное явно не указано на странице Google Play. Если страница приложения в Play ориентирована на детей, используются только сертифицированные Google детские и неперсонализированные объявления в соответствии с Политикой Google Play для семей и применимым законодательством (например, COPPA, GDPR-K). Помимо описанного здесь, мы сознательно не собираем личную информацию от детей. Если вы считаете, что ребёнок предоставил личные данные, свяжитесь с нами, и мы их удалим."
+      },
+      "sec6_title": {
+        "tr": "6. Verilerin Saklanması ve Silinmesi", "en": "6. Data Retention and Deletion", "de": "6. Datenspeicherung und -löschung", "zh": "6. 数据保留与删除", "hi": "6. डेटा प्रतिधारण और हटाना", "es": "6. Retención y Eliminación de Datos", "fr": "6. Conservation et Suppression des Données", "ar": "6. الاحتفاظ بالبيانات وحذفها", "pt": "6. Retenção e Exclusão de Dados", "ru": "6. Хранение и удаление данных"
+      },
+      "sec6_li1": {
+        "tr": "Yerel oyun verileri, siz temizleyene (uygulama içi \"İlerlemeyi Sıfırla\") veya uygulamayı kaldırana kadar saklanır.",
+        "en": "Local game data is kept until you clear it (in-app \"Reset progress\") or uninstall the app.",
+        "de": "Lokale Spieldaten bleiben gespeichert, bis Sie sie löschen (In-App „Fortschritt zurücksetzen“) oder die App deinstallieren.",
+        "zh": "本地游戏数据将一直保留，直到您清除它（应用内“重置进度”）或卸载应用。",
+        "hi": "स्थानीय गेम डेटा तब तक रखा जाता है जब तक आप इसे साफ़ नहीं करते (ऐप में \"प्रगति रीसेट करें\") या ऐप अनइंस्टॉल नहीं करते।",
+        "es": "Los datos locales del juego se conservan hasta que los borre (\"Restablecer progreso\" en la app) o desinstale la app.",
+        "fr": "Les données de jeu locales sont conservées jusqu'à ce que vous les effaciez (« Réinitialiser la progression » dans l'app) ou désinstalliez l'app.",
+        "ar": "تُحفظ بيانات اللعبة المحلية حتى تقوم بمسحها (\"إعادة تعيين التقدم\" داخل التطبيق) أو إلغاء تثبيت التطبيق.",
+        "pt": "Os dados locais do jogo são mantidos até você apagá-los (\"Redefinir progresso\" no app) ou desinstalar o app.",
+        "ru": "Локальные игровые данные хранятся, пока вы их не очистите («Сбросить прогресс» в приложении) или не удалите приложение."
+      },
+      "sec6_li2": {
+        "tr": "Hesap verileri, silme talebinde bulunana kadar saklanır. Hesabınızı ve ilişkili verilerinizi silmek için giriş yaparken kullandığınız e-posta ile <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> adresine e-posta gönderin. Talebinizi makul bir süre içinde işleme alırız.",
+        "en": "Account data is kept until you request deletion. To delete your account and associated data, email <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> with the email address used to sign in. We will process the request within a reasonable time.",
+        "de": "Kontodaten werden aufbewahrt, bis Sie die Löschung beantragen. Um Ihr Konto und die zugehörigen Daten zu löschen, senden Sie eine E-Mail an <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> mit der zur Anmeldung verwendeten E-Mail-Adresse. Wir bearbeiten die Anfrage innerhalb einer angemessenen Frist.",
+        "zh": "帐户数据将一直保留，直到您请求删除。要删除您的帐户及相关数据，请使用您登录时所用的电子邮件地址发送邮件至 <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>。我们将在合理时间内处理该请求。",
+        "hi": "खाता डेटा तब तक रखा जाता है जब तक आप हटाने का अनुरोध नहीं करते। अपना खाता और संबंधित डेटा हटाने के लिए, साइन इन करते समय उपयोग किए गए ईमेल पते से <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> पर ईमेल करें। हम अनुरोध को उचित समय में संसाधित करेंगे।",
+        "es": "Los datos de la cuenta se conservan hasta que solicite su eliminación. Para eliminar su cuenta y los datos asociados, envíe un correo a <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> con la dirección de correo usada para iniciar sesión. Procesaremos la solicitud en un plazo razonable.",
+        "fr": "Les données de compte sont conservées jusqu'à ce que vous demandiez leur suppression. Pour supprimer votre compte et les données associées, envoyez un e-mail à <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> avec l'adresse e-mail utilisée pour vous connecter. Nous traiterons la demande dans un délai raisonnable.",
+        "ar": "تُحفظ بيانات الحساب حتى تطلب حذفها. لحذف حسابك والبيانات المرتبطة به، أرسل بريداً إلكترونياً إلى <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> من عنوان البريد الذي استخدمته لتسجيل الدخول. سنعالج الطلب خلال فترة معقولة.",
+        "pt": "Os dados da conta são mantidos até você solicitar a exclusão. Para excluir sua conta e os dados associados, envie um e-mail para <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> com o e-mail usado para fazer login. Processaremos a solicitação em um prazo razoável.",
+        "ru": "Данные учётной записи хранятся до запроса на удаление. Чтобы удалить учётную запись и связанные данные, напишите на <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a> с адреса, использованного для входа. Мы обработаем запрос в разумный срок."
+      },
+      "sec7_title": {
+        "tr": "7. Güvenlik", "en": "7. Security", "de": "7. Sicherheit", "zh": "7. 安全", "hi": "7. सुरक्षा", "es": "7. Seguridad", "fr": "7. Sécurité", "ar": "7. الأمان", "pt": "7. Segurança", "ru": "7. Безопасность"
+      },
+      "sec7_p": {
+        "tr": "Bilgilerinizi korumak için endüstri standardı önlemler (Google Firebase altyapısı, şifreli bağlantılar) kullanırız. Hiçbir iletim veya saklama yöntemi %100 güvenli değildir.",
+        "en": "We use industry-standard measures (Google Firebase infrastructure, encrypted connections) to protect your information. No method of transmission or storage is 100% secure.",
+        "de": "Wir verwenden branchenübliche Maßnahmen (Google-Firebase-Infrastruktur, verschlüsselte Verbindungen), um Ihre Informationen zu schützen. Keine Übertragungs- oder Speichermethode ist zu 100 % sicher.",
+        "zh": "我们采用行业标准措施（Google Firebase 基础设施、加密连接）来保护您的信息。没有任何传输或存储方法是 100% 安全的。",
+        "hi": "आपकी जानकारी की सुरक्षा के लिए हम उद्योग-मानक उपाय (Google Firebase अवसंरचना, एन्क्रिप्टेड कनेक्शन) उपयोग करते हैं। कोई भी संचरण या भंडारण विधि 100% सुरक्षित नहीं है।",
+        "es": "Usamos medidas estándar del sector (infraestructura de Google Firebase, conexiones cifradas) para proteger su información. Ningún método de transmisión o almacenamiento es 100 % seguro.",
+        "fr": "Nous utilisons des mesures conformes aux normes du secteur (infrastructure Google Firebase, connexions chiffrées) pour protéger vos informations. Aucune méthode de transmission ou de stockage n'est sûre à 100 %.",
+        "ar": "نستخدم تدابير وفق معايير الصناعة (بنية Google Firebase التحتية، اتصالات مشفّرة) لحماية معلوماتك. لا توجد طريقة نقل أو تخزين آمنة بنسبة 100%.",
+        "pt": "Usamos medidas padrão do setor (infraestrutura do Google Firebase, conexões criptografadas) para proteger suas informações. Nenhum método de transmissão ou armazenamento é 100% seguro.",
+        "ru": "Мы используем отраслевые стандартные меры (инфраструктура Google Firebase, шифрованные соединения) для защиты вашей информации. Ни один метод передачи или хранения не является на 100% безопасным."
+      },
+      "sec8_title": {
+        "tr": "8. Bu Politikadaki Değişiklikler", "en": "8. Changes to This Policy", "de": "8. Änderungen dieser Richtlinie", "zh": "8. 本政策的变更", "hi": "8. इस नीति में परिवर्तन", "es": "8. Cambios en esta Política", "fr": "8. Modifications de cette Politique", "ar": "8. التغييرات على هذه السياسة", "pt": "8. Alterações nesta Política", "ru": "8. Изменения в этой политике"
+      },
+      "sec8_p": {
+        "tr": "Bu politikayı güncelleyebiliriz. Değişiklikler, yeni bir yürürlük tarihiyle bu sayfada yayınlanır.",
+        "en": "We may update this policy. Changes will be posted on this page with a new effective date.",
+        "de": "Wir können diese Richtlinie aktualisieren. Änderungen werden mit einem neuen Gültigkeitsdatum auf dieser Seite veröffentlicht.",
+        "zh": "我们可能会更新本政策。变更将以新的生效日期发布在此页面上。",
+        "hi": "हम इस नीति को अपडेट कर सकते हैं। परिवर्तन एक नई प्रभावी तिथि के साथ इस पृष्ठ पर पोस्ट किए जाएंगे।",
+        "es": "Podemos actualizar esta política. Los cambios se publicarán en esta página con una nueva fecha de entrada en vigor.",
+        "fr": "Nous pouvons mettre à jour cette politique. Les modifications seront publiées sur cette page avec une nouvelle date d'entrée en vigueur.",
+        "ar": "قد نقوم بتحديث هذه السياسة. ستُنشر التغييرات على هذه الصفحة مع تاريخ سريان جديد.",
+        "pt": "Podemos atualizar esta política. As alterações serão publicadas nesta página com uma nova data de vigência.",
+        "ru": "Мы можем обновлять эту политику. Изменения публикуются на этой странице с новой датой вступления в силу."
+      },
+      "sec9_title": {
+        "tr": "9. İletişim", "en": "9. Contact", "de": "9. Kontakt", "zh": "9. 联系方式", "hi": "9. संपर्क", "es": "9. Contacto", "fr": "9. Contact", "ar": "9. الاتصال", "pt": "9. Contato", "ru": "9. Контакты"
+      },
+      "sec9_p": {
+        "tr": "Sorularınız veya talepleriniz için: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "en": "Questions or requests: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "de": "Fragen oder Anfragen: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "zh": "问题或请求：<a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "hi": "प्रश्न या अनुरोध: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "es": "Preguntas o solicitudes: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "fr": "Questions ou demandes : <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ar": "للأسئلة أو الطلبات: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "pt": "Dúvidas ou solicitações: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>",
+        "ru": "Вопросы или запросы: <a href=\"mailto:exaque2@gmail.com\">exaque2@gmail.com</a>"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.", "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.", "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.", "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。", "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।", "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.", "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.", "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.", "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.", "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>

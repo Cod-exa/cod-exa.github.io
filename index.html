@@ -706,6 +706,7 @@
                     <button type="button" class="filter-chip active" data-cat="all" onclick="setCat(this)" data-i18n="filter_all">Tümü</button>
                     <button type="button" class="filter-chip" data-cat="puzzle" onclick="setCat(this)" data-i18n="filter_puzzle">Zeka & Bulmaca</button>
                     <button type="button" class="filter-chip" data-cat="math" onclick="setCat(this)" data-i18n="filter_math">Matematik</button>
+                    <button type="button" class="filter-chip" data-cat="focus" onclick="setCat(this)" data-i18n="filter_focus">Odak & Araçlar</button>
                 </div>
                 <div class="filter-group" id="statusFilters">
                     <button type="button" class="filter-chip active" data-status="all" onclick="setStatus(this)" data-i18n="filter_all">Tümü</button>
@@ -968,6 +969,39 @@
                     </div>
                 </a>
 
+                <!-- Visual Timer Card -->
+                <a href="visualtimer/index.html" class="project-card project-card-link" data-category="focus" data-status="coming">
+                    <!-- App Icon -->
+                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(239, 68, 68, 0.3);">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Visual Timer declining disk representation -->
+                            <circle cx="12" cy="12" r="9" stroke="#EF4444" stroke-width="1.5" />
+                            <path d="M12 3 A 9 9 0 0 1 21 12 L 12 12 Z" fill="#EF4444" opacity="0.8" />
+                            <line x1="12" y1="12" x2="12" y2="3" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <!-- App Details -->
+                    <div class="app-details">
+                        <span class="app-category" data-i18n="category_focus">Odak & Üretkenlik / Focus & Productivity</span>
+                        <h3 data-i18n="game_title_visualtimer">Visual Timer</h3>
+
+                        <p class="app-desc" data-i18n="game_desc_visualtimer">
+                            Süreyi gösteren değil, hissettiren görsel zamanlayıcı! ADHD, otizm ve odaklanma için özel tasarlanmış, sınıfta ve evde çalışan reklamsız görsel odak aracı.
+                        </p>
+
+                        <div class="status-badge" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); color: #FCA5A5;" data-i18n="coming_soon">
+                            <span class="dot" style="background-color: #EF4444; box-shadow: 0 0 10px #EF4444;"></span>
+                            Yakında Google Play'de!
+                        </div>
+
+                        <!-- Navigates to visualtimer/index.html -->
+                        <span class="btn-inspect" data-i18n="btn_inspect">
+                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </span>
+                    </div>
+                </a>
+
                 <!-- Future educational games will be added here -->
             </div>
             <p class="no-results" id="noResults" data-i18n="no_results">Eşleşen uygulama bulunamadı.</p>
@@ -977,7 +1011,7 @@
         <section class="deletion-section" id="hesap-silme">
             <div class="deletion-header">
                 <h2 data-i18n="del_title">Hesap ve Veri Silme</h2>
-                <p data-i18n="del_intro">CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.</p>
+                <p data-i18n="del_intro">CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.</p>
             </div>
             <div class="deletion-grid">
                 <div class="deletion-item">
@@ -1055,6 +1089,8 @@
                         <option value="Nim Master">Nim Master</option>
                         <option value="Çarpma Oyunu">Çarpma Oyunu</option>
                         <option value="2048: Ultimate Edition">2048: Ultimate Edition</option>
+                        <option value="Kakuro">Kakuro</option>
+                        <option value="Visual Timer: ADHD & Focus">Visual Timer: ADHD & Focus</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -1176,6 +1212,7 @@
             "filter_all": { "tr": "Tümü", "en": "All", "de": "Alle", "zh": "全部", "hi": "सभी", "es": "Todos", "fr": "Tous", "ar": "الكل", "pt": "Todos", "ru": "Все" },
             "filter_puzzle": { "tr": "Zeka & Bulmaca", "en": "Puzzle", "de": "Puzzle", "zh": "益智", "hi": "पहेली", "es": "Puzzle", "fr": "Puzzle", "ar": "ألغاز", "pt": "Puzzle", "ru": "Головоломки" },
             "filter_math": { "tr": "Matematik", "en": "Math", "de": "Mathe", "zh": "数学", "hi": "गणित", "es": "Matemáticas", "fr": "Maths", "ar": "رياضيات", "pt": "Matemática", "ru": "Математика" },
+            "filter_focus": { "tr": "Odak & Araçlar", "en": "Focus & Tools", "de": "Fokus & Tools", "zh": "专注与工具", "hi": "फोकस और उपकरण", "es": "Enfoque y Herramientas", "fr": "Focus & Outils", "ar": "التركيز والأدوات", "pt": "Foco e Ferramentas", "ru": "Фокус и инструменты" },
             "filter_live": { "tr": "Yayında", "en": "Live", "de": "Live", "zh": "已上线", "hi": "लाइव", "es": "Publicadas", "fr": "En ligne", "ar": "متاحة", "pt": "No ar", "ru": "Опубликовано" },
             "filter_coming": { "tr": "Yakında", "en": "Coming Soon", "de": "Demnächst", "zh": "即将推出", "hi": "जल्द आ रहा", "es": "Próximamente", "fr": "Bientôt", "ar": "قريباً", "pt": "Em breve", "ru": "Скоро" },
             "no_results": { "tr": "Eşleşen uygulama bulunamadı.", "en": "No matching apps found.", "de": "Keine passenden Apps gefunden.", "zh": "未找到匹配的应用。", "hi": "कोई मेल खाता ऐप नहीं मिला।", "es": "No se encontraron apps coincidentes.", "fr": "Aucune application correspondante trouvée.", "ar": "لم يتم العثور على تطبيقات مطابقة.", "pt": "Nenhum app correspondente encontrado.", "ru": "Подходящие приложения не найдены." },
@@ -1192,16 +1229,16 @@
                 "ru": "Удаление аккаунта и данных"
             },
             "del_intro": {
-                "tr": "CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.",
-                "en": "For the apps published by CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — you can delete your account and data at any time.",
-                "de": "Für die von CodExa (Erdinç TOPAL) veröffentlichten Apps (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) können Sie Ihr Konto und Ihre Daten jederzeit löschen.",
-                "zh": "对于 CodExa (Erdinç TOPAL) 发布的应用（Hanoi Kulesi、At Satrancı、KenKen、Nim Master、Çarpma Oyunu、2048），您可以随时删除您的帐户和数据。",
-                "hi": "CodExa (Erdinç TOPAL) द्वारा प्रकाशित ऐप्स (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048) के लिए आप किसी भी समय अपना खाता और डेटा हटा सकते हैं।",
-                "es": "Para las aplicaciones publicadas por CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — puede eliminar su cuenta y sus datos en cualquier momento.",
-                "fr": "Pour les applications publiées par CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — vous pouvez supprimer votre compte et vos données à tout moment.",
-                "ar": "بالنسبة للتطبيقات التي تنشرها CodExa (Erdinç TOPAL) — Hanoi Kulesi، At Satrancı، KenKen، Nim Master، Çarpma Oyunu، 2048 — يمكنك حذف حسابك وبياناتك في أي وقت.",
-                "pt": "Para os aplicativos publicados pela CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — você pode excluir sua conta e seus dados a qualquer momento.",
-                "ru": "Для приложений, опубликованных CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048 — вы можете удалить свою учетную запись и данные в любое время."
+                "tr": "CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.",
+                "en": "For the apps published by CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — you can delete your account and data at any time.",
+                "de": "Für die von CodExa (Erdinç TOPAL) veröffentlichten Apps (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) können Sie Ihr Konto und Ihre Daten jederzeit löschen.",
+                "zh": "对于 CodExa (Erdinç TOPAL) 发布的应用（Hanoi Kulesi、At Satrancı、KenKen、Nim Master、Çarpma Oyunu、2048、Kakuro、Visual Timer），您可以随时删除您的帐户和数据。",
+                "hi": "CodExa (Erdinç TOPAL) द्वारा प्रकाशित ऐप्स (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) के लिए आप किसी भी समय अपना खाता और डेटा हटा सकते हैं।",
+                "es": "Para las aplicaciones publicadas por CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — puede eliminar su cuenta y sus datos en cualquier momento.",
+                "fr": "Pour les applications publiées par CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — vous pouvez supprimer votre compte et vos données à tout moment.",
+                "ar": "بالنسبة للتطبيقات التي تنشرها CodExa (Erdinç TOPAL) — Hanoi Kulesi، At Satrancı، KenKen، Nim Master، Çarpma Oyunu، 2048، Kakuro، Visual Timer — يمكنك حذف حسابك وبياناتك في أي وقت.",
+                "pt": "Para os aplicativos publicados pela CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — você pode excluir sua conta e seus dados a qualquer momento.",
+                "ru": "Для приложений, опубликованных CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — вы можете удалить свою учетную запись и данные в любое время."
             },
             "del_h_account": {
                 "tr": "Hesabınızı Silme",
@@ -1467,6 +1504,18 @@
                 "pt": "Quebra-cabeça e Lógica",
                 "ru": "Головоломка и логика"
             },
+            "category_focus": {
+                "tr": "Odak & Üretkenlik",
+                "en": "Focus & Productivity",
+                "de": "Fokus & Produktivität",
+                "zh": "专注与效率",
+                "hi": "फोकस और उत्पादकता",
+                "es": "Enfoque y Productividad",
+                "fr": "Focus & Productivité",
+                "ar": "التركيز والإنتاجية",
+                "pt": "Foco e Produtividade",
+                "ru": "Фокус и продуктивность"
+            },
             "game_title": {
                 "tr": "Hanoi Kulesi",
                 "en": "Hanoi Tower",
@@ -1601,6 +1650,30 @@
                 "ar": "اكتشف لغز جمع الأرقام المتقاطعة Kakuro في واجهة بسيطة وحديثة! حقّق مجاميع الأدلة واصقل منطقك عبر مستويات صعوبة متنوعة.",
                 "pt": "Descubra o quebra-cabeça de somas cruzadas Kakuro em uma interface limpa e moderna! Alcance as somas das pistas e aprimore sua lógica em vários níveis de dificuldade.",
                 "ru": "Откройте для себя числовую головоломку Kakuro в чистом современном интерфейсе! Набирайте суммы из подсказок и оттачивайте логику на разных уровнях сложности."
+            },
+            "game_title_visualtimer": {
+                "tr": "Visual Timer: Odak & ADHD",
+                "en": "Visual Timer: ADHD & Focus",
+                "de": "Visual Timer: ADHD & Fokus",
+                "zh": "Visual Timer: 专注与ADHD",
+                "hi": "Visual Timer: एडीएचडी और फोकस",
+                "es": "Visual Timer: TDAH y Enfoque",
+                "fr": "Visual Timer : TDAH & Focus",
+                "ar": "Visual Timer: التركيز وتشتت الانتباه",
+                "pt": "Visual Timer: TDAH e Foco",
+                "ru": "Visual Timer: СДВГ и фокус"
+            },
+            "game_desc_visualtimer": {
+                "tr": "Süreyi gösteren değil, hissettiren görsel zamanlayıcı! ADHD, otizm ve odaklanma için öğretmenler tarafından tasarlanmış, sınıfta ve evde çalışan reklam bombardımansız görsel odak aracı.",
+                "en": "The visual timer designed by a teacher that makes you feel the time, not just read it! Perfect for ADHD, autism, classroom management, and focused study.",
+                "de": "Der visuelle Timer, der Sie die Zeit spüren lässt! Entwickelt für ADHS, Autismus, Klassenzimmer-Management und konzentriertes Lernen.",
+                "zh": "让您“感受”时间流逝的的视觉计时器！专为 ADHD、自闭症、课堂管理和高效学习设计。",
+                "hi": "दृश्य टाइमर जो आपको समय महसूस कराता है! एडीएचडी, आत्मकेंद्रित, कक्षा प्रबंधन और केंद्रित अध्ययन के लिए बिल्कुल सही।",
+                "es": "¡El temporizador visual que te hace sentir el tiempo! Ideal para TDAH, autismo, gestión del aula y estudio enfocado.",
+                "fr": "Le minuteur visuel qui vous fait ressentir le temps ! Parfait pour le TDAH, l'autisme, la gestion de classe et l'étude concentrée.",
+                "ar": "المؤقت البصري الذي يجعلك تشعر بالوقت! مثالي لتشتت الانتباه (ADHD)، التوحد، إدارة الفصول الدراسية، والدراسة المركزة.",
+                "pt": "O temporizador visual que faz você sentir o tempo! Perfeito para TDAH, autismo, gestão de sala de aula e estudo focado.",
+                "ru": "Визуальный таймер, который позволяет почувствовать время! Идеально подходит для людей с СДВГ, аутизмом, управления классом и сосредоточенной учебы."
             },
             "coming_soon": {
                 "tr": "Yakında Google Play'de!",
