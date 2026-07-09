@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destek & Yardım (Support & Help) – Classtings</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+    :root { --em: #EF4444; --em-light: #F87171; --em-alpha: rgba(16,185,129,0.08); --em-border: rgba(16,185,129,0.2); --dark: #0F172A; --dark2: #1E293B; --text: #CBD5E1; --text-muted: #94A3B8; --border: rgba(16,185,129,0.15); --transition: all 0.25s ease; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.8; min-height: 100vh; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16,185,129,0.08) 0%, transparent 70%), repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(16,185,129,0.02) 40px, rgba(16,185,129,0.02) 41px); pointer-events: none; z-index: 0; }
+    .container { max-width: 800px; margin: 0 auto; padding: 60px 28px 100px; position: relative; z-index: 1; }
+    header { text-align: center; margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .logo-wrap { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); border: 1px solid rgba(16,185,129,0.3); margin-bottom: 24px; box-shadow: 0 0 32px rgba(16,185,129,0.1), inset 0 1px 0 rgba(16,185,129,0.1); }
+    .logo-wrap svg { width: 40px; height: 40px; }
+    h1 { font-family: 'Cinzel', serif; font-size: clamp(26px, 5vw, 36px); font-weight: 700; color: var(--em-light); letter-spacing: 0.04em; margin-bottom: 10px; }
+    .subtitle { font-size: 14px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300; }
+    section { background-color: var(--dark2); border: 1px solid var(--em-border); border-radius: 20px; padding: 32px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+    h2 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--em-light); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; cursor: pointer; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { font-size: 15px; font-weight: 600; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: var(--transition); }
+    .faq-question:hover { color: var(--em-light); }
+    .faq-answer { max-height: 0; overflow: hidden; color: var(--text-muted); font-size: 15px; margin-top: 0; transition: max-height 0.3s ease-out, margin-top 0.3s ease-out; }
+    .faq-item.active .faq-answer { max-height: 280px; margin-top: 12px; }
+    .faq-icon { fill: var(--em); transition: var(--transition); flex-shrink: 0; }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-muted); font-weight: 500; }
+    .form-control { width: 100%; background-color: rgba(0,0,0,0.3); border: 1px solid var(--em-border); border-radius: 10px; padding: 12px 16px; color: #fff; font-family: 'Inter', sans-serif; font-size: 14px; transition: var(--transition); }
+    .form-control:focus { outline: none; border-color: var(--em-light); box-shadow: 0 0 10px var(--em-alpha); }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+    .btn-submit { background: linear-gradient(135deg, var(--em) 0%, var(--em-light) 100%); color: #06281d; border: none; border-radius: 10px; padding: 14px 28px; font-family: 'Cinzel', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.05em; cursor: pointer; width: 100%; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-submit:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--em-light); font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+    .back-btn:hover { color: #fff; transform: translateX(-4px); }
+    footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">← Oyuna Dön / Back to Game</a>
+    <header>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="3" stroke="#EF4444" stroke-width="1.6"/>
+          <line x1="2.5" y1="9" x2="21.5" y2="9" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="2.5" y1="15" x2="21.5" y2="15" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="9" y1="2.5" x2="9" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <line x1="15" y1="2.5" x2="15" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
+          <path d="M3 3 L9 9" stroke="#F87171" stroke-width="1.2" opacity="0.8"/>
+          <rect x="3" y="3" width="6" height="6" fill="#EF4444" opacity="0.18"/>
+          <text x="12" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">7</text>
+          <text x="18" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">3</text>
+          <text x="12" y="19.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">9</text>
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Destek & Yardım</h1>
+      <div class="subtitle" data-i18n="subtitle">Support & FAQ – Classtings</div>
+    </header>
+    <main>
+      <section>
+        <h2 data-i18n="sec_faq_title">Sıkça Sorulan Sorular / FAQ</h2>
+        <div class="faq-accordion">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q1">Classtings nasıl oynanır?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a1">Boş hücreleri 1-9 arası rakamlarla doldurursun; her yatay ve dikey dizinin toplamı, ipucu hücresindeki sayıya eşit olmalı ve aynı dizide bir rakam yalnızca bir kez kullanılır. Uygulama içindeki eğitim ve ipuçları başlamana yardımcı olur.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q2">İlerlemem kayboldu, nasıl geri alırım?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a2">Oyun ilerlemen ve ayarların cihazında yerel olarak saklanır. Uygulamayı kaldırırsan veya "İlerlemeyi Sıfırla"yı kullanırsan yerel veriler silinir. Google ile giriş yaptıysan hesabın yönetilir; ancak oyun verileri cihazda tutulduğu için cihaz değişikliğinde önceki ilerleme geri gelmeyebilir.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q3">Premium (Reklamsız) sürümü nasıl geri yüklerim?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a3">Oyun menüsündeki "Satın Alımları Geri Yükle" (Restore Purchases) butonuna basarak Google Play üzerinden yaptığın Premium / reklamsız satın alımı anında cihazına geri yükleyebilirsin.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span data-i18n="faq_q4">Hesabımı ve verilerimi nasıl silerim?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+            <div class="faq-answer" data-i18n="faq_a4">Yerel verileri uygulama içindeki "İlerlemeyi Sıfırla" ile veya uygulamayı kaldırarak silebilirsin. Hesabını silmek için giriş yaparken kullandığın e-posta ile erdinctopal.et@gmail.com adresine yazman yeterli; talebini makul sürede işleme alırız.</div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 data-i18n="sec_contact_title">Bize Mesaj Gönder / Contact Us</h2>
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="name" data-i18n="label_name">Adınız / Your Name</label>
+            <input type="text" id="name" class="form-control" data-i18n-placeholder="placeholder_name" placeholder="Adınız / Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="label_email">E-posta Adresiniz / Your Email</label>
+            <input type="email" id="email" class="form-control" data-i18n-placeholder="placeholder_email" placeholder="Örn: oyuncu@gmail.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="label_message">Sorununuz veya Talebiniz / Message</label>
+            <textarea id="message" class="form-control" data-i18n-placeholder="placeholder_message" placeholder="Lütfen detaylıca açıklayınız..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <span data-i18n="btn_submit">Gönder / Send Message</span>
+          </button>
+        </form>
+      </section>
+    </main>
+    <footer><p data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</p></footer>
+  </div>
+
+  <script>
+    function toggleFaq(el) {
+      const isActive = el.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) el.classList.add('active');
+    }
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const subject = encodeURIComponent(`Classtings Destek - ${name}`);
+      const body = encodeURIComponent(`Adı: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+      window.location.href = `mailto:erdinctopal.et@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    window.PAGE_TRANSLATIONS = {
+      "page_title": { "tr": "Destek & Yardım (Support & Help) – Classtings", "en": "Support & Help – Classtings", "de": "Support & Hilfe – Classtings", "zh": "支持与帮助 – Classtings", "hi": "सहायता और मदद – Classtings", "es": "Soporte y Ayuda – Classtings", "fr": "Support & Aide – Classtings", "ar": "الدعم والمساعدة – Classtings", "pt": "Suporte & Ajuda – Classtings", "ru": "Поддержка и помощь – Classtings" },
+      "back_btn": { "tr": "← Oyuna Dön / Back to Game", "en": "← Back to Game", "de": "← Zurück zum Spiel", "zh": "← 返回游戏", "hi": "← खेल पर वापस जाएं", "es": "← Volver al Juego", "fr": "← Retour au Jeu", "ar": "← العودة إلى اللعبة", "pt": "← Voltar ao Jogo", "ru": "← Назад к игре" },
+      "h1": { "tr": "Destek & Yardım", "en": "Support & Help", "de": "Support & Hilfe", "zh": "支持与帮助", "hi": "सहायता और मदद", "es": "Soporte y Ayuda", "fr": "Support & Aide", "ar": "الدعم والمساعدة", "pt": "Suporte & Ajuda", "ru": "Поддержка и помощь" },
+      "subtitle": { "tr": "Support & FAQ – Classtings", "en": "Support & FAQ – Classtings", "de": "Support & FAQ – Classtings", "zh": "支持与常见问题 – Classtings", "hi": "सहायता और सामान्य प्रश्न – Classtings", "es": "Soporte y Preguntas Frecuentes – Classtings", "fr": "Support & FAQ – Classtings", "ar": "الدعم والأسئلة الشائعة – Classtings", "pt": "Suporte & FAQ – Classtings", "ru": "Поддержка и вопросы – Classtings" },
+      "sec_faq_title": { "tr": "Sıkça Sorulan Sorular / FAQ", "en": "Frequently Asked Questions / FAQ", "de": "Häufig gestellte Fragen / FAQ", "zh": "常见问题解答 / FAQ", "hi": "अक्सर पूछे जाने वाले प्रश्न / FAQ", "es": "Preguntas Frecuentes / FAQ", "fr": "Foire Aux Questions / FAQ", "ar": "الأسئلة الشائعة / FAQ", "pt": "Perguntas Frequentes / FAQ", "ru": "Часто задаваемые вопросы / FAQ" },
+      "faq_q1": {
+        "tr": "Classtings nasıl kullanılır?",
+        "en": "How do I use Classtings?",
+        "de": "Wie benutze ich Classtings?",
+        "zh": "如何使用 Classtings？",
+        "hi": "मैं Classtings का उपयोग कैसे करूं?",
+        "es": "¿Cómo uso Classtings?",
+        "fr": "Comment utiliser Classtings ?",
+        "ar": "كيف أستخدم Classtings؟",
+        "pt": "Como uso o Classtings?",
+        "ru": "Как пользоваться Classtings?"
+      },
+      "faq_a1": {
+        "tr": "Uygulamada saniyeler içinde yeni sınıfınızı oluşturup size verilen 6 haneli davet kodunu öğrencilerinize dağıtarak onların sınıfa katılımını sağlayabilirsiniz. Ders sırasında sesli notları kullanarak pratik değerlendirmeler yapabilir, ZPD analizlerine göz atabilirsiniz.",
+        "en": "Create your classroom in seconds, generate a 6-digit invite code for students to join, and start evaluating. Use speech-to-text to record logs during class, and view real-time ZPD development insights.",
+        "de": "Erstellen Sie ein Klassenzimmer, laden Sie Schüler mit einem 6-stelligen Code ein und bewerten Sie per Sprachnotiz und ZPD-Erkenntnissen.",
+        "zh": "几秒钟内创建您的班级，生成一个 6 位数的邀请码供学生加入。使用语音转文字记录评估，并查看实时的 ZPD 见解。",
+        "hi": "सेकंड में क्लास बनाएं, छात्रों के शामिल होने के लिए 6-अंकीय कोड जनरेट करें। वॉयस नोट्स और जेडपीडी अंतर्दृष्टि का उपयोग करें।",
+        "es": "Crea tu aula en segundos, genera un código de 6 dígitos para los alumnos y evalúa. Usa notas de voz y análisis ZPD.",
+        "fr": "Créez votre classe en secondes, générez un code à 6 chiffres pour les élèves et évaluez. Utilisez des notes vocales et ZPD.",
+        "ar": "أنشئ فصلك الدراسي في ثوانٍ، وولد رمز دعوة مكون من 6 أرقام للطلاب. استخدم الملاحظات الصوتية ورادار ZPD.",
+        "pt": "Crie sua sala em segundos, gere o código de 6 dígitos para os alunos e avalie. Use notas de voz e análises ZPD.",
+        "ru": "Создайте класс за секунды, сгенерируйте 6-значный код для учеников и начните оценку с ZPD и голосовыми заметками."
+      },
+      "faq_q2": {
+        "tr": "ZPD Analiz Motoru nedir?",
+        "en": "What is the ZPD Engine?",
+        "de": "Was is die ZPD-Engine?",
+        "zh": "什么是 ZPD 引擎？",
+        "hi": "जेडपीडी इंजन क्या है?",
+        "es": "¿Qué es el motor ZPD?",
+        "fr": "Qu'est-ce que le moteur ZPD ?",
+        "ar": "ما هو محرك ZPD؟",
+        "pt": "O que é o motor ZPD?",
+        "ru": "Что такое механизм ZPD?"
+      },
+      "faq_a2": {
+        "tr": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların konuyu 'bağımsız' yapabildiklerini, 'rehberlik gerektirdiklerini' veya 'zorlandıklarını' belirler ve öğretmenlere haftalık pedagojik öneriler sunar.",
+        "en": "The ZPD Engine analyzes student performance to map their learning into independent, guided, or struggling levels, providing actionable weekly pedagogical tips for the teacher.",
+        "de": "Die ZPD-Engine analysiert Leistungen, um Schüler in selbstständige, angeleitete oder unterstützungsbedürftige Stufen einzuteilen und Tipps zu geben.",
+        "zh": "ZPD 引擎分析学生的表现，将其映射为独立、指导或困难级别，并为教师提供每周教学建议。",
+        "hi": "ZPD इंजन छात्र के प्रदर्शन का विश्लेषण करके उन्हें स्वतंत्र, निर्देशित या संघर्षरत स्तरों में विभाजित करता है।",
+        "es": "El motor ZPD analiza el rendimiento para definir si un alumno es independiente, guiado o tiene dificultades y ofrece sugerencias.",
+        "fr": "Le moteur ZPD analyse les performances pour classer les élèves en autonomes, guidés ou en difficulté, avec des conseils.",
+        "ar": "يقوم محرك ZPD بتحليل أداء الطالب لتقسيمهم إلى مستويات مستقلة أو موجهة أو تواجه صعوبة، ويقدم نصائح أسبوعية.",
+        "pt": "O motor ZPD analisa o desempenho para mapear o aprendizado em independente, guiado ou com dificuldades e dá conselhos.",
+        "ru": "Механизм ZPD анализирует успеваемость учеников для определения их уровней самостоятельности и дает советы."
+      },
+      "faq_q3": {
+        "tr": "Verilerim nerede saklanıyor ve güvenli mi?",
+        "en": "Where is my data stored and is it secure?",
+        "de": "Wo werden meine Daten gespeichert und sind sie sicher?",
+        "zh": "我的数据保存在哪里，安全吗？",
+        "hi": "मेरा डेटा कहां संग्रहीत है और क्या यह सुरक्षित है?",
+        "es": "¿Dónde se guardan mis datos y es seguro?",
+        "fr": "Où mes données sont-elles stockées and sont-elles sécurisées ?",
+        "ar": "أين يتم تخزين بياناتي وهل هي آمنة؟",
+        "pt": "Onde meus dados são armazenados e são seguros?",
+        "ru": "Где хранятся мои данные и безопасны ли они?"
+      },
+      "faq_a3": {
+        "tr": "Tüm verileriniz öncelikle cihazınızda şifreli olarak Room veri tabanında saklanır. İnternet bağlantısı sağlandığında Google Firebase bulut altyapısına uçtan uca şifreli olarak yedeklenir. Verileriniz tamamen sizin mülkiyetinizdedir ve asla reklam amacıyla üçüncü taraflarla paylaşılmaz.",
+        "en": "All data is stored locally on your device in Room DB. Once online, it syncs securely with Firebase cloud servers. We respect data ownership and never share or monetize your records.",
+        "de": "Alle Daten werden lokal in Room DB gespeichert und bei Verbindung mit Firebase-Servern synchronisiert. Wir geben Ihre Daten niemals weiter.",
+        "zh": "所有数据首先通过 Room 数据库存储在本地。联网后将安全同步到 Firebase 云服务器。我们不会分享或商业化您的数据。",
+        "hi": "सभी डेटा रूम डीबी में स्थानीय रूप से संग्रहीत किया जाता है और ऑनलाइन होने पर सुरक्षित रूप से सिंक होता है। हम इसे कभी साझा नहीं करते।",
+        "es": "Los datos se guardan en Room DB localmente y se sincronizan con Firebase. Respetamos la propiedad de los datos y no los compartimos.",
+        "fr": "Les données sont stockées dans Room DB et synchronisées avec Firebase. Nous respectons la propriété des données sans partage.",
+        "ar": "يتم تخزين البيانات محلياً في Room DB ومزامنتها مع Firebase. نحن نحترم ملكية البيانات ولا نشاركها أبداً.",
+        "pt": "Todos os dados son salvos no Room DB e sincronizados com o Firebase. Respeitamos a propriedade dos dados sem compartilhamento.",
+        "ru": "Все данные хранятся локально в Room DB и синхронизируются с Firebase. Мы не передаем ваши данные третьим лицам."
+      },
+      "faq_q4": {
+        "tr": "Hesabımı ve tüm verilerimi nasıl silebilirim?",
+        "en": "How can I delete my account and all data?",
+        "de": "Wie kann ich mein Konto und alle Daten löschen?",
+        "zh": "如何删除我的帐户和所有数据？",
+        "hi": "मैं अपना खाता और सारा डेटा कैसे हटा सकता हूं?",
+        "es": "¿Cómo puedo eliminar mi cuenta y todos los datos?",
+        "fr": "Comment supprimer mon compte et toutes mes données ?",
+        "ar": "كيف يمكنني حذف حسابي وجميع البيانات؟",
+        "pt": "Como posso excluir minha conta e todos os dados?",
+        "ru": "Как удалить аккаунт и все данные?"
+      },
+      "faq_a4": {
+        "tr": "Uygulama ayarlarından veya erdinctopal.et@gmail.com adresine yazarak dilediğiniz zaman hesabınızı ve tüm sınıflara/öğrencilere ait kayıtları kalıcı olarak sistemden silebilirsiniz.",
+        "en": "You can permanently delete your account and all associated classroom logs anytime via the app settings or by emailing us at erdinctopal.et@gmail.com.",
+        "de": "Sie können Ihr Konto und alle Klassenbücher jederzeit über die App-Einstellungen oder per E-Mail an erdinctopal.et@gmail.com löschen.",
+        "zh": "您可以随时通过应用设置或发送电子邮件至 erdinctopal.et@gmail.com 永久删除帐户和相关数据。",
+        "hi": "आप ऐप सेटिंग्स के माध्यम से या erdinctopal.et@gmail.com पर ईमेल करके खाता और सभी डेटा हटा सकते हैं।",
+        "es": "Puedes eliminar permanentemente tu cuenta y datos desde los ajustes o enviando un correo a erdinctopal.et@gmail.com.",
+        "fr": "Vous pouvez supprimer votre compte et données via les paramètres ou en écrivant à erdinctopal.et@gmail.com.",
+        "ar": "يمكنك حذف حسابك وبياناتك نهائياً من الإعدادات أو بمراسلتنا على erdinctopal.et@gmail.com.",
+        "pt": "Você pode excluir sua conta e dados permanentemente nas configurações do app ou enviando e-mail para erdinctopal.et@gmail.com.",
+        "ru": "Вы можете навсегда удалить аккаунт и данные в настройках или написав нам на erdinctopal.et@gmail.com."
+      },
+      "sec_contact_title": { "tr": "Bize Mesaj Gönder / Contact Us", "en": "Send Us a Message / Contact Us", "de": "Senden Sie uns eine Nachricht / Kontakt", "zh": "给我们留言 / 联系我们", "hi": "हमें संदेश भेजें / संपर्क करें", "es": "Envíenos un Mensaje / Contáctenos", "fr": "Envoyez-nous un Message / Contactez-nous", "ar": "أرسل لنا رسالة / اتصل بنا", "pt": "Envie-nos uma Mensagem / Fale Conosco", "ru": "Напишите нам / Связаться с нами" },
+      "label_name": { "tr": "Adınız / Your Name", "en": "Your Name", "de": "Ihr Name", "zh": "您的姓名", "hi": "आपका नाम", "es": "Su Nombre", "fr": "Votre Nom", "ar": "اسمك", "pt": "Seu Nome", "ru": "Ваше имя" },
+      "placeholder_name": { "tr": "Adınız / Name", "en": "Enter your name", "de": "Geben Sie Ihren Namen ein", "zh": "输入您的姓名", "hi": "अपना नाम दर्ज करें", "es": "Escriba su nombre", "fr": "Entrez votre nom", "ar": "أدخل اسمك", "pt": "Digite seu nome", "ru": "Введите ваше имя" },
+      "label_email": { "tr": "E-posta Adresiniz / Your Email", "en": "Your Email Address", "de": "Ihre E-Mail-Adresse", "zh": "您的电子邮件", "hi": "आपका ईमेल पता", "es": "Su Correo Electrónico", "fr": "Votre Adresse E-mail", "ar": "بريدك الإلكتروني", "pt": "Seu Endereço de E-mail", "ru": "Ваш адрес эл. почты" },
+      "placeholder_email": { "tr": "Örn: oyuncu@gmail.com", "en": "e.g. player@gmail.com", "de": "z.B. spieler@gmail.com", "zh": "例如：player@gmail.com", "hi": "जैसे: player@gmail.com", "es": "Ej: jugador@gmail.com", "fr": "Ex : joueur@gmail.com", "ar": "مثال: player@gmail.com", "pt": "Ex: jogador@gmail.com", "ru": "Например: player@gmail.com" },
+      "label_message": { "tr": "Sorununuz veya Talebiniz / Message", "en": "Your Issue or Request / Message", "de": "Ihr Problem oder Ihre Anfrage / Nachricht", "zh": "您的问题或请求 / 留言", "hi": "आपकी समस्या या अनुरोध / संदेश", "es": "Su Problema o Solicitud / Mensaje", "fr": "Votre Problème ou Demande / Message", "ar": "مشكلتك أو طلبك / الرسالة", "pt": "Seu Problema ou Solicitação / Mensagem", "ru": "Проблема или запрос / Сообщение" },
+      "placeholder_message": { "tr": "Lütfen detaylıca açıklayınız...", "en": "Please explain in detail...", "de": "Bitte erklären Sie im Detail...", "zh": "请详细说明...", "hi": "कृपया विस्तार से बताएं...", "es": "Por favor, explique en detalle...", "fr": "Veuillez expliquer en détail...", "ar": "يرجى التوضيح بالتفصيل...", "pt": "Por favor, explique detalhadamente...", "ru": "Пожалуйста, опишите подробно..." },
+      "btn_submit": { "tr": "Gönder / Send Message", "en": "Send", "de": "Absenden", "zh": "发送", "hi": "भेजें", "es": "Enviar", "fr": "Envoyer", "ar": "إرسال", "pt": "Enviar", "ru": "Отправить" },
+      "footer": { "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.", "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.", "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.", "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。", "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।", "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.", "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.", "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.", "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.", "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены." }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classtings: Sayı Bulmaca & Mantık – CodExa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap');
+
+    :root {
+      --em: #6366F1;
+      --em-light: #F87171;
+      --em-alpha: rgba(239, 68, 68, 0.12);
+      --em-border: rgba(239, 68, 68, 0.25);
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --card: rgba(30, 41, 59, 0.6);
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --white: #F8FAFC;
+      --border: rgba(239, 68, 68, 0.15);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(239, 68, 68, 0.10) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(239, 68, 68, 0.02) 40px, rgba(239, 68, 68, 0.02) 41px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--em-light);
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: var(--transition);
+    }
+    .back-btn:hover { color: #fff; transform: translateX(-4px); }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 80px; }
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid var(--em-border);
+      margin-bottom: 28px;
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.18), inset 0 1px 0 rgba(239, 68, 68, 0.15);
+    }
+    .logo-wrap svg { width: 54px; height: 54px; }
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 18px;
+      border: 1px solid var(--em-border);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--em-light);
+      background: var(--em-alpha);
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .hero-badge .dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--em);
+      box-shadow: 0 0 10px var(--em);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    h1 .accent { color: var(--em-light); }
+    .tagline {
+      font-size: clamp(16px, 3vw, 20px);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+    .hero-note { font-size: 14px; color: var(--text-muted); font-style: italic; }
+
+    /* Sections */
+    section { margin-bottom: 72px; }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .section-intro { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 40px; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .how-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .how-num {
+      width: 44px; height: 44px;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: var(--em-alpha);
+      border: 1px solid var(--em-border);
+      color: var(--em-light);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .how-step h3 { color: var(--white); font-family: 'Outfit', sans-serif; font-size: 1.05rem; margin-bottom: 8px; }
+    .how-step p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      transition: var(--transition);
+    }
+    .feature:hover { border-color: var(--em-border); transform: translateY(-3px); }
+    .feature-icon {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 12px;
+      background: var(--em-alpha);
+      margin-bottom: 16px;
+    }
+    .feature-icon svg { width: 24px; height: 24px; stroke: var(--em-light); }
+    .feature h3 { color: var(--white); font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 8px; }
+    .feature p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .legal-links a {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+    .legal-links a:hover { border-color: var(--em-border); color: #fff; background: var(--em-alpha); }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 720px) {
+      .how-grid, .features-grid { grid-template-columns: 1fr; }
+    }
+    .coming-soon-banner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid var(--em-border);
+      color: var(--em-light);
+      padding: 12px 28px;
+      border-radius: 12px;
+      margin-top: 20px;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      transition: var(--transition);
+      z-index: 2;
+      position: relative;
+    }
+    .coming-soon-banner:hover {
+      background: rgba(239, 68, 68, 0.22);
+      color: #fff;
+      border-color: var(--em-light);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-btn" data-i18n="back_btn">← Ana Sayfa / Home</a>
+
+    <div class="hero">
+      <div class="logo-wrap">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rounded squircle background -->
+          <rect x="10" y="10" width="80" height="80" rx="20" fill="#3b51a3" />
+          <!-- Thick Ring -->
+          <circle cx="50" cy="50" r="21" stroke="#FFFFFF" stroke-width="7" fill="none" />
+          <!-- Indicators -->
+          <line x1="50" y1="29" x2="50" y2="18" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="50" cy="29" r="4.5" fill="#10B981" />
+          <line x1="50" y1="71" x2="50" y2="82" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="50" cy="71" r="4.5" fill="#10B981" />
+          <circle cx="69" cy="50" r="6" fill="#10B981" />
+        </svg>
+      </div>
+      <div class="hero-badge" data-i18n="hero_badge" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(239, 68, 68, 0.2); color: #C7D2FE;"><span class="dot" style="background-color: #6366F1; box-shadow: 0 0 10px #6366F1;"></span>Yakında Google Play'de!</div>
+      <h1>Classtings</h1>
+      <p class="tagline" data-i18n="hero_tagline">Süreyi gösteren değil, hissettiren zamanlayıcı. 14 yıllık bir öğretmenin tasarladığı, abonelik dayatmayan görsel odak aracı.</p>
+      
+      <!-- Coming Soon Banner -->
+      <div>
+        <div class="coming-soon-banner" data-i18n="coming_soon" style="cursor: default; background: rgba(99, 102, 241, 0.1); border-color: rgba(239, 68, 68, 0.2); color: #C7D2FE;">
+            ✨ Yakında Google Play Store'da! / Coming Soon to Google Play!
+        </div>
+      </div>
+      
+      <p class="hero-note" style="margin-top: 15px;" data-i18n="hero_note">CodExa (Erdinç TOPAL) tarafından geliştirilmektedir.</p>
+    </div>
+
+    <section>
+      <h2 class="section-title" data-i18n="about_title">Classtings Nedir?</h2>
+      <p class="section-intro" data-i18n="about_p">Classtings, zamanı görsel bir disk olarak somutlaştıran yenilikçi bir geri sayım aracıdır. Süre azaldıkça eriyen renkli disk sayesinde çocuklar ve yetişkinler 'zaman körlüğü' (time blindness) sorununu aşar, odaklanmayı stressiz bir şekilde sürdürür.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-i18n="how_title">Nasıl Çalışır?</h2>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <h3 data-i18n="how_1_t">Sınıfını Oluştur</h3>
+          <p data-i18n="how_1_p">Saniyeler içinde 6 haneli davet kodunu oluşturun ve öğrencilerinizi güvenli bir şekilde ekleyin.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">2</div>
+          <h3 data-i18n="how_2_t">Performans Değerlendir</h3>
+          <p data-i18n="how_2_p">ZPD motoru girilen skorları analiz ederek öğrencilerin bağımsız veya zorlanan seviyelerini anında belirler.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <h3 data-i18n="how_3_t">Analiz ve Rapor Al</h3>
+          <p data-i18n="how_3_p">Özel PDF raporlar oluşturun ve erken uyarı radarı sayesinde riskli öğrencileri önceden belirleyin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-i18n="features_title">Özellikler</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <h3 data-i18n="feat_1_t">Akıllı Sınıf & Öğrenci Yönetimi</h3>
+          <p data-i18n="feat_1_p">6 haneli özel davet kodlarıyla öğrencileri sınıfa saniyeler içinde ekleyin. Rol tabanlı veri gizliliği ile güvenli sınıf yönetimi sağlayın.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg></div>
+          <h3 data-i18n="feat_2_t">ZPD Analiz Motoru</h3>
+          <p data-i18n="feat_2_p">Performans verilerini analiz ederek öğrencilerin bağımsız, rehberlik gereken veya zorlanan seviyelerini tespit edin ve pedagojik öneriler alın.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></div>
+          <h3 data-i18n="feat_3_t">Sesli Not & Akıllı Ajanda</h3>
+          <p data-i18n="feat_3_p">Klavye kullanmadan, sadece konuşarak hızlıca öğrenci notları alın. Notlarınızı gizli veya açık olarak kategorilendirip ajandanızı planlayın.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <h3 data-i18n="feat_4_t">Profesyonel PDF Raporlama</h3>
+          <p data-i18n="feat_4_p">Veli toplantıları ve resmi süreçler için tek tıkla öğrencinin tüm gelişim sürecini ve bilişsel profilini içeren A4 performans raporları oluşturun.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+          <h3 data-i18n="feat_5_t">Erken Uyarı Radarı</h3>
+          <p data-i18n="feat_5_p">Performans düşüşlerini veya devamsızlık eğilimlerini analiz ederek, risk altındaki öğrencileri erken aşamada fark etmenizi sağlayan akıllı uyarı sistemi.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+          <h3 data-i18n="feat_6_t">Çevrimdışı Öncelikli & Güvenli</h3>
+          <p data-i18n="feat_6_p">İnternet olmasa da tüm özellikleri sınıfta kullanın; bağlantı sağlandığında tüm verileri Firebase üzerinde uçtan uca şifreli olarak yedekleyin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-i18n="legal_title">Yasal & Destek</h2>
+      <div class="legal-links">
+        <a href="privacy.html" data-i18n="link_privacy">Gizlilik Politikası</a>
+        <a href="terms.html" data-i18n="link_terms">Kullanım Koşulları</a>
+        <a href="support.html" data-i18n="link_support">Destek & Yardım</a>
+      </div>
+    </section>
+
+    <footer data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</footer>
+  </div>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      "page_title": {
+        "tr": "Classtings: Öğretmen Ajandası & Pedagojik Analiz Platformu – CodExa",
+        "en": "Classtings: Teacher's Diary & Pedagogical Analysis – CodExa",
+        "de": "Classtings: Lehrertagebuch & Pädagogische Analyse – CodExa",
+        "zh": "Classtings: 教师日志与教学分析 – CodExa",
+        "hi": "Classtings: शिक्षक डायरी और शैक्षणिक विश्लेषण – CodExa",
+        "es": "Classtings: Agenda del Profesor y Análisis Pedagógico – CodExa",
+        "fr": "Classtings : Agenda de l'Enseignant & Analyse Pédagogique – CodExa",
+        "ar": "Classtings: دفتر المعلم والتحليل التربوي – CodExa",
+        "pt": "Classtings: Diário do Professor e Análise Pedagógica – CodExa",
+        "ru": "Classtings: Дневник учителя и педагогический анализ – CodExa"
+      },
+      "back_btn": {
+        "tr": "← Ana Sayfa / Home",
+        "en": "← Home",
+        "de": "← Startseite",
+        "zh": "← 主页",
+        "hi": "← होम",
+        "es": "← Inicio",
+        "fr": "← Accueil",
+        "ar": "← الصفحة الرئيسية",
+        "pt": "← Início",
+        "ru": "← Главная"
+      },
+      "coming_soon": {
+        "tr": "✨ Yakında Google Play Store'da!",
+        "en": "✨ Coming Soon to Google Play Store!",
+        "de": "✨ Demnächst im Google Play Store!",
+        "zh": "✨ 即将登陆 Google Play 商店！",
+        "hi": "✨ जल्द ही genel play store पर!",
+        "es": "✨ ¡Próximamente en Google Play Store!",
+        "fr": "✨ Bientôt sur Google Play Store !",
+        "ar": "✨ قريباً على متجر Google Play!",
+        "pt": "✨ Em breve na Google Play Store!",
+        "ru": "✨ Скоро в Google Play Store!"
+      },
+      "hero_badge": {
+        "tr": "Yakında Google Play'de!",
+        "en": "Coming Soon to Google Play!",
+        "de": "Demnächst bei Google Play!",
+        "zh": "即将登陆 Google Play！",
+        "hi": "जल्द ही Google Play पर!",
+        "es": "¡Próximamente en Google Play!",
+        "fr": "Bientôt sur Google Play !",
+        "ar": "قريباً على Google Play!",
+        "pt": "Em breve na Google Play!",
+        "ru": "Скоро в Google Play!"
+      },
+      "hero_tagline": {
+        "tr": "Modern Öğretmen Ajandası ve Pedagojik Analiz Platformu! Sınıf yönetimini dijitalleştiren ve öğrenci performansını pedagojik içgörülere dönüştüren yeni nesil eğitim asistanı.",
+        "en": "Modern Teacher's Diary & Pedagogical Analysis Platform! A next-gen educational assistant that digitizes classroom management and analyzes student development.",
+        "de": "Modernes Lehrertagebuch und pädagogische Analyseplattform! Ein intelligenter Assistent, der die Klassenverwaltung digitalisiert und die Entwicklung analysiert.",
+        "zh": "现代教师日志与教育分析平台！数字化课堂管理、分析学生发展并提供教学建议的智能助手。",
+        "hi": "आधुनिक शिक्षक डायरी और शैक्षणिक विश्लेषण मंच! एक स्मार्ट सहायक जो कक्षा प्रबंधन को डिजिटल बनाता है और छात्र के विकास का विश्लेषण करता है।",
+        "es": "¡Agenda del profesor moderna y plataforma de análisis pedagógico! Un asistente inteligente que digitaliza la gestión del aula y analiza el desarrollo.",
+        "fr": "Agenda de l'enseignant moderne et plateforme d'analyse pédagogique ! Un assistant intelligent qui numérise la gestion de classe et analyse l'évolution.",
+        "ar": "دفتر المعلم الحديث ومنصة التحليل التربوي! مساعد ذكي يسهل إدارة الفصل الدراسي ويحلل أداء الطلاب.",
+        "pt": "Diário do professor moderno e plataforma de análise pedagógica! Um assistente inteligente que digitaliza a gestão de sala de aula e analisa o desenvolvimento.",
+        "ru": "Современный дневник учителя и платформа педагогического анализа! Умный помощник для оцифровки управления классом и анализа развития учащихся."
+      },
+      "hero_note": {
+        "tr": "CodExa (Erdinç TOPAL) tarafından geliştirilmektedir.",
+        "en": "Developed by CodExa (Erdinç TOPAL).",
+        "de": "Entwickelt von CodExa (Erdinç TOPAL).",
+        "zh": "由 CodExa (Erdinç TOPAL) 开发。",
+        "hi": "CodExa (Erdinç TOPAL) द्वारा विकसित।",
+        "es": "Desarrollado por CodExa (Erdinç TOPAL).",
+        "fr": "Développé by CodExa (Erdinç TOPAL).",
+        "ar": "تم تطويره بواسطة CodExa (Erdinç TOPAL).",
+        "pt": "Desenvolvido por CodExa (Erdinç TOPAL).",
+        "ru": "Разработано CodExa (Erdinç TOPAL)."
+      },
+      "about_title": {
+        "tr": "Classtings Nedir?",
+        "en": "What is Classtings?",
+        "de": "Was ist Classtings?",
+        "zh": "什么是 Classtings？",
+        "hi": "Classtings क्या है?",
+        "es": "¿Qué es Classtings?",
+        "fr": "Qu'est-ce que le Classtings ?",
+        "ar": "ما هو Classtings؟",
+        "pt": "O que é Classtings?",
+        "ru": "Что такое Classtings?"
+      },
+      "about_p": {
+        "tr": "Classtings, öğretmenlerin sınıf yönetimini kolaylaştırmakla kalmayıp, veriyi anlamlı pedagojik içgörülere dönüştüren yeni nesil bir eğitim asistanıdır. Günümüz eğitimcilerinin en büyük sorunu olan yoğun iş yükü ve veri karmaşasını, bilişsel sürtünmesiz (cognitive frictionless) bir kullanıcı deneyimi ile çözer. Room database yerel depolaması ve Firebase Firestore bulut senkronizasyonu ile çevrimdışı da kesintisiz çalışır.",
+        "en": "Classtings is a next-gen educational assistant that goes beyond simple classroom digital logs to turn data into meaningful pedagogical insights. It reduces the cognitive load of educators through a clean, offline-first user experience synced securely with Firebase cloud Firestore.",
+        "de": "Classtings ist ein pädagogischer Assistent der nächsten Generation, der Daten in sinnvolle pädagogische Erkenntnisse umwandelt. Er reduziert die kognitive Belastung durch eine saubere, offline-erste Benutzererfahrung.",
+        "zh": "Classtings 是下一代教育助手，它超越了简单的课堂数字记录，将数据转化为有意义的教学见解。它通过离线优先的用户体验减轻教师的认知负担。",
+        "hi": "Classtings एक अगली पीढ़ी का शैक्षणिक सहायक है जो डेटा को सार्थक शैक्षणिक अंतर्दृष्टि में बदल देता है।",
+        "es": "Classtings es un asistente educativo de próxima generación que convierte los datos en ideas pedagógicas significativas. Reduce la carga cognitiva con Room y Firebase.",
+        "fr": "Classtings est un assistant pédagogique de nouvelle génération qui transforme les données en informations pédagogiques significatives. Il réduit la charge cognitive via Room et Firebase.",
+        "ar": "Classtings هو مساعد تعليمي من الجيل القادم يحول البيانات إلى رؤى تربوية ذات مغزى. يسهل إدارة الفصول الدراسية عبر Room و Firebase.",
+        "pt": "O Classtings é um assistente educacional de última geração que converte dados em insights pedagógicos significativos. Ele reduz a carga cognitiva com Room e Firebase.",
+        "ru": "Образовательный помощник нового поколения, превращающий данные в значимые педагогические идеи с поддержкой Room и Firebase."
+      },
+      "how_title": {
+        "tr": "Nasıl Çalışır?",
+        "en": "How it Works",
+        "de": "Wie es funktioniert",
+        "zh": "工作原理",
+        "hi": "यह कैसे काम करता है",
+        "es": "Cómo Funciona",
+        "fr": "Comment ça Marche",
+        "ar": "كيف يعمل",
+        "pt": "Como Funciona",
+        "ru": "Как это работает"
+      },
+      "how_1_t": {
+        "tr": "Sınıfını Oluştur",
+        "en": "Create Your Classroom",
+        "de": "Klassenzimmer erstellen",
+        "zh": "创建班级",
+        "hi": "कक्षा बनाएं",
+        "es": "Crea tu Aula",
+        "fr": "Créer votre Classe",
+        "ar": "أنشئ فصلك الدراسي",
+        "pt": "Criar sua Sala",
+        "ru": "Создайте класс"
+      },
+      "how_1_p": {
+        "tr": "Saniyeler içinde 6 haneli davet kodunu oluşturun ve öğrencilerinizi güvenli bir şekilde ekleyin.",
+        "en": "Generate a secure 6-digit invite code in seconds and add students to your roster securely.",
+        "de": "Erstellen Sie in Sekundenschnelle einen 6-stelligen Einladungscode und fügen Sie Schüler hinzu.",
+        "zh": "在几秒钟内生成一个安全的 6 位数邀请码，并将学生安全地添加到名单中。",
+        "hi": "सेकंड में एक सुरक्षित 6-अंकीय आमंत्रण कोड जनरेट करें और छात्रों को सुरक्षित रूप से जोड़ें।",
+        "es": "Genera un código de invitación seguro de 6 dígitos en segundos y añade estudiantes.",
+        "fr": "Générez un code d'invitation sécurisé à 6 chiffres en quelques secondes et ajoutez des élèves.",
+        "ar": "قم بتوليد رمز دعوة آمن مكون من 6 أرقام في ثوانٍ وأضف الطلاب بأمان.",
+        "pt": "Gere um código de convite seguro de 6 dígitos em segundos e adicione alunos.",
+        "ru": "Создайте безопасный 6-значный код приглашения за считанные секунды и добавьте учеников."
+      },
+      "how_2_t": {
+        "tr": "Performans Değerlendir",
+        "en": "Assess Performance",
+        "de": "Leistung bewerten",
+        "zh": "评估表现",
+        "hi": "प्रदर्शन का आकलन करें",
+        "es": "Evalúa el Rendimiento",
+        "fr": "Évaluer la Performance",
+        "ar": "تقييم الأداء",
+        "pt": "Avaliar Desempenho",
+        "ru": "Оцените успеваемость"
+      },
+      "how_2_p": {
+        "tr": "ZPD motoru girilen skorları analiz ederek öğrencilerin bağımsız veya zorlanan seviyelerini anında belirler.",
+        "en": "The ZPD engine analyzes performance inputs to determine if a student is independent or struggling.",
+        "de": "Die ZPD-Engine analysiert Leistungen, um festzustellen, ob ein Schüler selbstständig arbeitet oder Unterstützung benötigt.",
+        "zh": "ZPD 引擎分析表现输入，以确定学生是能够独立完成还是遇到了困难。",
+        "hi": "ZPD इंजन यह निर्धारित करने के लिए विश्लेषण करता है कि छात्र स्वतंत्र है या संघर्ष कर रहा है।",
+        "es": "El motor ZPD analiza los datos para determinar si un estudiante es independiente o tiene dificultades.",
+        "fr": "Le moteur ZPD analyse les données pour déterminer si un élève est autonome ou en difficulté.",
+        "ar": "يقوم محرك ZPD بتحليل درجات الطلاب لتحديد ما إذا كان الطالب مستقلاً أو يواجه صعوبات.",
+        "pt": "O motor ZPD analisa os dados para determinar se um aluno é independente ou tem dificuldades.",
+        "ru": "Механизм ZPD анализирует показатели, чтобы определить, работает ли ученик самостоятельно."
+      },
+      "how_3_t": {
+        "tr": "Analiz ve Rapor Al",
+        "en": "Get Analysis & Reports",
+        "de": "Analysen & Berichte",
+        "zh": "获取分析与报告",
+        "hi": "विश्लेषण और रिपोर्ट प्राप्त करें",
+        "es": "Obtén Análisis y Reportes",
+        "fr": "Analyses & Rapports",
+        "ar": "التحليلات والتقارير",
+        "pt": "Obter Análises e Relatórios",
+        "ru": "Анализ и отчеты"
+      },
+      "how_3_p": {
+        "tr": "Özel PDF raporlar oluşturun ve erken uyarı radarı sayesinde riskli öğrencileri önceden belirleyin.",
+        "en": "Generate professional PDF reports and forecast risk trends early via the warning radar.",
+        "de": "Erstellen Sie professionelle PDF-Berichte und erkennen Sie Risikotrends frühzeitig über das Warnradar.",
+        "zh": "生成专业的 PDF 报告，并通过预警雷达及早预测风险趋势。",
+        "hi": "पेशेवर पीडीएफ रिपोर्ट जनरेट करें और शुरुआती चेतावनी रडार के माध्यम से जोखिम रुझानों का पूर्वानुमान लगाएं।",
+        "es": "Genera reportes PDF profesionales y prevé tendencias de riesgo con el radar de alerta temprana.",
+        "fr": "Générez des rapports PDF professionnels et prévoyez les risques grâce au radar d'alerte.",
+        "ar": "قم بتوليد تقارير PDF احترافية وتوقع الطلاب المعرضين للخطر مبكراً عبر رادار الإنذار.",
+        "pt": "Gere relatórios PDF profissionais e preveja tendências de risco através do radar de alerta precoce.",
+        "ru": "Создавайте профессиональные отчеты в формате PDF и прогнозируйте риски с помощью радара предупреждений."
+      },
+      "features_title": {
+        "tr": "Özellikler",
+        "en": "Features",
+        "de": "Funktionen",
+        "zh": "功能特点",
+        "hi": "विशेषताएं",
+        "es": "Características",
+        "fr": "Fonctionnalités",
+        "ar": "الميزات",
+        "pt": "Recursos",
+        "ru": "Возможности"
+      },
+      "feat_1_t": {
+        "tr": "Akıllı Sınıf & Öğrenci Yönetimi",
+        "en": "Smart Class & Student Management",
+        "de": "Intelligente Klassenverwaltung",
+        "zh": "智能班级与学生管理",
+        "hi": "स्मार्ट कक्षा और छात्र प्रबंधन",
+        "es": "Gestión Inteligente de Aulas y Alumnos",
+        "fr": "Gestion Intelligente de Classe",
+        "ar": "إدارة الفصل والطلاب الذكية",
+        "pt": "Gestão Inteligente de Salas e Alunos",
+        "ru": "Умное управление классами и учениками"
+      },
+      "feat_1_p": {
+        "tr": "6 haneli özel davet kodlarıyla öğrencileri sınıfa saniyeler içinde ekleyin. Rol tabanlı veri gizliliği ile güvenli sınıf yönetimi sağlayın.",
+        "en": "Enroll students in seconds with secure 6-digit codes. Enforce strict role-based hierarchy and data privacy.",
+        "de": "Fügen Sie Schüler in Sekundenschnelle mit 6-stelligen Codes hinzu. Sichern Sie den Datenschutz durch rollenbasierte Hierarchien.",
+        "zh": "使用安全的 6 位数邀请码快速添加学生。通过基于角色的权限确保数据隐私与安全。",
+        "hi": "सुरक्षित 6-अंकीय कोड के साथ सेकंड में छात्रों को नामांकित करें। डेटा गोपनीयता और सुरक्षा सुनिश्चित करें।",
+        "es": "Agrega alumnos en segundos con códigos de 6 dígitos. Garantiza la privacidad con roles seguros.",
+        "fr": "Ajoutez des élèves en quelques secondes avec des codes à 6 chiffres. Garantissez la confidentialité par rôles.",
+        "ar": "أضف الطلاب في ثوانٍ باستخدام رموز مكونة من 6 أرقام. اضمن خصوصية البيانات بالصلاحيات المختلفة.",
+        "pt": "Adicione alunos em segundos com códigos de 6 dígitos. Garanta a privacidade com controle de acessos.",
+        "ru": "Добавляйте учеников за секунды с помощью 6-значных кодов. Обеспечьте конфиденциальность с помощью ролей."
+      },
+      "feat_2_t": {
+        "tr": "ZPD Analiz Motoru",
+        "en": "ZPD Analysis Engine",
+        "de": "ZPD-Analyse-Engine",
+        "zh": "ZPD 分析引擎",
+        "hi": "जेडपीडी विश्लेषण इंजन",
+        "es": "Motor de Análisis ZPD",
+        "fr": "Moteur d'Analyse ZPD",
+        "ar": "محرك تحليل ZPD",
+        "pt": "Motor de Análise ZPD",
+        "ru": "Механизм анализа ZPD"
+      },
+      "feat_2_p": {
+        "tr": "Performans verilerini analiz ederek öğrencilerin bağımsız, rehberlik gereken veya zorlanan seviyelerini tespit edin ve pedagojik öneriler alın.",
+        "en": "Analyze score trends to map students into independent, guided, or struggling levels with direct pedagogical advice.",
+        "de": "Analysieren Sie Scores, um Schüler in selbstständige, angeleitete oder unterstützungsbedürftige Stufen einzuteilen.",
+        "zh": "分析成绩趋势，将学生划分为独立、指导或困难级别，并提供直接的教学建议。",
+        "hi": "स्कोर रुझानों का विश्लेषण करें और छात्रों को स्वतंत्र, निर्देशित या संघर्षरत स्तरों में मैप करें।",
+        "es": "Analiza tendencias de puntuación para clasificar a los alumnos en niveles independiente, guiado o con dificultades.",
+        "fr": "Analysez les scores pour classer les élèves en niveaux autonome, guidé ou en difficulté avec des conseils.",
+        "ar": "حلل درجات الطلاب لتحديد مستوياتهم (مستقل، يحتاج توجيه، يواجه صعوبة) واحصل على نصائح تربوية.",
+        "pt": "Analise tendências de notas para classificar alunos em níveis independente, guiado ou com dificuldades.",
+        "ru": "Анализируйте оценки для определения уровней (самостоятельный, с подсказками, отстающий)."
+      },
+      "feat_3_t": {
+        "tr": "Sesli Not & Akıllı Ajanda",
+        "en": "Voice Notes & Smart Planner",
+        "de": "Sprachnotizen & Intelligenter Planer",
+        "zh": "语音笔记与智能日程",
+        "hi": "वॉयस नोट्स और स्मार्ट प्लानर",
+        "es": "Notas de Voz y Agenda Inteligente",
+        "fr": "Notes Vocales & Agenda Intelligent",
+        "ar": "الملاحظات الصوتية والأجندة الذكية",
+        "pt": "Notas de Voz e Agenda Inteligente",
+        "ru": "Голосовые заметки и умный планировщик"
+      },
+      "feat_3_p": {
+        "tr": "Klavye kullanmadan, sadece konuşarak hızlıca öğrenci notları alın. Notlarınızı gizli veya açık olarak kategorilendirip ajandanızı planlayın.",
+        "en": "Take student notes instantly using speech-to-text. Separate public feedback from private, strategic teacher notes.",
+        "de": "Erstellen Sie Schülernotizen per Sprache-zu-Text. Trennen Sie öffentliches Feedback von privaten Notizen.",
+        "zh": "利用语音转文字即时记录学生笔记。将公开反馈与教师的私人战略笔记区分开来。",
+        "hi": "स्पीच-टू-टेक्स्ट का उपयोग करके तुरंत नोट्स लें। सार्वजनिक और निजी नोट्स को अलग-अलग रखें।",
+        "es": "Toma notas al instante con voz a texto. Separa los comentarios públicos de las anotaciones privadas.",
+        "fr": "Prenez des notes instantanément par reconnaissance vocale. Séparez les retours publics des notes privées.",
+        "ar": "سجل ملاحظات الطلاب فوراً بتحويل الصوت إلى نص. افصل بين الملاحظات العامة وملاحظات المعلم الخاصة.",
+        "pt": "Faça anotações instantâneas usando voz para texto. Separe feedbacks públicos de anotações privadas.",
+        "ru": "Записывайте заметки с помощью перевода речи в текст. Разделяйте публичные отзывы и приватные записи."
+      },
+      "feat_4_t": {
+        "tr": "Profesyonel PDF Raporlama",
+        "en": "Professional PDF Reporting",
+        "de": "Professionelle PDF-Berichte",
+        "zh": "专业 PDF 报告",
+        "hi": "पेशेवर पीडीएफ रिपोर्टिंग",
+        "es": "Reportes PDF Profesionales",
+        "fr": "Rapports PDF Professionnels",
+        "ar": "تقارير PDF احترافية",
+        "pt": "Relatórios PDF Profissionais",
+        "ru": "Профессиональные PDF-отчеты"
+      },
+      "feat_4_p": {
+        "tr": "Veli toplantıları ve resmi süreçler için tek tıkla öğrencinin tüm gelişim sürecini ve bilişsel profilini içeren A4 performans raporları oluşturun.",
+        "en": "Generate beautiful, structured A4 PDF performance profiles with a single click, ready for parent meetings.",
+        "de": "Erstellen Sie mit einem Klick strukturierte A4-PDF-Leistungsprofile, bereit für Elternabende.",
+        "zh": "只需点击一下即可生成精美的 A4 PDF 表现档案，非常适合家长会使用。",
+        "hi": "एक क्लिक में संरचित ए4 पीडीएफ रिपोर्ट जनरेट करें, जो पैरेंट मीटिंग के लिए तैयार है।",
+        "es": "Genera perfiles de rendimiento PDF A4 con un solo clic, ideales para las reuniones de padres.",
+        "fr": "Générez des profils de performance PDF A4 en un clic, parfaits pour les réunions parents-profs.",
+        "ar": "أنشئ تقارير أداء PDF منظمة بملفات A4 بنقرة واحدة، جاهزة لاجتماعات أولياء الأمور.",
+        "pt": "Gere relatórios de desempenho em PDF A4 com um único clique, prontos para reuniões de pais.",
+        "ru": "Создавайте подробные отчеты в формате A4 PDF одним нажатием для родительских собраний."
+      },
+      "feat_5_t": {
+        "tr": "Erken Uyarı Radarı",
+        "en": "Early Warning Radar",
+        "de": "Frühwarnradar",
+        "zh": "预警雷达",
+        "hi": "प्रारंभिक चेतावनी रडार",
+        "es": "Radar de Alerta Temprana",
+        "fr": "Radar d'Alerte Précoce",
+        "ar": "رادار الإنذار المبكر",
+        "pt": "Radar de Alerta Precoce",
+        "ru": "Радар раннего предупреждения"
+      },
+      "feat_5_p": {
+        "tr": "Performans düşüşlerini veya devamsızlık eğilimlerini analiz ederek, risk altındaki öğrencileri erken aşamada fark etmenizi sağlayan akıllı uyarı sistemi.",
+        "en": "Identify attendance dropouts or performance drops ahead of time with automated predictive notifications.",
+        "de": "Erkennen Sie sinkende Leistungen oder Fehlzeiten frühzeitig durch automatisierte Warnungen.",
+        "zh": "通过自动化预测通知，提前发现学生出勤率下降或成绩下滑的趋势。",
+        "hi": "स्वचालित भविष्य कहनेवाला सूचनाओं के साथ समय से पहले उपस्थिति या प्रदर्शन में गिरावट की पहचान करें।",
+        "es": "Identifica bajas de rendimiento o ausencias antes de tiempo con notificaciones predictivas automáticas.",
+        "fr": "Identifiez les risques de baisse de niveau ou d'absentéisme grâce à des alertes automatiques.",
+        "ar": "حدد حالات الغياب أو تراجع الأداء مبكراً من خلال إشعارات التحليل التنبؤي التلقائي.",
+        "pt": "Identifique quedas de desempenho ou ausências antecipadamente com notificações automáticas.",
+        "ru": "Выявляйте снижение успеваемости или прогулы заранее с помощью автоматических уведомлений."
+      },
+      "feat_6_t": {
+        "tr": "Çevrimdışı Öncelikli & Güvenli",
+        "en": "Offline-First & Secure Sync",
+        "de": "Offline-First & Sichere Synch.",
+        "zh": "离线优先与安全同步",
+        "hi": "ऑफ़लाइन-प्रथम और सुरक्षित सिंक",
+        "es": "Offline-First y Sincronización Segura",
+        "fr": "Offline-First & Synchro Sécurisée",
+        "ar": "أولاً دون اتصال ومزامنة آمنة",
+        "pt": "Offline-First e Sincronização Segura",
+        "ru": "Сначала оффлайн и безопасный синк"
+      },
+      "feat_6_p": {
+        "tr": "İnternet olmasa da tüm özellikleri sınıfta kullanın; bağlantı sağlandığında tüm verileri Firebase üzerinde uçtan uca şifreli olarak yedekleyin.",
+        "en": "Work seamlessly in classrooms with zero internet using Room DB, and sync securely with Firebase once connected.",
+        "de": "Arbeiten Sie offline mit Room DB und synchronisieren Sie Ihre Daten sicher, sobald Sie online sind.",
+        "zh": "在没有网络的情况下也能使用 Room 数据库顺畅工作，联网后与 Firebase 安全同步数据。",
+        "hi": "बिना इंटरनेट के रूम डेटाबेस का उपयोग करें, yardımıyla सिंक करें।",
+        "es": "Trabaja sin conexión en el aula con Room y sincroniza con Firebase cuando tengas conexión.",
+        "fr": "Travaillez sans connexion dans la classe avec Room et synchronisez avec Firebase une fois connecté.",
+        "ar": "اعمل بسلاسة في الفصول الدراسية دون اتصال باستخدام Room، وقم بالمزامنة مع Firebase عند الاتصال.",
+        "pt": "Trabalhe offline na sala de aula com Room e sincronize com Firebase assim que tiver conexão.",
+        "ru": "Работайте в классе без интернета с базой Room и синхронизируйте данные с Firebase при сети."
+      },
+      "legal_title": {
+        "tr": "Yasal & Destek",
+        "en": "Legal & Support",
+        "de": "Rechtliches & Support",
+        "zh": "法律与支持",
+        "hi": "कानूनी और सहायता",
+        "es": "Legal y Soporte",
+        "fr": "Légal & Support",
+        "ar": "القانونية والدعم",
+        "pt": "Jurídico & Suporte",
+        "ru": "Правовая информация и поддержка"
+      },
+      "link_privacy": {
+        "tr": "Gizlilik Politikası",
+        "en": "Privacy Policy",
+        "de": "Datenschutzerklärung",
+        "zh": "隐私政策",
+        "hi": "गोपनीयता नीति",
+        "es": "Política de Privacidad",
+        "fr": "Politique de Confidentialité",
+        "ar": "سياسة الخصوصية",
+        "pt": "Política de Privacidade",
+        "ru": "Политика конфиденциальности"
+      },
+      "link_terms": {
+        "tr": "Kullanım Koşulları",
+        "en": "Terms of Use",
+        "de": "Nutzungsbedingungen",
+        "zh": "使用条款",
+        "hi": "उपयोग की शर्तें",
+        "es": "Términos de Uso",
+        "fr": "Conditions d'Utilisation",
+        "ar": "شروط الاستخدام",
+        "pt": "Termos de Uso",
+        "ru": "Условия использования"
+      },
+      "link_support": {
+        "tr": "Destek & Yardım",
+        "en": "Support & Help",
+        "de": "Support & Hilfe",
+        "zh": "支持与帮助",
+        "hi": "सहायता और मदद",
+        "es": "Soporte y Ayuda",
+        "fr": "Support & Aide",
+        "ar": "الدعم والمساعدة",
+        "pt": "Suporte & Ajuda",
+        "ru": "Поддержка и помощь"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
+        "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.",
+        "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+        "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+        "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+        "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+        "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+        "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+        "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+        "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>

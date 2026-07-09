@@ -684,7 +684,7 @@
             <p data-i18n="header_subtitle">Erdinç TOPAL – Mobil Oyun & Uygulama Geliştirici / Mobile Developer</p>
             <div class="lang-badge" data-i18n="header_badge">🌐 Çok Dilli Portal / Multi-language Portal</div>
             <div class="hero-stats">
-                <div class="hero-stat"><b>8</b><span data-i18n="stat_total">Uygulama</span></div>
+                <div class="hero-stat"><b>9</b><span data-i18n="stat_total">Uygulama</span></div>
                 <div class="hero-stat"><b>6</b><span data-i18n="stat_live">Yayında</span></div>
                 <div class="hero-stat"><b>10</b><span data-i18n="stat_lang">Dil</span></div>
             </div>
@@ -707,6 +707,7 @@
                     <button type="button" class="filter-chip" data-cat="puzzle" onclick="setCat(this)" data-i18n="filter_puzzle">Zeka & Bulmaca</button>
                     <button type="button" class="filter-chip" data-cat="math" onclick="setCat(this)" data-i18n="filter_math">Matematik</button>
                     <button type="button" class="filter-chip" data-cat="focus" onclick="setCat(this)" data-i18n="filter_focus">Odak & Araçlar</button>
+                    <button type="button" class="filter-chip" data-cat="education" onclick="setCat(this)" data-i18n="filter_education">Eğitim & Yönetim</button>
                 </div>
                 <div class="filter-group" id="statusFilters">
                     <button type="button" class="filter-chip active" data-status="all" onclick="setStatus(this)" data-i18n="filter_all">Tümü</button>
@@ -983,7 +984,7 @@
 
                     <!-- App Details -->
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_focus">Odak & Üretkenlik / Focus & Productivity</span>
+                        <span class="app-category" data-i18n="filter_education">Eğitim & Yönetim / Education & Management</span>
                         <h3 data-i18n="game_title_visualtimer">Visual Timer</h3>
 
                         <p class="app-desc" data-i18n="game_desc_visualtimer">
@@ -1002,6 +1003,45 @@
                     </div>
                 </a>
 
+                <!-- Classtings Card -->
+                <a href="classtings/index.html" class="project-card project-card-link" data-category="education" data-status="coming">
+                    <!-- App Icon -->
+                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(99, 102, 241, 0.3);">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Rounded squircle background -->
+                            <rect x="10" y="10" width="80" height="80" rx="20" fill="#3b51a3" />
+                            <!-- Thick Ring -->
+                            <circle cx="50" cy="50" r="21" stroke="#FFFFFF" stroke-width="7" fill="none" />
+                            <!-- Indicators -->
+                            <line x1="50" y1="29" x2="50" y2="18" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" />
+                            <circle cx="50" cy="29" r="4.5" fill="#10B981" />
+                            <line x1="50" y1="71" x2="50" y2="82" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" />
+                            <circle cx="50" cy="71" r="4.5" fill="#10B981" />
+                            <circle cx="69" cy="50" r="6" fill="#10B981" />
+                        </svg>
+                    </div>
+
+                    <!-- App Details -->
+                    <div class="app-details">
+                        <span class="app-category" data-i18n="filter_education">Eğitim & Yönetim / Education & Management</span>
+                        <h3 data-i18n="game_title_classtings">Classtings</h3>
+
+                        <p class="app-desc" data-i18n="game_desc_classtings">
+                            Modern Öğretmen Ajandası ve Pedagojik Analiz Platformu! Sınıf yönetimini kolaylaştıran, öğrenci gelişimini analiz eden akıllı eğitim asistanı.
+                        </p>
+
+                        <div class="status-badge" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.2); color: #C7D2FE;" data-i18n="coming_soon">
+                            <span class="dot" style="background-color: #6366F1; box-shadow: 0 0 10px #6366F1;"></span>
+                            Yakında Google Play'de!
+                        </div>
+
+                        <!-- Navigates to classtings/index.html -->
+                        <span class="btn-inspect" data-i18n="btn_inspect">
+                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </span>
+                    </div>
+                </a>
+
                 <!-- Future educational games will be added here -->
             </div>
             <p class="no-results" id="noResults" data-i18n="no_results">Eşleşen uygulama bulunamadı.</p>
@@ -1011,7 +1051,7 @@
         <section class="deletion-section" id="hesap-silme">
             <div class="deletion-header">
                 <h2 data-i18n="del_title">Hesap ve Veri Silme</h2>
-                <p data-i18n="del_intro">CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.</p>
+                <p data-i18n="del_intro">CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.</p>
             </div>
             <div class="deletion-grid">
                 <div class="deletion-item">
@@ -1213,6 +1253,7 @@
             "filter_puzzle": { "tr": "Zeka & Bulmaca", "en": "Puzzle", "de": "Puzzle", "zh": "益智", "hi": "पहेली", "es": "Puzzle", "fr": "Puzzle", "ar": "ألغاز", "pt": "Puzzle", "ru": "Головоломки" },
             "filter_math": { "tr": "Matematik", "en": "Math", "de": "Mathe", "zh": "数学", "hi": "गणित", "es": "Matemáticas", "fr": "Maths", "ar": "رياضيات", "pt": "Matemática", "ru": "Математика" },
             "filter_focus": { "tr": "Odak & Araçlar", "en": "Focus & Tools", "de": "Fokus & Tools", "zh": "专注与工具", "hi": "फोकस और उपकरण", "es": "Enfoque y Herramientas", "fr": "Focus & Outils", "ar": "التركيز والأدوات", "pt": "Foco e Ferramentas", "ru": "Фокус и инструменты" },
+            "filter_education": { "tr": "Eğitim & Yönetim", "en": "Education & Management", "de": "Bildung & Verwaltung", "zh": "教育与管理", "hi": "शिक्षा और प्रबंधन", "es": "Educación y Gestión", "fr": "Éducation & Gestion", "ar": "التعليم والإدارة", "pt": "Educação e Gestão", "ru": "Образование и управление" },
             "filter_live": { "tr": "Yayında", "en": "Live", "de": "Live", "zh": "已上线", "hi": "लाइव", "es": "Publicadas", "fr": "En ligne", "ar": "متاحة", "pt": "No ar", "ru": "Опубликовано" },
             "filter_coming": { "tr": "Yakında", "en": "Coming Soon", "de": "Demnächst", "zh": "即将推出", "hi": "जल्द आ रहा", "es": "Próximamente", "fr": "Bientôt", "ar": "قريباً", "pt": "Em breve", "ru": "Скоро" },
             "no_results": { "tr": "Eşleşen uygulama bulunamadı.", "en": "No matching apps found.", "de": "Keine passenden Apps gefunden.", "zh": "未找到匹配的应用。", "hi": "कोई मेल खाता ऐप नहीं मिला।", "es": "No se encontraron apps coincidentes.", "fr": "Aucune application correspondante trouvée.", "ar": "لم يتم العثور على تطبيقات مطابقة.", "pt": "Nenhum app correspondente encontrado.", "ru": "Подходящие приложения не найдены." },
@@ -1229,16 +1270,16 @@
                 "ru": "Удаление аккаунта и данных"
             },
             "del_intro": {
-                "tr": "CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.",
-                "en": "For the apps published by CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — you can delete your account and data at any time.",
-                "de": "Für die von CodExa (Erdinç TOPAL) veröffentlichten Apps (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) können Sie Ihr Konto und Ihre Daten jederzeit löschen.",
+                "tr": "CodExa (Erdinç TOPAL) tarafından yayınlanan uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.",
+                "en": "For the apps published by CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings — you can delete your account and data at any time.",
+                "de": "Für die von CodExa (Erdinç TOPAL) veröffentlichten Apps (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings) können Sie Ihr Konto und Ihre Daten jederzeit löschen.",
                 "zh": "对于 CodExa (Erdinç TOPAL) 发布的应用（Hanoi Kulesi、At Satrancı、KenKen、Nim Master、Çarpma Oyunu、2048、Kakuro、Visual Timer），您可以随时删除您的帐户和数据。",
-                "hi": "CodExa (Erdinç TOPAL) द्वारा प्रकाशित ऐप्स (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer) के लिए आप किसी भी समय अपना खाता और डेटा हटा सकते हैं।",
-                "es": "Para las aplicaciones publicadas por CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — puede eliminar su cuenta y sus datos en cualquier momento.",
-                "fr": "Pour les applications publiées par CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — vous pouvez supprimer votre compte et vos données à tout moment.",
+                "hi": "CodExa (Erdinç TOPAL) द्वारा प्रकाशित ऐप्स (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings) के लिए आप किसी भी समय अपना खाता और डेटा हटा सकते हैं।",
+                "es": "Para las aplicaciones publicadas por CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings — puede eliminar su cuenta y sus datos en cualquier momento.",
+                "fr": "Pour les applications publiées par CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings — vous pouvez supprimer votre compte et vos données à tout moment.",
                 "ar": "بالنسبة للتطبيقات التي تنشرها CodExa (Erdinç TOPAL) — Hanoi Kulesi، At Satrancı، KenKen، Nim Master، Çarpma Oyunu، 2048، Kakuro، Visual Timer — يمكنك حذف حسابك وبياناتك في أي وقت.",
-                "pt": "Para os aplicativos publicados pela CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — você pode excluir sua conta e seus dados a qualquer momento.",
-                "ru": "Для приложений, опубликованных CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer — вы можете удалить свою учетную запись и данные в любое время."
+                "pt": "Para os aplicativos publicados pela CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings — você pode excluir sua conta e seus dados a qualquer momento.",
+                "ru": "Для приложений, опубликованных CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings — вы можете удалить свою учетную запись и данные в любое время."
             },
             "del_h_account": {
                 "tr": "Hesabınızı Silme",
@@ -1674,6 +1715,30 @@
                 "ar": "المؤقت البصري الذي يجعلك تشعر بالوقت! مثالي لتشتت الانتباه (ADHD)، التوحد، إدارة الفصول الدراسية، والدراسة المركزة.",
                 "pt": "O temporizador visual que faz você sentir o tempo! Perfeito para TDAH, autismo, gestão de sala de aula e estudo focado.",
                 "ru": "Визуальный таймер, который позволяет почувствовать время! Идеально подходит для людей с СДВГ, аутизмом, управления классом и сосредоточенной учебы."
+            },
+            "game_title_classtings": {
+                "tr": "Classtings: Öğretmen Ajandası",
+                "en": "Classtings: Teacher Diary",
+                "de": "Classtings: Lehrertagebuch",
+                "zh": "Classtings: 教师日志",
+                "hi": "Classtings: शिक्षक डायरी",
+                "es": "Classtings: Agenda del Profesor",
+                "fr": "Classtings : Agenda de l'Enseignant",
+                "ar": "Classtings: دفتر المعلم",
+                "pt": "Classtings: Diário do Professor",
+                "ru": "Classtings: Дневник учителя"
+            },
+            "game_desc_classtings": {
+                "tr": "Modern Öğretmen Ajandası ve Pedagojik Analiz Platformu! Sınıf yönetimini dijitalleştiren ve öğrenci performansını pedagojik içgörülere dönüştüren yeni nesil eğitim asistanı.",
+                "en": "Modern Teacher's Diary & Pedagogical Analysis Platform! A next-gen educational assistant that digitizes classroom management and analyzes student development.",
+                "de": "Modernes Lehrertagebuch und pädagogische Analyseplattform! Ein intelligenter Assistent, der die Klassenverwaltung digitalisiert und die Entwicklung analysiert.",
+                "zh": "现代教师日志与教育分析平台！数字化课堂管理、分析学生发展并提供教学建议的智能助手。",
+                "hi": "आधुनिक शिक्षक डायरी और शैक्षणिक विश्लेषण मंच! एक स्मार्ट सहायक जो कक्षा प्रबंधन को डिजिटल बनाता है और छात्र के विकास का विश्लेषण करता है।",
+                "es": "¡Agenda del profesor moderna y plataforma de análisis pedagógico! Un asistente inteligente que digitaliza la gestión del aula y analiza el desarrollo.",
+                "fr": "Agenda de l'enseignant moderne et plateforme d'analyse pédagogique ! Un assistant intelligent qui numérise la gestion de classe et analyse l'évolution.",
+                "ar": "دفتر المعلم الحديث ومنصة التحليل التربوي! مساعد ذكي يسهل إدارة الفصل الدراسي ويحلل أداء الطلاب.",
+                "pt": "Diário do professor moderno e plataforma de análise pedagógica! Um assistente inteligente que digitaliza a gestão de sala de aula e analisa o desenvolvimento.",
+                "ru": "Современный дневник учителя и платформа педагогического анализа! Умный помощник для оцифровки управления классом и анализа развития учащихся."
             },
             "coming_soon": {
                 "tr": "Yakında Google Play'de!",
