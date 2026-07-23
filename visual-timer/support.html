@@ -3,236 +3,615 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Destek & Yardım (Support & Help) – Visual Timer</title>
+  <title data-i18n="page_title">Destek & Yardım (Support & Help) – Visual Timer</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
-    :root { --em: #EF4444; --em-light: #F87171; --em-alpha: rgba(16,185,129,0.08); --em-border: rgba(16,185,129,0.2); --dark: #0F172A; --dark2: #1E293B; --text: #CBD5E1; --text-muted: #94A3B8; --border: rgba(16,185,129,0.15); --transition: all 0.25s ease; }
+
+    :root {
+      --primary: #EF4444;
+      --primary-light: #F87171;
+      --primary-alpha: rgba(239, 68, 68, 0.08);
+      --primary-border: rgba(239, 68, 68, 0.2);
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --dark3: #334155;
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border: rgba(239, 68, 68, 0.2);
+      --transition: all 0.25s ease;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--dark); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.8; min-height: 100vh; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16,185,129,0.08) 0%, transparent 70%), repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(16,185,129,0.02) 40px, rgba(16,185,129,0.02) 41px); pointer-events: none; z-index: 0; }
-    .container { max-width: 800px; margin: 0 auto; padding: 60px 28px 100px; position: relative; z-index: 1; }
-    header { text-align: center; margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
-    .logo-wrap { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); border: 1px solid rgba(16,185,129,0.3); margin-bottom: 24px; box-shadow: 0 0 32px rgba(16,185,129,0.1), inset 0 1px 0 rgba(16,185,129,0.1); }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, var(--primary-alpha) 0%, transparent 70%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(255, 255, 255, 0.015) 40px,
+          rgba(255, 255, 255, 0.015) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid var(--primary-border);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px var(--primary-alpha), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
     .logo-wrap svg { width: 40px; height: 40px; }
-    h1 { font-family: 'Cinzel', serif; font-size: clamp(26px, 5vw, 36px); font-weight: 700; color: var(--em-light); letter-spacing: 0.04em; margin-bottom: 10px; }
-    .subtitle { font-size: 14px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300; }
-    section { background-color: var(--dark2); border: 1px solid var(--em-border); border-radius: 20px; padding: 32px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-    h2 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--em-light); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; cursor: pointer; }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-question { font-size: 15px; font-weight: 600; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: var(--transition); }
-    .faq-question:hover { color: var(--em-light); }
-    .faq-answer { max-height: 0; overflow: hidden; color: var(--text-muted); font-size: 15px; margin-top: 0; transition: max-height 0.3s ease-out, margin-top 0.3s ease-out; }
-    .faq-item.active .faq-answer { max-height: 280px; margin-top: 12px; }
-    .faq-icon { fill: var(--em); transition: var(--transition); flex-shrink: 0; }
-    .faq-item.active .faq-icon { transform: rotate(180deg); }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-muted); font-weight: 500; }
-    .form-control { width: 100%; background-color: rgba(0,0,0,0.3); border: 1px solid var(--em-border); border-radius: 10px; padding: 12px 16px; color: #fff; font-family: 'Inter', sans-serif; font-size: 14px; transition: var(--transition); }
-    .form-control:focus { outline: none; border-color: var(--em-light); box-shadow: 0 0 10px var(--em-alpha); }
-    textarea.form-control { resize: vertical; min-height: 120px; }
-    .btn-submit { background: linear-gradient(135deg, var(--em) 0%, var(--em-light) 100%); color: #06281d; border: none; border-radius: 10px; padding: 14px 28px; font-family: 'Cinzel', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.05em; cursor: pointer; width: 100%; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .btn-submit:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
-    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--em-light); font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
-    .back-btn:hover { color: #fff; transform: translateX(-4px); }
-    footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 700;
+      color: var(--primary-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    section {
+      background-color: var(--dark2);
+      border: 1px solid var(--primary-border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      cursor: pointer;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--primary-light);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-top: 0;
+      font-family: 'Inter', sans-serif;
+      transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      margin-top: 12px;
+    }
+
+    .faq-icon {
+      fill: var(--primary-light);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--primary-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 10px var(--primary-alpha);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      width: 100%;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px var(--primary-alpha);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-light);
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: #fff;
+      transform: translateX(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="back-btn" data-i18n="back_btn">← Oyuna Dön / Back to Game</a>
+    <a href="index.html" class="back-btn" data-i18n="back_btn">
+      ← Oyuna Dön / Back to Game
+    </a>
+
     <header>
       <div class="logo-wrap">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2.5" y="2.5" width="19" height="19" rx="3" stroke="#EF4444" stroke-width="1.6"/>
-          <line x1="2.5" y1="9" x2="21.5" y2="9" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
-          <line x1="2.5" y1="15" x2="21.5" y2="15" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
-          <line x1="9" y1="2.5" x2="9" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
-          <line x1="15" y1="2.5" x2="15" y2="21.5" stroke="#EF4444" stroke-width="1.1" opacity="0.6"/>
-          <path d="M3 3 L9 9" stroke="#F87171" stroke-width="1.2" opacity="0.8"/>
-          <rect x="3" y="3" width="6" height="6" fill="#EF4444" opacity="0.18"/>
-          <text x="12" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">7</text>
-          <text x="18" y="13.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">3</text>
-          <text x="12" y="19.4" fill="#F87171" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" text-anchor="middle">9</text>
+            <circle cx="12" cy="12" r="9" stroke="#EF4444" stroke-width="1.6" />
+            <path d="M12 3 A 9 9 0 0 1 21 12 L 12 12 Z" fill="#F87171" opacity="0.8" />
+            <line x1="12" y1="12" x2="12" y2="3" stroke="#F87171" stroke-width="1.6" stroke-linecap="round" />
         </svg>
       </div>
       <h1 data-i18n="h1">Destek & Yardım</h1>
-      <div class="subtitle" data-i18n="subtitle">Support & FAQ – Visual Timer</div>
+      <div class="subtitle" data-i18n="subtitle">SUPPORT & FAQ – VISUAL TIMER</div>
     </header>
+
     <main>
+      <!-- FAQ Section -->
       <section>
-        <h2 data-i18n="sec_faq_title">Sıkça Sorulan Sorular / FAQ</h2>
+        <h2 data-i18n="sec_faq_title">SIKÇA SORULAN SORULAR / FAQ</h2>
         <div class="faq-accordion">
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span data-i18n="faq_q1">Visual Timer nasıl oynanır?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-            <div class="faq-answer" data-i18n="faq_a1">Boş hücreleri 1-9 arası rakamlarla doldurursun; her yatay ve dikey dizinin toplamı, ipucu hücresindeki sayıya eşit olmalı ve aynı dizide bir rakam yalnızca bir kez kullanılır. Uygulama içindeki eğitim ve ipuçları başlamana yardımcı olur.</div>
+            <div class="faq-question">
+              <span data-i18n="faq_q1">Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq_a1">
+              Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.
+            </div>
           </div>
+
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span data-i18n="faq_q2">İlerlemem kayboldu, nasıl geri alırım?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-            <div class="faq-answer" data-i18n="faq_a2">Oyun ilerlemen ve ayarların cihazında yerel olarak saklanır. Uygulamayı kaldırırsan veya "İlerlemeyi Sıfırla"yı kullanırsan yerel veriler silinir. Google ile giriş yaptıysan hesabın yönetilir; ancak oyun verileri cihazda tutulduğu için cihaz değişikliğinde önceki ilerleme geri gelmeyebilir.</div>
+            <div class="faq-question">
+              <span data-i18n="faq_q2">Süre bittiğinde uyarılardan hangilerini seçebilirim?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq_a2">
+              Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.
+            </div>
           </div>
+
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span data-i18n="faq_q3">Premium (Reklamsız) sürümü nasıl geri yüklerim?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-            <div class="faq-answer" data-i18n="faq_a3">Oyun menüsündeki "Satın Alımları Geri Yükle" (Restore Purchases) butonuna basarak Google Play üzerinden yaptığın Premium / reklamsız satın alımı anında cihazına geri yükleyebilirsin.</div>
-          </div>
-          <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span data-i18n="faq_q4">Hesabımı ve verilerimi nasıl silerim?</span><svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-            <div class="faq-answer" data-i18n="faq_a4">Yerel verileri uygulama içindeki "İlerlemeyi Sıfırla" ile veya uygulamayı kaldırarak silebilirsin. Hesabını silmek için giriş yaparken kullandığın e-posta ile erdinctopal.et@gmail.com adresine yazman yeterli; talebini makul sürede işleme alırız.</div>
+            <div class="faq-question">
+              <span data-i18n="faq_q3">Zamanlayıcı çalışırken ekran kapanır mı?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq_a3">
+              Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- Contact Section -->
       <section>
-        <h2 data-i18n="sec_contact_title">Bize Mesaj Gönder / Contact Us</h2>
+        <h2 data-i18n="sec_contact_title">DESTEK TALEBİ GÖNDER / CONTACT US</h2>
         <form onsubmit="handleFormSubmit(event)">
           <div class="form-group">
             <label for="name" data-i18n="label_name">Adınız / Your Name</label>
             <input type="text" id="name" class="form-control" data-i18n-placeholder="placeholder_name" placeholder="Adınız / Name" required>
           </div>
+          
           <div class="form-group">
             <label for="email" data-i18n="label_email">E-posta Adresiniz / Your Email</label>
-            <input type="email" id="email" class="form-control" data-i18n-placeholder="placeholder_email" placeholder="Örn: oyuncu@gmail.com" required>
+            <input type="email" id="email" class="form-control" data-i18n-placeholder="placeholder_email" placeholder="Örn: gezgin@gmail.com" required>
           </div>
+          
           <div class="form-group">
             <label for="message" data-i18n="label_message">Sorununuz veya Talebiniz / Message</label>
             <textarea id="message" class="form-control" data-i18n-placeholder="placeholder_message" placeholder="Lütfen detaylıca açıklayınız..." required></textarea>
           </div>
+          
           <button type="submit" class="btn-submit">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            <span data-i18n="btn_submit">Gönder / Send Message</span>
+            <span data-i18n="btn_submit">GÖNDER / SEND MESSAGE</span>
           </button>
         </form>
       </section>
     </main>
-    <footer><p data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</p></footer>
+
+    <footer>
+      <p data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</p>
+    </footer>
   </div>
 
   <script>
-    function toggleFaq(el) {
-      const isActive = el.classList.contains('active');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-      if (!isActive) el.classList.add('active');
+    function toggleFaq(element) {
+      const isActive = element.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      if (!isActive) {
+        element.classList.add('active');
+      }
     }
+
     function handleFormSubmit(event) {
       event.preventDefault();
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
+      
       const subject = encodeURIComponent(`Visual Timer Destek - ${name}`);
       const body = encodeURIComponent(`Adı: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+      
       window.location.href = `mailto:erdinctopal.et@gmail.com?subject=${subject}&body=${body}`;
     }
 
     window.PAGE_TRANSLATIONS = {
-      "page_title": { "tr": "Destek & Yardım (Support & Help) – Visual Timer", "en": "Support & Help – Visual Timer", "de": "Support & Hilfe – Visual Timer", "zh": "支持与帮助 – Visual Timer", "hi": "सहायता और मदद – Visual Timer", "es": "Soporte y Ayuda – Visual Timer", "fr": "Support & Aide – Visual Timer", "ar": "الدعم والمساعدة – Visual Timer", "pt": "Suporte & Ajuda – Visual Timer", "ru": "Поддержка и помощь – Visual Timer" },
-      "back_btn": { "tr": "← Oyuna Dön / Back to Game", "en": "← Back to Game", "de": "← Zurück zum Spiel", "zh": "← 返回游戏", "hi": "← खेल पर वापस जाएं", "es": "← Volver al Juego", "fr": "← Retour au Jeu", "ar": "← العودة إلى اللعبة", "pt": "← Voltar ao Jogo", "ru": "← Назад к игре" },
-      "h1": { "tr": "Destek & Yardım", "en": "Support & Help", "de": "Support & Hilfe", "zh": "支持与帮助", "hi": "सहायता और मदद", "es": "Soporte y Ayuda", "fr": "Support & Aide", "ar": "الدعم والمساعدة", "pt": "Suporte & Ajuda", "ru": "Поддержка и помощь" },
-      "subtitle": { "tr": "Support & FAQ – Visual Timer", "en": "Support & FAQ – Visual Timer", "de": "Support & FAQ – Visual Timer", "zh": "支持与常见问题 – Visual Timer", "hi": "सहायता और सामान्य प्रश्न – Visual Timer", "es": "Soporte y Preguntas Frecuentes – Visual Timer", "fr": "Support & FAQ – Visual Timer", "ar": "الدعم والأسئلة الشائعة – Visual Timer", "pt": "Suporte & FAQ – Visual Timer", "ru": "Поддержка и вопросы – Visual Timer" },
-      "sec_faq_title": { "tr": "Sıkça Sorulan Sorular / FAQ", "en": "Frequently Asked Questions / FAQ", "de": "Häufig gestellte Fragen / FAQ", "zh": "常见问题解答 / FAQ", "hi": "अक्सर पूछे जाने वाले प्रश्न / FAQ", "es": "Preguntas Frecuentes / FAQ", "fr": "Foire Aux Questions / FAQ", "ar": "الأسئلة الشائعة / FAQ", "pt": "Perguntas Frequentes / FAQ", "ru": "Часто задаваемые вопросы / FAQ" },
+      "page_title": {
+        "tr": "Destek & Yardım (Support & Help) – Visual Timer",
+        "en": "Support & Help – Visual Timer",
+        "de": "Support & Hilfe – Visual Timer",
+        "zh": "支持与帮助 – Visual Timer",
+        "hi": "सहायता और मदद – Visual Timer",
+        "es": "Soporte y Ayuda – Visual Timer",
+        "fr": "Support & Aide – Visual Timer",
+        "ar": "الدعم والمساعدة – Visual Timer",
+        "pt": "Suporte & Ajuda – Visual Timer",
+        "ru": "Поддержка и помощь – Visual Timer"
+      },
+      "back_btn": {
+        "tr": "← Oyuna Dön / Back to Game",
+        "en": "← Back to Game",
+        "de": "← Zurück zum Spiel",
+        "zh": "← 返回游戏",
+        "hi": "← खेल पर वापस जाएं",
+        "es": "← Volver al Juego",
+        "fr": "← Retour au Jeu",
+        "ar": "← العودة إلى اللعبة",
+        "pt": "← Voltar ao Jogo",
+        "ru": "← Назад к игре"
+      },
+      "h1": {
+        "tr": "Destek & Yardım",
+        "en": "Support & Help",
+        "de": "Support & Hilfe",
+        "zh": "支持与帮助",
+        "hi": "सहायता और मदद",
+        "es": "Soporte y Ayuda",
+        "fr": "Support & Aide",
+        "ar": "الدعم والمساعدة",
+        "pt": "Suporte & Ajuda",
+        "ru": "Поддержка и помощь"
+      },
+      "subtitle": {
+        "tr": "SUPPORT & FAQ – VISUAL TIMER",
+        "en": "SUPPORT & FAQ – VISUAL TIMER",
+        "de": "SUPPORT & FAQ – VISUAL TIMER",
+        "zh": "SUPPORT & FAQ – VISUAL TIMER",
+        "hi": "SUPPORT & FAQ – VISUAL TIMER",
+        "es": "SUPPORT & FAQ – VISUAL TIMER",
+        "fr": "SUPPORT & FAQ – VISUAL TIMER",
+        "ar": "SUPPORT & FAQ – VISUAL TIMER",
+        "pt": "SUPPORT & FAQ – VISUAL TIMER",
+        "ru": "SUPPORT & FAQ – VISUAL TIMER"
+      },
+      "sec_faq_title": {
+        "tr": "SIKÇA SORULAN SORULAR / FAQ",
+        "en": "FREQUENTLY ASKED QUESTIONS / FAQ",
+        "de": "HÄUFIG GESTELLTE FRAGEN / FAQ",
+        "zh": "常见问题解答 / FAQ",
+        "hi": "अक्सर पूछे जाने वाले प्रश्न / FAQ",
+        "es": "PREGUNTAS FRECUENTES / FAQ",
+        "fr": "FOIRE AUX QUESTIONS / FAQ",
+        "ar": "الأسئلة الشائعة / FAQ",
+        "pt": "PERGUNTAS FREQUENTES / FAQ",
+        "ru": "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ / FAQ"
+      },
       "faq_q1": {
-        "tr": "Visual Timer nasıl çalışır?",
-        "en": "How does Visual Timer work?",
-        "de": "Wie funktioniert Visual Timer?",
-        "zh": "Visual Timer 如何工作？",
-        "hi": "विज़ुअल टाइमर कैसे काम करता है?",
-        "es": "¿Cómo funciona Visual Timer?",
-        "fr": "Comment fonctionne Visual Timer ?",
-        "ar": "كيف يعمل Visual Timer؟",
-        "pt": "Como funciona o Visual Timer?",
-        "ru": "Как работает Visual Timer?"
+        "tr": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "en": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "de": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "zh": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "hi": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "es": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "fr": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "ar": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "pt": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?",
+        "ru": "Görsel Zamanlayıcı (Visual Timer) nasıl çalışır?"
       },
       "faq_a1": {
-        "tr": "Süreyi belirlemek için hızlı ön ayarlara (5, 10, 15, 25 dk) dokunabilir veya kaydırıcıyı kullanarak 1 ila 120 dakika arasında özel bir süre seçebilirsiniz. Geri sayım başladığında, renkli disk (yeşilden kırmızıya dönerek) sürenin akışını görsel olarak gösterir. Süre dolduğunda ise sesli, titreşimli veya sessiz sınav modunda görsel uyarı alırsınız.",
-        "en": "To set a duration, you can tap one of the quick presets (5, 10, 15, 25 min) or use the slider to set a custom duration between 1 and 120 minutes. Once the timer starts, the colored disk fades visually (transitioning from green to red). When the time is up, a gentle audio alert, vibration, or a silent flashing screen will notify you.",
-        "de": "Um eine Dauer festzulegen, tippen Sie auf die Voreinstellungen (5, 10, 15, 25 Min.) oder wischen Sie für eine Dauer bis 120 Min. Bei Ablauf ertönt ein Signal oder der Bildschirm blinkt lautlos.",
-        "zh": "设置时间只需点击预设（5、10、15、25 分钟）或滑动滑块。计时器启动后，彩色圆盘逐渐缩小。结束后会通过声音、震动或屏幕闪烁提醒您。",
-        "hi": "अवधि सेट करने के लिए प्रीसेट (5, 10, 15, 25 मिनट) टैप करें या स्लाइडर का उपयोग करें। समय समाप्त होने पर सिग्नल या चमकती स्क्रीन से सूचित किया जाएगा।",
-        "es": "Para establecer la duración, toca los preajustes (5, 10, 15, 25 min) o desliza para una duración personalizada. Recibe alertas de sonido, vibración o pantalla parpadeante.",
-        "fr": "Réglez la durée via les préréglages (5, 10, 15, 25 min) ou glissez pour une durée personnalisée. Alertes sonores, vibrations ou écran clignotant une fois terminé.",
-        "ar": "لتحديد المدة، اضغط على الإعدادات المسبقة (5، 10، 15، 25 دقيقة) أو اسحب لتحديد مدة مخصصة. ستحصل على تنبيه بالصوت أو الاهتزاز أو الوميض.",
-        "pt": "Para definir a duração, toque nos pré-ajustes (5, 10, 15, 25 min) ou deslize para uma duração personalizada. Receba alertas sonoros, vibração ou tela piscando.",
-        "ru": "Задайте время с помощью пресетов (5, 10, 15, 25 минут) или ползунка. По истечении сработает сигнал, вибрация или мигание экрана."
+        "tr": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "en": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "de": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "zh": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "hi": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "es": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "fr": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "ar": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "pt": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır.",
+        "ru": "Visual Timer, süreyi eriyen renkli bir disk olarak gösterir. Süre azaldıkça yeşilden sarıya ve kırmızıya dönüşen disk sayesinde çocuklar ve yetişkinler zamanın akışını doğrudan hissederek odaklanır."
       },
       "faq_q2": {
-        "tr": "Rutin zinciri ve Pro sürümü nedir?",
-        "en": "What is routine chain and the Pro version?",
-        "de": "Was ist eine Routinekette und die Pro-Version?",
-        "zh": "什么是日常例程链和 Pro 版本？",
-        "hi": "रूटीन चेन और प्रो संस्करण क्या है?",
-        "es": "¿Qué es una cadena de rutinas y la versión Pro?",
-        "fr": "Qu'est-ce qu'une chaîne de routines et la version Pro ?",
-        "ar": "ما هي سلسلة الروتين وإصدار Pro؟",
-        "pt": "O que é a cadeia de rotinas e a versão Pro?",
-        "ru": "Что такое цепочка рутин и версия Pro?"
+        "tr": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "en": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "de": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "zh": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "hi": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "es": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "fr": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "ar": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "pt": "Süre bittiğinde uyarılardan hangilerini seçebilirim?",
+        "ru": "Süre bittiğinde uyarılardan hangilerini seçebilirim?"
       },
       "faq_a2": {
-        "tr": "Pro sürümü, ardışık görevlerinizi (örneğin: 20 dk Okuma -> 5 dk Mola -> 15 dk Test) bir zincir halinde otomatik olarak çalıştırmanızı sağlar. Ayrıca Pro sürümüyle reklamsız deneyim, özel sınıf temaları ve kendi sesinizi bitiş sesi olarak kaydetme özellikleri açılır.",
-        "en": "The Pro version allows you to run sequential tasks (e.g. 20 min Reading -> 5 min Break -> 15 min Quiz) in a chain automatically. The Pro upgrade also unlocks an ad-free experience, premium classroom themes, and the ability to record your own custom alert sounds.",
-        "de": "Mit der Pro-Version können Sie aufeinanderfolgende Aufgaben automatisch in einer Kette ausführen. Das Upgrade schaltet zudem Werbefreiheit und eigene Töne frei.",
-        "zh": "Pro 版本允许您自动链式运行连续任务。升级还可以解锁无广告体验和自定义声音录制。",
-        "hi": "प्रो संस्करण आपको लगातार कार्यों को स्वचालित रूप से चलाने की अनुमति देता है। अपग्रेड विज्ञापनों को हटाता है और कस्टम ध्वनियों को अनलॉक करता है।",
-        "es": "La versión Pro te permite ejecutar tareas secuenciales en cadena automáticamente. La actualización elimina anuncios y desbloquea sonidos personalizados.",
-        "fr": "La version Pro vous permet d'exécuter automatiquement des tâches séquentielles en chaîne. La mise à niveau supprime les publicités et débloque des sons personnalisés.",
-        "ar": "يتيح لك إصدار Pro تشغيل المهام المتتالية تلقائياً في سلسلة. كما يزيل الإعلانات ويفتح الأصوات المخصصة.",
-        "pt": "A versão Pro permite que você execute tarefas sequenciais em cadeia automaticamente. O upgrade remove anúncios e desbloqueia sons personalizados.",
-        "ru": "Версия Pro позволяет автоматически запускать последовательные задачи по цепочке. Обновление отключает рекламу и открывает запись звуков."
+        "tr": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "en": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "de": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "zh": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "hi": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "es": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "fr": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "ar": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "pt": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz.",
+        "ru": "Sesli melodi, nazik titreşim veya sınıflar ve sınavlar için sessiz ekran flaşı modlarından dilediğinizi seçebilirsiniz."
       },
       "faq_q3": {
-        "tr": "Pro (Premium) satın alımımı nasıl geri yüklerim?",
-        "en": "How do I restore my Pro (Premium) purchase?",
-        "de": "Wie stelle ich meinen Pro-Kauf wieder her?",
-        "zh": "如何恢复我的 Pro 购买？",
-        "hi": "मैं अपनी प्रो खरीद को कैसे बहाल करूं?",
-        "es": "¿Cómo restauro mi compra Pro?",
-        "fr": "Comment restaurer mon achat Pro ?",
-        "ar": "كيف يمكنني استعادة عملية شراء Pro؟",
-        "pt": "Como restauro minha compra Pro?",
-        "ru": "Как восстановить покупку Pro?"
+        "tr": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "en": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "de": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "zh": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "hi": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "es": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "fr": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "ar": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "pt": "Zamanlayıcı çalışırken ekran kapanır mı?",
+        "ru": "Zamanlayıcı çalışırken ekran kapanır mı?"
       },
       "faq_a3": {
-        "tr": "Uygulama ayarlarındaki "Satın Alımları Geri Yükle" (Restore Purchases) butonuna tıklayarak Google Play veya Apple App Store üzerinden yaptığınız Pro satın alımını cihazınıza anında geri yükleyebilirsiniz.",
-        "en": "By tapping the "Restore Purchases" button in the app settings, you can instantly restore your previous Pro purchase made via Google Play Store or Apple App Store to your device.",
-        "de": "Durch Tippen auf "Käufe wiederherstellen" in den Einstellungen können Sie Ihren Pro-Kauf über Google Play oder App Store sofort wiederherstellen.",
-        "zh": "点击设置中的“恢复购买”按钮，即可将先前在 Google Play 或 App Store 进行的 Pro 购买恢复到设备上。",
-        "hi": "ऐप सेटिंग्स में "Restore Purchases" बटन दबाकर आप Google Play या App Store खरीद को तुरंत बहाल कर सकते हैं।",
-        "es": "Al tocar "Restaurar compras" en los ajustes, puedes restaurar instantáneamente tu compra Pro a través de Google Play o App Store.",
-        "fr": "En appuyant sur « Restaurer les achats » dans les paramètres, vous pouvez restaurer votre achat Pro via Google Play ou l'App Store.",
-        "ar": "من خلال الضغط على زر "استعادة المشتريات" في الإعدادات، يمكنك على الفور استعادة عملية شراء Pro عبر Google Play أو App Store.",
-        "pt": "Ao tocar em "Restaurar Compras" nas configurações, você pode restaurar sua compra Pro via Google Play ou App Store.",
-        "ru": "Нажав кнопку «Восстановить покупки» в настройках, вы можете восстановить покупку Pro через Google Play или App Store."
+        "tr": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "en": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "de": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "zh": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "hi": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "es": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "fr": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "ar": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "pt": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz.",
+        "ru": "Hayır. Uygulama 'Uyanık Ekran' özelliğine sahiptir. Zamanlayıcı aktif olduğu sürece ekranınız kapanmaz; projeksiyon ve tabletlerde rahatlıkla kullanabilirsiniz."
       },
-      "faq_q4": {
-        "tr": "Verilerimi nasıl sıfırlarım veya silerim?",
-        "en": "How do I reset or delete my data?",
-        "de": "Wie setze ich meine Daten zurück oder lösche sie?",
-        "zh": "如何重置或删除我的数据？",
-        "hi": "मैं अपना डेटा कैसे रीसेट या हटाऊं?",
-        "es": "¿Cómo restablezco o elimino mi datos?",
-        "fr": "Comment réinitialiser ou supprimer mes données ?",
-        "ar": "كيف يمكنني إعادة تعيين أو حذف بياناتي؟",
-        "pt": "Como redefino ou excluo meus dados?",
-        "ru": "Как сбросить или удалить мои данные?"
+      "sec_contact_title": {
+        "tr": "DESTEK TALEBİ GÖNDER / CONTACT US",
+        "en": "SEND SUPPORT REQUEST / CONTACT US",
+        "de": "SUPPORT-ANFRAGE SENDEN / CONTACT US",
+        "zh": "发送支持请求 / CONTACT US",
+        "hi": "सहायता अनुरोध भेजें / CONTACT US",
+        "es": "ENVIAR SOLICITUD DE SOPORTE / CONTACT US",
+        "fr": "ENVOYER UNE DEMANDE DE SUPPORT / CONTACT US",
+        "ar": "إرسال طلب دعم / CONTACT US",
+        "pt": "ENVIAR SOLICITAÇÃO DE SUPORTE / CONTACT US",
+        "ru": "ОТПРАВИТЬ ЗАПРОС В ПОДДЕРЖКУ / CONTACT US"
       },
-      "faq_a4": {
-        "tr": "Visual Timer tamamen çevrimdışı çalışır ve sunucularımızda hiçbir kişisel veriniz saklanmaz. Verilerinizi silmek için uygulamayı kaldırmanız veya cihaz ayarlarından uygulamanın verilerini temizlemeniz yeterlidir.",
-        "en": "Visual Timer works fully offline and no personal data is stored on our servers. To delete or reset your data, simply uninstall the app or clear the app's storage in your device settings.",
-        "de": "Visual Timer arbeitet offline und speichert keine Daten auf Servern. Zum Löschen deinstallieren Sie die App oder löschen Sie den App-Speicher.",
-        "zh": "Visual Timer 完全离线工作，服务器上不存储任何数据。要删除或重置数据，只需卸载应用或清除应用缓存。",
-        "hi": "विज़ुअल टाइमर ऑफ़लाइन काम करता है और कोई डेटा संग्रहीत नहीं करता है। हटाने के लिए ऐप को अनइंस्टॉल करें या स्टोरेज साफ़ करें।",
-        "es": "Visual Timer funciona fuera de línea y no almacena datos en servidores. Para borrarlos, desinstala la app o borra su almacenamiento.",
-        "fr": "Visual Timer fonctionne hors ligne et ne stocke pas de données. Pour les supprimer, désinstallez l'app ou videz le stockage.",
-        "ar": "يعمل Visual Timer دون اتصال ولا يخزن بيانات على خوادم. لحذفها، ما عليك سوى إلغاء تثبيت التطبيق أو مسح التخزين.",
-        "pt": "O Visual Timer funciona offline e não armazena dados em servidores. Para excluir, desinstale o app ou limpe o armazenamento.",
-        "ru": "Visual Timer работает офлайн и не хранит данные на серверах. Для удаления просто удалите приложение или очистите данные."
+      "label_name": {
+        "tr": "Adınız / Your Name",
+        "en": "Your Name",
+        "de": "Ihr Name",
+        "zh": "您的姓名",
+        "hi": "आपका नाम",
+        "es": "Tu Nombre",
+        "fr": "Votre Nom",
+        "ar": "اسمك",
+        "pt": "Seu Nome",
+        "ru": "Ваше имя"
       },
-      "sec_contact_title": { "tr": "Bize Mesaj Gönder / Contact Us", "en": "Send Us a Message / Contact Us", "de": "Senden Sie uns eine Nachricht / Kontakt", "zh": "给我们留言 / 联系我们", "hi": "हमें संदेश भेजें / संपर्क करें", "es": "Envíenos un Mensaje / Contáctenos", "fr": "Envoyez-nous un Message / Contactez-nous", "ar": "أرسل لنا رسالة / اتصل بنا", "pt": "Envie-nos uma Mensagem / Fale Conosco", "ru": "Напишите нам / Связаться с нами" },
-      "label_name": { "tr": "Adınız / Your Name", "en": "Your Name", "de": "Ihr Name", "zh": "您的姓名", "hi": "आपका नाम", "es": "Su Nombre", "fr": "Votre Nom", "ar": "اسمك", "pt": "Seu Nome", "ru": "Ваше имя" },
-      "placeholder_name": { "tr": "Adınız / Name", "en": "Enter your name", "de": "Geben Sie Ihren Namen ein", "zh": "输入您的姓名", "hi": "अपना नाम दर्ज करें", "es": "Escriba su nombre", "fr": "Entrez votre nom", "ar": "أدخل اسمك", "pt": "Digite seu nome", "ru": "Введите ваше имя" },
-      "label_email": { "tr": "E-posta Adresiniz / Your Email", "en": "Your Email Address", "de": "Ihre E-Mail-Adresse", "zh": "您的电子邮件", "hi": "आपका ईमेल पता", "es": "Su Correo Electrónico", "fr": "Votre Adresse E-mail", "ar": "بريدك الإلكتروني", "pt": "Seu Endereço de E-mail", "ru": "Ваш адрес эл. почты" },
-      "placeholder_email": { "tr": "Örn: oyuncu@gmail.com", "en": "e.g. player@gmail.com", "de": "z.B. spieler@gmail.com", "zh": "例如：player@gmail.com", "hi": "जैसे: player@gmail.com", "es": "Ej: jugador@gmail.com", "fr": "Ex : joueur@gmail.com", "ar": "مثال: player@gmail.com", "pt": "Ex: jogador@gmail.com", "ru": "Например: player@gmail.com" },
-      "label_message": { "tr": "Sorununuz veya Talebiniz / Message", "en": "Your Issue or Request / Message", "de": "Ihr Problem oder Ihre Anfrage / Nachricht", "zh": "您的问题或请求 / 留言", "hi": "आपकी समस्या या अनुरोध / संदेश", "es": "Su Problema o Solicitud / Mensaje", "fr": "Votre Problème ou Demande / Message", "ar": "مشكلتك أو طلبك / الرسالة", "pt": "Seu Problema ou Solicitação / Mensagem", "ru": "Проблема или запрос / Сообщение" },
-      "placeholder_message": { "tr": "Lütfen detaylıca açıklayınız...", "en": "Please explain in detail...", "de": "Bitte erklären Sie im Detail...", "zh": "请详细说明...", "hi": "कृपया विस्तार से बताएं...", "es": "Por favor, explique en detalle...", "fr": "Veuillez expliquer en détail...", "ar": "يرجى التوضيح بالتفصيل...", "pt": "Por favor, explique detalhadamente...", "ru": "Пожалуйста, опишите подробно..." },
-      "btn_submit": { "tr": "Gönder / Send Message", "en": "Send", "de": "Absenden", "zh": "发送", "hi": "भेजें", "es": "Enviar", "fr": "Envoyer", "ar": "إرسال", "pt": "Enviar", "ru": "Отправить" },
-      "footer": { "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.", "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.", "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.", "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。", "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।", "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.", "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.", "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.", "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.", "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены." }
+      "placeholder_name": {
+        "tr": "Adınız / Name",
+        "en": "Your Name",
+        "de": "Ihr Name",
+        "zh": "您的姓名",
+        "hi": "आपका नाम",
+        "es": "Tu Nombre",
+        "fr": "Votre Nom",
+        "ar": "اسمك",
+        "pt": "Seu Nome",
+        "ru": "Ваше имя"
+      },
+      "label_email": {
+        "tr": "E-posta Adresiniz / Your Email",
+        "en": "Your Email Address",
+        "de": "Ihre E-Mail-Adresse",
+        "zh": "您的电子邮件地址",
+        "hi": "आपका ईमेल पता",
+        "es": "Tu Correo Electrónico",
+        "fr": "Votre Adresse E-mail",
+        "ar": "عنوان بريدك الإلكتروني",
+        "pt": "Seu E-mail",
+        "ru": "Ваш E-mail"
+      },
+      "placeholder_email": {
+        "tr": "Örn: gezgin@gmail.com",
+        "en": "e.g. user@gmail.com",
+        "de": "z.B. nutzer@gmail.com",
+        "zh": "例如：user@gmail.com",
+        "hi": "उदा: user@gmail.com",
+        "es": "ej. usuario@gmail.com",
+        "fr": "ex: utilisateur@gmail.com",
+        "ar": "مثال: user@gmail.com",
+        "pt": "ex: usuario@gmail.com",
+        "ru": "напр.: user@gmail.com"
+      },
+      "label_message": {
+        "tr": "Sorununuz veya Talebiniz / Message",
+        "en": "Your Issue or Request / Message",
+        "de": "Ihre Anfrage / Nachricht",
+        "zh": "您的问题或请求 / 留言",
+        "hi": "आपकी समस्या या अनुरोध / संदेश",
+        "es": "Tu Problema o Solicitud / Mensaje",
+        "fr": "Votre Problème ou Demande / Message",
+        "ar": "مشكلتك أو طلبك / الرسالة",
+        "pt": "Seu Problema ou Solicitação / Mensagem",
+        "ru": "Ваша проблема или запрос / Сообщение"
+      },
+      "placeholder_message": {
+        "tr": "Lütfen detaylıca açıklayınız...",
+        "en": "Please describe in detail...",
+        "de": "Bitte beschreiben Sie Ihr Anliegen...",
+        "zh": "请详细说明...",
+        "hi": "कृपया विस्तार से बताएं...",
+        "es": "Por favor describe en detalle...",
+        "fr": "Veuillez décrire en détail...",
+        "ar": "يرجى التوضيح بالتفصيل...",
+        "pt": "Por favor descreva em detalhes...",
+        "ru": "Пожалуйста, опишите подробно..."
+      },
+      "btn_submit": {
+        "tr": "GÖNDER / SEND MESSAGE",
+        "en": "SEND MESSAGE",
+        "de": "NACHRICHT SENDEN",
+        "zh": "发送消息",
+        "hi": "संदेश भेजें",
+        "es": "ENVIAR MENSAJE",
+        "fr": "ENVOYER LE MESSAGE",
+        "ar": "إرسال الرسالة",
+        "pt": "ENVIAR MENSAGEM",
+        "ru": "ОТПРАВИТЬ СООБЩЕНИЕ"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
+        "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.",
+        "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+        "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+        "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+        "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+        "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+        "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+        "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+        "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
     };
   </script>
   <script src="../i18n.js"></script>

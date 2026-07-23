@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Destek & Yardım (Support & Help) – KenKen</title>
+  <title data-i18n="page_title">Destek & Yardım (Support & Help) – KenKen</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
 
     :root {
-      --indigo: #6366F1;
-      --indigo-light: #818CF8;
-      --indigo-alpha: rgba(99, 102, 241, 0.08);
-      --indigo-border: rgba(99, 102, 241, 0.2);
+      --primary: #6366F1;
+      --primary-light: #818CF8;
+      --primary-alpha: rgba(99, 102, 241, 0.08);
+      --primary-border: rgba(99, 102, 241, 0.2);
       --dark: #0F172A;
       --dark2: #1E293B;
       --dark3: #334155;
       --text: #CBD5E1;
       --text-muted: #94A3B8;
-      --border: rgba(99, 102, 241, 0.15);
+      --border: rgba(99, 102, 241, 0.2);
       --transition: all 0.25s ease;
     }
 
@@ -32,19 +32,18 @@
       min-height: 100vh;
     }
 
-    /* Background pattern */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 50% at 50% -10%, var(--primary-alpha) 0%, transparent 70%),
         repeating-linear-gradient(
           45deg,
           transparent,
           transparent 40px,
-          rgba(99, 102, 241, 0.02) 40px,
-          rgba(99, 102, 241, 0.02) 41px
+          rgba(255, 255, 255, 0.015) 40px,
+          rgba(255, 255, 255, 0.015) 41px
         );
       pointer-events: none;
       z-index: 0;
@@ -58,7 +57,6 @@
       z-index: 1;
     }
 
-    /* Header */
     header {
       text-align: center;
       margin-bottom: 64px;
@@ -75,9 +73,9 @@
       height: 72px;
       border-radius: 18px;
       background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-      border: 1px solid rgba(99, 102, 241, 0.3);
+      border: 1px solid var(--primary-border);
       margin-bottom: 24px;
-      box-shadow: 0 0 32px rgba(99, 102, 241, 0.1), inset 0 1px 0 rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 32px var(--primary-alpha), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .logo-wrap svg { width: 40px; height: 40px; }
@@ -86,7 +84,7 @@
       font-family: 'Cinzel', serif;
       font-size: clamp(26px, 5vw, 36px);
       font-weight: 700;
-      color: var(--indigo-light);
+      color: var(--primary-light);
       letter-spacing: 0.04em;
       margin-bottom: 10px;
     }
@@ -99,10 +97,9 @@
       font-weight: 300;
     }
 
-    /* Sections */
     section {
       background-color: var(--dark2);
-      border: 1px solid var(--indigo-border);
+      border: 1px solid var(--primary-border);
       border-radius: 20px;
       padding: 32px;
       margin-bottom: 40px;
@@ -113,7 +110,7 @@
       font-family: 'Cinzel', serif;
       font-size: 16px;
       font-weight: 600;
-      color: var(--indigo-light);
+      color: var(--primary-light);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 24px;
@@ -124,11 +121,6 @@
       gap: 10px;
     }
 
-    p {
-      margin-bottom: 20px;
-    }
-
-    /* Accordion */
     .faq-item {
       border-bottom: 1px solid var(--border);
       padding: 18px 0;
@@ -152,7 +144,7 @@
     }
 
     .faq-question:hover {
-      color: var(--indigo-light);
+      color: var(--primary-light);
     }
 
     .faq-answer {
@@ -166,20 +158,20 @@
     }
 
     .faq-item.active .faq-answer {
-      max-height: 200px;
+      max-height: 300px;
       margin-top: 12px;
     }
 
     .faq-icon {
-      fill: var(--indigo-light);
+      fill: var(--primary-light);
       transition: var(--transition);
+      flex-shrink: 0;
     }
 
     .faq-item.active .faq-icon {
       transform: rotate(180deg);
     }
 
-    /* Form Fields */
     .form-group {
       margin-bottom: 20px;
     }
@@ -196,7 +188,7 @@
     .form-control {
       width: 100%;
       background-color: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--indigo-border);
+      border: 1px solid var(--primary-border);
       border-radius: 10px;
       padding: 12px 16px;
       color: #fff;
@@ -207,8 +199,8 @@
 
     .form-control:focus {
       outline: none;
-      border-color: var(--indigo-light);
-      box-shadow: 0 0 10px var(--indigo-alpha);
+      border-color: var(--primary-light);
+      box-shadow: 0 0 10px var(--primary-alpha);
     }
 
     textarea.form-control {
@@ -217,7 +209,7 @@
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -236,16 +228,16 @@
     }
 
     .btn-submit:hover {
-      background: #818cf8;
+      filter: brightness(1.1);
       transform: translateY(-1px);
-      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 4px 15px var(--primary-alpha);
     }
 
     .back-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--indigo-light);
+      color: var(--primary-light);
       font-family: 'Cinzel', serif;
       font-size: 14px;
       letter-spacing: 0.08em;
@@ -256,7 +248,7 @@
     }
 
     .back-btn:hover {
-      color: var(--white);
+      color: #fff;
       transform: translateX(-4px);
     }
 
@@ -281,16 +273,20 @@
             <rect x="3" y="3" width="18" height="18" rx="3" stroke="#6366F1" stroke-width="2"/>
             <line x1="12" y1="3" x2="12" y2="21" stroke="#6366F1" stroke-width="1.5"/>
             <line x1="3" y1="12" x2="21" y2="12" stroke="#6366F1" stroke-width="1.5"/>
+            <text x="6.5" y="9.5" fill="#6366F1" font-family="'Outfit', sans-serif" font-size="6" font-weight="bold">+</text>
+            <text x="15" y="9.5" fill="#6366F1" font-family="'Outfit', sans-serif" font-size="6" font-weight="bold">×</text>
+            <text x="6.5" y="18" fill="#6366F1" font-family="'Outfit', sans-serif" font-size="6" font-weight="bold">÷</text>
+            <text x="15.5" y="17.5" fill="#6366F1" font-family="'Outfit', sans-serif" font-size="6" font-weight="bold">-</text>
         </svg>
       </div>
       <h1 data-i18n="h1">Destek & Yardım</h1>
-      <div class="subtitle" data-i18n="subtitle">Support & FAQ – KenKen</div>
+      <div class="subtitle" data-i18n="subtitle">SUPPORT & FAQ – KENKEN</div>
     </header>
 
     <main>
       <!-- FAQ Section -->
       <section>
-        <h2 data-i18n="sec_faq_title">Sıkça Sorulan Sorular / FAQ</h2>
+        <h2 data-i18n="sec_faq_title">SIKÇA SORULAN SORULAR / FAQ</h2>
         <div class="faq-accordion">
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
@@ -298,7 +294,7 @@
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a1">
-              KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2 - veya ÷ 2 cage hedefini sağlar).
+              KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).
             </div>
           </div>
 
@@ -308,7 +304,7 @@
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a2">
-              Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Eğer tıkandıysanız, ipucu (Hint) özelliğini kullanarak pedagojik açıklamayı okuyabilir veya silip tekrar deneyebilirsiniz.
+              Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.
             </div>
           </div>
 
@@ -318,7 +314,7 @@
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a3">
-              Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz. Doğru sayıyı bulduğunuzda kalem ikonuna tekrar basıp kesin sayıyı girebilirsiniz.
+              Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.
             </div>
           </div>
         </div>
@@ -326,7 +322,7 @@
 
       <!-- Contact Section -->
       <section>
-        <h2 data-i18n="sec_contact_title">Destek Talebi Gönder / Contact Us</h2>
+        <h2 data-i18n="sec_contact_title">DESTEK TALEBİ GÖNDER / CONTACT US</h2>
         <form onsubmit="handleFormSubmit(event)">
           <div class="form-group">
             <label for="name" data-i18n="label_name">Adınız / Your Name</label>
@@ -345,7 +341,7 @@
           
           <button type="submit" class="btn-submit">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            <span data-i18n="btn_submit">Gönder / Send Message</span>
+            <span data-i18n="btn_submit">GÖNDER / SEND MESSAGE</span>
           </button>
         </form>
       </section>
@@ -376,7 +372,7 @@
       const subject = encodeURIComponent(`KenKen Destek - ${name}`);
       const body = encodeURIComponent(`Adı: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
       
-      window.location.href = `mailto:exaque2@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:erdinctopal.et@gmail.com?subject=${subject}&body=${body}`;
     }
 
     window.PAGE_TRANSLATIONS = {
@@ -388,9 +384,9 @@
         "hi": "सहायता और मदद – KenKen",
         "es": "Soporte y Ayuda – KenKen",
         "fr": "Support & Aide – KenKen",
-        "ar": "الدعم والمساعدة – كين كين",
+        "ar": "الدعم والمساعدة – KenKen",
         "pt": "Suporte & Ajuda – KenKen",
-        "ru": "Поддержка и помощь – КенКен"
+        "ru": "Поддержка и помощь – KenKen"
       },
       "back_btn": {
         "tr": "← Oyuna Dön / Back to Game",
@@ -402,7 +398,7 @@
         "fr": "← Retour au Jeu",
         "ar": "← العودة إلى اللعبة",
         "pt": "← Voltar ao Jogo",
-        "ru": "← Вернуться к игре"
+        "ru": "← Назад к игре"
       },
       "h1": {
         "tr": "Destek & Yardım",
@@ -417,112 +413,112 @@
         "ru": "Поддержка и помощь"
       },
       "subtitle": {
-        "tr": "Support & FAQ – KenKen",
-        "en": "Support & FAQ – KenKen",
-        "de": "Support & FAQ – KenKen",
-        "zh": "支持与常见问题解答 – KenKen",
-        "hi": "सहायता और सामान्य प्रश्न – KenKen",
-        "es": "Soporte y Preguntas Frecuentes – KenKen",
-        "fr": "Support & FAQ – KenKen",
-        "ar": "الدعم والأسئلة الشائعة – كين كين",
-        "pt": "Suporte & FAQ – KenKen",
-        "ru": "Поддержка и ответы на вопросы – КенКен"
+        "tr": "SUPPORT & FAQ – KENKEN",
+        "en": "SUPPORT & FAQ – KENKEN",
+        "de": "SUPPORT & FAQ – KENKEN",
+        "zh": "SUPPORT & FAQ – KENKEN",
+        "hi": "SUPPORT & FAQ – KENKEN",
+        "es": "SUPPORT & FAQ – KENKEN",
+        "fr": "SUPPORT & FAQ – KENKEN",
+        "ar": "SUPPORT & FAQ – KENKEN",
+        "pt": "SUPPORT & FAQ – KENKEN",
+        "ru": "SUPPORT & FAQ – KENKEN"
       },
       "sec_faq_title": {
-        "tr": "Sıkça Sorulan Sorular / FAQ",
-        "en": "Frequently Asked Questions / FAQ",
-        "de": "Häufig gestellte Fragen / FAQ",
+        "tr": "SIKÇA SORULAN SORULAR / FAQ",
+        "en": "FREQUENTLY ASKED QUESTIONS / FAQ",
+        "de": "HÄUFIG GESTELLTE FRAGEN / FAQ",
         "zh": "常见问题解答 / FAQ",
         "hi": "अक्सर पूछे जाने वाले प्रश्न / FAQ",
-        "es": "Preguntas Frecuentes / FAQ",
-        "fr": "Foire Aux Questions / FAQ",
+        "es": "PREGUNTAS FRECUENTES / FAQ",
+        "fr": "FOIRE AUX QUESTIONS / FAQ",
         "ar": "الأسئلة الشائعة / FAQ",
-        "pt": "Perguntas Frequentes / FAQ",
-        "ru": "Часто задаваемые вопросы / FAQ"
+        "pt": "PERGUNTAS FREQUENTES / FAQ",
+        "ru": "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ / FAQ"
       },
       "faq_q1": {
         "tr": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
-        "en": "Why do the numbers and cage targets sometimes not match?",
-        "de": "Warum stimmen die Zahlen und die Käfig-Ziele manchmal nicht überein?",
-        "zh": "为什么数字和笼子的目标有时不一致？",
-        "hi": "संख्याएँ और पिंजरे के लक्ष्य कभी-कभी मेल क्यों नहीं खाते?",
-        "es": "¿Por qué las cifras y los objetivos de las jaulas a veces no coinciden?",
-        "fr": "Pourquoi les nombres et les objectifs des grilles ne correspondent-ils pas parfois ?",
-        "ar": "لماذا لا تتطابق الأرقام وأهداف الخلايا أحياناً؟",
-        "pt": "Por que os números e os objetivos das gaiolas às vezes não coincidem?",
-        "ru": "Почему числа и целевые значения блоков иногда не совпадают?"
+        "en": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "de": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "zh": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "hi": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "es": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "fr": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "ar": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "pt": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?",
+        "ru": "Sayılar ve kafes hedefleri neden bazen birbirini tutmuyor?"
       },
       "faq_a1": {
-        "tr": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2 - veya ÷ 2 cage hedefini sağlar).",
-        "en": "In KenKen, mathematical operations of addition (+), subtraction (-), multiplication (x), and division (÷) must be carefully calculated. Subtraction and division cages are strictly limited to 2 cells and calculated as absolute values regardless of their placement order (e.g., placing 3 and 5 gives 5 - 3 = 2, which satisfies a 2- or 2÷ target).",
-        "de": "Bei KenKen müssen Addition (+), Subtraktion (-), Multiplikation (x) und Division (÷) sorgfältig berechnet werden. Subtraktions- und Divisionskäfige bestehen immer aus 2 Zellen und werden unabhängig von der Reihenfolge als Absolutwert berechnet (z.B. ergibt 3 und 5 den Wert 5 - 3 = 2, was ein Ziel von 2- oder 2÷ erfüllt).",
-        "zh": "在KenKen中，必须仔细计算加 (+)、减 (-)、乘 (x) 和除 (÷) 等数学运算。减法和除法笼严格限制在 2 个单元格内，并且无论其放置顺序如何，都按绝对值计算（例如，放入 3 和 5 将得到 5 - 3 = 2，满足 2- 或 2÷ 的目标）。",
-        "hi": "KenKen में, जोड़ (+), घटाव (-), गुणा (x), और भाग (÷) के गणितीय संचालन की सावधानीपूर्वक गणना की जानी चाहिए। घटाव और भाग वाले पिंजरे कड़े रूप से 2 कोशिकाओं तक सीमित होते हैं और उनके रखने के क्रम के बावजूद पूर्ण मान के रूप में गिने जाते हैं (जैसे, 3 और 5 रखने पर 5 - 3 = 2 आता है, जो 2- या 2÷ लक्ष्य को पूरा करता है)।",
-        "es": "En KenKen, las operaciones matemáticas de suma (+), resta (-), multiplicación (x) y división (÷) deben calcularse cuidadosamente. Las jaulas de resta y división están estrictamente limitadas a 2 celdas y se calculan como valores absolutos independientemente del orden de colocación (p. ej., colocar 3 y 5 da 5 - 3 = 2, lo que cumple el objetivo de 2- o 2÷).",
-        "fr": "Dans KenKen, les opérations d'addition (+), de soustraction (-), de multiplication (x) et de division (÷) doivent être calculées avec précision. Les cases de soustraction et de division sont strictement limitées à 2 cellules et calculées en valeurs absolues quel que soit l'ordre (par ex., placer 3 et 5 donne 5 - 3 = 2, ce qui remplit un objectif de 2- ou 2÷).",
-        "ar": "في كين كين، يجب حساب العمليات الرياضية مثل الجمع (+)، الطرح (-)، الضرب (x)، والقسمة (÷) بعناية. تقتصر خلايا الطرح والقسمة على خليتين فقط ويتم حساب القيمة المطلقة بغض النظر عن ترتيب الإدخال (على سبيل المثال: إدخال 3 و 5 يعطي 5 - 3 = 2، مما يحقق الهدف 2- أو 2÷).",
-        "pt": "No KenKen, as operações matemáticas de soma (+), subtração (-), multiplicação (x) e divisão (÷) devem ser cuidadosamente calculadas. As gaiolas de subtração e divisão são estritamente limitadas a 2 células e calculadas como valores absolutos, independentemente da ordem (por exemplo, colocar 3 e 5 resulta em 5 - 3 = 2, atendendo a um objetivo de 2- ou 2÷).",
-        "ru": "В КенКен математические операции сложения (+), вычитания (-), умножения (x) и деления (÷) должны тщательно рассчитываться. Блоки вычитания и деления строго ограничены 2 клетками и рассчитываются по абсолютному значению независимо от порядка размещения (например, размещение 3 и 5 дает 5 - 3 = 2, что соответствует цели 2- или 2÷)."
+        "tr": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "en": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "de": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "zh": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "hi": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "es": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "fr": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "ar": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "pt": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar).",
+        "ru": "KenKen'de toplama (+), çıkarma (-), çarpma (x) ve bölme (÷) kurallarına dikkat edilmelidir. Çıkarma ve bölme işlemi içeren kutular her zaman tam olarak 2 hücreden oluşur ve yerleşim yönüne bakılmaksızın mutlak değer olarak hesaplanır (Örn: 3 ve 5 yerleştirildiğinde 5 - 3 = 2 olur, 2- veya ÷2 cage hedefini sağlar)."
       },
       "faq_q2": {
         "tr": "Bulmacaların birden fazla çözümü var mı?",
-        "en": "Do the puzzles have more than one solution?",
-        "de": "Gibt es für die Rätsel mehr als eine Lösung?",
-        "zh": "谜题是否有不止一种解法？",
-        "hi": "क्या पहेलियों के एक से अधिक समाधान हैं?",
-        "es": "¿Tienen los rompecabezas más de una solución?",
-        "fr": "Les énigmes ont-elles plus d'une solution ?",
-        "ar": "هل هناك أكثر من حل للألغاز؟",
-        "pt": "Os quebra-cabeças têm mais de uma solução?",
-        "ru": "Есть ли у головоломок более одного решения?"
+        "en": "Bulmacaların birden fazla çözümü var mı?",
+        "de": "Bulmacaların birden fazla çözümü var mı?",
+        "zh": "Bulmacaların birden fazla çözümü var mı?",
+        "hi": "Bulmacaların birden fazla çözümü var mı?",
+        "es": "Bulmacaların birden fazla çözümü var mı?",
+        "fr": "Bulmacaların birden fazla çözümü var mı?",
+        "ar": "Bulmacaların birden fazla çözümü var mı?",
+        "pt": "Bulmacaların birden fazla çözümü var mı?",
+        "ru": "Bulmacaların birden fazla çözümü var mı?"
       },
       "faq_a2": {
-        "tr": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Eğer tıkandıysanız, ipucu (Hint) özelliğini kullanarak pedagojik açıklamayı okuyabilir veya silip tekrar deneyebilirsiniz.",
-        "en": "No. The solver algorithm running in our application's background guarantees that every generated puzzle has strictly a single and unique correct solution. If you are stuck, you can get a logical hint via the Hint button or erase and try again.",
-        "de": "Nein. Der Lösungsalgorithmus im Hintergrund unserer Anwendung garantiert, dass jedes erzeugte Rätsel absolut nur eine einzige und eindeutige richtige Lösung hat. Wenn Sie feststecken, können Sie über die Hint-Schaltfläche einen logischen Hinweis erhalten oder löschen und es erneut versuchen.",
-        "zh": "没有。我们应用程序后台运行的求解器算法保证每个生成的谜题都严格只有唯一正确的解法。如果您卡住了，可以通过提示按钮获得逻辑提示，或者清除后重新尝试。",
-        "hi": "नहीं। हमारे एप्लिकेशन के बैकग्राउंड में चलने वाला सॉल्वर एल्गोरिदम यह गारंटी देता है कि हर उत्पन्न पहेली का केवल एक और अनूठा सही समाधान है। यदि आप अटक जाते हैं, तो आप संकेत बटन के माध्यम से एक तार्किक संकेत प्राप्त कर सकते हैं या मिटाकर पुनः प्रयास कर सकते हैं।",
-        "es": "No. El algoritmo de resolución que se ejecuta en segundo plano garantiza que cada rompecabezas generado tenga estrictamente una solución única y correcta. Si se queda atascado, puede obtener una pista lógica a través del botón Pista o borrar e intentarlo de nuevo.",
-        "fr": "Non. L'algorithme de résolution exécuté en arrière-plan garantit que chaque grille générée possède strictement une solution unique et correcte. Si vous êtes bloqué, vous pouvez obtenir un indice logique via le bouton Indice ou effacer et réessayer.",
-        "ar": "لا. تضمن خوارزمية الحل التي تعمل في خلفية تطبيقنا أن كل لغز يتم إنشاؤه له حل صحيح واحد فريد تماماً. إذا كنت عالقاً، يمكنك الحصول على تلميح منطقي عبر زر التلميح أو المسح والمحاولة مرة أخرى.",
-        "pt": "Não. O algoritmo de resolução executado em segundo plano garante que cada quebra-cabeça gerado tenha estritamente uma única e correta solução. Se estiver travado, você pode obter uma dica lógica por meio do botão Dica ou apagar e tentar novamente.",
-        "ru": "Нет. Алгоритм решения, работающий в фоновом режиме нашего приложения, гарантирует, что каждая созданная головоломка имеет строго одно уникальное правильное решение. Если вы застряли, вы можете получить логическую подсказку с помощью кнопки «Подсказка» или стереть и попробовать еще раз."
+        "tr": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "en": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "de": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "zh": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "hi": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "es": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "fr": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "ar": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "pt": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz.",
+        "ru": "Hayır. Uygulamamızın arka planında çalışan çözücü (solver) algoritması, üretilen her bulmacanın kesinlikle tek ve benzersiz bir doğru çözümü olduğunu garanti eder. Tıkandığınızda ipucu özelliğini kullanabilirsiniz."
       },
       "faq_q3": {
         "tr": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
-        "en": "What does the Pencil Marks (Notes) feature do and how to use it?",
-        "de": "Was bewirkt die Notiz-Funktion (Pencil Marks) und wie wird sie verwendet?",
-        "zh": "铅笔标记（备注）功能有什么用，该如何使用？",
-        "hi": "पेंसिल मार्क्स (नोट्स) सुविधा क्या करती है और इसका उपयोग कैसे करें?",
-        "es": "¿Qué hace la función Anotación a lápiz y cómo se usa?",
-        "fr": "À quoi sert la fonction de note au crayon et comment l'utiliser ?",
-        "ar": "ما هي وظيفة ميزة ملاحظات القلم وكيفية استخدامها؟",
-        "pt": "O que faz o recurso de anotações a lápis e como usá-lo?",
-        "ru": "Что делает функция карандашных пометок (заметок) и как ее использовать?"
+        "en": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "de": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "zh": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "hi": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "es": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "fr": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "ar": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "pt": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?",
+        "ru": "Kalem Modu (Notlar) özelliği ne işe yarar ve nasıl kullanılır?"
       },
       "faq_a3": {
-        "tr": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz. Doğru sayıyı bulduğunuzda kalem ikonuna tekrar basıp kesin sayıyı girebilirsiniz.",
-        "en": "By tapping the pencil icon in the virtual numpad, you can activate 'Note Mode'. In this mode, you can write possible candidate numbers as small notes inside the cell to do logical elimination. Once you are sure, tap the pencil icon again to input the final answer.",
-        "de": "Durch Tippen auf das Stiftsymbol auf der virtuellen Tastatur können Sie den 'Notizmodus' aktivieren. In diesem Modus können Sie mögliche Kandidatenzahlen als kleine Notizen in die Zelle schreiben, um logische Ausschlussverfahren durchzuführen. Wenn Sie sicher sind, tippen Sie erneut auf das Stiftsymbol, um die endgültige Antwort einzugeben.",
-        "zh": "通过点击虚拟键盘上的铅笔图标，您可以激活“草稿模式”。在此模式下，您可以在单元格内将可能的候选数字写为小备注，以便进行逻辑排除。一旦确定，再次点击铅笔图标输入最终答案。",
-        "hi": "वर्चुअल नम्पैड में पेंसिल आइकन को टैप करके, आप 'नोट मोड' को सक्रिय कर सकते हैं। इस मोड में, आप तार्किक निष्कासन करने के लिए सेल के अंदर छोटे नोट के रूप में संभावित उम्मीदवार नंबर लिख सकते हैं। एक बार जब आप सुनिश्चित हो जाएं, तो अंतिम उत्तर दर्ज करने के लिए फिर से पेंसिल आइकन टैप करें।",
-        "es": "Al tocar el ícono de lápiz en el teclado virtual, puede activar el 'Modo de notas'. En este modo, puede escribir números candidatos posibles como pequeñas notas dentro de la celda para realizar una eliminación lógica. Una vez seguro, toque el ícono de lápiz nuevamente para ingresar la respuesta final.",
-        "fr": "En appuyant sur l'icône de crayon du pavé numérique virtuel, vous pouvez activer le 'Mode Note'. Dans ce mode, vous pouvez écrire des chiffres candidats possibles sous forme de petites notes dans la cellule pour procéder par élimination logique. Une fois sûr, appuyez à nouveau sur l'icône de crayon pour saisir la réponse finale.",
-        "ar": "عبر النقر فوق رمز القلم في لوحة المفاتيح الرقمية الافتراضية، يمكنك تنشيط 'وضع الملاحظات'. في هذا الوضع، يمكنك كتابة الأرقام المرشحة المحتملة كملاحظات صغيرة داخل الخلية لإجراء استبعاد منطقي. بمجرد التأكد، انقر فوق رمز القلم مرة أخرى لإدخال الإجابة النهائية.",
-        "pt": "Ao tocar no ícone de lápis no teclado numérico virtual, você pode ativar o 'Modo de Notas'. Nesse modo, você pode escrever possíveis números candidatos como pequenas notas dentro da célula para fazer a eliminação lógica. Quando tiver certeza, toque no ícone de lápis novamente para inserir a resposta final.",
-        "ru": "Нажав на значок карандаша на цифровой клавиатуре, вы можете активировать «Режим заметок». В этом режиме вы можете записывать возможные варианты чисел в виде маленьких пометок внутри клетки для логического исключения. Как только вы определитесь, снова нажмите на значок карандаша, чтобы ввести окончательный ответ."
+        "tr": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "en": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "de": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "zh": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "hi": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "es": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "fr": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "ar": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "pt": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz.",
+        "ru": "Tuş takımındaki kalem ikonuna tıklayarak 'Not Modu'nu aktif hale getirebilirsiniz. Bu modda hücrelere olası alternatif sayıları küçük notlar olarak yazabilir ve mantıksal eleme yapabilirsiniz."
       },
       "sec_contact_title": {
-        "tr": "Destek Talebi Gönder / Contact Us",
-        "en": "Send Support Ticket / Contact Us",
-        "de": "Support-Anfrage senden / Kontaktieren Sie uns",
-        "zh": "发送支持请求 / 联系我们",
-        "hi": "सहायता अनुरोध भेजें / हमसे संपर्क करें",
-        "es": "Enviar Solicitud de Soporte / Contáctenos",
-        "fr": "Envoyer un Ticket de Support / Contactez-nous",
-        "ar": "إرسال تذكرة دعم / اتصل بنا",
-        "pt": "Enviar Solicitação de Suporte / Fale Conosco",
-        "ru": "Отправить запрос в техподдержку / Связаться с нами"
+        "tr": "DESTEK TALEBİ GÖNDER / CONTACT US",
+        "en": "SEND SUPPORT REQUEST / CONTACT US",
+        "de": "SUPPORT-ANFRAGE SENDEN / CONTACT US",
+        "zh": "发送支持请求 / CONTACT US",
+        "hi": "सहायता अनुरोध भेजें / CONTACT US",
+        "es": "ENVIAR SOLICITUD DE SOPORTE / CONTACT US",
+        "fr": "ENVOYER UNE DEMANDE DE SUPPORT / CONTACT US",
+        "ar": "إرسال طلب دعم / CONTACT US",
+        "pt": "ENVIAR SOLICITAÇÃO DE SUPORTE / CONTACT US",
+        "ru": "ОТПРАВИТЬ ЗАПРОС В ПОДДЕРЖКУ / CONTACT US"
       },
       "label_name": {
         "tr": "Adınız / Your Name",
@@ -530,83 +526,83 @@
         "de": "Ihr Name",
         "zh": "您的姓名",
         "hi": "आपका नाम",
-        "es": "Su Nombre",
+        "es": "Tu Nombre",
         "fr": "Votre Nom",
-        "ar": "الاسم الكامل",
+        "ar": "اسمك",
         "pt": "Seu Nome",
         "ru": "Ваше имя"
       },
       "placeholder_name": {
         "tr": "Adınız / Name",
-        "en": "Enter your name",
-        "de": "Geben Sie Ihren Namen ein",
-        "zh": "输入您的姓名",
-        "hi": "अपना नाम दर्ज करें",
-        "es": "Escriba su nombre",
-        "fr": "Entrez votre nom",
-        "ar": "أدخل اسمك الكامل",
-        "pt": "Digite seu nome",
-        "ru": "Введите ваше имя"
+        "en": "Your Name",
+        "de": "Ihr Name",
+        "zh": "您的姓名",
+        "hi": "आपका नाम",
+        "es": "Tu Nombre",
+        "fr": "Votre Nom",
+        "ar": "اسمك",
+        "pt": "Seu Nome",
+        "ru": "Ваше имя"
       },
       "label_email": {
         "tr": "E-posta Adresiniz / Your Email",
         "en": "Your Email Address",
         "de": "Ihre E-Mail-Adresse",
-        "zh": "您的电子邮件",
+        "zh": "您的电子邮件地址",
         "hi": "आपका ईमेल पता",
-        "es": "Su Correo Electrónico",
+        "es": "Tu Correo Electrónico",
         "fr": "Votre Adresse E-mail",
-        "ar": "البريد الإلكتروني الخاص بك",
-        "pt": "Seu Endereço de E-mail",
-        "ru": "Ваш адрес электронной почты"
+        "ar": "عنوان بريدك الإلكتروني",
+        "pt": "Seu E-mail",
+        "ru": "Ваш E-mail"
       },
       "placeholder_email": {
         "tr": "Örn: gezgin@gmail.com",
-        "en": "e.g. explorer@gmail.com",
-        "de": "z.B. entdecker@gmail.com",
-        "zh": "例如：explorer@gmail.com",
-        "hi": "जैसे: explorer@gmail.com",
-        "es": "Ej: explorador@gmail.com",
-        "fr": "Ex : explorateur@gmail.com",
-        "ar": "مثال: explorer@gmail.com",
-        "pt": "Ex: explorador@gmail.com",
-        "ru": "Например: explorer@gmail.com"
+        "en": "e.g. user@gmail.com",
+        "de": "z.B. nutzer@gmail.com",
+        "zh": "例如：user@gmail.com",
+        "hi": "उदा: user@gmail.com",
+        "es": "ej. usuario@gmail.com",
+        "fr": "ex: utilisateur@gmail.com",
+        "ar": "مثال: user@gmail.com",
+        "pt": "ex: usuario@gmail.com",
+        "ru": "напр.: user@gmail.com"
       },
       "label_message": {
         "tr": "Sorununuz veya Talebiniz / Message",
         "en": "Your Issue or Request / Message",
-        "de": "Ihr Problem oder Ihre Anfrage / Nachricht",
+        "de": "Ihre Anfrage / Nachricht",
         "zh": "您的问题或请求 / 留言",
         "hi": "आपकी समस्या या अनुरोध / संदेश",
-        "es": "Su Problema o Solicitud / Mensaje",
+        "es": "Tu Problema o Solicitud / Mensaje",
         "fr": "Votre Problème ou Demande / Message",
-        "ar": "المشكلة أو الطلب الخاص بك / نص الرسالة",
+        "ar": "مشكلتك أو طلبك / الرسالة",
         "pt": "Seu Problema ou Solicitação / Mensagem",
         "ru": "Ваша проблема или запрос / Сообщение"
       },
       "placeholder_message": {
         "tr": "Lütfen detaylıca açıklayınız...",
-        "en": "Please explain in detail...",
-        "de": "Bitte erklären Sie im Detail...",
+        "en": "Please describe in detail...",
+        "de": "Bitte beschreiben Sie Ihr Anliegen...",
         "zh": "请详细说明...",
         "hi": "कृपया विस्तार से बताएं...",
-        "es": "Por favor, explique en detalle...",
-        "fr": "Veuillez expliquer en détail...",
+        "es": "Por favor describe en detalle...",
+        "fr": "Veuillez décrire en détail...",
         "ar": "يرجى التوضيح بالتفصيل...",
-        "pt": "Por favor, explique detalhadamente...",
+        "pt": "Por favor descreva em detalhes...",
         "ru": "Пожалуйста, опишите подробно..."
       },
       "btn_submit": {
-        "tr": "Gönder",
-        "en": "Send Message",
-        "de": "Absenden",
-        "zh": "发送",
-        "hi": "भेजें",
-        "es": "Enviar",
-        "fr": "Envoyer",
-        "ar": "إرسال",
-        "pt": "Enviar",
-        "ru": "Отправить"
+        "tr": "GÖNDER / SEND MESSAGE",
+        "en": "SEND MESSAGE",
+        "de": "NACHRICHT SENDEN",
+        "zh": "发送消息",
+        "hi": "संदेश भेजें",
+        "es": "ENVIAR MENSAJE",
+        "fr": "ENVOYER LE MESSAGE",
+        "ar": "إرسال الرسالة",
+        "pt": "ENVIAR MENSAGEM",
+        "ru": "ОТПРАВИТЬ СООБЩЕНИЕ"
       },
       "footer": {
         "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
@@ -622,5 +618,6 @@
       }
     };
   </script>
+  <script src="../i18n.js"></script>
 </body>
 </html>
