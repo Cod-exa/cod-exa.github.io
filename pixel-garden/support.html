@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="doc_title">Destek & İletişim – Pixel Garden</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --em: #10B981;
+      --em-light: #34D399;
+      --dark: #0F172A;
+      --dark2: #1E293B;
+      --text: #CBD5E1;
+      --text-muted: #94A3B8;
+      --border: rgba(16, 185, 129, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16, 185, 129, 0.12) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(16, 185, 129, 0.02) 40px, rgba(16, 185, 129, 0.02) 41px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 60px 28px 100px; position: relative; z-index: 1; }
+
+    header { text-align: center; margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+
+    .logo-wrap {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px; border-radius: 18px;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .logo-wrap svg { width: 40px; height: 40px; }
+
+    h1 { font-family: 'Cinzel', serif; font-size: clamp(26px, 5vw, 36px); font-weight: 700; color: var(--em-light); letter-spacing: 0.04em; margin-bottom: 10px; }
+    .subtitle { font-size: 14px; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300; }
+
+    section { margin-bottom: 52px; }
+    h2 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--em-light); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    
+    .faq-item {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-weight: 600;
+      color: #f8fafc;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .faq-answer {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .contact-card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .contact-card p { margin-bottom: 16px; }
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: #10B981;
+      color: #0F172A;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-contact:hover {
+      background: #34D399;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--em-light); font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-bottom: 40px; transition: all 0.2s ease; }
+    .back-btn:hover { color: #fff; transform: translateX(-4px); }
+
+    footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn" data-i18n="back_btn">← Oyuna Dön / Back to Game</a>
+
+    <header>
+      <div class="logo-wrap">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="3" stroke="#10B981" stroke-width="1.5" />
+          <line x1="3" y1="9" x2="21" y2="9" stroke="#10B981" stroke-width="0.8" opacity="0.4" />
+          <line x1="3" y1="15" x2="21" y2="15" stroke="#10B981" stroke-width="0.8" opacity="0.4" />
+          <line x1="9" y1="3" x2="9" y2="21" stroke="#10B981" stroke-width="0.8" opacity="0.4" />
+          <line x1="15" y1="3" x2="15" y2="21" stroke="#10B981" stroke-width="0.8" opacity="0.4" />
+          <rect x="9.5" y="15.5" width="5" height="5" fill="#10B981" rx="0.5" opacity="0.8" />
+          <path d="M12 15.5V10.5" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" />
+          <path d="M12 13C10.5 12 9.5 12.5 9.5 13.5C11 13.5 12 13 12 13Z" fill="#34D399" />
+          <circle cx="12" cy="8.5" r="2.5" fill="#F59E0B" />
+          <circle cx="12" cy="8.5" r="1" fill="#FEF08A" />
+        </svg>
+      </div>
+      <h1 data-i18n="h1">Destek & İletişim</h1>
+      <div class="subtitle" data-i18n="subtitle">Support & Help – Pixel Garden</div>
+    </header>
+
+    <section>
+      <h2 data-i18n="sec_faq_title">Sıkça Sorulan Sorular (FAQ)</h2>
+
+      <div class="faq-item">
+        <div class="faq-question" data-i18n="faq_q1">Pixel Garden nasıl oynanır?</div>
+        <div class="faq-answer" data-i18n="faq_a1">Tohum bloklarını toprak ızgarasına yerleştirerek satırları veya sütunları doldurun. Tamamlanan her çizgi çiçek açar ve toprağı yeni bloklar için temizler. 20 aşamalı Bahçe Yolu'nda görevleri tamamlayarak bahçenizi büyütün!</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" data-i18n="faq_q2">Bahçe ilerlemem ve verilerim kaybolur mu?</div>
+        <div class="faq-answer" data-i18n="faq_a2">Pixel Garden hesap gerektirmez; bahçenizin seviyesi, rekor puanınız, keşfedilen nadir çiçekler ve rozetleriniz cihazınızda yerel olarak saklanır. Uygulamayı kaldırırsanız veya Ayarlar > Gizlilik > Tüm Verileri Sil adımlarını izlerseniz veriler temizlenir.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" data-i18n="faq_q3">"Bahçemi Koru" satın alımı ne işe yarar?</div>
+        <div class="faq-answer" data-i18n="faq_a3">"Bahçemi Koru" veya reklamsız sürüm satın alımı, Google Play Billing üzerinden işlenen tek seferlik bir satın almadır. Reklamları kaldırır ve gelişiminize odaklanmanızı sağlar. Uygulama içi "Satın Alımları Geri Yükle" butonuyla yeni cihazınıza aktarabilirsiniz.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" data-i18n="faq_q4">Verilerimi ve hesabımı nasıl silebilirim?</div>
+        <div class="faq-answer" data-i18n="faq_a4">Pixel Garden hesap açma gerektirmediği için sunucularımızda hiçbir kişisel bilginiz tutulmaz. Tüm yerel verilerinizi silmek için oyun içinden Ayarlar > Gizlilik > Tüm Verileri Sil adımlarını uygulamanız veya uygulamayı cihazınızdan kaldırmanız yeterlidir.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="sec_contact_title">Doğrudan İletişim</h2>
+      <div class="contact-card">
+        <p data-i18n="contact_desc">Sorularınız, hata bildirimleriniz veya önerileriniz için doğrudan geliştirici ile iletişime geçebilirsiniz.</p>
+        <a href="mailto:erdinctopal.et@gmail.com" class="btn-contact" data-i18n="btn_email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          erdinctopal.et@gmail.com
+        </a>
+      </div>
+    </section>
+
+    <footer data-i18n="footer">&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.</footer>
+  </div>
+
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      "doc_title": {
+        "tr": "Destek & İletişim – Pixel Garden",
+        "en": "Support & Help – Pixel Garden",
+        "de": "Support & Hilfe – Pixel Garden",
+        "zh": "支持与帮助 – Pixel Garden",
+        "hi": "सहायता और मदद – Pixel Garden",
+        "es": "Soporte y Ayuda – Pixel Garden",
+        "fr": "Support & Aide – Pixel Garden",
+        "ar": "الدعم والمساعدة – Pixel Garden",
+        "pt": "Suporte & Ajuda – Pixel Garden",
+        "ru": "Поддержка и помощь – Pixel Garden"
+      },
+      "back_btn": {
+        "tr": "← Oyuna Dön / Back to Game",
+        "en": "← Back to Game",
+        "de": "← Zurück zum Spiel",
+        "zh": "← 返回游戏",
+        "hi": "← खेल पर वापस जाएं",
+        "es": "← Volver al Juego",
+        "fr": "← Retour au Jeu",
+        "ar": "← العودة إلى اللعبة",
+        "pt": "← Voltar ao Jogo",
+        "ru": "← Назад к игре"
+      },
+      "h1": {
+        "tr": "Destek & İletişim",
+        "en": "Support & Contact",
+        "de": "Support & Kontakt",
+        "zh": "支持与联系",
+        "hi": "सहायता और संपर्क",
+        "es": "Soporte y Contacto",
+        "fr": "Support & Contact",
+        "ar": "الدعم والتواصل",
+        "pt": "Suporte & Contato",
+        "ru": "Поддержка и контакты"
+      },
+      "subtitle": {
+        "tr": "Support & Help – Pixel Garden",
+        "en": "Support & Help – Pixel Garden",
+        "de": "Support & Hilfe – Pixel Garden",
+        "zh": "支持与帮助 – Pixel Garden",
+        "hi": "सहायता और मदद – Pixel Garden",
+        "es": "Soporte y Ayuda – Pixel Garden",
+        "fr": "Support & Aide – Pixel Garden",
+        "ar": "الدعم والمساعدة – Pixel Garden",
+        "pt": "Suporte & Ajuda – Pixel Garden",
+        "ru": "Поддержка и помощь – Pixel Garden"
+      },
+      "sec_faq_title": {
+        "tr": "Sıkça Sorulan Sorular (FAQ)",
+        "en": "Frequently Asked Questions (FAQ)",
+        "de": "Häufig gestellte Fragen (FAQ)",
+        "zh": "常见问题解答 (FAQ)",
+        "hi": "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
+        "es": "Preguntas Frecuentes (FAQ)",
+        "fr": "Foire Aux Questions (FAQ)",
+        "ar": "الأسئلة الشائعة (FAQ)",
+        "pt": "Perguntas Frequentes (FAQ)",
+        "ru": "Часто задаваемые вопросы (FAQ)"
+      },
+      "faq_q1": {
+        "tr": "Pixel Garden nasıl oynanır?",
+        "en": "How do I play Pixel Garden?",
+        "de": "Wie spiele ich Pixel Garden?",
+        "zh": "如何玩 Pixel Garden？",
+        "hi": "Pixel Garden कैसे खेलें?",
+        "es": "¿Cómo juego a Pixel Garden?",
+        "fr": "Comment jouer à Pixel Garden ?",
+        "ar": "كيف ألعب Pixel Garden؟",
+        "pt": "Como jogar Pixel Garden?",
+        "ru": "Как играть в Pixel Garden?"
+      },
+      "faq_a1": {
+        "tr": "Tohum bloklarını toprak ızgarasına yerleştirerek satırları veya sütunları doldurun. Tamamlanan her çizgi çiçek açar ve toprağı yeni bloklar için temizler. 20 aşamalı Bahçe Yolu'nda görevleri tamamlayarak bahçenizi büyütün!",
+        "en": "Drag seed shapes onto the grid to fill complete rows or columns. Clearing lines triggers flower blooms and frees space for new blocks across a 20-stage Garden Path!",
+        "de": "Ziehen Sie Samenformen auf das Gitter. Das Vervollständigen von Reihen löst Blüten aus und schafft Platz.",
+        "zh": "将种子拖放至网格中以填满整行或整列。消除整行可触发鲜花绽放并腾出新空间！",
+        "hi": "पूरी पंक्तियों या स्तंभों को भरने के लिए बीज आकृतियों को ग्रिड पर खींचें।",
+        "es": "Arrastra figuras de semillas a la cuadrícula para completar filas o columnas y hacer florecer el campo.",
+        "fr": "Faites glisser les formes de graines sur la grille pour complétez des lignes et faire éclore des fleurs.",
+        "ar": "اسحب كتل البذور إلى الشبكة لملء صفوف أو أعمدة كاملة لإزهار الأزهار وتفريغ المساحة.",
+        "pt": "Arraste formas de sementes para a grade para preencher linhas ou colunas e fazer as flores desabrocharem.",
+        "ru": "Перетаскивайте блоки на сетку для заполнения рядов и цветущих комبو!"
+      },
+      "faq_q2": {
+        "tr": "Bahçe ilerlemem ve verilerim kaybolur mu?",
+        "en": "Will my garden progress be lost?",
+        "de": "Geht mein Gartenfortschritt verloren?",
+        "zh": "我的花园进度会丢失吗？",
+        "hi": "क्या मेरी प्रगति खो जाएगी?",
+        "es": "¿Perderé mi progreso de jardín?",
+        "fr": "Mon progrès sera-t-il perdu ?",
+        "ar": "هل سأفقد تقدم حديقتي؟",
+        "pt": "Vou perder meu progresso?",
+        "ru": "Потеряется ли мой прогресс?"
+      },
+      "faq_a2": {
+        "tr": "Pixel Garden hesap gerektirmez; bahçenizin seviyesi, rekor puanınız, keşfedilen nadir çiçekler ve rozetleriniz cihazınızda yerel olarak saklanır. Uygulamayı kaldırırsanız veya Ayarlar > Gizlilik > Tüm Verileri Sil adımlarını izlerseniz veriler temizlenir.",
+        "en": "Pixel Garden requires no account; your progress and badges are stored strictly locally on your device. Uninstalling the app or wiping data in Settings clears progress.",
+        "de": "Alle Daten werden lokal gespeichert. Das Löschen der App entfernt die lokalen Spieldaten.",
+        "zh": "Pixel Garden 无需帐户；您的进度和勋章严格保存在本地设备上。卸载应用或在设置中清除数据会擦除进度。",
+        "hi": "Pixel Garden में किसी खाते की आवश्यकता नहीं है; प्रगति स्थानीय रूप से संग्रहीत है।",
+        "es": "No requiere cuenta; el progreso se guarda localmente en tu dispositivo.",
+        "fr": "Ne nécessite aucun compte ; votre progression est stockée localement sur votre appareil.",
+        "ar": "لا يتطلب Pixel Garden حساباً؛ يتم تخزين تقدمك محلياً على جهازك.",
+        "pt": "O Pixel Garden não requer conta; o progresso é salvo localmente no seu dispositivo.",
+        "ru": "Игра не требует аккаунта; ваш прогресс хранится исключительно локально."
+      },
+      "faq_q3": {
+        "tr": "\"Bahçemi Koru\" satın alımı ne işe yarar?",
+        "en": "What does \"Protect My Garden\" purchase do?",
+        "de": "Was bewirkt der \"Meinen Garten schützen\"-Kauf?",
+        "zh": "“保护我的花园”购买有什么作用？",
+        "hi": "\"Protect My Garden\" खरीदारी क्या करती है?",
+        "es": "¿Qué hace la compra \"Proteger mi Jardín\"?",
+        "fr": "Que fait l'achat \"Protéger mon Jardin\" ?",
+        "ar": "ماذا يفعل شراء \"حماية حديقتي\"؟",
+        "pt": "O que faz a compra \"Proteger Meu Jardim\"?",
+        "ru": "Что дает покупка \"Защитить мой сад\"?"
+      },
+      "faq_a3": {
+        "tr": "\"Bahçemi Koru\" veya reklamsız sürüm satın alımı, Google Play Billing üzerinden işlenen tek seferlik bir satın almadır. Reklamları kaldırır ve gelişiminize odaklanmanızı sağlar. Uygulama içi \"Satın Alımları Geri Yükle\" butonuyla yeni cihazınıza aktarabilirsiniz.",
+        "en": "The purchase is a one-time Google Play Billing transaction that removes all ads. You can restore purchases anytime via the in-game menu.",
+        "de": "Es ist ein einmaliger Kauf über Google Play Billing, der Werbung entfernt.",
+        "zh": "这是经由 Google Play Billing 处理的一次性购买，可移除所有广告。",
+        "hi": "यह एक बार की खरीदारी है जो विज्ञापनों को हटा देती है।",
+        "es": "Es una compra única a través de Google Play Billing que elimina los anuncios.",
+        "fr": "C'est un achat unique via Google Play Billing qui supprime les publicités.",
+        "ar": "هو عملية شراء لمرة واحدة عبر Google Play Billing تزيل جميع الإعلانات.",
+        "pt": "É uma compra única pelo Google Play Billing que remove os anúncios.",
+        "ru": "Это одноразовая покупка через Google Play Billing, отключающая рекламу."
+      },
+      "faq_q4": {
+        "tr": "Verilerimi ve hesabımı nasıl silebilirim?",
+        "en": "How can I delete my data and account?",
+        "de": "Wie kann ich meine Daten löschen?",
+        "zh": "如何删除我的数据和帐户？",
+        "hi": "मैं अपना डेटा कैसे हटा सकता हूं?",
+        "es": "¿Cómo puedo eliminar mis datos y cuenta?",
+        "fr": "Comment supprimer mes données et mon compte ?",
+        "ar": "كيف يمكنني حذف بياناتي وحسابي؟",
+        "pt": "Como posso excluir meus dados e conta?",
+        "ru": "Как удалить мои данные и аккаунт?"
+      },
+      "faq_a4": {
+        "tr": "Pixel Garden hesap açma gerektirmediği için sunucularımızda hiçbir kişisel bilginiz tutulmaz. Tüm yerel verilerinizi silmek için oyun içinden Ayarlar > Gizlilik > Tüm Verileri Sil adımlarını uygulamanız veya uygulamayı cihazınızdan kaldırmanız yeterlidir.",
+        "en": "Since Pixel Garden requires no account, we store no personal data on servers. Clear local data via in-game Settings > Privacy > Delete All Data or by uninstalling the app.",
+        "de": "Da kein Konto erforderlich ist, speichern wir keine Daten online. Löschen Sie die App, um Daten zu bereinigen.",
+        "zh": "由于无需注册帐户，我们不会在服务器上存储个人数据。通过设置 > 隐私 > 删除所有数据或卸载即可。",
+        "hi": "चूंकि किसी खाते की आवश्यकता नहीं है, हम सर्वर पर कोई डेटा संग्रहीत नहीं करते हैं।",
+        "es": "Como no requiere cuenta, no guardamos datos en servidores. Borra los datos desde Ajustes o desinstalando.",
+        "fr": "Puisqu'aucun compte n'est requis, nous ne stockons aucune donnée. Effacez les données via les paramètres ou désinstallez.",
+        "ar": "نظراً لعدم الحاجة لحساب، لا نملك بيانات على الخوادم. يمكنك مسح البيانات من الإعدادات أو حذف التطبيق.",
+        "pt": "Como não requer conta, não salvamos dados em servidores. Apague os dados nas Configurações ou desinstale.",
+        "ru": "Так как аккаунт не требуется, мы не храним данные на серверах. Удалите приложение для полной очистки."
+      },
+      "sec_contact_title": {
+        "tr": "Doğrudan İletişim",
+        "en": "Direct Contact",
+        "de": "Direkter Kontakt",
+        "zh": "直接联系",
+        "hi": "सीधा संपर्क",
+        "es": "Contacto Directo",
+        "fr": "Contact Direct",
+        "ar": "التواصل المباشر",
+        "pt": "Contato Direto",
+        "ru": "Прямая связь"
+      },
+      "contact_desc": {
+        "tr": "Sorularınız, hata bildirimleriniz veya önerileriniz için doğrudan geliştirici ile iletişime geçebilirsiniz.",
+        "en": "For questions, bug reports, or suggestions, reach out directly to the developer.",
+        "de": "Bei Fragen, Fehlerberichten oder Vorschlägen wenden Sie sich bitte direkt an den Entwickler.",
+        "zh": "如有疑问、错误报告或建议，请直接与开发者联系。",
+        "hi": "प्रश्नों, बग रिपोर्ट या सुझावों के लिए सीधे डेवलपर से संपर्क करें।",
+        "es": "Para preguntas, reportes o sugerencias, ponte en contacto con el desarrollador.",
+        "fr": "Pour toute question, rapport de bug ou suggestion, contactez le développeur.",
+        "ar": "للأسئلة أو الإبلاغ عن أخطاء أو الاقتراحات، تواصل مباشرة مع المطور.",
+        "pt": "Para dúvidas, relatos de erros ou sugestões, entre em contato diretamente com o desenvolvedor.",
+        "ru": "По вопросам, багам или предложениям пишите напрямую разработчику."
+      },
+      "btn_email": {
+        "tr": "erdinctopal.et@gmail.com",
+        "en": "erdinctopal.et@gmail.com",
+        "de": "erdinctopal.et@gmail.com",
+        "zh": "erdinctopal.et@gmail.com",
+        "hi": "erdinctopal.et@gmail.com",
+        "es": "erdinctopal.et@gmail.com",
+        "fr": "erdinctopal.et@gmail.com",
+        "ar": "erdinctopal.et@gmail.com",
+        "pt": "erdinctopal.et@gmail.com",
+        "ru": "erdinctopal.et@gmail.com"
+      },
+      "footer": {
+        "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır.",
+        "en": "&copy; 2026 Erdinç TOPAL (CodExa). All rights reserved.",
+        "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
+        "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
+        "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
+        "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
+        "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
+        "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
+        "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
+        "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
+      }
+    };
+  </script>
+  <script src="../i18n.js"></script>
+</body>
+</html>
