@@ -121,10 +121,12 @@
       gap: 10px;
     }
 
-    .faq-item {
+        .faq-item {
       border-bottom: 1px solid var(--border);
       padding: 18px 0;
       cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .faq-item:last-child {
@@ -143,30 +145,37 @@
       transition: var(--transition);
     }
 
+    .faq-question * {
+      pointer-events: none;
+    }
+
     .faq-question:hover {
       color: var(--primary-light);
     }
 
     .faq-answer {
       max-height: 0;
+      opacity: 0;
       overflow: hidden;
       color: var(--text-muted);
       font-size: 15px;
       margin-top: 0;
       font-family: 'Inter', sans-serif;
       line-height: 1.7;
-      transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
     }
 
     .faq-item.active .faq-answer {
-      max-height: 350px;
+      max-height: 1000px;
+      opacity: 1;
       margin-top: 12px;
     }
 
     .faq-icon {
       fill: var(--primary-light);
-      transition: var(--transition);
+      transition: transform 0.3s ease;
       flex-shrink: 0;
+      pointer-events: none;
     }
 
     .faq-item.active .faq-icon {
@@ -261,6 +270,18 @@
       color: var(--text-muted);
     }
   </style>
+  <script>
+    function toggleFaq(element) {
+      if (!element) return;
+      const isActive = element.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      if (!isActive) {
+        element.classList.add('active');
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="container">
