@@ -154,11 +154,12 @@
       font-size: 15px;
       margin-top: 0;
       font-family: 'Inter', sans-serif;
+      line-height: 1.7;
       transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
     }
 
     .faq-item.active .faq-answer {
-      max-height: 300px;
+      max-height: 350px;
       margin-top: 12px;
     }
 
@@ -290,31 +291,31 @@
         <div class="faq-accordion">
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-              <span data-i18n="faq_q1">Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?</span>
+              <span data-i18n="faq_q1">Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl katılır?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a1">
-              Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.
+              Öğretmen panelinden tek tıkla sınıfınızı oluşturabilir, sistemin ürettiği 6 haneli özel davet kodunu öğrencilerinizle paylaşarak sınıfa katılmalarını sağlayabilirsiniz.
             </div>
           </div>
 
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-              <span data-i18n="faq_q2">ZPD Analiz Motoru nedir ve nasıl çalışır?</span>
+              <span data-i18n="faq_q2">ZPD Analiz Motoru nedir ve öğretmenlere nasıl yardımcı olur?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a2">
-              Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.
+              Yakınsal Gelişim Alanı (Zone of Proximal Development) analiz motoru, öğrenci performans verilerini işleyerek onların bağımsız çözebildiği, rehberlik gerektiren ve risk altında olan öğrenme alanlarını tespit edip pedagojik öneriler sunar.
             </div>
           </div>
 
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-              <span data-i18n="faq_q3">Verilerim nerede saklanır ve internet olmadan çalışır mı?</span>
+              <span data-i18n="faq_q3">Verilerim nerede saklanır ve internetsiz çalışır mı?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a3">
-              Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.
+              Uygulama çevrimdışı önceliklidir (offline-first). Tüm sınıf ve öğrenci verileriniz cihazınızdaki şifreli Room veri tabanında saklanır. İnternet bağlantısı sağlandığında Firebase bulutuna uçtan uca şifreli olarak senkronize edilir.
             </div>
           </div>
         </div>
@@ -437,76 +438,76 @@
         "ru": "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ / FAQ"
       },
       "faq_q1": {
-        "tr": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "en": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "de": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "zh": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "hi": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "es": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "fr": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "ar": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "pt": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?",
-        "ru": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl eklenir?"
+        "tr": "Classtings sınıfları nasıl oluşturulur ve öğrenciler nasıl katılır?",
+        "en": "How do I create classes and add students in Classtings?",
+        "de": "How do I create classes and add students in Classtings?",
+        "zh": "How do I create classes and add students in Classtings?",
+        "hi": "How do I create classes and add students in Classtings?",
+        "es": "How do I create classes and add students in Classtings?",
+        "fr": "How do I create classes and add students in Classtings?",
+        "ar": "How do I create classes and add students in Classtings?",
+        "pt": "How do I create classes and add students in Classtings?",
+        "ru": "How do I create classes and add students in Classtings?"
       },
       "faq_a1": {
-        "tr": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "en": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "de": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "zh": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "hi": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "es": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "fr": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "ar": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "pt": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz.",
-        "ru": "Saniyeler içinde yeni sınıfınızı oluşturup verilen 6 haneli özel davet kodunu öğrencilerinize dağıtarak sınıfa katılmalarını sağlayabilirsiniz."
+        "tr": "Öğretmen panelinden tek tıkla sınıfınızı oluşturabilir, sistemin ürettiği 6 haneli özel davet kodunu öğrencilerinizle paylaşarak sınıfa katılmalarını sağlayabilirsiniz.",
+        "en": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "de": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "zh": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "hi": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "es": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "fr": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "ar": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "pt": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining.",
+        "ru": "Create a new class in seconds from the teacher dashboard and share the generated 6-digit invite code with students for easy joining."
       },
       "faq_q2": {
-        "tr": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "en": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "de": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "zh": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "hi": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "es": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "fr": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "ar": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "pt": "ZPD Analiz Motoru nedir ve nasıl çalışır?",
-        "ru": "ZPD Analiz Motoru nedir ve nasıl çalışır?"
+        "tr": "ZPD Analiz Motoru nedir ve öğretmenlere nasıl yardımcı olur?",
+        "en": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "de": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "zh": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "hi": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "es": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "fr": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "ar": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "pt": "What is the ZPD Analysis Engine and how does it help teachers?",
+        "ru": "What is the ZPD Analysis Engine and how does it help teachers?"
       },
       "faq_a2": {
-        "tr": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "en": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "de": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "zh": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "hi": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "es": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "fr": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "ar": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "pt": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar.",
-        "ru": "Yakınsal Gelişim Alanı (Zone of Proximal Development) motoru, öğrencilerin performans verilerini analiz ederek onların 'bağımsız', 'rehberlik gerektiren' veya 'zorlanan' seviyelerini anında tespit eder ve pedagojik öneriler sunar."
+        "tr": "Yakınsal Gelişim Alanı (Zone of Proximal Development) analiz motoru, öğrenci performans verilerini işleyerek onların bağımsız çözebildiği, rehberlik gerektiren ve risk altında olan öğrenme alanlarını tespit edip pedagojik öneriler sunar.",
+        "en": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "de": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "zh": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "hi": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "es": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "fr": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "ar": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "pt": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights.",
+        "ru": "The Zone of Proximal Development engine processes student learning data to identify independent mastery, guided support needs, and learning risks with actionable pedagogical insights."
       },
       "faq_q3": {
-        "tr": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "en": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "de": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "zh": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "hi": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "es": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "fr": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "ar": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "pt": "Verilerim nerede saklanır ve internet olmadan çalışır mı?",
-        "ru": "Verilerim nerede saklanır ve internet olmadan çalışır mı?"
+        "tr": "Verilerim nerede saklanır ve internetsiz çalışır mı?",
+        "en": "Where is my data stored and does the app work offline?",
+        "de": "Where is my data stored and does the app work offline?",
+        "zh": "Where is my data stored and does the app work offline?",
+        "hi": "Where is my data stored and does the app work offline?",
+        "es": "Where is my data stored and does the app work offline?",
+        "fr": "Where is my data stored and does the app work offline?",
+        "ar": "Where is my data stored and does the app work offline?",
+        "pt": "Where is my data stored and does the app work offline?",
+        "ru": "Where is my data stored and does the app work offline?"
       },
       "faq_a3": {
-        "tr": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "en": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "de": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "zh": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "hi": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "es": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "fr": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "ar": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "pt": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir.",
-        "ru": "Tüm verileriniz öncelikle cihazınızdaki şifreli Room veri tabanında tutulur ve internetsiz çalışır. Bağlantı sağlandığında Firebase altyapısına uçtan uca şifreli olarak yedeklenir."
+        "tr": "Uygulama çevrimdışı önceliklidir (offline-first). Tüm sınıf ve öğrenci verileriniz cihazınızdaki şifreli Room veri tabanında saklanır. İnternet bağlantısı sağlandığında Firebase bulutuna uçtan uca şifreli olarak senkronize edilir.",
+        "en": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "de": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "zh": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "hi": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "es": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "fr": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "ar": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "pt": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected.",
+        "ru": "Classtings is offline-first. Your classroom records are saved locally in an encrypted Room database and synced end-to-end to Firebase when connected."
       },
       "sec_contact_title": {
         "tr": "DESTEK TALEBİ GÖNDER / CONTACT US",

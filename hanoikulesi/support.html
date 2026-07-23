@@ -154,11 +154,12 @@
       font-size: 15px;
       margin-top: 0;
       font-family: 'Inter', sans-serif;
+      line-height: 1.7;
       transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
     }
 
     .faq-item.active .faq-answer {
-      max-height: 300px;
+      max-height: 350px;
       margin-top: 12px;
     }
 
@@ -288,31 +289,31 @@
         <div class="faq-accordion">
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-              <span data-i18n="faq_q1">Hanoi Kulesi oyununun temel kuralı nedir?</span>
+              <span data-i18n="faq_q1">Hanoi Kulesi bulmacasının temel kuralı nedir?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a1">
-              Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.
+              Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca en üstteki tek bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.
             </div>
           </div>
 
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-              <span data-i18n="faq_q2">En az hamle sayısı nasıl hesaplanır?</span>
+              <span data-i18n="faq_q2">Minimum hamle sayısı nasıl hesaplanır?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a2">
-              n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).
+              n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1 formülüyle hesaplanır (Örn: 3 disk için en az 7 hamle, 4 disk için en az 15 hamle).
             </div>
           </div>
 
           <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-              <span data-i18n="faq_q3">İlerlemem ve skorum kaybolur mu?</span>
+              <span data-i18n="faq_q3">İlerlemem ve rekorlarım nerede saklanır?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
             </div>
             <div class="faq-answer" data-i18n="faq_a3">
-              Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.
+              Tamamlanan seviyeler, kazanılan yıldızlar ve hamle rekorlarınız cihazınızda saklanır. Google Play Games entegrasyonu sayesinde sıralamanızı görebilirsiniz.
             </div>
           </div>
         </div>
@@ -435,76 +436,76 @@
         "ru": "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ / FAQ"
       },
       "faq_q1": {
-        "tr": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "en": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "de": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "zh": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "hi": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "es": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "fr": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "ar": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "pt": "Hanoi Kulesi oyununun temel kuralı nedir?",
-        "ru": "Hanoi Kulesi oyununun temel kuralı nedir?"
+        "tr": "Hanoi Kulesi bulmacasının temel kuralı nedir?",
+        "en": "What are the core rules of Tower of Hanoi?",
+        "de": "What are the core rules of Tower of Hanoi?",
+        "zh": "What are the core rules of Tower of Hanoi?",
+        "hi": "What are the core rules of Tower of Hanoi?",
+        "es": "What are the core rules of Tower of Hanoi?",
+        "fr": "What are the core rules of Tower of Hanoi?",
+        "ar": "What are the core rules of Tower of Hanoi?",
+        "pt": "What are the core rules of Tower of Hanoi?",
+        "ru": "What are the core rules of Tower of Hanoi?"
       },
       "faq_a1": {
-        "tr": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "en": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "de": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "zh": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "hi": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "es": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "fr": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "ar": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "pt": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
-        "ru": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz."
+        "tr": "Tüm diskleri başlangıç çubuğundan hedef çubuğa aktarmalısınız. Her hamlede yalnızca en üstteki tek bir disk taşınabilir ve daha büyük bir disk asla daha küçük bir diskin üzerine koyulamaz.",
+        "en": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "de": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "zh": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "hi": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "es": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "fr": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "ar": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "pt": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk.",
+        "ru": "Move all disks from the source peg to the destination peg. You may move only one disk at a time, and a larger disk can never be placed on top of a smaller disk."
       },
       "faq_q2": {
-        "tr": "En az hamle sayısı nasıl hesaplanır?",
-        "en": "En az hamle sayısı nasıl hesaplanır?",
-        "de": "En az hamle sayısı nasıl hesaplanır?",
-        "zh": "En az hamle sayısı nasıl hesaplanır?",
-        "hi": "En az hamle sayısı nasıl hesaplanır?",
-        "es": "En az hamle sayısı nasıl hesaplanır?",
-        "fr": "En az hamle sayısı nasıl hesaplanır?",
-        "ar": "En az hamle sayısı nasıl hesaplanır?",
-        "pt": "En az hamle sayısı nasıl hesaplanır?",
-        "ru": "En az hamle sayısı nasıl hesaplanır?"
+        "tr": "Minimum hamle sayısı nasıl hesaplanır?",
+        "en": "How is the minimum moves count calculated?",
+        "de": "How is the minimum moves count calculated?",
+        "zh": "How is the minimum moves count calculated?",
+        "hi": "How is the minimum moves count calculated?",
+        "es": "How is the minimum moves count calculated?",
+        "fr": "How is the minimum moves count calculated?",
+        "ar": "How is the minimum moves count calculated?",
+        "pt": "How is the minimum moves count calculated?",
+        "ru": "How is the minimum moves count calculated?"
       },
       "faq_a2": {
-        "tr": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "en": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "de": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "zh": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "hi": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "es": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "fr": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "ar": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "pt": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle).",
-        "ru": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1'dir (Örn: 3 disk için en az 7 hamle)."
+        "tr": "n adet disk içeren bir Hanoi Kulesi bulmacasının teorik olarak en az hamle sayısı 2ⁿ - 1 formülüyle hesaplanır (Örn: 3 disk için en az 7 hamle, 4 disk için en az 15 hamle).",
+        "en": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "de": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "zh": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "hi": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "es": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "fr": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "ar": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "pt": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks).",
+        "ru": "For a Tower of Hanoi puzzle with n disks, the optimal minimum moves formula is 2ⁿ - 1 (e.g., 7 moves for 3 disks, 15 moves for 4 disks)."
       },
       "faq_q3": {
-        "tr": "İlerlemem ve skorum kaybolur mu?",
-        "en": "İlerlemem ve skorum kaybolur mu?",
-        "de": "İlerlemem ve skorum kaybolur mu?",
-        "zh": "İlerlemem ve skorum kaybolur mu?",
-        "hi": "İlerlemem ve skorum kaybolur mu?",
-        "es": "İlerlemem ve skorum kaybolur mu?",
-        "fr": "İlerlemem ve skorum kaybolur mu?",
-        "ar": "İlerlemem ve skorum kaybolur mu?",
-        "pt": "İlerlemem ve skorum kaybolur mu?",
-        "ru": "İlerlemem ve skorum kaybolur mu?"
+        "tr": "İlerlemem ve rekorlarım nerede saklanır?",
+        "en": "Where are my high scores and progress saved?",
+        "de": "Where are my high scores and progress saved?",
+        "zh": "Where are my high scores and progress saved?",
+        "hi": "Where are my high scores and progress saved?",
+        "es": "Where are my high scores and progress saved?",
+        "fr": "Where are my high scores and progress saved?",
+        "ar": "Where are my high scores and progress saved?",
+        "pt": "Where are my high scores and progress saved?",
+        "ru": "Where are my high scores and progress saved?"
       },
       "faq_a3": {
-        "tr": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "en": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "de": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "zh": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "hi": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "es": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "fr": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "ar": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "pt": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz.",
-        "ru": "Oyun seviyeleriniz, yıldızlarınız ve skorlarınız cihazınızda yerel olarak saklanır. Google Play Games girişi ile başarımlarınızı senkronize edebilirsiniz."
+        "tr": "Tamamlanan seviyeler, kazanılan yıldızlar ve hamle rekorlarınız cihazınızda saklanır. Google Play Games entegrasyonu sayesinde sıralamanızı görebilirsiniz.",
+        "en": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "de": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "zh": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "hi": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "es": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "fr": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "ar": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "pt": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings.",
+        "ru": "Completed levels, earned stars, and move records are stored locally. Sync with Google Play Games to view leaderboard rankings."
       },
       "sec_contact_title": {
         "tr": "DESTEK TALEBİ GÖNDER / CONTACT US",
