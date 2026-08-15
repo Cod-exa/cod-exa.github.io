@@ -1,2 +1,5 @@
 .DS_Store
 **/.DS_Store
+.tmp.driveupload/
+github-recovery-codes.txt
+*recovery-codes*.txt
