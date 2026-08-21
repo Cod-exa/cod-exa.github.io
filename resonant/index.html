@@ -3,140 +3,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Resonant: ekran yorgunluğu, odak dağınıklığı ve stres için kısa, rehberli nefes molaları.">
-  <meta name="theme-color" content="#071127">
-  <title>Resonant — CodExa</title>
+  <title data-i18n="page_title">Resonant — CodExa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../assets/css/project-template.css">
+  <style>
+    :root {
+
+    --accent-primary: #61BAFF;
+    --accent-secondary: #7DD3FC;
+    --accent-cyan: #38bdf8;
+    --bg-main: #071127;
+    --bg-card: #0F1C3F;
+    --bg-card-hover: #1e3a8a;
+    --border-color: rgba(97, 186, 255, 0.2);
+    --border-highlight: rgba(97, 186, 255, 0.5);
+    --glow-1: rgba(97, 186, 255, .15);
+    --glow-2: rgba(125, 211, 252, .09);
+    --glow-3: rgba(56, 189, 248, .1);
+    }
+  </style>
 </head>
 <body>
   <div class="shell">
-    <nav class="topbar" aria-label="Ana gezinme">
-      <a class="brand" href="../index.html"><img src="assets/app-icon.jpg" alt=""><span>CodExa</span></a>
-      <a class="back" href="../index.html" data-i18n="back">← Portala dön</a>
+    <nav class="topbar">
+      <a class="brand" href="../index.html"><img src="assets/app-icon.png" alt=""><span>CodExa</span></a>
+      <a class="back" href="../index.html" data-i18n="back">← Portal</a>
     </nav>
-
     <main>
       <section class="hero">
-        <div class="hero-copy">
+        <div>
           <div class="eyebrow" data-i18n="eyebrow">Ekrandan uzaklaş. Ritmini bul.</div>
-          <h1>Resonant</h1>
+          <h1>Reso<br><span>nant</span></h1>
           <p class="lead" data-i18n="lead">Ekran yorgunluğu, odak dağınıklığı ve yoğun anlar için bir dakikalık rehberli nefes molaları.</p>
-          <div class="status"><span></span><b data-i18n="status">iOS, macOS ve Android için hazırlanıyor</b></div>
+          <div class="status" data-i18n="status">Geliştirme Aşamasında</div>
           <div class="actions">
-            <a class="button" href="#rhythms" data-i18n="discover">Ritimleri keşfet</a>
-            <a class="button secondary" href="mailto:exaque2@gmail.com?subject=Resonant%20Destek" data-i18n="support">Destek</a>
+            <a class="button secondary" href="support.html" data-i18n="support">Destek</a>
           </div>
         </div>
-        <div class="hero-visual" aria-label="Resonant uygulama görseli">
-          <div class="breath-ring ring-one"></div>
-          <div class="breath-ring ring-two"></div>
-          <div class="breath-ring ring-three"></div>
-          <img class="app-icon" src="assets/app-icon.jpg" alt="Resonant uygulama ikonu">
-          <span class="orbit-label inhale" data-i18n="inhale">Nefes al</span>
-          <span class="orbit-label exhale" data-i18n="exhale">Nefes ver</span>
-        </div>
-      </section>
-
-      <section class="feature-banner" aria-label="Resonant görseli">
-        <img src="assets/feature-graphic.jpg" alt="Yumuşak dalgalar üzerinde dingin bir küre">
-        <div class="banner-copy">
-          <span data-i18n="bannerEyebrow">Günün içinde sakin bir eşik</span>
-          <strong data-i18n="bannerTitle">Kısa bir mola, daha berrak bir zihin.</strong>
-        </div>
-      </section>
-
-      <section class="section" id="rhythms">
-        <div class="section-heading">
-          <div><div class="eyebrow" data-i18n="rhythmEyebrow">İhtiyacına göre nefes ritimleri</div><h2 data-i18n="rhythmTitle">Her ana uygun bir dönüş noktası.</h2></div>
-          <p data-i18n="rhythmIntro">Görsel, sesli ve dokunsal yönlendirmeler nefesi takip etmeyi kolaylaştırır.</p>
-        </div>
-        <div class="rhythm-grid">
-          <article class="rhythm-card free"><span class="card-number">01</span><div class="rhythm-mark wave">≈</div><h3 data-i18n="r1t">Rezonans</h3><p data-i18n="r1b">Dengeli ekran molası: 5,5 saniye nefes al, 5,5 saniye nefes ver.</p><small data-i18n="free">Temel ritim · Ücretsiz</small></article>
-          <article class="rhythm-card"><span class="card-number">02</span><div class="rhythm-mark">□</div><h3 data-i18n="r2t">Odak & Berraklık</h3><p data-i18n="r2b">Yoğun çalışma arasında düzen kuran dört aşamalı 4-4-4-4 ritmi.</p><small>Pro</small></article>
-          <article class="rhythm-card"><span class="card-number">03</span><div class="rhythm-mark">☾</div><h3 data-i18n="r3t">Gece Sıfırlama</h3><p data-i18n="r3b">Günün hızını azaltmaya yardımcı olan sakin 4-7-8 akışı.</p><small>Pro</small></article>
-          <article class="rhythm-card"><span class="card-number">04</span><div class="rhythm-mark">◎</div><h3 data-i18n="r4t">Sprint Molası</h3><p data-i18n="r4b">Toplantı veya odak oturumu öncesinde yaklaşık iki dakikalık hazırlık.</p><small>Pro</small></article>
-        </div>
-      </section>
-
-      <section class="section showcase">
-        <div class="showcase-copy">
-          <div class="eyebrow" data-i18n="showcaseEyebrow">Sade, yumuşak, kişisel</div>
-          <h2 data-i18n="showcaseTitle">Dikkatini bölmeden yanında.</h2>
-          <p data-i18n="showcaseBody">Akıllı mola önerileri, günlük hedefler ve rahat okunabilen bir arayüzle ekran başındaki ritmini koru.</p>
-          <ul>
-            <li data-i18n="bullet1">Bir dakikada başlayabilen rehberli seanslar</li>
-            <li data-i18n="bullet2">Haptik ritim, nazik ses ve hareket azaltma seçenekleri</li>
-            <li data-i18n="bullet3">Günlük mola takibi ve cihazlar arası hesap desteği</li>
-          </ul>
-        </div>
-        <div class="screens" aria-label="Resonant ekran görüntüleri">
-          <figure><img src="assets/screen-dashboard.jpg" alt="Resonant ana ekranı" loading="lazy"></figure>
-          <figure class="raised"><img src="assets/screen-session.jpg" alt="Resonant nefes seansı" loading="lazy"></figure>
-          <figure><img src="assets/screen-complete.jpg" alt="Resonant seans özeti" loading="lazy"></figure>
-        </div>
-      </section>
-
-      <section class="care-card">
-        <div><div class="eyebrow" data-i18n="careEyebrow">Konfor önce gelir</div><h2 data-i18n="careTitle">Kendi hızında nefes al.</h2></div>
-        <p data-i18n="careBody">Resonant bir tıbbi cihaz değildir. Rahatsızlık hissedersen seansı durdur ve normal nefesine dön.</p>
+        <div class="hero-art"><img src="assets/app-icon.png" alt="App Icon"></div>
       </section>
 
       <section class="section" style="padding-top: 0; text-align: center; margin-top: 40px;">
         <h2 data-i18n="legal_title" style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 20px;">Yasal & Destek</h2>
         <div class="legal-links" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-          <a href="privacy.html" data-i18n="link_privacy" style="color: #61BAFF; text-decoration: none; border-bottom: 1px dashed rgba(97, 186, 255, 0.4); font-weight: 600; padding-bottom: 2px;">Gizlilik Politikası</a>
-          <a href="terms.html" data-i18n="link_terms" style="color: #61BAFF; text-decoration: none; border-bottom: 1px dashed rgba(97, 186, 255, 0.4); font-weight: 600; padding-bottom: 2px;">Kullanım Koşulları</a>
-          <a href="support.html" data-i18n="link_support" style="color: #61BAFF; text-decoration: none; border-bottom: 1px dashed rgba(97, 186, 255, 0.4); font-weight: 600; padding-bottom: 2px;">Destek & Yardım</a>
+          <a href="privacy.html" data-i18n="link_privacy" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Gizlilik Politikası</a>
+          <a href="terms.html" data-i18n="link_terms" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Kullanım Koşulları</a>
+          <a href="support.html" data-i18n="link_support" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Destek & Yardım</a>
         </div>
       </section>
     </main>
-
-    <footer><span data-i18n="footer">© 2026 CodExa. Tüm hakları saklıdır.</span><a href="mailto:exaque2@gmail.com?subject=Resonant%20Destek" data-i18n="support">Destek</a></footer>
+    <footer><span data-i18n="footer">© 2026 CodExa. Tüm hakları saklıdır.</span></footer>
   </div>
-
   <script>
-  window.PAGE_TRANSLATIONS = {
-    page_title:{tr:'Resonant — CodExa',en:'Resonant — CodExa',de:'Resonant — CodExa',zh:'Resonant — CodExa',hi:'Resonant — CodExa',es:'Resonant — CodExa',fr:'Resonant — CodExa',ar:'Resonant — CodExa',pt:'Resonant — CodExa',ru:'Resonant — CodExa'},
-    back:{tr:'← Portala dön',en:'← Back to portal',de:'← Zurück zum Portal',zh:'← 返回门户',hi:'← पोर्टल पर वापस',es:'← Volver al portal',fr:'← Retour au portail',ar:'العودة إلى البوابة ←',pt:'← Voltar ao portal',ru:'← Вернуться на портал'},
-    eyebrow:{tr:'Ekrandan uzaklaş. Ritmini bul.',en:'Step away from the screen. Find your rhythm.',de:'Weg vom Bildschirm. Finde deinen Rhythmus.',zh:'离开屏幕，找回节奏。',hi:'स्क्रीन से दूर हों। अपनी लय पाएँ।',es:'Aléjate de la pantalla. Encuentra tu ritmo.',fr:'Éloignez-vous de l’écran. Retrouvez votre rythme.',ar:'ابتعد عن الشاشة. استعد إيقاعك.',pt:'Afaste-se da tela. Encontre seu ritmo.',ru:'Отойдите от экрана. Найдите свой ритм.'},
-    lead:{tr:'Ekran yorgunluğu, odak dağınıklığı ve yoğun anlar için bir dakikalık rehberli nefes molaları.',en:'One-minute guided breathing breaks for screen fatigue, scattered focus, and intense moments.',de:'Einminütige geführte Atempausen bei Bildschirmmüdigkeit, Ablenkung und Stress.',zh:'用一分钟引导式呼吸，应对屏幕疲劳、注意力分散和紧张时刻。',hi:'स्क्रीन थकान, बिखरे ध्यान और तनावपूर्ण पलों के लिए एक मिनट के निर्देशित श्वास विराम।',es:'Pausas guiadas de respiración de un minuto para la fatiga de pantalla, la falta de concentración y los momentos intensos.',fr:'Des pauses respiratoires guidées d’une minute contre la fatigue d’écran, la dispersion et les moments intenses.',ar:'استراحات تنفس موجهة لمدة دقيقة لإجهاد الشاشة وتشتت التركيز واللحظات المكثفة.',pt:'Pausas de respiração guiada de um minuto para fadiga da tela, foco disperso e momentos intensos.',ru:'Минутные дыхательные паузы при усталости от экрана, рассеянности и напряжении.'},
-    status:{tr:'iOS, macOS ve Android için hazırlanıyor',en:'In development for iOS, macOS, and Android',de:'In Entwicklung für iOS, macOS und Android',zh:'正在为 iOS、macOS 和 Android 开发',hi:'iOS, macOS और Android के लिए विकास में',es:'En desarrollo para iOS, macOS y Android',fr:'En développement pour iOS, macOS et Android',ar:'قيد التطوير لأنظمة iOS وmacOS وAndroid',pt:'Em desenvolvimento para iOS, macOS e Android',ru:'Разрабатывается для iOS, macOS и Android'},
-    discover:{tr:'Ritimleri keşfet',en:'Explore the rhythms',de:'Rhythmen entdecken',zh:'探索呼吸节奏',hi:'लय देखें',es:'Explorar los ritmos',fr:'Découvrir les rythmes',ar:'استكشف الإيقاعات',pt:'Explorar os ritmos',ru:'Изучить ритмы'},
-    support:{tr:'Destek',en:'Support',de:'Support',zh:'支持',hi:'सहायता',es:'Soporte',fr:'Assistance',ar:'الدعم',pt:'Suporte',ru:'Поддержка'},
-    inhale:{tr:'Nefes al',en:'Inhale',de:'Einatmen',zh:'吸气',hi:'साँस लें',es:'Inhala',fr:'Inspirez',ar:'شهيق',pt:'Inspire',ru:'Вдох'},
-    exhale:{tr:'Nefes ver',en:'Exhale',de:'Ausatmen',zh:'呼气',hi:'साँस छोड़ें',es:'Exhala',fr:'Expirez',ar:'زفير',pt:'Expire',ru:'Выдох'},
-    bannerEyebrow:{tr:'Günün içinde sakin bir eşik',en:'A quiet threshold in your day',de:'Eine ruhige Schwelle im Tag',zh:'一天中的宁静节点',hi:'दिन में एक शांत पड़ाव',es:'Un umbral tranquilo en tu día',fr:'Un seuil de calme dans votre journée',ar:'عتبة هادئة في يومك',pt:'Um limiar de calma no seu dia',ru:'Тихая граница внутри дня'},
-    bannerTitle:{tr:'Kısa bir mola, daha berrak bir zihin.',en:'A short break. A clearer mind.',de:'Eine kurze Pause. Ein klarerer Kopf.',zh:'短暂休息，更清晰的思绪。',hi:'एक छोटा विराम। एक साफ मन।',es:'Una pausa breve. Una mente más clara.',fr:'Une courte pause. Un esprit plus clair.',ar:'استراحة قصيرة. ذهن أكثر صفاءً.',pt:'Uma pausa curta. Uma mente mais clara.',ru:'Короткая пауза. Более ясный ум.'},
-    rhythmEyebrow:{tr:'İhtiyacına göre nefes ritimleri',en:'Breathing rhythms for what you need',de:'Atemrhythmen für deine Bedürfnisse',zh:'适合不同需求的呼吸节奏',hi:'आपकी जरूरत के अनुसार श्वास लय',es:'Ritmos de respiración para lo que necesitas',fr:'Des rythmes adaptés à vos besoins',ar:'إيقاعات تنفس تناسب احتياجك',pt:'Ritmos de respiração para cada necessidade',ru:'Дыхательные ритмы под ваши задачи'},
-    rhythmTitle:{tr:'Her ana uygun bir dönüş noktası.',en:'A reset point for every moment.',de:'Ein Neustart für jeden Moment.',zh:'每个时刻都有重新出发的节点。',hi:'हर पल के लिए एक नई शुरुआत।',es:'Un punto de reinicio para cada momento.',fr:'Un point de retour pour chaque moment.',ar:'نقطة استعادة لكل لحظة.',pt:'Um ponto de retorno para cada momento.',ru:'Точка перезагрузки для каждого момента.'},
-    rhythmIntro:{tr:'Görsel, sesli ve dokunsal yönlendirmeler nefesi takip etmeyi kolaylaştırır.',en:'Visual, audio, and haptic cues make each breath easy to follow.',de:'Visuelle, akustische und haptische Hinweise machen jeden Atemzug leicht nachvollziehbar.',zh:'视觉、声音和触觉提示让每次呼吸都易于跟随。',hi:'दृश्य, ऑडियो और हैप्टिक संकेत हर साँस का पालन आसान बनाते हैं।',es:'Las señales visuales, sonoras y hápticas facilitan seguir cada respiración.',fr:'Les repères visuels, sonores et haptiques facilitent le suivi de chaque souffle.',ar:'تجعل الإشارات البصرية والصوتية واللمسية متابعة كل نفس سهلة.',pt:'Sinais visuais, sonoros e táteis facilitam acompanhar cada respiração.',ru:'Визуальные, звуковые и тактильные подсказки помогают следовать дыханию.'},
-    r1t:{tr:'Rezonans',en:'Resonance',de:'Resonanz',zh:'共振呼吸',hi:'रेज़ोनेंस',es:'Resonancia',fr:'Résonance',ar:'التناغم',pt:'Ressonância',ru:'Резонанс'},
-    r1b:{tr:'Dengeli ekran molası: 5,5 saniye nefes al, 5,5 saniye nefes ver.',en:'Balanced screen break: inhale for 5.5 seconds, exhale for 5.5 seconds.',de:'Ausgewogene Bildschirmpause: 5,5 Sekunden ein-, 5,5 Sekunden ausatmen.',zh:'平衡屏幕休息：吸气 5.5 秒，呼气 5.5 秒。',hi:'संतुलित स्क्रीन ब्रेक: 5.5 सेकंड साँस लें, 5.5 सेकंड छोड़ें।',es:'Pausa equilibrada: inhala 5,5 segundos y exhala 5,5 segundos.',fr:'Pause équilibrée : inspirez 5,5 secondes, expirez 5,5 secondes.',ar:'استراحة متوازنة: شهيق 5.5 ثانية وزفير 5.5 ثانية.',pt:'Pausa equilibrada: inspire por 5,5 segundos e expire por 5,5 segundos.',ru:'Сбалансированная пауза: вдох 5,5 секунды, выдох 5,5 секунды.'},
-    free:{tr:'Temel ritim · Ücretsiz',en:'Base rhythm · Free',de:'Basisrhythmus · Kostenlos',zh:'基础节奏 · 免费',hi:'मूल लय · निःशुल्क',es:'Ritmo base · Gratis',fr:'Rythme de base · Gratuit',ar:'الإيقاع الأساسي · مجاني',pt:'Ritmo básico · Grátis',ru:'Базовый ритм · Бесплатно'},
-    r2t:{tr:'Odak & Berraklık',en:'Focus & Clarity',de:'Fokus & Klarheit',zh:'专注与清晰',hi:'फोकस और स्पष्टता',es:'Enfoque y Claridad',fr:'Concentration & Clarté',ar:'التركيز والصفاء',pt:'Foco e Clareza',ru:'Фокус и ясность'},
-    r2b:{tr:'Yoğun çalışma arasında düzen kuran dört aşamalı 4-4-4-4 ritmi.',en:'A four-phase 4-4-4-4 rhythm that restores order between work sessions.',de:'Ein vierphasiger 4-4-4-4-Rhythmus für Struktur zwischen Arbeitsphasen.',zh:'四阶段 4-4-4-4 节奏，在工作间隙恢复秩序。',hi:'काम के बीच व्यवस्था लौटाने वाली चार-चरणीय 4-4-4-4 लय।',es:'Un ritmo 4-4-4-4 de cuatro fases que devuelve el orden entre sesiones.',fr:'Un rythme 4-4-4-4 en quatre phases entre les sessions de travail.',ar:'إيقاع 4-4-4-4 من أربع مراحل يعيد التنظيم بين جلسات العمل.',pt:'Um ritmo 4-4-4-4 em quatro fases para reorganizar entre sessões.',ru:'Четырёхфазный ритм 4-4-4-4 между рабочими сессиями.'},
-    r3t:{tr:'Gece Sıfırlama',en:'Night Reset',de:'Nacht-Reset',zh:'夜间重置',hi:'नाइट रीसेट',es:'Reinicio Nocturno',fr:'Réinitialisation du soir',ar:'إعادة ضبط المساء',pt:'Reinício Noturno',ru:'Вечерняя перезагрузка'},
-    r3b:{tr:'Günün hızını azaltmaya yardımcı olan sakin 4-7-8 akışı.',en:'A calm 4-7-8 flow designed to help slow the pace of your day.',de:'Ein ruhiger 4-7-8-Ablauf, der das Tempo des Tages senkt.',zh:'平静的 4-7-8 呼吸流，帮助放慢一天的节奏。',hi:'दिन की गति धीमी करने में मदद करने वाला शांत 4-7-8 प्रवाह।',es:'Un flujo 4-7-8 sereno para reducir el ritmo del día.',fr:'Un flux 4-7-8 calme pour ralentir le rythme de la journée.',ar:'تدفق هادئ 4-7-8 يساعد على إبطاء وتيرة اليوم.',pt:'Um fluxo 4-7-8 tranquilo para desacelerar o ritmo do dia.',ru:'Спокойный ритм 4-7-8, помогающий замедлить день.'},
-    r4t:{tr:'Sprint Molası',en:'Sprint Break',de:'Sprint-Pause',zh:'冲刺休息',hi:'स्प्रिंट ब्रेक',es:'Pausa Sprint',fr:'Pause Sprint',ar:'استراحة سريعة',pt:'Pausa Sprint',ru:'Спринт-пауза'},
-    r4b:{tr:'Toplantı veya odak oturumu öncesinde yaklaşık iki dakikalık hazırlık.',en:'A roughly two-minute reset before a meeting or focus session.',de:'Etwa zwei Minuten Vorbereitung vor Meeting oder Fokusphase.',zh:'会议或专注时段前约两分钟的准备。',hi:'मीटिंग या फोकस सत्र से पहले लगभग दो मिनट की तैयारी।',es:'Un reinicio de unos dos minutos antes de una reunión o sesión de enfoque.',fr:'Environ deux minutes de préparation avant une réunion ou une session de concentration.',ar:'تهيئة لنحو دقيقتين قبل اجتماع أو جلسة تركيز.',pt:'Cerca de dois minutos de preparo antes de uma reunião ou sessão de foco.',ru:'Около двух минут подготовки перед встречей или фокус-сессией.'},
-    showcaseEyebrow:{tr:'Sade, yumuşak, kişisel',en:'Simple, gentle, personal',de:'Einfach, sanft, persönlich',zh:'简洁、柔和、个性化',hi:'सरल, सौम्य, व्यक्तिगत',es:'Simple, suave, personal',fr:'Simple, doux, personnel',ar:'بسيط، لطيف، شخصي',pt:'Simples, gentil, pessoal',ru:'Просто, мягко, лично'},
-    showcaseTitle:{tr:'Dikkatini bölmeden yanında.',en:'Here without getting in your way.',de:'Da, ohne dich abzulenken.',zh:'陪伴你，不打扰你。',hi:'बिना ध्यान भटकाए आपके साथ।',es:'A tu lado sin interrumpirte.',fr:'À vos côtés sans vous interrompre.',ar:'معك دون تشتيت انتباهك.',pt:'Ao seu lado sem interromper.',ru:'Рядом, не отвлекая.'},
-    showcaseBody:{tr:'Akıllı mola önerileri, günlük hedefler ve rahat okunabilen bir arayüzle ekran başındaki ritmini koru.',en:'Keep your rhythm at the screen with smart break suggestions, daily goals, and a calm interface.',de:'Bewahre deinen Rhythmus mit intelligenten Pausen, Tageszielen und ruhiger Oberfläche.',zh:'借助智能休息建议、每日目标和舒适界面，保持屏幕前的节奏。',hi:'स्मार्ट ब्रेक सुझाव, दैनिक लक्ष्य और शांत इंटरफ़ेस से स्क्रीन पर अपनी लय बनाए रखें।',es:'Mantén tu ritmo con sugerencias inteligentes, objetivos diarios y una interfaz serena.',fr:'Gardez votre rythme avec des suggestions intelligentes, des objectifs quotidiens et une interface apaisée.',ar:'حافظ على إيقاعك مع اقتراحات استراحة ذكية وأهداف يومية وواجهة هادئة.',pt:'Mantenha seu ritmo com sugestões inteligentes, metas diárias e uma interface tranquila.',ru:'Сохраняйте ритм с умными подсказками, дневными целями и спокойным интерфейсом.'},
-    bullet1:{tr:'Bir dakikada başlayabilen rehberli seanslar',en:'Guided sessions that can start with just one minute',de:'Geführte Sitzungen ab nur einer Minute',zh:'一分钟即可开始的引导式练习',hi:'केवल एक मिनट में शुरू होने वाले निर्देशित सत्र',es:'Sesiones guiadas que comienzan en solo un minuto',fr:'Des sessions guidées dès une minute',ar:'جلسات موجهة تبدأ بدقيقة واحدة',pt:'Sessões guiadas que começam em apenas um minuto',ru:'Сеансы, которые можно начать всего с одной минуты'},
-    bullet2:{tr:'Haptik ritim, nazik ses ve hareket azaltma seçenekleri',en:'Haptic rhythm, gentle audio, and reduced-motion options',de:'Haptischer Rhythmus, sanfter Klang und reduzierte Bewegung',zh:'触觉节奏、柔和声音和减少动态效果选项',hi:'हैप्टिक लय, सौम्य ऑडियो और कम मोशन विकल्प',es:'Ritmo háptico, audio suave y opciones de movimiento reducido',fr:'Rythme haptique, audio doux et mouvement réduit',ar:'إيقاع لمسي وصوت لطيف وخيارات لتقليل الحركة',pt:'Ritmo tátil, áudio suave e opções de movimento reduzido',ru:'Тактильный ритм, мягкий звук и уменьшение движения'},
-    bullet3:{tr:'Günlük mola takibi ve cihazlar arası hesap desteği',en:'Daily break tracking and cross-device account support',de:'Tägliche Pausenübersicht und geräteübergreifende Konten',zh:'每日休息追踪和跨设备账户支持',hi:'दैनिक ब्रेक ट्रैकिंग और क्रॉस-डिवाइस खाता सहायता',es:'Seguimiento diario y cuenta entre dispositivos',fr:'Suivi quotidien et compte multi-appareils',ar:'تتبع الاستراحات يومياً ودعم الحساب عبر الأجهزة',pt:'Acompanhamento diário e conta entre dispositivos',ru:'Учёт ежедневных пауз и синхронизация между устройствами'},
-    careEyebrow:{tr:'Konfor önce gelir',en:'Comfort comes first',de:'Komfort geht vor',zh:'舒适优先',hi:'आराम पहले',es:'La comodidad es lo primero',fr:'Le confort avant tout',ar:'راحتك أولاً',pt:'Conforto em primeiro lugar',ru:'Комфорт прежде всего'},
-    careTitle:{tr:'Kendi hızında nefes al.',en:'Breathe at your own pace.',de:'Atme in deinem eigenen Tempo.',zh:'按自己的节奏呼吸。',hi:'अपनी गति से साँस लें।',es:'Respira a tu propio ritmo.',fr:'Respirez à votre rythme.',ar:'تنفس بإيقاعك الخاص.',pt:'Respire no seu ritmo.',ru:'Дышите в своём темпе.'},
-    careBody:{tr:'Resonant bir tıbbi cihaz değildir. Rahatsızlık hissedersen seansı durdur ve normal nefesine dön.',en:'Resonant is not a medical device. If you feel discomfort, stop the session and return to normal breathing.',de:'Resonant ist kein Medizinprodukt. Beende die Sitzung bei Unwohlsein und atme normal weiter.',zh:'Resonant 不是医疗设备。如感不适，请停止练习并恢复正常呼吸。',hi:'Resonant एक चिकित्सा उपकरण नहीं है। असुविधा होने पर सत्र रोकें और सामान्य साँस लें।',es:'Resonant no es un dispositivo médico. Si sientes molestias, detén la sesión y vuelve a respirar normalmente.',fr:'Resonant n’est pas un dispositif médical. En cas d’inconfort, arrêtez la session et respirez normalement.',ar:'Resonant ليس جهازاً طبياً. إذا شعرت بعدم الراحة، أوقف الجلسة وعد إلى التنفس الطبيعي.',pt:'Resonant não é um dispositivo médico. Se sentir desconforto, pare a sessão e volte à respiração normal.',ru:'Resonant не является медицинским устройством. При дискомфорте остановитесь и вернитесь к обычному дыханию.'},
-    footer:{tr:'© 2026 CodExa. Tüm hakları saklıdır.',en:'© 2026 CodExa. All rights reserved.',de:'© 2026 CodExa. Alle Rechte vorbehalten.',zh:'© 2026 CodExa。保留所有权利。',hi:'© 2026 CodExa. सर्वाधिकार सुरक्षित।',es:'© 2026 CodExa. Todos los derechos reservados.',fr:'© 2026 CodExa. Tous droits réservés.',ar:'© 2026 CodExa. جميع الحقوق محفوظة.',pt:'© 2026 CodExa. Todos os direitos reservados.',ru:'© 2026 CodExa. Все права защищены.'},
-    legal_title: { tr: "Yasal & Destek", en: "Legal & Support", de: "Rechtliches & Support", zh: "法律与支持", hi: "कानूनी और सहायता", es: "Legal y Soporte", fr: "Légal & Support", ar: "القانونية والدعم", pt: "Jurídico & Suporte", ru: "Правовая информация и поддержка" },
-    link_privacy: { tr: "Gizlilik Politikası", en: "Privacy Policy", de: "Datenschutzerklärung", zh: "隐私政策", hi: "गोपनीयता नीति", es: "Política de Privacidad", fr: "Politique de Confidentialité", ar: "سياسة الخصوصية", pt: "Política de Privacidade", ru: "Политика конфиденциальности" },
-    link_terms: { tr: "Kullanım Koşulları", en: "Terms of Use", de: "Nutzungsbedingungen", zh: "使用条款", hi: "उपयोग की शर्तें", es: "Términos de Uso", fr: "Conditions d'Utilisation", ar: "شروط الاستخدام", pt: "Termos de Uso", ru: "Условия использования" },
-    link_support: { tr: "Destek & Yardım", en: "Support & Help", de: "Support & Hilfe", zh: "支持与帮助", hi: "सहायता और मदद", es: "Soporte y Ayuda", fr: "Support & Aide", ar: "الدعم والمساعدة", pt: "Suporte & Ajuda", ru: "Поддержка и помощь" }
-  };
+    window.PAGE_TRANSLATIONS = {
+      page_title: { tr: 'Resonant — CodExa', en: 'Resonant — CodExa' },
+      back: { tr: '← Portala dön', en: '← Back to portal' },
+      eyebrow: { tr: 'Ekrandan uzaklaş. Ritmini bul.', en: 'Ekrandan uzaklaş. Ritmini bul.' },
+      lead: { tr: 'Ekran yorgunluğu, odak dağınıklığı ve yoğun anlar için bir dakikalık rehberli nefes molaları.', en: 'Ekran yorgunluğu, odak dağınıklığı ve yoğun anlar için bir dakikalık rehberli nefes molaları.' },
+      status: { tr: 'Geliştirme Aşamasında', en: 'In Development' },
+      support: { tr: 'Destek', en: 'Support' },
+      legal_title: { tr: "Yasal & Destek", en: "Legal & Support" },
+      link_privacy: { tr: "Gizlilik Politikası", en: "Privacy Policy" },
+      link_terms: { tr: "Kullanım Koşulları", en: "Terms of Use" },
+      link_support: { tr: "Destek & Yardım", en: "Support & Help" },
+      footer: { tr: '© 2026 CodExa. Tüm hakları saklıdır.', en: '© 2026 CodExa. All rights reserved.' }
+    };
   </script>
   <script src="../i18n.js"></script>
 </body>

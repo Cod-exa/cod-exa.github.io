@@ -1,15 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=../hanoikulesi/index.html">
-    <link rel="canonical" href="../hanoikulesi/index.html">
-    <title>CodExa - Hanoi Kulesi</title>
-    <script>window.location.replace("../hanoikulesi/index.html");</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="page_title">Hanoi Kulesi — CodExa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../assets/css/project-template.css">
+  <style>
+    :root {
+
+    --accent-primary: #d946ef;
+    --accent-secondary: #f43f5e;
+    --bg-main: #4a044e;
+    --bg-card: rgba(112, 26, 117, .68);
+    --glow-1: rgba(217, 70, 239, .15);
+    --glow-2: rgba(244, 63, 94, .09);
+    }
+  </style>
 </head>
 <body>
-    <p>Sayfa taşındı. Otomatik yönlendiriliyorsunuz...
-       Yönlendirilmezseniz <a href="../hanoikulesi/index.html">buraya tıklayın</a>.</p>
+  <div class="shell">
+    <nav class="topbar">
+      <a class="brand" href="../index.html"><img src="assets/app-icon.png" alt=""><span>CodExa</span></a>
+      <a class="back" href="../index.html" data-i18n="back">← Portal</a>
+    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow" data-i18n="eyebrow">Klasik Bulmaca</div>
+          <h1>Hanoi<br><span>Kulesi</span></h1>
+          <p class="lead" data-i18n="lead">Diskleri kurallara uygun olarak diğer kuleye taşı ve problemi çöz.</p>
+          <div class="status" data-i18n="status">Geliştirme Aşamasında</div>
+          <div class="actions">
+            <a class="button secondary" href="support.html" data-i18n="support">Destek</a>
+          </div>
+        </div>
+        <div class="hero-art"><img src="assets/app-icon.png" alt="App Icon"></div>
+      </section>
+
+      <section class="section" style="padding-top: 0; text-align: center; margin-top: 40px;">
+        <h2 data-i18n="legal_title" style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 20px;">Yasal & Destek</h2>
+        <div class="legal-links" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+          <a href="privacy.html" data-i18n="link_privacy" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Gizlilik Politikası</a>
+          <a href="terms.html" data-i18n="link_terms" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Kullanım Koşulları</a>
+          <a href="support.html" data-i18n="link_support" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Destek & Yardım</a>
+        </div>
+      </section>
+    </main>
+    <footer><span data-i18n="footer">© 2026 CodExa. Tüm hakları saklıdır.</span></footer>
+  </div>
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      page_title: { tr: 'Hanoi Kulesi — CodExa', en: 'Hanoi Kulesi — CodExa' },
+      back: { tr: '← Portala dön', en: '← Back to portal' },
+      eyebrow: { tr: 'Klasik Bulmaca', en: 'Klasik Bulmaca' },
+      lead: { tr: 'Diskleri kurallara uygun olarak diğer kuleye taşı ve problemi çöz.', en: 'Diskleri kurallara uygun olarak diğer kuleye taşı ve problemi çöz.' },
+      status: { tr: 'Geliştirme Aşamasında', en: 'In Development' },
+      support: { tr: 'Destek', en: 'Support' },
+      legal_title: { tr: "Yasal & Destek", en: "Legal & Support" },
+      link_privacy: { tr: "Gizlilik Politikası", en: "Privacy Policy" },
+      link_terms: { tr: "Kullanım Koşulları", en: "Terms of Use" },
+      link_support: { tr: "Destek & Yardım", en: "Support & Help" },
+      footer: { tr: '© 2026 CodExa. Tüm hakları saklıdır.', en: '© 2026 CodExa. All rights reserved.' }
+    };
+  </script>
+  <script src="../i18n.js"></script>
 </body>
 </html>

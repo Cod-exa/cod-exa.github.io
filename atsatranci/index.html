@@ -1,596 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>At Satrancı: Zeka Oyunu – CodExa</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --gold: #F59E0B; /* Orange */
-            --gold-light: #FBBF24;
-            --gold-alpha: rgba(245, 158, 11, 0.12);
-            --gold-border: rgba(245, 158, 11, 0.3);
-            --dark: #0F172A; /* Slate 900 */
-            --dark-card: rgba(30, 41, 59, 0.7); /* Glassmorphism */
-            --dark-hover: rgba(30, 41, 59, 0.9);
-            --text-gold: #CBD5E1; /* Slate 300 */
-            --text-gray: #94A3B8;
-            --white: #F8FAFC;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="page_title">At Satrancı — CodExa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../assets/css/project-template.css">
+  <style>
+    :root {
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-        }
-
-        /* Ambient background glow and stars */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                radial-gradient(ellipse 60% 40% at 50% -10%, rgba(245, 158, 11, 0.1) 0%, transparent 70%),
-                radial-gradient(circle 300px at 10% 30%, rgba(56, 189, 248, 0.05), transparent 80%),
-                radial-gradient(circle 400px at 90% 70%, rgba(245, 158, 11, 0.05), transparent 80%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: 
-                radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 150px 80px, rgba(56, 189, 248, 0.5), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 80px 240px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 250px 180px, rgba(245, 158, 11, 0.6), rgba(0,0,0,0));
-            background-size: 300px 300px;
-            opacity: 0.25;
-            z-index: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Back Button */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            font-size: 14px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            text-decoration: none;
-            margin-bottom: 30px;
-            transition: var(--transition);
-        }
-
-        .back-btn:hover {
-            color: var(--gold-light);
-            transform: translateX(-4px);
-        }
-
-        /* Header Area */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            border-bottom: 1.5px solid var(--gold-border);
-            padding-bottom: 30px;
-        }
-
-        header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--gold-light);
-            letter-spacing: 1.5px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text-gold);
-            opacity: 0.85;
-        }
-
-        /* App Showcase Card */
-        .app-card {
-            background-color: var(--dark-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1.5px solid var(--gold-border);
-            border-radius: 28px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .app-icon-wrap {
-            width: 140px;
-            height: 140px;
-            border-radius: 30px;
-            border: 2px solid var(--gold);
-            padding: 12px;
-            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 20px rgba(245, 158, 11, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .app-icon-wrap svg {
-            width: 80px;
-            height: 80px;
-        }
-
-        .app-details h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 8px;
-        }
-
-        .app-tagline {
-            font-size: 1.05rem;
-            font-style: italic;
-            color: var(--gold-light);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .app-desc {
-            color: var(--text-gold);
-            font-size: 1.05rem;
-            margin-bottom: 28px;
-            opacity: 0.9;
-        }
-
-        /* Coming Soon Banner */
-        .coming-soon-banner {
-            background-color: var(--gold-alpha);
-            border: 1px solid var(--gold-border);
-            color: var(--gold-light);
-            padding: 14px 24px;
-            border-radius: 16px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.05rem;
-            text-align: center;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 15px rgba(212, 160, 23, 0.1);
-            letter-spacing: 0.5px;
-        }
-
-        /* STRICT COMPLIANCE LEGAL & SUPPORT CHIPS */
-        .legal-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            border-top: 1px solid rgba(212, 160, 23, 0.15);
-            padding-top: 24px;
-        }
-
-        .legal-chip {
-            background-color: var(--gold-alpha);
-            border: 1px solid var(--gold-border);
-            color: var(--gold-light);
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-        }
-
-        .legal-chip:hover {
-            background-color: var(--gold-light);
-            color: var(--dark);
-            border-color: var(--gold-light);
-            box-shadow: 0 0 15px rgba(240, 192, 64, 0.3);
-            transform: translateY(-1px);
-        }
-
-        /* App Gallery Section */
-        .gallery-section {
-            background-color: var(--dark-card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--gold-border);
-            border-radius: 24px;
-            padding: 32px;
-            margin-bottom: 40px;
-        }
-
-        .gallery-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            color: var(--gold-light);
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .feature-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: var(--text-gold);
-            font-size: 1rem;
-        }
-
-        .feature-item svg {
-            color: var(--gold);
-            flex-shrink: 0;
-            margin-top: 4px;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 768px) {
-            .app-card {
-                grid-template-columns: 1fr;
-                gap: 24px;
-                text-align: center;
-                justify-items: center;
-            }
-            .legal-chips {
-                justify-content: center;
-            }
-            .feature-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 24px;
-            border-top: 1px solid rgba(212, 160, 23, 0.1);
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
+    --accent-primary: #8b5cf6;
+    --accent-secondary: #ec4899;
+    --bg-main: #1e1b4b;
+    --bg-card: rgba(49, 46, 129, .68);
+    --glow-1: rgba(139, 92, 246, .15);
+    --glow-2: rgba(236, 72, 153, .09);
+    --glow-3: rgba(139, 92, 246, .1);
+    }
+  </style>
 </head>
 <body>
-    <div class="stars"></div>
-    
-    <div class="container">
-        <!-- Back to Portfolio -->
-        <a href="../index.html" class="back-btn" data-i18n="back_btn">
-            ← Portfolyoya Dön / Back to Portfolio
-        </a>
-
-        <!-- Header -->
-        <header>
-            <h1 data-i18n="header_h1">AT SATRANCI</h1>
-            <p data-i18n="header_p">Stratejik Zeka Oyunu</p>
-        </header>
-
-        <!-- Main app card -->
-        <div class="app-card">
-            <!-- App Icon -->
-            <div class="app-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.5 3L11 6V8L9 11V15L6 16V20H18V15L17 12V6L14.5 3Z" fill="#F59E0B" />
-                    <path d="M12 7C12 7 11.5 8 10 8" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </div>
-            
-            <!-- App Details -->
-            <div class="app-details">
-                <h3 data-i18n="game_title">At Satrancı: Zeka Oyunu</h3>
-                <p class="app-tagline" data-i18n="game_tagline">Stratejik Zeka Oyunu / Strategic Brain Game</p>
-                
-                <p class="app-desc" data-i18n="game_desc">
-                    At Satrancı bulmacasını modern, yüksek kaliteli grafikler, antik temalı atmosferik müzikler ve zorlayıcı modlar ile deneyimleyin! 
-                    Klasik 3 diskten başlayarak zihninizi zorlayacak 8 diske kadar olan bulmacaları en az hamleyle çözmeye çalışın. 
-                    Seviyeleri geçerek mistik altınlar toplayın ve tapınak rütbelerini kazanın.
-                </p>
-
-                <!-- Google Play Link -->
-                <a href="https://play.google.com/store/apps/details?id=com.atsatranci.knight_tour&pcampaignid=web_share" target="_blank" class="coming-soon-banner" style="display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; cursor: pointer; background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.4); color: #4ADE80;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
-                    Google Play'den İndirin
-                </a>
-                
-                <!-- Compliant Legal & Support Links -->
-                <div class="legal-chips">
-                    <a href="privacy.html" class="legal-chip" data-i18n="chip_privacy">
-                        📜 Gizlilik Politikası (Privacy Policy)
-                    </a>
-                    <a href="terms.html" class="legal-chip" data-i18n="chip_terms">
-                        ⚖️ Kullanım Koşulları (Terms of Use)
-                    </a>
-                    <a href="support.html" class="legal-chip" data-i18n="chip_support">
-                        💬 Destek & İletişim (Support & Feedback)
-                    </a>
-                </div>
-            </div>
+  <div class="shell">
+    <nav class="topbar">
+      <a class="brand" href="../index.html"><img src="assets/app-icon.png" alt=""><span>CodExa</span></a>
+      <a class="back" href="../index.html" data-i18n="back">← Portal</a>
+    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow" data-i18n="eyebrow">Zeka ve Hamle</div>
+          <h1>At<br><span>Satrancı</span></h1>
+          <p class="lead" data-i18n="lead">Atın L şeklindeki hamleleriyle satranç tahtasında tüm kareleri gez.</p>
+          <div class="status" data-i18n="status">Geliştirme Aşamasında</div>
+          <div class="actions">
+            <a class="button secondary" href="support.html" data-i18n="support">Destek</a>
+          </div>
         </div>
+        <div class="hero-art"><img src="assets/app-icon.png" alt="App Icon"></div>
+      </section>
 
-        <!-- Features & Preview Section -->
-        <section class="gallery-section">
-            <h3 class="gallery-title" data-i18n="gallery_title">Oyun Özellikleri / Game Features</h3>
-            
-            <ul class="feature-list">
-                <li class="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span data-i18n="feat_1"><strong>Antik Mithra Teması:</strong> Büyüleyici, mistik tapınak görselleri ve ses efektleri.</span>
-                </li>
-                <li class="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span data-i18n="feat_2"><strong>Çoklu Zorluk Seviyeleri:</strong> 3 diskten 8 diske kadar geniş ölçekli bulmaca zorlukları.</span>
-                </li>
-                <li class="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span data-i18n="feat_3"><strong>İstatistik & Hamle Sayacı:</strong> En az hamleyle çözerek altın madalya ve mistik rütbeleri toplayın.</span>
-                </li>
-                <li class="feature-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span data-i18n="feat_4"><strong>Güvenli Bulut Kaydı:</strong> Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.</span>
-                </li>
-            </ul>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p data-i18n="footer_text">&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        // Local Translations Dictionary
-        window.PAGE_TRANSLATIONS = {
-            "page_title": {
-                "tr": "At Satrancı: Zeka Oyunu – CodExa",
-                "en": "Knight Tour: Brain Game – CodExa",
-                "de": "Springerproblem: Denkspiel – CodExa",
-                "zh": "骑士巡游：脑力益智游戏 – CodExa",
-                "hi": "नाइट टूर: ब्रेन गेम – CodExa",
-                "es": "Problema del Caballo: Juego Mental – CodExa",
-                "fr": "Parcours du Cavalier : Jeu de Réflexion – CodExa",
-                "ar": "جولة الفارس: لعبة ذكاء – CodExa",
-                "pt": "Problema del Caballo: Jogo de Raciocínio – CodExa",
-                "ru": "Тур Коня: Игра на логику – CodExa"
-            },
-            "back_btn": {
-                "tr": "← Portfolyoya Dön / Back to Portfolio",
-                "en": "← Back to Portfolio",
-                "de": "← Zurück zum Portfolio",
-                "zh": "← 返回作品集",
-                "hi": "← पोर्टफोलियो पर वापस जाएं",
-                "es": "← Volver al Portafolio",
-                "fr": "← Retour au Portfolio",
-                "ar": "← العودة إلى المعرض",
-                "pt": "← Voltar ao Portfólio",
-                "ru": "← Назад в портфолио"
-            },
-            "header_h1": {
-                "tr": "AT SATRANCI",
-                "en": "KNIGHT TOUR",
-                "de": "KNIGHT TURM",
-                "zh": "骑士巡游",
-                "hi": "नाइट टूर",
-                "es": "TORRE DE KNIGHT",
-                "fr": "TOUR DE HANOÏ",
-                "ar": "جولة الفارس",
-                "pt": "TORRE DE KNIGHT",
-                "ru": "ХАНОЙСКАЯ БАШНЯ"
-            },
-            "header_p": {
-                "tr": "Stratejik Zeka Oyunu",
-                "en": "Strategic Brain Game",
-                "de": "Logik- & Denkspiel im antiken Tempel",
-                "zh": "古庙逻辑与脑力游戏",
-                "hi": "प्राचीन मंदिर तर्क और ब्रेन गेम",
-                "es": "Juego de Lógica y Mente en el Antiguo Templo",
-                "fr": "Jeu de Logique & de Réflexion du Temple Antique",
-                "ar": "لعبة منطق وذكاء المعبد القديم",
-                "pt": "Jogo de Lógica e Raciocínio do Antigo Templo",
-                "ru": "Логическая игра в древнем храме"
-            },
-            "game_title": {
-                "tr": "At Satrancı: Zeka Oyunu",
-                "en": "Knight Tour: Brain Game",
-                "de": "Springerproblem: Denkspiel",
-                "zh": "骑士巡游：脑力益智游戏",
-                "hi": "नाइट टूर: ब्रेन गेम",
-                "es": "Problema del Caballo: Juego Mental",
-                "fr": "Parcours du Cavalier : Jeu de Réflexion",
-                "ar": "جولة الفارس: لعبة ذكاء",
-                "pt": "Problema del Caballo: Jogo de Raciocínio",
-                "ru": "Тур Коня: Игра на логику"
-            },
-            "game_tagline": {
-                "tr": "Stratejik Zeka Oyunu",
-                "en": "Strategic Brain Game",
-                "de": "Rätsel des antiken Mithra-Tempels",
-                "zh": "古代米特拉神庙谜题",
-                "hi": "प्राचीन मित्रा मंदिर पहेली",
-                "es": "Rompecabezas del Antiguo Templo de Mitra",
-                "fr": "Énigme du Temple Antique de Mithra",
-                "ar": "لغز معبد ميثرا القديم",
-                "pt": "Enigma do Antigo Templo de Mitra",
-                "ru": "Головоломка древнего храма Митры"
-            },
-            "game_desc": {
-                "tr": "At Satrancı bulmacasını modern, şık grafikler ve farklı oyun modlarıyla (Klasik, Engelli) deneyimleyin! 5x5'ten başlayıp zihninizi zorlayacak daha büyük tahtalara kadar olan bulmacaları en az hamleyle çözmeye çalışın. Günün Bulmacasını çözerek istatistiklerinizi zirveye taşıyın.",
-                "en": "Experience the Knight Tour puzzle with modern graphics and varied modes (Classic, Obstacle)! Start from 5x5 and challenge your brain on larger boards to solve puzzles in the fewest moves. Solve the Daily Puzzle and climb the statistics.",
-                "de": "Erleben Sie das Springerproblem-Rätsel in einer modernen Benutzeroberfläche mit Schwierigkeitsgraden ab 5x5, Klassik- und Hindernis-Spielmodi (Tägliches Rätsel)!",
-                "zh": "体验经典的骑士巡游谜题，拥有现代、高品质的画面，古老主题的氛围音乐，以及极具挑战性的游戏模式！尝试用最少的步数解决从经典的 3 个圆盘到 8 个圆盘的谜题，测试您的脑力。通过关卡收集神秘黄金，获得古老神庙等级。",
-                "hi": "आधुनिक, उच्च गुणवत्ता वाले ग्राफिक्स, प्राचीन थीम वाले वायुमंडलीय संगीत और चुनौतीपूर्ण गेम मोड के साथ क्लासिक नाइट टूर पहेली का अनुभव करें! क्लासिक 3 डिस्क से लेकर 8 डिस्क तक की पहेलियों को कम से कम चालों में हल करने का प्रयास करें जो आपके मस्तिष्क का परीक्षण करेंगी। स्तरों को पार करके रहस्यमय सोना एकत्र करें और प्राचीन मंदिर रैंक अर्जित करें।",
-                "es": "¡Disfruta del clásico rompecabezas de la Problema del Caballo con gráficos modernos de alta calidad, música atmosférica de temática antigua y desafiantes modos de juego! Intenta resolver rompecabezas desde los clásicos 3 discos hasta los 8 discos que pondrán a prueba tu cerebro con el menor número de movimientos. Reúne oro místico superando niveles y gana rangos del templo antiguo.",
-                "fr": "Découvrez le casse-tête classique de la Parcours du Cavalier avec des graphismes modernes de haute qualité, des musiques d'ambiance sur le thème antique et des modes de jeu stimulants ! Essayez de résoudre des énigmes de 3 disques classiques jusqu'à 8 disques pour tester votre réflexion en un minimum de mouvements. Collectionnez de l'or mystique en réussissant les niveaux et gagnez des rangs de temple antique.",
-                "ar": "جرب لغز جولة الفارس الكلاسيكي برسومات حديثة وعالية الجودة، وموسيقى تصويرية غامضة من أجواء المعابد القديمة، وأنماط لعب مليئة بالتحدي! حاول حل الألغاز بداية من 3 أقراص كلاسيكية وحتى 8 أقراص ستختبر ذكاءك بأقل عدد من الحركات. اجمع الذهب الغامض عبر اجتياز المستويات واحصل على رتب المعبد القديم.",
-                "pt": "Experimente o clássico quebra-cabeça da Problema del Caballo com gráficos modernos de alta qualidade, música atmosférica de temática antiga e modos de jogo desafiadores! Tente resolver desafios desde os clássicos 3 discos até 8 discos que testarão seu raciocínio com o menor número de movimentos. Colete ouro místico passando de nível e ganhe títulos no templo antigo.",
-                "ru": "Испытайте классическую головоломку «Тур Коня» с современной высококачественной графикой, атмосферной музыкой в древнем стиле и сложными режимами игры! Попробуйте решить головоломки от классических 3 дисков до 8 дисков за минимальное число ходов. Собирайте мистическое золото, проходя уровни, и зарабатывайте ранги в древнем храме."
-            },
-            "coming_soon": {
-                "tr": "✨ Yakında Google Play Store'da! / Coming Soon to Google Play!",
-                "en": "✨ Coming Soon to Google Play!",
-                "de": "✨ Demnächst im Google Play!",
-                "zh": "✨ 即将登陆 Google Play！",
-                "hi": "✨ जल्द ही गूगल प्ले स्टोर पर!",
-                "es": "✨ ¡Próximamente en Google Play!",
-                "fr": "✨ Bientôt disponible sur Google Play !",
-                "ar": "✨ قريباً على गूगल प्ले!",
-                "pt": "✨ Em breve na Google Play!",
-                "ru": "✨ Скоро в Google Play!"
-            },
-            "chip_privacy": {
-                "tr": "📜 Gizlilik Politikası (Privacy Policy)",
-                "en": "📜 Privacy Policy",
-                "de": "📜 Datenschutzrichtlinie (Privacy Policy)",
-                "zh": "📜 隐私政策 (Privacy Policy)",
-                "hi": "📜 गोपनीयता नीति (Privacy Policy)",
-                "es": "📜 Política de Privacidad (Privacy Policy)",
-                "fr": "📜 Politique de Confidentialité",
-                "ar": "📜 سياسة الخصوصية (Privacy Policy)",
-                "pt": "📜 Política de Privacidade",
-                "ru": "📜 Политика конфиденциальности"
-            },
-            "chip_terms": {
-                "tr": "⚖️ Kullanım Koşulları (Terms of Use)",
-                "en": "⚖️ Terms of Use",
-                "de": "⚖️ Nutzungsbedingungen (Terms of Use)",
-                "zh": "⚖️ 使用条款 (Terms of Use)",
-                "hi": "⚖️ उपयोग की शर्तें (Terms of Use)",
-                "es": "⚖️ Condiciones de Uso (Terms of Use)",
-                "fr": "⚖️ Conditions d'Utilisation",
-                "ar": "⚖️ شروط الاستخدام (Terms of Use)",
-                "pt": "⚖️ Termos de Uso",
-                "ru": "⚖️ Условия использования"
-            },
-            "chip_support": {
-                "tr": "💬 Destek & İletişim (Support & Feedback)",
-                "en": "💬 Support & Feedback",
-                "de": "💬 Support & Feedback",
-                "zh": "💬 支持 & 反馈 (Support & Feedback)",
-                "hi": "💬 समर्थन और प्रतिक्रिया (Support & Feedback)",
-                "es": "💬 Soporte y Comentarios (Support & Feedback)",
-                "fr": "💬 Support & Retour",
-                "ar": "💬 الدعم والملاحظات (Support & Feedback)",
-                "pt": "💬 Suporte e Feedback",
-                "ru": "💬 Поддержка и обратная связь"
-            },
-            "gallery_title": {
-                "tr": "Oyun Özellikleri / Game Features",
-                "en": "Game Features",
-                "de": "Spielfunktionen",
-                "zh": "游戏特色",
-                "hi": "गेम की विशेषताएं",
-                "es": "Características del Juego",
-                "fr": "Caractéristiques du Jeu",
-                "ar": "ميزات اللعبة",
-                "pt": "Recursos do Jogo",
-                "ru": "Особенности игры"
-            },
-            "feat_1": {
-                "tr": "<strong>Farklı Oyun Modları:</strong> Klasik mod veya engellerle dolu Günün Bulmacası modu.",
-                "en": "<strong>Different Game Modes:</strong> Classic mode or the obstacle-filled Daily Puzzle mode.",
-                "de": "<strong>Glassmorphismus-UI:</strong> Auffälliges modernes Design mit tiefblauem und neonblauem Leuchten.",
-                "zh": "<strong>玻璃拟物化 UI：</strong> 醒目的现代设计，深海军蓝和霓虹蓝发光。",
-                "hi": "<strong>ग्लासमॉर्फिज्म यूआई:</strong> गहरे नेवी और नियॉन ब्लू चमक के साथ आकर्षक आधुनिक डिजाइन।",
-                "es": "<strong>Interfaz Glassmorphism:</strong> Llamativo diseño moderno con brillos azul marino y azul neón.",
-                "fr": "<strong>Interface Glassmorphism :</strong> Design moderne accrocheur avec des lueurs bleu marine et bleu néon.",
-                "ar": "<strong>واجهة Glassmorphism:</strong> تصميم حديث ملفت للنظر بلمسات أزرق داكن ونيون.",
-                "pt": "<strong>Interface Glassmorphism:</strong> Design moderno e atraente com brilhos azul-marinho e azul neon.",
-                "ru": "<strong>Интерфейс Glassmorphism:</strong> Привлекательный современный дизайн с темно-синим и неоново-синим свечением."
-            },
-            "feat_2": {
-                "tr": "<strong>Kapsamlı Zorluk Seviyeleri:</strong> 5x5'ten başlayıp daha büyük tahtalara uzanan zeka testleri.",
-                "en": "<strong>Extensive Difficulty Levels:</strong> Brain tests ranging from 5x5 to larger boards.",
-                "de": "<strong>L-Züge-Validierung:</strong> System, das nur gültige Springer-Züge zulässt.",
-                "zh": "<strong>L 步验证：</strong> 仅允许根据规则进行有效骑士移动的系统。",
-                "hi": "<strong>एल-मूव वैलिडेशन:</strong> नियमों के अनुसार केवल मान्य नाइट चालों की अनुमति देने वाली प्रणाली।",
-                "es": "<strong>Validación de Movimiento L:</strong> Sistema que permite solo movimientos válidos del caballo.",
-                "fr": "<strong>Validation du Mouvement en L :</strong> Système autorisant uniquement les mouvements de cavalier valides.",
-                "ar": "<strong>التحقق من حركة L:</strong> نظام يسمح فقط بحركات الفارس الصحيحة.",
-                "pt": "<strong>Validação de Movimento em L:</strong> Sistema que permite apenas movimentos válidos do cavalo.",
-                "ru": "<strong>Проверка хода буквой Г:</strong> Система, допускающая только правильные ходы коня."
-            },
-            "feat_3": {
-                "tr": "<strong>Akıllı Yardımcılar & İstatistik:</strong> Tıkandığınızda İpucu, Geri Al özellikleri ve detaylı oyun geçmişi (Galibiyetler, Başarı Oranı).",
-                "en": "<strong>Smart Helpers & Stats:</strong> Hint, Undo features and detailed game history (Wins, Success Rate) when stuck.",
-                "de": "<strong>Warnsdorff-KI-Löser:</strong> Leistungsstarker KI-Algorithmus, der sofort Hinweise gibt.",
-                "zh": "<strong>Warnsdorff AI 求解器：</strong> 强大的 AI 算法，在卡住时立即给出提示。",
-                "hi": "<strong>वॉर्न्सडॉर्फ AI सॉल्वर:</strong> शक्तिशाली AI जो अटकने पर तुरंत संकेत देता है।",
-                "es": "<strong>Solucionador de IA Warnsdorff:</strong> Potente algoritmo de IA que da pistas instantáneas.",
-                "fr": "<strong>Solveur IA Warnsdorff :</strong> Algorithme IA puissant offrant des indices instantanés.",
-                "ar": "<strong>حل الذكاء الاصطناعي Warnsdorff:</strong> خوارزمية ذكاء اصطناعي قوية تقدم تلميحات فورية.",
-                "pt": "<strong>Solucionador IA Warnsdorff:</strong> Poderoso algoritmo IA que dá dicas instantâneas.",
-                "ru": "<strong>ИИ-решатель Варнсдорфа:</strong> Мощный алгоритм ИИ, мгновенно дающий подсказки."
-            },
-            "feat_4": {
-                "tr": "<strong>Güvenli Bulut Kaydı:</strong> Google Sign-In sayesinde ilerlemeniz asla kaybolmaz.",
-                "en": "<strong>Secure Cloud Save:</strong> Never lose your progress thanks to Google Sign-In.",
-                "de": "<strong>Sichere Cloud-Speicherung:</strong> Verlieren Sie dank Google-Anmeldung nie Ihren Fortschritt.",
-                "zh": "<strong>安全云端存档：</strong> 得益于 Google 登录，您的进度永不丢失。",
-                "hi": "<strong>सुरक्षित क्लाउड सेव:</strong> Google साइन-ин की मदद से अपनी प्रगति कभी न खोएं।",
-                "es": "<strong>Guardado Seguro en la Nube:</strong> No pierdas nunca tu progreso gracias al inicio de sesión con Google.",
-                "fr": "<strong>Sauvegarde Cloud Sécurisée :</strong> Ne perdez jamais votre progression grâce à la connexion Google.",
-                "ar": "<strong>حفظ سحابي آمن:</strong> لا تفقد تقدمك أبداً بفضل تسجيل الدخول بواسطة Google.",
-                "pt": "<strong>Salvamento Seguro em Nuvem:</strong> Nunca perca seu progresso graças ao login com Google.",
-                "ru": "<strong>Безопасное облачное сохранение:</strong> Никогда не теряйте прогресс благодаря авторизации через Google."
-            },
-            "footer_text": {
-                "tr": "&copy; 2026 Erdinç TOPAL (CodExa). Tüm Hakları Saklıdır / All Rights Reserved.",
-                "en": "&copy; 2026 Erdinç TOPAL (CodExa). All Rights Reserved.",
-                "de": "&copy; 2026 Erdinç TOPAL (CodExa). Alle Rechte vorbehalten.",
-                "zh": "&copy; 2026 Erdinç TOPAL (CodExa). 版权所有。",
-                "hi": "&copy; 2026 Erdinç TOPAL (CodExa). सर्वाधिकार सुरक्षित।",
-                "es": "&copy; 2026 Erdinç TOPAL (CodExa). Todos los derechos reservados.",
-                "fr": "&copy; 2026 Erdinç TOPAL (CodExa). Tous droits réservés.",
-                "ar": "&copy; 2026 Erdinç TOPAL (CodExa). جميع الحقوق محفوظة.",
-                "pt": "&copy; 2026 Erdinç TOPAL (CodExa). Todos os direitos reservados.",
-                "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
-            }
-        };
-    </script>
-    <script src="../i18n.js"></script>
+      <section class="section" style="padding-top: 0; text-align: center; margin-top: 40px;">
+        <h2 data-i18n="legal_title" style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 20px;">Yasal & Destek</h2>
+        <div class="legal-links" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+          <a href="privacy.html" data-i18n="link_privacy" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Gizlilik Politikası</a>
+          <a href="terms.html" data-i18n="link_terms" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Kullanım Koşulları</a>
+          <a href="support.html" data-i18n="link_support" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--border-highlight); font-weight: 600; padding-bottom: 2px;">Destek & Yardım</a>
+        </div>
+      </section>
+    </main>
+    <footer><span data-i18n="footer">© 2026 CodExa. Tüm hakları saklıdır.</span></footer>
+  </div>
+  <script>
+    window.PAGE_TRANSLATIONS = {
+      page_title: { tr: 'At Satrancı — CodExa', en: 'At Satrancı — CodExa' },
+      back: { tr: '← Portala dön', en: '← Back to portal' },
+      eyebrow: { tr: 'Zeka ve Hamle', en: 'Zeka ve Hamle' },
+      lead: { tr: 'Atın L şeklindeki hamleleriyle satranç tahtasında tüm kareleri gez.', en: 'Atın L şeklindeki hamleleriyle satranç tahtasında tüm kareleri gez.' },
+      status: { tr: 'Geliştirme Aşamasında', en: 'In Development' },
+      support: { tr: 'Destek', en: 'Support' },
+      legal_title: { tr: "Yasal & Destek", en: "Legal & Support" },
+      link_privacy: { tr: "Gizlilik Politikası", en: "Privacy Policy" },
+      link_terms: { tr: "Kullanım Koşulları", en: "Terms of Use" },
+      link_support: { tr: "Destek & Yardım", en: "Support & Help" },
+      footer: { tr: '© 2026 CodExa. Tüm hakları saklıdır.', en: '© 2026 CodExa. All rights reserved.' }
+    };
+  </script>
+  <script src="../i18n.js"></script>
 </body>
 </html>
