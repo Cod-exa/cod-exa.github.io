@@ -2,7 +2,7 @@
 
 **Effective date:** July 5, 2026  
 **Developer:** CodExa  
-**Contact:** [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com)  
+**Contact:** [exaque2@gmail.com](mailto:exaque2@gmail.com)  
 
 ---
 
@@ -30,7 +30,7 @@ Visual Timer is intended for adults — teachers, parents, and individuals manag
 ### 4. Your rights (GDPR, UK GDPR, CCPA, KVKK)
 Because we hold no personal data on our servers, most requests (access, deletion, portability) can be fulfilled by clearing the app's data or uninstalling it. For data held by Google (AdMob/Firebase identifiers), you can:
 * Reset your advertising ID in device settings (Android: Settings → Privacy → Ads; iOS: Settings → Privacy → Tracking)
-* Contact us at [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com) for any privacy request — we respond within 30 days
+* Contact us at [exaque2@gmail.com](mailto:exaque2@gmail.com) for any privacy request — we respond within 30 days
 * EU/UK users: you may lodge a complaint with your local supervisory authority
 * Türkiye: KVKK kapsamındaki başvurular için aynı e-posta adresi geçerlidir
 
@@ -41,4 +41,4 @@ On-device data stays until you delete the app or clear its storage. Firebase ana
 We will post any changes on this page and update the effective date. Material changes will be noted in the app's release notes.
 
 ### 7. Contact
-CodExa — [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com)
+CodExa — [exaque2@gmail.com](mailto:exaque2@gmail.com)

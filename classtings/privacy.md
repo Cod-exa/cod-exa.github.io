@@ -2,7 +2,7 @@
 
 **Effective date:** July 10, 2026  
 **Developer:** CodExa  
-**Contact:** [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com)  
+**Contact:** [exaque2@gmail.com](mailto:exaque2@gmail.com)  
 
 ---
 
@@ -27,7 +27,7 @@ To provide our synchronization and ZPD (Zone of Proximal Development) analytics 
 Classtings is built with educational regulations in mind:
 * **FERPA (Family Educational Rights and Privacy Act):** Classtings acts as a secure school service provider under the direct control of the teacher/school.
 * **COPPA & GDPR-K:** Classtings does not directly market to or collect personal data from children under 13 without teacher/parent authorization. Student accounts (future vision) require 6-digit classroom codes generated and managed solely by the teacher.
-* **KVKK (Turkey Data Protection Law):** All data processing is done based on the teacher's consent and classroom administration duties. Contact [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com) for KVKK requests.
+* **KVKK (Turkey Data Protection Law):** All data processing is done based on the teacher's consent and classroom administration duties. Contact [exaque2@gmail.com](mailto:exaque2@gmail.com) for KVKK requests.
 
 ### 4. Controlled Visibility
 Any data marked as "Private" (e.g., strategic classroom plans, financial reminders, personal logs) by the teacher is flagged in Firestore and will never be shared with student panels or exported in student-facing PDF performance reports.
@@ -39,4 +39,4 @@ You maintain complete control over your data. At any time, you can request the p
 We will notify users of any updates by posting the new policy on this page. Major updates will also be highlighted in the app's release notes.
 
 ### 7. Contact
-CodExa — [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com)
+CodExa — [exaque2@gmail.com](mailto:exaque2@gmail.com)

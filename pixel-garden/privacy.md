@@ -2,7 +2,7 @@
 
 **Son güncelleme / Last updated:** 23 Temmuz 2026  
 **Geliştirici / Developer:** CodExa (Erdinç TOPAL)  
-**İletişim / Contact:** [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com)  
+**İletişim / Contact:** [exaque2@gmail.com](mailto:exaque2@gmail.com)  
 
 ---
 
@@ -28,9 +28,9 @@ Adınız, e-posta adresiniz veya telefon numaranız; konum verisi (GPS veya ağ 
 Uygulama Firebase, Google Analytics veya başka bir analitik aracı kullanmaz. Davranışınız izlenmez ve profillenmez.
 
 ### 5. Haklarınız ve Veri Silme
-Tüm verilerinizi uygulama içinden silebilirsiniz (**Ayarlar > Gizlilik > Tüm Verileri Sil**). Reklam kimliğinizi cihazınızın reklam ayarlarından sıfırlayabilirsiniz. Sorularınız ve talepleriniz için bizimle iletişime geçebilirsiniz: [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com)
+Tüm verilerinizi uygulama içinden silebilirsiniz (**Ayarlar > Gizlilik > Tüm Verileri Sil**). Reklam kimliğinizi cihazınızın reklam ayarlarından sıfırlayabilirsiniz. Sorularınız ve talepleriniz için bizimle iletişime geçebilirsiniz: [exaque2@gmail.com](mailto:exaque2@gmail.com)
 
 ---
 
 ### Contact / İletişim
-CodExa — [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com)
+CodExa — [exaque2@gmail.com](mailto:exaque2@gmail.com)
