@@ -172,12 +172,10 @@
   // 3. Translate Dynamic Elements
   function applyTranslations(lang) {
     const translations = window.PAGE_TRANSLATIONS;
-    if (!translations) return;
-
-    // Apply RTL/LTR
     const config = LANGUAGES[lang];
     document.documentElement.dir = config.dir;
     document.documentElement.lang = lang;
+    if (!translations) return;
 
     // Smooth transition
     document.body.style.opacity = '0.9';
