@@ -40,7 +40,7 @@
   const parts=location.pathname.split('/').filter(Boolean),slug=parts.length>1?parts[parts.length-2]:'';
   const app=apps[slug]; if(!app)return;
   const file=(parts[parts.length-1]||'').toLowerCase(),type=file.startsWith('privacy')?'privacy':file.startsWith('terms')?'terms':'support';
-  const contentMain=document.querySelector('main')||document.querySelector('.document'),originalMain=contentMain?contentMain.innerHTML:'';
+  const contentMain=document.querySelector('main')||document.querySelector('.document')||document.querySelector('.container'),originalMain=contentMain?contentMain.innerHTML:'';
   const render=()=>{
     const requested=new URLSearchParams(location.search).get('lang');
     const lang=(requested||document.documentElement.lang||'en').toLowerCase().split('-')[0],t=copy[lang]||copy.en;
