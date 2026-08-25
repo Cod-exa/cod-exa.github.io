@@ -28,7 +28,7 @@
   ];
   const root = location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const makeGroup = (label, status) => {
-    const items = products.filter(item => item[4] === status).map(item => `<a class="cx-product" href="${root}${item[3]}"><i>${item[0]}</i><span><strong>${item[1]}</strong><small>${item[2]}${status === 'soon' ? ' · Yakında' : ''}</small></span><em>→</em></a>`).join('');
+    const items = products.filter(item => item[4] === status).map(item => `<a class="cx-product" href="${root}${item[3]}"><i>${item[0]}</i><span><strong>${item[1]}</strong></span><em>→</em></a>`).join('');
     return `<div class="cx-group"><div class="cx-group-label"><span data-i18n="${status === 'live' ? 'cx_published' : 'cx_developing'}">${label}</span><b>${products.filter(item => item[4] === status).length}</b></div><div class="cx-product-list">${items}</div></div>`;
   };
   const bar = document.createElement('nav');

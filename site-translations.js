@@ -124,9 +124,11 @@
     ]
   };
   Object.entries(localizedExtras).forEach(([lang,values])=>extraKeys.forEach((key,index)=>{if(values[index]!==undefined)window.PAGE_TRANSLATIONS[key][lang]=values[index];}));
-  document.addEventListener('DOMContentLoaded', () => {
+  window.PAGE_TRANSLATIONS.skip_content={tr:'İçeriğe geç',en:'Skip to content',de:'Zum Inhalt springen',zh:'跳到内容',hi:'सामग्री पर जाएँ',es:'Ir al contenido',fr:'Aller au contenu',ar:'انتقل إلى المحتوى',pt:'Ir para o conteúdo',ru:'Перейти к содержанию',id:'Lewati ke konten',bn:'বিষয়বস্তুতে যান',ur:'مواد پر جائیں',ja:'コンテンツへ移動',ko:'콘텐츠로 건너뛰기'};
+  (() => {
     const tag = (selector,key,all=false) => (all ? document.querySelectorAll(selector) : [document.querySelector(selector)]).forEach(el => { if(el) el.dataset.i18n=key; });
     tag('.nav-links a[href="#cozumler"]','nav_solutions'); tag('.nav-links .product-trigger','nav_products'); tag('.nav-links a[href="#kurumlar"]','nav_institutions'); tag('.nav-links a[href="#yaklasim"]','nav_technology'); tag('.nav-cta','nav_contact');
+    tag('.skip-link','skip_content');
     tag('.hero-copy .eyebrow','hero_eyebrow'); tag('.hero-copy h1','hero_title'); tag('.hero-copy>p','hero_desc'); tag('.hero-actions .primary','discover_products'); tag('.hero-actions .secondary','view_solutions');
     tag('#cozumler .section-head .eyebrow','solutions_eyebrow'); tag('#cozumler .section-head h2','solutions_title'); tag('#cozumler .section-head>p','solutions_desc');
     document.querySelectorAll('.solution h3').forEach((el,i)=>el.dataset.i18n=['solution_game','solution_focus','solution_custom'][i]);
@@ -143,5 +145,5 @@
     tag('#yaklasim .eyebrow','ecosystem_eyebrow'); tag('#yaklasim h2','all_products_title'); tag('#yaklasim p','all_products_desc'); tag('#yaklasim .button','open_products');
     tag('.footer-links .product-trigger','footer_products'); tag('.footer-links a[href^="mailto:"]','footer_contact'); tag('.footer-links a[href="privacy_policy.html"]','footer_privacy'); tag('.footer-links a[href*="hesap-silme"]','footer_delete');
     const footerBottom=document.querySelectorAll('.footer-bottom>span'); if(footerBottom[0]){const year=footerBottom[0].querySelector('#year');footerBottom[0].dataset.i18n='footer_rights';footerBottom[0].dataset.year=year?year.textContent:new Date().getFullYear();} if(footerBottom[1])footerBottom[1].dataset.i18n='footer_location';
-  });
+  })();
 })();
