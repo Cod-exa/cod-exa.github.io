@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Mangala Oyunu — geleneksel stratejiyi dijital deneyimle buluşturan CodExa oyunu.">
+  <title>Mangala Oyunu — CodExa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../assets/css/project-template.css">
+  <style>
+    :root{--accent-primary:#f59e0b;--accent-secondary:#ea580c;--accent-cyan:#fbbf24;--bg-main:#120d08;--bg-card:rgba(55,36,20,.7);--border-color:rgba(245,158,11,.18);--border-highlight:rgba(245,158,11,.5);--glow-1:rgba(245,158,11,.14);--glow-2:rgba(234,88,12,.08)}
+    .mangala-board{position:relative;width:min(390px,85vw);height:190px;padding:28px 50px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;border:10px solid #7c3f18;border-radius:70px;background:linear-gradient(145deg,#a65d25,#6c3515);box-shadow:0 32px 70px rgba(0,0,0,.45),inset 0 3px 10px rgba(255,220,160,.24);transform:rotate(3deg)}
+    .mangala-board i{display:block;align-self:center;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fcd34d,#92400e 70%);box-shadow:inset 0 5px 10px rgba(0,0,0,.48),0 2px 5px rgba(0,0,0,.3)}
+    .mangala-board:before,.mangala-board:after{content:"";position:absolute;top:38px;bottom:38px;width:34px;border-radius:50%;background:#4a2510;box-shadow:inset 0 7px 12px rgba(0,0,0,.65)}.mangala-board:before{left:8px}.mangala-board:after{right:8px}
+  </style>
+  <link rel="stylesheet" href="../brand-system.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="topbar"><a class="brand" href="../index.html"><span>CodExa</span></a><a class="back" href="../index.html">← Portal</a></nav>
+    <main>
+      <section class="hero">
+        <div><div class="eyebrow">Geleneksel strateji oyunu</div><h1>Mangala<br><span>Oyunu</span></h1><p class="lead">Taşlarını planla, hazineni büyüt ve yüzyıllardır oynanan strateji geleneğini dijital dünyada keşfet.</p><div class="status">Yayında</div></div>
+        <div class="hero-art"><div class="mangala-board" aria-label="Mangala oyun tahtası"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      </section>
+      <section class="section"><div class="eyebrow">Düşün, planla, ilerle</div><h2>Her taş yeni bir olasılık.</h2><div class="grid"><article class="card"><span class="icon">◉</span><b>Stratejik düşünme</b><span>Hamlelerini önceden planla ve rakibinin oyununu oku.</span></article><article class="card"><span class="icon">∞</span><b>Zamansız oyun</b><span>Geleneksel Mangala kurallarını modern ve anlaşılır bir deneyimle oyna.</span></article><article class="card"><span class="icon">◇</span><b>Odak ve sabır</b><span>Dikkatini güçlendiren kısa ve tekrar oynanabilir karşılaşmalar.</span></article></div></section>
+      <section class="section"><div class="legal-links"><a class="chip" href="../privacy_policy.html">Gizlilik Politikası</a><a class="chip" href="mailto:exaque2@gmail.com">Destek</a></div></section>
+    </main>
+    <footer>© 2026 CodExa. Tüm hakları saklıdır.</footer>
+  </div>
+  <script src="../brand-shell.js"></script>
+</body>
+</html>
