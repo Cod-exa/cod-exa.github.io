@@ -6,7 +6,10 @@
     cx_products:{tr:'Ürünler',en:'Products',de:'Produkte',zh:'产品',hi:'उत्पाद',es:'Productos',fr:'Produits',ar:'المنتجات',pt:'Produtos',ru:'Продукты',id:'Produk',bn:'পণ্য',ur:'مصنوعات',ja:'製品',ko:'제품'},
     cx_intro:{tr:'Öğrenme, problem çözme ve odaklanma için geliştirdiğimiz deneyimleri keşfedin.',en:'Explore experiences designed for learning, problem solving, and focus.',de:'Entdecken Sie Erlebnisse für Lernen, Problemlösung und Fokus.',zh:'探索专为学习、解决问题与专注力打造的体验。',hi:'सीखने, समस्या समाधान और फोकस के लिए बनाए अनुभव खोजें।',es:'Descubre experiencias para aprender, resolver problemas y concentrarte.',fr:'Découvrez des expériences pour apprendre, résoudre et se concentrer.',ar:'اكتشف تجارب للتعلّم وحل المشكلات والتركيز.',pt:'Explore experiências para aprender, resolver problemas e manter o foco.',ru:'Откройте решения для обучения, задач и концентрации.',id:'Jelajahi pengalaman untuk belajar, memecahkan masalah, dan fokus.',bn:'শেখা, সমস্যা সমাধান ও মনোযোগের অভিজ্ঞতা আবিষ্কার করুন।',ur:'سیکھنے، مسئلہ حل کرنے اور توجہ کے تجربات دریافت کریں۔',ja:'学習・問題解決・集中のための体験をご覧ください。',ko:'학습, 문제 해결, 집중을 위한 경험을 만나보세요.'},
     cx_published:{tr:'Yayındaki ürünler',en:'Published products',de:'Veröffentlichte Produkte',zh:'已发布产品',hi:'प्रकाशित उत्पाद',es:'Productos publicados',fr:'Produits publiés',ar:'المنتجات المنشورة',pt:'Produtos publicados',ru:'Опубликованные продукты',id:'Produk tersedia',bn:'প্রকাশিত পণ্য',ur:'شائع شدہ مصنوعات',ja:'公開中の製品',ko:'출시 제품'},
-    cx_developing:{tr:'Geliştirilmekte',en:'In development',de:'In Entwicklung',zh:'开发中',hi:'विकास में',es:'En desarrollo',fr:'En développement',ar:'قيد التطوير',pt:'Em desenvolvimento',ru:'В разработке',id:'Dalam pengembangan',bn:'উন্নয়নাধীন',ur:'زیرِ تیاری',ja:'開発中',ko:'개발 중'}
+    cx_developing:{tr:'Geliştirilmekte',en:'In development',de:'In Entwicklung',zh:'开发中',hi:'विकास में',es:'En desarrollo',fr:'En développement',ar:'قيد التطوير',pt:'Em desenvolvimento',ru:'В разработке',id:'Dalam pengembangan',bn:'উন্নয়নাধীন',ur:'زیرِ تیاری',ja:'開発中',ko:'개발 중'},
+    cx_footer_tagline:{tr:'Eğitim için tasarlandı.',en:'Designed for education.'},
+    cx_contact:{tr:'İletişim',en:'Contact'},
+    cx_privacy:{tr:'Gizlilik',en:'Privacy'}
   };
   window.PAGE_TRANSLATIONS = Object.assign(window.PAGE_TRANSLATIONS || {}, shellTranslations);
   const products = [
@@ -47,7 +50,7 @@
   document.body.append(overlay, drawer);
   const footer = document.createElement('footer');
   footer.className = 'cx-site-footer';
-  footer.innerHTML = `<div class="cx-footer-inner"><span>© ${new Date().getFullYear()} CodExa · Eğitim için tasarlandı.</span><div class="cx-footer-links"><a href="${root}index.html">Ana sayfa</a><a href="mailto:exaque2@gmail.com">İletişim</a><a href="${root}privacy_policy.html">Gizlilik</a></div></div>`;
+  footer.innerHTML = `<div class="cx-footer-inner"><span>© ${new Date().getFullYear()} CodExa · <span data-i18n="cx_footer_tagline">Eğitim için tasarlandı.</span></span><div class="cx-footer-links"><a href="${root}index.html" data-i18n="cx_home">Ana sayfa</a><a href="mailto:exaque2@gmail.com" data-i18n="cx_contact">İletişim</a><a href="${root}privacy_policy.html" data-i18n="cx_privacy">Gizlilik</a></div></div>`;
   document.body.append(footer);
   const opener = bar.querySelector('.cx-products-open');
   const close = () => { drawer.classList.remove('cx-open'); overlay.classList.remove('cx-open'); drawer.setAttribute('aria-hidden','true'); document.body.classList.remove('cx-drawer-active'); opener.focus(); };
