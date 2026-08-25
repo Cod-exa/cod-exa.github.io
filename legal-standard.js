@@ -13,6 +13,7 @@
     nimmaster:{name:'Nim Master',icon:'assets/app-icon.jpg',colors:['#8b5cf6','#d946ef'],bg:'#100a1b'},
     'pixel-garden':{name:'Pixel Garden',icon:'assets/app-icon.svg',colors:['#10b981','#f59e0b'],bg:'#07140f'},
     resonant:{name:'Resonant',icon:'assets/app-icon.jpg',colors:['#38bdf8','#6366f1'],bg:'#07121b'},
+    screenrecall:{name:'ScreenRecall',icon:'assets/app-icon.svg',colors:['#38bdf8','#8b5cf6'],bg:'#07111d'},
     stackingbalance:{name:'Stacking Balance',icon:'assets/app-icon.png',colors:['#5146e5','#7568ff'],bg:'#09091a'},
     'visual-timer':{name:'Visual Timer',icon:'assets/app-icon.jpg',colors:['#ef4444','#f97316'],bg:'#170a0a'}
   };

@@ -21,13 +21,29 @@
     'ur': { name: 'اردو', flag: '', dir: 'rtl' },
     'ja': { name: '日本語', flag: '', dir: 'ltr' },
     'ko': { name: '한국어', flag: '', dir: 'ltr' }
+    ,'it': { name: 'Italiano', flag: '', dir: 'ltr' }
+    ,'pt-br': { name: 'Português (Brasil)', flag: '', dir: 'ltr' }
+    ,'zh-tw': { name: '繁體中文', flag: '', dir: 'ltr' }
+    ,'nl': { name: 'Nederlands', flag: '', dir: 'ltr' }
+    ,'pl': { name: 'Polski', flag: '', dir: 'ltr' }
+    ,'vi': { name: 'Tiếng Việt', flag: '', dir: 'ltr' }
+    ,'th': { name: 'ไทย', flag: '', dir: 'ltr' }
+    ,'uk': { name: 'Українська', flag: '', dir: 'ltr' }
+    ,'fa': { name: 'فارسی', flag: '', dir: 'rtl' }
   };
+
+  function normalizeLanguage(value) {
+    const code = String(value || '').toLowerCase().replace('_', '-');
+    if (code === 'pt-br') return 'pt-br';
+    if (code === 'zh-tw' || code === 'zh-hant' || code.startsWith('zh-hant-')) return 'zh-tw';
+    return code.split('-')[0];
+  }
 
   // 1. Language Detection & Initialization
   function getPreferredLanguage() {
     const requested = new URLSearchParams(window.location.search).get('lang');
     if (requested) {
-      const normalized = requested.toLowerCase().split('-')[0];
+      const normalized = normalizeLanguage(requested);
       if (LANGUAGES[normalized]) return normalized;
     }
     // Check saved choice
@@ -39,7 +55,7 @@
     // Check browser language
     const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage || 'en'];
     for (const candidate of browserLanguages) {
-      const browserLang = candidate.toLowerCase().split('-')[0];
+      const browserLang = normalizeLanguage(candidate);
       if (LANGUAGES[browserLang]) return browserLang;
     }
 
@@ -223,7 +239,8 @@
     menu.className = 'i18n-menu';
 
     // Populate Menu
-    Object.keys(LANGUAGES).forEach(langCode => {
+    const enabledLanguages = Array.isArray(window.PAGE_LANGUAGES) ? window.PAGE_LANGUAGES.map(normalizeLanguage).filter(code => LANGUAGES[code]) : Object.keys(LANGUAGES);
+    enabledLanguages.forEach(langCode => {
       const item = document.createElement('button');
       item.className = `i18n-item ${langCode === currentLang ? 'active' : ''}`;
       item.textContent = LANGUAGES[langCode].name;
