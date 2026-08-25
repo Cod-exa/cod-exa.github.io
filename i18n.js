@@ -1,7 +1,7 @@
 /**
  * Premium i18n Internationalization Framework
  * Developed for Erdinç TOPAL (CodExa)
- * Supports 10 languages: TR, EN, DE, ZH, HI, ES, FR, AR (RTL), PT, RU
+ * Supports 15 languages: EN, TR, ZH, HI, ES, FR, AR, PT, RU, DE, ID, BN, UR, JA, KO
  */
 
 (function () {
@@ -15,11 +15,21 @@
     'fr': { name: 'Français', flag: '🇫🇷', dir: 'ltr' },
     'ar': { name: 'العربية', flag: '🇸🇦', dir: 'rtl' },
     'pt': { name: 'Português', flag: '🇵🇹', dir: 'ltr' },
-    'ru': { name: 'Русский', flag: '🇷🇺', dir: 'ltr' }
+    'ru': { name: 'Русский', flag: '', dir: 'ltr' },
+    'id': { name: 'Bahasa Indonesia', flag: '', dir: 'ltr' },
+    'bn': { name: 'বাংলা', flag: '', dir: 'ltr' },
+    'ur': { name: 'اردو', flag: '', dir: 'rtl' },
+    'ja': { name: '日本語', flag: '', dir: 'ltr' },
+    'ko': { name: '한국어', flag: '', dir: 'ltr' }
   };
 
   // 1. Language Detection & Initialization
   function getPreferredLanguage() {
+    const requested = new URLSearchParams(window.location.search).get('lang');
+    if (requested) {
+      const normalized = requested.toLowerCase().split('-')[0];
+      if (LANGUAGES[normalized]) return normalized;
+    }
     // Check saved choice
     const saved = localStorage.getItem('preferred_lang');
     if (saved && LANGUAGES[saved]) {
@@ -27,12 +37,13 @@
     }
 
     // Check browser language
-    const browserLang = (navigator.language || navigator.userLanguage || 'tr').toLowerCase().split('-')[0];
-    if (LANGUAGES[browserLang]) {
-      return browserLang;
+    const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage || 'en'];
+    for (const candidate of browserLanguages) {
+      const browserLang = candidate.toLowerCase().split('-')[0];
+      if (LANGUAGES[browserLang]) return browserLang;
     }
 
-    return 'tr'; // Fallback
+    return 'en'; // Global fallback
   }
 
   let currentLang = getPreferredLanguage();
@@ -47,6 +58,7 @@
         z-index: 10000;
         font-family: 'Outfit', 'Inter', sans-serif;
       }
+      .i18n-widget-container.in-nav { position: static; }
       .i18n-dropdown {
         position: relative;
         display: inline-block;
@@ -173,22 +185,22 @@
     // 1. Text elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (translations[key] && translations[key][lang]) {
-        el.innerHTML = translations[key][lang];
+      if (translations[key]) {
+        el.innerHTML = translations[key][lang] || translations[key].en || translations[key].tr || el.innerHTML;
       }
     });
 
     // 2. Placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
-      if (translations[key] && translations[key][lang]) {
-        el.setAttribute('placeholder', translations[key][lang]);
+      if (translations[key]) {
+        el.setAttribute('placeholder', translations[key][lang] || translations[key].en || translations[key].tr || el.getAttribute('placeholder'));
       }
     });
 
     // 3. Document Title
-    if (translations['page_title'] && translations['page_title'][lang]) {
-      document.title = translations['page_title'][lang];
+    if (translations['page_title']) {
+      document.title = translations['page_title'][lang] || translations['page_title'].en || translations['page_title'].tr || document.title;
     }
 
     setTimeout(() => {
@@ -206,7 +218,7 @@
 
     const btn = document.createElement('button');
     btn.className = 'i18n-btn';
-    btn.innerHTML = `${LANGUAGES[currentLang].flag} <span>${LANGUAGES[currentLang].name}</span>`;
+    btn.innerHTML = `<span>${LANGUAGES[currentLang].name}</span>`;
     dropdown.appendChild(btn);
 
     const menu = document.createElement('div');
@@ -216,16 +228,19 @@
     Object.keys(LANGUAGES).forEach(langCode => {
       const item = document.createElement('button');
       item.className = `i18n-item ${langCode === currentLang ? 'active' : ''}`;
-      item.innerHTML = `<span>${LANGUAGES[langCode].flag}</span> ${LANGUAGES[langCode].name}`;
+      item.textContent = LANGUAGES[langCode].name;
       item.onclick = function (e) {
         e.stopPropagation();
         if (langCode === currentLang) return;
         
         currentLang = langCode;
         localStorage.setItem('preferred_lang', langCode);
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', langCode);
+        history.replaceState(null, '', url);
         
         // Update widget button
-        btn.innerHTML = `${LANGUAGES[langCode].flag} <span>${LANGUAGES[langCode].name}</span>`;
+        btn.innerHTML = `<span>${LANGUAGES[langCode].name}</span>`;
         
         // Update active class
         menu.querySelectorAll('.i18n-item').forEach(btn => btn.classList.remove('active'));
@@ -233,6 +248,7 @@
         
         // Apply translations
         applyTranslations(langCode);
+        window.dispatchEvent(new CustomEvent('codexa:languagechange', { detail: { lang: langCode } }));
         
         // Close menu
         menu.classList.remove('show');
@@ -242,7 +258,13 @@
 
     dropdown.appendChild(menu);
     container.appendChild(dropdown);
-    document.body.appendChild(container);
+    const navHost = document.querySelector('.cx-nav') || document.querySelector('.nav-inner');
+    if (navHost) {
+      container.classList.add('in-nav');
+      navHost.appendChild(container);
+    } else {
+      document.body.appendChild(container);
+    }
 
     // Toggle menu dropdown
     btn.onclick = function (e) {
