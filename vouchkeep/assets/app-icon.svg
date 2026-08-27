@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" role="img" aria-labelledby="title desc">
+  <title id="title">VouchKeep</title>
+  <desc id="desc">Amber V mark on a graphite rounded square</desc>
+  <rect width="108" height="108" rx="26" fill="#202326"/>
+  <path d="M27 25 54 75 82 25" fill="none" stroke="#FFB869" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
