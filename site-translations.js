@@ -166,4 +166,167 @@
     tag('.footer-links .product-trigger','footer_products'); tag('.footer-links a[href^="mailto:"]','footer_contact'); tag('.footer-links a[href="privacy_policy.html"]','footer_privacy'); tag('.footer-links a[href*="hesap-silme"]','footer_delete');
     const footerBottom=document.querySelectorAll('.footer-bottom>span'); if(footerBottom[0]){const year=footerBottom[0].querySelector('#year');footerBottom[0].dataset.i18n='footer_rights';footerBottom[0].dataset.year=year?year.textContent:new Date().getFullYear();} if(footerBottom[1])footerBottom[1].dataset.i18n='footer_location';
   })();
+
+  // Full showcase & portfolio translations for complete multilingual parity
+  Object.assign(window.PAGE_TRANSLATIONS, {
+    nav_portfolio: {
+      tr: 'Uygulamalar', en: 'Applications', de: 'Apps', zh: '应用', hi: 'ऐप्स', es: 'Aplicaciones', fr: 'Applications', ar: 'التطبيقات', pt: 'Aplicativos', ru: 'Приложения', id: 'Aplikasi', bn: 'অ্যাপস', ur: 'ایپس', ja: 'アプリ', ko: '앱'
+    },
+    showcase_eyebrow: {
+      tr: 'Canlı Ürün Portföyü', en: 'Live Product Ecosystem', de: 'Live-Produktportfolio', zh: '上线产品生态', hi: 'लाइव उत्पाद पोर्टफोलियो', es: 'Ecosistema de productos en vivo', fr: 'Écosystème de produits en direct', ar: 'منظومة المنتجات الحية', pt: 'Ecossistema de produtos ativos', ru: 'Живая экосистема продуктов', id: 'Ekosistem Produk Langsung', bn: 'লাইভ পণ্য ব্যবস্থা', ur: 'لائیو پروڈکٹ نظام', ja: '公開中の製品エコシステム', ko: '출시 제품 생태계'
+    },
+    showcase_title: {
+      tr: 'Yayındaki Eğitim ve Zeka Çözümlerimiz', en: 'Published Educational & Cognitive Applications', de: 'Unsere Bildungs- und Denklösungen', zh: '已发布的教育与思维应用', hi: 'हमारे प्रकाशित शैक्षिक और बौद्धिक समाधान', es: 'Nuestras aplicaciones educativas y cognitivas', fr: 'Nos applications éducatives et cognitives', ar: 'تطبيقاتنا التعليمية والذهنية المنشورة', pt: 'Nossas soluções educacionais e cognitivas', ru: 'Наши образовательные и логические решения', id: 'Aplikasi Edukasi & Kognitif Kami', bn: 'আমাদের প্রকাশিত শিক্ষামূলক ও মানসিক সমাধান', ur: 'ہمارے شائع شدہ تعلیمی اور فکری حل', ja: '公開中の教育・思考力アプリケーション', ko: '출시된 교육 및 인지 능력 개발 애플리케이션'
+    },
+    showcase_desc: {
+      tr: 'Google Play ekosisteminde yayınlanan, analitik düşünme, dikkat yönetimi ve matematiksel refleksleri güçlendiren pedagojik uygulamalarımız.',
+      en: 'Our pedagogical apps published on Google Play that cultivate analytical reasoning, attention management, and mathematical intuition.',
+      de: 'Unsere auf Google Play veröffentlichten pädagogischen Apps fördern analytisches Denken, Konzentration und mathematische Fähigkeiten.',
+      zh: '在 Google Play 发布的教学应用，培养分析思维、专注力管理与数学直觉。',
+      hi: 'गूगल प्ले पर उपलब्ध हमारे शैक्षणिक ऐप्स जो विश्लेषणात्मक सोच, ध्यान प्रबंधन और गणितीय कौशल को मजबूत करते हैं।',
+      es: 'Nuestras aplicaciones pedagógicas en Google Play potencian el razonamiento analítico, la concentración y la intuición matemática.',
+      fr: 'Nos applications pédagogiques sur Google Play renforcent le raisonnement analytique, la gestion de l’attention et l’intuition mathématique.',
+      ar: 'تطبيقاتنا التربوية المنشورة على Google Play لتعزيز التفكير التحليلي وإدارة الانتباه والحدس الرياضي.',
+      pt: 'Nossos aplicativos pedagógicos no Google Play desenvolvem raciocínio analítico, foco e intuição matemática.',
+      ru: 'Наши образовательные приложения в Google Play развивают аналитическое мышление, внимание и математические навыки.',
+      id: 'Aplikasi pedagogis kami di Google Play yang menumbuhkan penalaran analitis, pengelolaan perhatian, dan intuisi matematika.',
+      bn: 'গুগল প্লেতে প্রকাশিত শিক্ষামূলক অ্যাপ যা বিশ্লেষণাত্মক যুক্তি, মনোযোগ ও গাণিতিক দক্ষতা বৃদ্ধি করে।',
+      ur: 'گوگل پلے پر شائع کردہ تعلیمی ایپس جو تجزیاتی سوچ، توجہ اور ریاضیاتی صلاحیتوں کو نکھارتی ہیں۔',
+      ja: 'Google Playで公開中の、分析的思考力・集中力・数学的センスを養う教育アプリ群。',
+      ko: 'Google Play에 출시된 분석적 사고력, 주의 집중력, 수학적 감각을 길러주는 교육 앱입니다.'
+    },
+    filter_all: {
+      tr: 'Tüm Uygulamalar (17)', en: 'All Applications (17)', de: 'Alle Apps (17)', zh: '全部应用 (17)', hi: 'सभी ऐप्स (17)', es: 'Todas las aplicaciones (17)', fr: 'Toutes les applications (17)', ar: 'جميع التطبيقات (17)', pt: 'Todos os aplicativos (17)', ru: 'Все приложения (17)', id: 'Semua Aplikasi (17)', bn: 'সব অ্যাপ (17)', ur: 'تمام ایپس (17)', ja: 'すべてのアプリ (17)', ko: '모든 앱 (17)'
+    },
+    filter_logic: {
+      tr: 'Mantık & Strateji', en: 'Logic & Strategy', de: 'Logik & Strategie', zh: '逻辑与策略', hi: 'तर्क और रणनीति', es: 'Lógica y estrategia', fr: 'Logique et stratégie', ar: 'المنطق والاستراتيجية', pt: 'Lógica e estratégia', ru: 'Логика и стратегия', id: 'Logika & Strategi', bn: 'যুক্তি ও কৌশল', ur: 'منطق اور حکمت عملی', ja: '論理＆戦略', ko: '논리 및 전략'
+    },
+    filter_math: {
+      tr: 'Matematik', en: 'Mathematics', de: 'Mathematik', zh: '数学', hi: 'गणित', es: 'Matemáticas', fr: 'Mathématiques', ar: 'الرياضيات', pt: 'Matemática', ru: 'Математика', id: 'Matematika', bn: 'গণিত', ur: 'ریاضی', ja: '数学', ko: '수학'
+    },
+    filter_focus: {
+      tr: 'Odak & Araçlar', en: 'Focus & Tools', de: 'Fokus & Werkzeuge', zh: '专注与工具', hi: 'फोकस और उपकरण', es: 'Concentración y herramientas', fr: 'Concentration et outils', ar: 'التركيز والأدوات', pt: 'Foco e ferramentas', ru: 'Внимание и инструменты', id: 'Fokus & Alat', bn: 'মনোযোগ ও সরঞ্জাম', ur: 'توجہ اور آلات', ja: '集中＆ツール', ko: '집중 및 도구'
+    },
+    filter_soon: {
+      tr: 'Geliştirilmekte (3)', en: 'In Development (3)', de: 'In Entwicklung (3)', zh: '开发中 (3)', hi: 'विकास में (3)', es: 'En desarrollo (3)', fr: 'En cours de développement (3)', ar: 'قيد التطوير (3)', pt: 'Em desenvolvimento (3)', ru: 'В разработке (3)', id: 'Dalam Pengembangan (3)', bn: 'উন্নয়নাধীন (3)', ur: 'زیرِ تکمیل (3)', ja: '開発中 (3)', ko: '개발 중 (3)'
+    },
+    btn_view_app: {
+      tr: 'Sayfayı Aç <span>→</span>', en: 'View Project <span>→</span>', de: 'Projekt ansehen <span>→</span>', zh: '查看项目 <span>→</span>', hi: 'प्रोजेक्ट देखें <span>→</span>', es: 'Ver proyecto <span>→</span>', fr: 'Voir le projet <span>→</span>', ar: 'عرض المشروع <span>→</span>', pt: 'Ver projeto <span>→</span>', ru: 'Открыть проект <span>→</span>', id: 'Buka Proyek <span>→</span>', bn: 'প্রকল্প দেখুন <span>→</span>', ur: 'پروجیکٹ دیکھیں <span>→</span>', ja: 'プロジェクトを見る <span>→</span>', ko: '프로젝트 보기 <span>→</span>'
+    },
+    btn_preview: {
+      tr: 'Önizle <span>→</span>', en: 'Preview <span>→</span>', de: 'Vorschau <span>→</span>', zh: '预览 <span>→</span>', hi: 'पूर्वावलोकन <span>→</span>', es: 'Vista previa <span>→</span>', fr: 'Aperçu <span>→</span>', ar: 'معاينة <span>→</span>', pt: 'Prévia <span>→</span>', ru: 'Предпросмотр <span>→</span>', id: 'Pratinjau <span>→</span>', bn: 'প্রিভিউ <span>→</span>', ur: 'پیش نظارہ <span>→</span>', ja: 'プレビュー <span>→</span>', ko: '미리보기 <span>→</span>'
+    },
+    btn_privacy: {
+      tr: 'Gizlilik Politikası', en: 'Privacy Policy', de: 'Datenschutzrichtlinie', zh: '隐私政策', hi: 'गोपनीयता नीति', es: 'Política de privacidad', fr: 'Politique de confidentialité', ar: 'سياسة الخصوصية', pt: 'Política de privacidade', ru: 'Политика конфиденциальности', id: 'Kebijakan Privasi', bn: 'গোপনীয়তা নীতি', ur: 'رازداری کی پالیسی', ja: 'プライバシーポリシー', ko: '개인정보 처리방침'
+    },
+    btn_play_store: {
+      tr: 'Google Play ↗', en: 'Google Play ↗', de: 'Google Play ↗', zh: 'Google Play ↗', hi: 'Google Play ↗', es: 'Google Play ↗', fr: 'Google Play ↗', ar: 'Google Play ↗', pt: 'Google Play ↗', ru: 'Google Play ↗', id: 'Google Play ↗', bn: 'Google Play ↗', ur: 'Google Play ↗', ja: 'Google Play ↗', ko: 'Google Play ↗'
+    },
+    badge_live_play: {
+      tr: 'Google Play Yayında', en: 'Live on Google Play', de: 'Live auf Google Play', zh: 'Google Play 上线', hi: 'Google Play पर लाइव', es: 'En Google Play', fr: 'Sur Google Play', ar: 'متاح على Google Play', pt: 'Disponível no Google Play', ru: 'Доступно в Google Play', id: 'Tersedia di Google Play', bn: 'Google Play-এ উপলব্ধ', ur: 'گوگل پلے پر لائیو', ja: 'Google Playで公開中', ko: 'Google Play 출시'
+    },
+    badge_soon_dev: {
+      tr: 'Geliştirilmekte', en: 'In Development', de: 'In Entwicklung', zh: '开发中', hi: 'विकास में', es: 'En desarrollo', fr: 'En développement', ar: 'قيد التطوير', pt: 'Em desenvolvimento', ru: 'В разработке', id: 'Dalam Pengembangan', bn: 'উন্নয়নাধীন', ur: 'زیرِ تکمیل', ja: '開発中', ko: '개발 중'
+    },
+    cat_math: { tr: 'Matematik', en: 'Mathematics' },
+    cat_logic: { tr: 'Mantık', en: 'Logic' },
+    cat_arithmetic: { tr: 'Aritmetik', en: 'Arithmetic' },
+    cat_focus_tool: { tr: 'Odak & Araç', en: 'Focus & Tool' },
+    cat_strategy: { tr: 'Strateji', en: 'Strategy' },
+    cat_traditional: { tr: 'Geleneksel Mantık', en: 'Traditional Strategy' },
+    cat_pure_logic: { tr: 'Saf Mantık', en: 'Pure Logic' },
+    cat_utility: { tr: 'Fiş & Garanti', en: 'Receipts & Vault' },
+    cat_privacy: { tr: 'OCR & Arama', en: 'OCR & Search' },
+    cat_physics: { tr: 'Fizik & Denge', en: 'Physics & Balance' },
+    cat_edu_mgmt: { tr: 'Eğitim Yönetimi', en: 'Education Mgmt' },
+    cat_creative: { tr: 'Yaratıcı Deneyim', en: 'Creative Lab' },
+    cat_mindfulness: { tr: 'Odak & Nefes', en: 'Mindfulness & Breath' },
+    cat_physics_maze: { tr: 'Fizik Bulmaca', en: 'Physics Puzzle' },
+
+    card_title_1: { tr: '2048 - Sayı Bulmaca', en: '2048 - Number Puzzle' },
+    card_desc_1: {
+      tr: 'Sayıları kaydırın, birleştirin ve 2048\'e ulaşın. Akıcı animasyonlar, geri alma desteği ve analitik planlama pratiği.',
+      en: 'Swipe and merge numbers to reach 2048. Smooth animations, undo support, and analytical planning practice.'
+    },
+    card_title_2: { tr: 'At Satrancı: Zeka Oyunu', en: 'Knight’s Tour: Brain Puzzle' },
+    card_desc_2: {
+      tr: 'Satranç atının L hareketiyle tüm tahtayı kare atlamadan tamamlama bulmacası (Knight\'s Tour). Uzamsal zeka ve derin strateji.',
+      en: 'A Knight\'s Tour puzzle navigating the entire board without missing a square. Spatial reasoning and deep tactical planning.'
+    },
+    card_title_3: { tr: 'Çarpım Tablosu', en: 'Multiplication Tables' },
+    card_desc_3: {
+      tr: 'Uzay macerası temalı interaktif çarpma oyunu. Çocuklar ve öğrenciler için temel aritmetik refleksini eğlenceli hale getirir.',
+      en: 'An interactive space adventure multiplication game. Makes foundational arithmetic reflexes engaging and fun for students.'
+    },
+    card_title_4: { tr: 'Kakuro: Logic Numbers', en: 'Kakuro: Logic Numbers' },
+    card_desc_4: {
+      tr: 'Çapraz toplam bulmacalarıyla sayısal mantığınızı test edin. Sudoku ve bulmacanın kesiştiği analitik zihin antrenmanı.',
+      en: 'Test numerical logic with cross-sum grids. An analytical workout at the intersection of Sudoku and crosswords.'
+    },
+    card_title_5: { tr: 'KenKen Logic', en: 'KenKen Logic' },
+    card_desc_5: {
+      tr: 'Dört işlem ve saf matematik kuralları. Reklamsız, çevrimdışı oynanabilen yüksek tempolu zeka ve problem çözme egzersizi.',
+      en: 'Four operations and grid logic rules. A fast-paced, offline, distraction-free arithmetic problem-solving workout.'
+    },
+    card_title_6: { tr: 'Görsel Zamanlayıcı: Odak', en: 'Visual Timer: Focus' },
+    card_desc_6: {
+      tr: 'Zaman algısını görünür kılan dairesel geri sayım aracı. Dikkat dağınıklığı, çalışma seansları ve sınıf ritmi için ideal.',
+      en: 'A circular countdown tool making time perception tangible. Designed for study sessions, ADHD focus, and classroom pacing.'
+    },
+    card_title_7: { tr: 'Nim Master', en: 'Nim Master' },
+    card_desc_7: {
+      tr: 'Matematiksel oyun teorisinin en köklü strateji meydan okuması. Yapay zekaya karşı hamle optimizasyonu ve taktik planlama.',
+      en: 'The foundational mathematical game theory challenge. Play against adaptive AI with move optimization and tactical planning.'
+    },
+    card_title_8: { tr: 'Mangala Oyunu', en: 'Mangala Game' },
+    card_desc_8: {
+      tr: 'Yüzyılların Türk zeka ve kuyu oyunu. Taktik hesaplama, kurnazlık ve hamle dağıtımıyla modern dijital strateji deneyimi.',
+      en: 'Centuries-old pit-and-pebble strategy game. Deep tactical forecasting, resource distribution, and rich cultural heritage.'
+    },
+    card_title_9: { tr: 'Hanoi Tower: Temple', en: 'Hanoi Tower: Temple Puzzle' },
+    card_desc_9: {
+      tr: 'Mistik Mithra Tapınağı atmosferinde klasik Hanoi Kuleleri. Rekürsif düşünme becerisi, sabır ve minimum hamle optimizasyonu.',
+      en: 'Classic Towers of Hanoi within an atmospheric temple setting. Recursive problem-solving, patience, and optimal move efficiency.'
+    },
+    card_title_10: { tr: 'At Satrancı: Klasik', en: 'Knight’s Tour: Classic' },
+    card_desc_10: {
+      tr: 'Minimalist, reklamsız ve kesintisiz Knight\'s Tour deneyimi. Saf odak ve zihinsel akış arayan strateji meraklıları için.',
+      en: 'A minimalist, focused Knight\'s Tour edition designed for pure mental flow, uninterrupted study, and analytical clarity.'
+    },
+    card_title_11: { tr: 'VouchKeep: Fiş & Garanti', en: 'VouchKeep: Receipts & Vault' },
+    card_desc_11: {
+      tr: 'Fiş, fatura ve garanti belgelerini tamamen cihazınızda yerel ve şifreli saklayan akıllı dijital arşiv yöneticisi.',
+      en: 'An on-device local vault keeping receipts, invoices, and warranties securely organized with total user privacy.'
+    },
+    card_title_12: { tr: 'ScreenRecall', en: 'ScreenRecall: OCR Archive' },
+    card_desc_12: {
+      tr: 'Cihaz içi OCR destekli ekran görüntüsü kütüphanesi. Ekran görüntülerindeki metinleri anında arayın ve arşivleyin.',
+      en: 'On-device OCR screenshot intelligence. Search visual text naturally, set reminders, and safely declutter with ease.'
+    },
+    card_title_13: { tr: 'Stacking Balance', en: 'Stacking Balance' },
+    card_desc_13: {
+      tr: 'Gerçekçi fizik simülasyonu ile blokları ve taşları dengeleme sanatı. Sakinleştirici sesler eşliğinde odak ve denge bulmacası.',
+      en: 'The art of balancing stones and geometric blocks with real physics. A calming, tactile puzzle for center-of-gravity intuition.'
+    },
+    card_title_14: { tr: 'Classtings', en: 'Classtings: Class OS' },
+    card_desc_14: {
+      tr: 'Okullar ve öğretmenler için tasarlanan yeni nesil modüler sınıf yönetimi, etkileşim ve öğrenci gelişim takip platformu.',
+      en: 'A next-generation modular classroom platform for educators. Interactive live participation tools and learning pacing.'
+    },
+    card_title_15: { tr: 'Pixel Garden', en: 'Pixel Garden' },
+    card_desc_15: {
+      tr: 'Etkileşimli piksel dünyası ve yaratıcı tasarım bahçesi. Dijital sanat, ritmik keşif ve serbest üretim ortamı.',
+      en: 'An interactive pixel garden and creative sandbox. Generative digital art, mindful exploration, and playful creation.'
+    },
+    card_title_16: { tr: 'Resonant', en: 'Resonant: Breath & Focus' },
+    card_desc_16: {
+      tr: 'Bilişsel dinginlik, ritmik nefes ve derin çalışma odaklanmasını destekleyen sakinleştirici ses ve frekans sistemi.',
+      en: 'Guided rhythmic breathing and acoustic frequency sessions crafted for cognitive reset, deep focus, and screen fatigue.'
+    },
+    card_title_17: { tr: 'Magnetic Maze', en: 'Magnetic Maze' },
+    card_desc_17: {
+      tr: 'Manyetik kutuplar, yerçekimi ve dinamik engellerle tasarlanan yenilikçi labirent ve fizik simülasyonu.',
+      en: 'Innovative labyrinth simulation governed by magnetic poles, gravity fields, and dynamic obstacle routing.'
+    }
+  });
 })();

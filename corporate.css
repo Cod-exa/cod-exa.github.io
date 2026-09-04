@@ -72,6 +72,54 @@ body::before {
   pointer-events: none;
 }
 
+/* Floating Ambient Orbs (Atmosferik Canlı Işık Hareketleri) */
+.ambient-orb-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  will-change: transform;
+  animation: floatOrb 26s infinite alternate ease-in-out;
+}
+.orb-1 {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.32) 0%, rgba(197, 160, 89, 0.08) 60%, transparent 100%);
+  top: 4%;
+  right: -120px;
+  animation-duration: 24s;
+}
+.orb-2 {
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(197, 160, 89, 0.05) 65%, transparent 100%);
+  top: 42%;
+  left: -180px;
+  animation-duration: 32s;
+  animation-delay: -8s;
+}
+.orb-3 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.25) 0%, rgba(223, 186, 115, 0.06) 65%, transparent 100%);
+  bottom: 8%;
+  right: 5%;
+  animation-duration: 28s;
+  animation-delay: -14s;
+}
+@keyframes floatOrb {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(50px, -45px, 0) scale(1.08); }
+  100% { transform: translate3d(-35px, 30px, 0) scale(0.94); }
+}
+
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
@@ -381,6 +429,18 @@ h1 {
   height: var(--h);
   border-radius: 6px 6px 2px 2px;
   background: linear-gradient(180deg, var(--gold-light), var(--gold-primary));
+  transform-origin: bottom;
+  animation: barBreathe 4s infinite ease-in-out alternate;
+  animation-delay: calc(var(--i, 0) * 0.25s);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.bars i:hover {
+  transform: scaleY(1.15);
+  filter: brightness(1.15);
+}
+@keyframes barBreathe {
+  0% { transform: scaleY(0.92); opacity: 0.88; }
+  100% { transform: scaleY(1.05); opacity: 1; filter: brightness(1.08); }
 }
 .skill-row {
   margin-top: 14px;
@@ -552,7 +612,7 @@ section { padding: 110px 0; }
 }
 
 /* ==========================================================================
-   Showcase Card (White Glass & Gold Hairline)
+   Showcase Card (White Glass & Gold Hairline with 3D Tilt & Spotlight)
    ========================================================================== */
 .showcase-card {
   position: relative;
@@ -564,10 +624,12 @@ section { padding: 110px 0; }
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 10px 30px -8px rgba(197, 160, 89, 0.12), 0 3px 10px rgba(0, 0, 0, 0.03);
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease, opacity 0.3s ease;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
 }
 .showcase-card::before {
   content: "";
@@ -579,13 +641,27 @@ section { padding: 110px 0; }
   background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 4;
+}
+/* Mouse-tracking Champagne Gold Spotlight */
+.showcase-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(197, 160, 89, 0.16), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 3;
 }
 .showcase-card:hover {
   transform: translateY(-5px);
   border-color: var(--gold-primary);
-  box-shadow: 0 20px 48px -10px rgba(197, 160, 89, 0.24), 0 0 22px rgba(223, 186, 115, 0.14);
+  box-shadow: 0 22px 52px -10px rgba(197, 160, 89, 0.28), 0 0 24px rgba(223, 186, 115, 0.16);
 }
-.showcase-card:hover::before {
+.showcase-card:hover::before,
+.showcase-card:hover::after {
   opacity: 1;
 }
 .showcase-card.is-hidden {
@@ -843,8 +919,24 @@ section { padding: 110px 0; }
   border: 1px solid rgba(197, 160, 89, 0.2);
   border-radius: 50%;
 }
-.orbit::before { width: 480px; height: 480px; }
-.orbit::after { width: 340px; height: 340px; }
+.orbit::before {
+  width: 480px;
+  height: 480px;
+  animation: orbitRotate 60s linear infinite;
+}
+.orbit::after {
+  width: 340px;
+  height: 340px;
+  animation: orbitRotateRev 45s linear infinite;
+}
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbitRotateRev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
 .core {
   position: relative;
   z-index: 2;
@@ -859,6 +951,11 @@ section { padding: 110px 0; }
   box-shadow: 0 10px 40px rgba(197, 160, 89, 0.35);
   font: 700 1.1rem "Manrope";
   color: #1c1917;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.core:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 50px rgba(197, 160, 89, 0.45);
 }
 .satellite {
   position: absolute;
@@ -873,11 +970,51 @@ section { padding: 110px 0; }
   font-size: 0.82rem;
   font-weight: 700;
   box-shadow: 0 10px 30px rgba(197, 160, 89, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.satellite:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 16px 36px rgba(197, 160, 89, 0.25);
+  border-color: var(--gold-primary);
 }
 .satellite:nth-of-type(2) { top: 50px; left: 40px; }
 .satellite:nth-of-type(3) { top: 90px; right: 0; }
 .satellite:nth-of-type(4) { bottom: 70px; left: 0; }
 .satellite:nth-of-type(5) { bottom: 40px; right: 30px; }
+
+/* Luxury Button Sweeps (Altın Parlama Efekti) */
+.card-play-link, .nav-cta, .primary {
+  position: relative;
+  overflow: hidden;
+}
+.card-play-link::before, .nav-cta::before, .primary::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: rotate(25deg) translateX(-150%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+.card-play-link:hover::before, .nav-cta:hover::before, .primary:hover::before {
+  transform: rotate(25deg) translateX(150%);
+}
+
+/* Scroll Reveal System (Prestijli Sahne Geçişleri) */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger, 0) * 0.055s);
+  will-change: opacity, transform;
+}
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ==========================================================================
    Product Callout Banner

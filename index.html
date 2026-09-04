@@ -14,27 +14,32 @@
   <style>.product-drawer .drawer-product small{display:none}</style>
 </head>
 <body>
+  <div class="ambient-orb-container" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
   <a class="skip-link" href="#main">İçeriğe geç</a>
   <nav class="nav" id="nav" aria-label="Ana navigasyon">
     <div class="shell nav-inner">
       <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>CodExa</a>
       <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menüyü aç">☰</button>
       <div class="nav-links" id="navLinks">
-        <a href="#portfoy">Uygulamalar</a><a href="#cozumler">Çözümler</a><button class="link-button product-trigger" type="button">Tüm Ürünler</button><a href="#kurumlar">Eğitim kurumları</a><a href="#yaklasim">Teknolojimiz</a>
+        <a href="#portfoy" data-i18n="nav_portfolio">Uygulamalar</a><a href="#cozumler">Çözümler</a><button class="link-button product-trigger" type="button">Tüm Ürünler</button><a href="#kurumlar">Eğitim kurumları</a><a href="#yaklasim">Teknolojimiz</a>
         <a class="nav-cta" href="mailto:exaque2@gmail.com">Bizimle görüşün</a>
       </div>
     </div>
   </nav>
   <main id="main">
     <div class="shell hero">
-      <div class="hero-copy">
+      <div class="hero-copy reveal-item">
         <span class="eyebrow">Eğitim teknolojileri stüdyosu</span>
         <h1>Öğrenmenin <span class="gradient-word">geleceğini</span> tasarlıyoruz.</h1>
         <p>CodExa; öğrencilerin merakını harekete geçiren, öğretmenlerin işini kolaylaştıran ve eğitim kurumlarına ölçülebilir dijital deneyimler sunan ürünler geliştirir.</p>
         <div class="hero-actions"><a class="button primary" href="#portfoy">Uygulamaları incele</a><button class="button secondary product-trigger" type="button">Hızlı menü</button></div>
         <div class="microcopy" aria-label="Platform özellikleri"><span>Oyunlaştırılmış öğrenme</span><span>Çok dilli deneyim</span><span>Mobil öncelikli</span></div>
       </div>
-      <div class="system-card" aria-label="CodExa öğrenme sistemi görselleştirmesi">
+      <div class="system-card tilt-card reveal-item" aria-label="CodExa öğrenme sistemi görselleştirmesi">
         <div class="system-top"><span>CodExa Learning OS</span><span class="live">Sistem aktif</span></div>
         <div class="dashboard">
           <div class="dash-block wide"><span class="dash-label">Öğrenme etkileşimi</span><div class="bars" aria-hidden="true"><i style="--h:42%"></i><i style="--h:64%"></i><i style="--h:51%"></i><i style="--h:80%"></i><i style="--h:69%"></i><i style="--h:94%"></i><i style="--h:86%"></i><i style="--h:100%"></i></div></div>
@@ -43,429 +48,429 @@
         </div>
       </div>
     </div>
-    <div class="trust-strip"><div class="shell trust-inner"><span>Tek bir ekosistemde</span><div class="metric"><b>14 yayında</b><small>gelişen ürün ailesi</small></div><div class="metric"><b>15 dil</b><small>erişilebilir içerik</small></div><div class="metric"><b>4 alan</b><small>öğrenme, odak ve yönetim</small></div></div></div>
+    <div class="trust-strip reveal-item"><div class="shell trust-inner"><span>Tek bir ekosistemde</span><div class="metric"><b>14 yayında</b><small>gelişen ürün ailesi</small></div><div class="metric"><b>15 dil</b><small>erişilebilir içerik</small></div><div class="metric"><b>4 alan</b><small>öğrenme, odak ve yönetim</small></div></div></div>
     <section id="portfoy">
       <div class="shell">
         <div class="showcase-header">
-          <span class="eyebrow">Canlı Ürün Portföyü</span>
-          <h2>Yayındaki Eğitim ve Zeka Çözümlerimiz</h2>
-          <p>Google Play ekosisteminde yayınlanan, analitik düşünme, dikkat yönetimi ve matematiksel refleksleri güçlendiren pedagojik uygulamalarımız.</p>
+          <span class="eyebrow" data-i18n="showcase_eyebrow">Canlı Ürün Portföyü</span>
+          <h2 data-i18n="showcase_title">Yayındaki Eğitim ve Zeka Çözümlerimiz</h2>
+          <p data-i18n="showcase_desc">Google Play ekosisteminde yayınlanan, analitik düşünme, dikkat yönetimi ve matematiksel refleksleri güçlendiren pedagojik uygulamalarımız.</p>
           <div class="filter-bar" role="toolbar" aria-label="Uygulama filtreleri">
-            <button class="filter-btn active" data-filter="all" type="button" aria-pressed="true">Tüm Uygulamalar (17)</button>
-            <button class="filter-btn" data-filter="logic" type="button" aria-pressed="false">Mantık & Strateji</button>
-            <button class="filter-btn" data-filter="math" type="button" aria-pressed="false">Matematik</button>
-            <button class="filter-btn" data-filter="focus" type="button" aria-pressed="false">Odak & Araçlar</button>
-            <button class="filter-btn" data-filter="soon" type="button" aria-pressed="false">Geliştirilmekte (3)</button>
+            <button class="filter-btn active" data-filter="all" type="button" aria-pressed="true" data-i18n="filter_all">Tüm Uygulamalar (17)</button>
+            <button class="filter-btn" data-filter="logic" type="button" aria-pressed="false" data-i18n="filter_logic">Mantık & Strateji</button>
+            <button class="filter-btn" data-filter="math" type="button" aria-pressed="false" data-i18n="filter_math">Matematik</button>
+            <button class="filter-btn" data-filter="focus" type="button" aria-pressed="false" data-i18n="filter_focus">Odak & Araçlar</button>
+            <button class="filter-btn" data-filter="soon" type="button" aria-pressed="false" data-i18n="filter_soon">Geliştirilmekte (3)</button>
           </div>
         </div>
         <div class="showcase-grid">
           <!-- 1. 2048 -->
-          <article class="showcase-card" data-category="math">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:0" data-category="math">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="2048/app_icon.jpg" alt="2048 - Sayı Bulmaca Oyunu" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>2048 - Sayı Bulmaca</h3>
+                  <h3 data-i18n="card_title_1">2048 - Sayı Bulmaca</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Matematik</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_math">Matematik</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Sayıları kaydırın, birleştirin ve 2048'e ulaşın. Akıcı animasyonlar, geri alma desteği ve analitik planlama pratiği.</p>
+                <p data-i18n="card_desc_1">Sayıları kaydırın, birleştirin ve 2048'e ulaşın. Akıcı animasyonlar, geri alma desteği ve analitik planlama pratiği.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="2048/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.game2048&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="2048/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="2048/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.game2048&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="2048/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 2. At Satrancı (Zeka Oyunu - Altın) -->
-          <article class="showcase-card" data-category="logic">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:1" data-category="logic">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="atsatranci/assets/app-icon.jpg" alt="At Satrancı: Zeka Oyunu" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>At Satrancı: Zeka Oyunu</h3>
+                  <h3 data-i18n="card_title_2">At Satrancı: Zeka Oyunu</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Mantık</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_logic">Mantık</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Satranç atının L hareketiyle tüm tahtayı kare atlamadan tamamlama bulmacası (Knight's Tour). Uzamsal zeka ve derin strateji.</p>
+                <p data-i18n="card_desc_2">Satranç atının L hareketiyle tüm tahtayı kare atlamadan tamamlama bulmacası (Knight's Tour). Uzamsal zeka ve derin strateji.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="atsatranci/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.atsatranci.knight_tour&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="atsatranci/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="atsatranci/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.atsatranci.knight_tour&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="atsatranci/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 3. Çarpım Tablosu -->
-          <article class="showcase-card" data-category="math">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:2" data-category="math">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="carpma-oyunu/assets/app-icon.png" alt="Çarpım Tablosu: Eğlenceli Çarpma" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Çarpım Tablosu</h3>
+                  <h3 data-i18n="card_title_3">Çarpım Tablosu</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Matematik</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_math">Matematik</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Uzay macerası temalı interaktif çarpma oyunu. Çocuklar ve öğrenciler için temel aritmetik refleksini eğlenceli hale getirir.</p>
+                <p data-i18n="card_desc_3">Uzay macerası temalı interaktif çarpma oyunu. Çocuklar ve öğrenciler için temel aritmetik refleksini eğlenceli hale getirir.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="carpma-oyunu/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-privacy-link" href="carpma-oyunu/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="carpma-oyunu/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-privacy-link" href="carpma-oyunu/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 4. Kakuro -->
-          <article class="showcase-card" data-category="math">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:3" data-category="math">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="kakuro/assets/app-icon.jpg" alt="Kakuro: Logic Number Puzzles" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Kakuro: Logic Numbers</h3>
+                  <h3 data-i18n="card_title_4">Kakuro: Logic Numbers</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Matematik</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_arithmetic">Aritmetik</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Çapraz toplam bulmacalarıyla sayısal mantığınızı test edin. Sudoku ve bulmacanın kesiştiği analitik zihin antrenmanı.</p>
+                <p data-i18n="card_desc_4">Çapraz toplam bulmacalarıyla sayısal mantığınızı test edin. Sudoku ve bulmacanın kesiştiği analitik zihin antrenmanı.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="kakuro/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.kakuro&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="kakuro/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="kakuro/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.kakuro&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="kakuro/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 5. KenKen Logic -->
-          <article class="showcase-card" data-category="math">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:4" data-category="math">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="kenken/assets/app-icon.png" alt="KenKen Logic: Zeka Bulmaca" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>KenKen Logic</h3>
+                  <h3 data-i18n="card_title_5">KenKen Logic</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Aritmetik</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_arithmetic">Aritmetik</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Dört işlem ve saf matematik kuralları. Reklamsız, çevrimdışı oynanabilen yüksek tempolu zeka ve problem çözme egzersizi.</p>
+                <p data-i18n="card_desc_5">Dört işlem ve saf matematik kuralları. Reklamsız, çevrimdışı oynanabilen yüksek tempolu zeka ve problem çözme egzersizi.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="kenken/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.kenkenedu.kenken_edu&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="kenken/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="kenken/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.kenkenedu.kenken_edu&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="kenken/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 6. Görsel Zamanlayıcı -->
-          <article class="showcase-card" data-category="focus">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:5" data-category="focus">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="visual-timer/assets/app-icon.jpg" alt="Görsel Zamanlayıcı: Odak" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Görsel Zamanlayıcı: Odak</h3>
+                  <h3 data-i18n="card_title_6">Görsel Zamanlayıcı: Odak</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Odak & Araç</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_focus_tool">Odak & Araç</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Zaman algısını görünür kılan dairesel geri sayım aracı. Dikkat dağınıklığı, çalışma seansları ve sınıf ritmi için ideal.</p>
+                <p data-i18n="card_desc_6">Zaman algısını görünür kılan dairesel geri sayım aracı. Dikkat dağınıklığı, çalışma seansları ve sınıf ritmi için ideal.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="visual-timer/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.visual_timer&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="visual-timer/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="visual-timer/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.visual_timer&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="visual-timer/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 7. Nim Master -->
-          <article class="showcase-card" data-category="logic">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:6" data-category="logic">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="nimmaster/assets/app-icon.jpg" alt="Nim Master" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Nim Master</h3>
+                  <h3 data-i18n="card_title_7">Nim Master</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Strateji</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_strategy">Strateji</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Matematiksel oyun teorisinin en köklü strateji meydan okuması. Yapay zekaya karşı hamle optimizasyonu ve taktik planlama.</p>
+                <p data-i18n="card_desc_7">Matematiksel oyun teorisinin en köklü strateji meydan okuması. Yapay zekaya karşı hamle optimizasyonu ve taktik planlama.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="nimmaster/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.exaque.nimmaster.nimMaster&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="nimmaster/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="nimmaster/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.exaque.nimmaster.nimMaster&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="nimmaster/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 8. Mangala Oyunu -->
-          <article class="showcase-card" data-category="logic">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:7" data-category="logic">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="mangala/assets/app-icon.svg" alt="Mangala Oyunu" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Mangala Oyunu</h3>
+                  <h3 data-i18n="card_title_8">Mangala Oyunu</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Geleneksel Mantık</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_traditional">Geleneksel Mantık</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Yüzyılların Türk zeka ve kuyu oyunu. Taktik hesaplama, kurnazlık ve hamle dağıtımıyla modern dijital strateji deneyimi.</p>
+                <p data-i18n="card_desc_8">Yüzyılların Türk zeka ve kuyu oyunu. Taktik hesaplama, kurnazlık ve hamle dağıtımıyla modern dijital strateji deneyimi.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="mangala/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.mangala.oyunu&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="mangala/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="mangala/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.mangala.oyunu&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="mangala/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 9. Hanoi Tower -->
-          <article class="showcase-card" data-category="logic">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:8" data-category="logic">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="hanoikulesi/assets/app-icon.jpg" alt="Hanoi Tower: Temple Puzzle" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Hanoi Tower: Temple</h3>
+                  <h3 data-i18n="card_title_9">Hanoi Tower: Temple</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Mantık</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_logic">Mantık</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Mistik Mithra Tapınağı atmosferinde klasik Hanoi Kuleleri. Rekürsif düşünme becerisi, sabır ve minimum hamle optimizasyonu.</p>
+                <p data-i18n="card_desc_9">Mistik Mithra Tapınağı atmosferinde klasik Hanoi Kuleleri. Rekürsif düşünme becerisi, sabır ve minimum hamle optimizasyonu.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="hanoikulesi/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.mathquest.hanokulesi&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="hanoikulesi/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="hanoikulesi/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.mathquest.hanokulesi&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="hanoikulesi/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 10. At Satrancı (Klasik / Pro - Mavi İkon) -->
-          <article class="showcase-card" data-category="logic">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:9" data-category="logic">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="atsatranci/assets/app-icon-classic.svg" alt="At Satrancı: Klasik Sürüm" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>At Satrancı: Klasik</h3>
+                  <h3 data-i18n="card_title_10">At Satrancı: Klasik</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Saf Mantık</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_pure_logic">Saf Mantık</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Minimalist, reklamsız ve kesintisiz Knight's Tour deneyimi. Saf odak ve zihinsel akış arayan strateji meraklıları için.</p>
+                <p data-i18n="card_desc_10">Minimalist, reklamsız ve kesintisiz Knight's Tour deneyimi. Saf odak ve zihinsel akış arayan strateji meraklıları için.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="atsatranci/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.atsatrancitam&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="atsatranci/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="atsatranci/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.atsatrancitam&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="atsatranci/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 11. VouchKeep -->
-          <article class="showcase-card" data-category="focus">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:10" data-category="focus">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="vouchkeep/assets/app-icon.svg" alt="VouchKeep: Fiş ve Garanti" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>VouchKeep: Fiş & Garanti</h3>
+                  <h3 data-i18n="card_title_11">VouchKeep: Fiş & Garanti</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Güvenli Araç</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_utility">Güvenli Araç</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Fiş, fatura ve garanti belgelerini tamamen cihazınızda yerel ve şifreli saklayan akıllı dijital arşiv yöneticisi.</p>
+                <p data-i18n="card_desc_11">Fiş, fatura ve garanti belgelerini tamamen cihazınızda yerel ve şifreli saklayan akıllı dijital arşiv yöneticisi.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="vouchkeep/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.vouchkeep&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="vouchkeep/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="vouchkeep/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.vouchkeep&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="vouchkeep/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 12. ScreenRecall -->
-          <article class="showcase-card" data-category="focus">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:11" data-category="focus">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="screenrecall/assets/app-icon.svg" alt="ScreenRecall: Ekran Görseli" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>ScreenRecall</h3>
+                  <h3 data-i18n="card_title_12">ScreenRecall</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Görsel Hafıza</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_privacy">Görsel Hafıza</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Cihaz içi OCR destekli ekran görüntüsü kütüphanesi. Ekran görüntülerindeki metinleri anında arayın ve arşivleyin.</p>
+                <p data-i18n="card_desc_12">Cihaz içi OCR destekli ekran görüntüsü kütüphanesi. Ekran görüntülerindeki metinleri anında arayın ve arşivleyin.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="screenrecall/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.screenrecall&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="screenrecall/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="screenrecall/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.screenrecall&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="screenrecall/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 13. Stacking Balance -->
-          <article class="showcase-card" data-category="focus">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:12" data-category="focus">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="stackingbalance/assets/app-icon.png" alt="Stacking Balance" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Stacking Balance</h3>
+                  <h3 data-i18n="card_title_13">Stacking Balance</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Fizik & Zen</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_physics">Fizik & Zen</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Gerçekçi fizik simülasyonu ile blokları ve taşları dengeleme sanatı. Sakinleştirici sesler eşliğinde odak ve denge bulmacası.</p>
+                <p data-i18n="card_desc_13">Gerçekçi fizik simülasyonu ile blokları ve taşları dengeleme sanatı. Sakinleştirici sesler eşliğinde odak ve denge bulmacası.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="stackingbalance/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.stackingbalance&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="stackingbalance/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="stackingbalance/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.stackingbalance&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="stackingbalance/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 14. Classtings (Soon) -->
-          <article class="showcase-card" data-category="soon">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:13" data-category="soon">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="classtings/assets/app-icon.svg" alt="Classtings" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Classtings</h3>
+                  <h3 data-i18n="card_title_14">Classtings</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-soon">Geliştirilmekte</span>
-                    <span class="tag-badge tag-cat">Eğitim Yönetimi</span>
+                    <span class="tag-badge tag-soon" data-i18n="badge_soon_dev">Geliştirilmekte</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_edu_mgmt">Eğitim Yönetimi</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Okullar ve öğretmenler için tasarlanan yeni nesil modüler sınıf yönetimi, etkileşim ve öğrenci gelişim takip platformu.</p>
+                <p data-i18n="card_desc_14">Okullar ve öğretmenler için tasarlanan yeni nesil modüler sınıf yönetimi, etkileşim ve öğrenci gelişim takip platformu.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="classtings/index.html">Önizle <span>→</span></a>
-              <a class="card-privacy-link" href="classtings/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="classtings/index.html" data-i18n="btn_preview">Önizle <span>→</span></a>
+              <a class="card-privacy-link" href="classtings/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 15. Pixel Garden (Soon) -->
-          <article class="showcase-card" data-category="soon">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:14" data-category="soon">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="pixel-garden/assets/app-icon.svg" alt="Pixel Garden" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Pixel Garden</h3>
+                  <h3 data-i18n="card_title_15">Pixel Garden</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-soon">Geliştirilmekte</span>
-                    <span class="tag-badge tag-cat">Yaratıcı Tasarım</span>
+                    <span class="tag-badge tag-soon" data-i18n="badge_soon_dev">Geliştirilmekte</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_creative">Yaratıcı Tasarım</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Etkileşimli piksel dünyası ve yaratıcı tasarım bahçesi. Dijital sanat, ritmik keşif ve serbest üretim ortamı.</p>
+                <p data-i18n="card_desc_15">Etkileşimli piksel dünyası ve yaratıcı tasarım bahçesi. Dijital sanat, ritmik keşif ve serbest üretim ortamı.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="pixel-garden/index.html">Önizle <span>→</span></a>
-              <a class="card-privacy-link" href="pixel-garden/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="pixel-garden/index.html" data-i18n="btn_preview">Önizle <span>→</span></a>
+              <a class="card-privacy-link" href="pixel-garden/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 16. Resonant -->
-          <article class="showcase-card" data-category="focus">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:15" data-category="focus">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="resonant/assets/app-icon.jpg" alt="Resonant" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Resonant</h3>
+                  <h3 data-i18n="card_title_16">Resonant</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-live">Google Play Yayında</span>
-                    <span class="tag-badge tag-cat">Nefes & Odak</span>
+                    <span class="tag-badge tag-live" data-i18n="badge_live_play">Google Play Yayında</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_mindfulness">Nefes & Odak</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Bilişsel dinginlik, ritmik nefes ve derin çalışma odaklanmasını destekleyen sakinleştirici ses ve frekans sistemi.</p>
+                <p data-i18n="card_desc_16">Bilişsel dinginlik, ritmik nefes ve derin çalışma odaklanmasını destekleyen sakinleştirici ses ve frekans sistemi.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="resonant/index.html">Sayfayı Aç <span>→</span></a>
-              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.resonant&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
-              <a class="card-privacy-link" href="resonant/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="resonant/index.html" data-i18n="btn_view_app">Sayfayı Aç <span>→</span></a>
+              <a class="card-play-link" href="https://play.google.com/store/apps/details?id=com.codexa.resonant&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" data-i18n="btn_play_store">Google Play ↗</a>
+              <a class="card-privacy-link" href="resonant/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
 
           <!-- 17. Magnetic Maze (Soon) -->
-          <article class="showcase-card" data-category="soon">
+          <article class="showcase-card tilt-card reveal-item" style="--stagger:16" data-category="soon">
             <div>
               <div class="card-header">
                 <img class="card-icon" src="magneticmaze/assets/app-icon.png" alt="Magnetic Maze" width="58" height="58" loading="lazy">
                 <div class="card-title-group">
-                  <h3>Magnetic Maze</h3>
+                  <h3 data-i18n="card_title_17">Magnetic Maze</h3>
                   <div class="card-meta-tags">
-                    <span class="tag-badge tag-soon">Geliştirilmekte</span>
-                    <span class="tag-badge tag-cat">Fizik Bulmaca</span>
+                    <span class="tag-badge tag-soon" data-i18n="badge_soon_dev">Geliştirilmekte</span>
+                    <span class="tag-badge tag-cat" data-i18n="cat_physics_maze">Fizik Bulmaca</span>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <p>Manyetik kutuplar, yerçekimi ve dinamik engellerle tasarlanan yenilikçi labirent ve fizik simülasyonu.</p>
+                <p data-i18n="card_desc_17">Manyetik kutuplar, yerçekimi ve dinamik engellerle tasarlanan yenilikçi labirent ve fizik simülasyonu.</p>
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-cta" href="magneticmaze/index.html">Önizle <span>→</span></a>
-              <a class="card-privacy-link" href="magneticmaze/privacy.html">Gizlilik Politikası</a>
+              <a class="card-cta" href="magneticmaze/index.html" data-i18n="btn_preview">Önizle <span>→</span></a>
+              <a class="card-privacy-link" href="magneticmaze/privacy.html" data-i18n="btn_privacy">Gizlilik Politikası</a>
             </div>
           </article>
         </div>
       </div>
     </section>
-    <section id="cozumler"><div class="shell">
+    <section id="cozumler" class="reveal-item"><div class="shell">
       <div class="section-head"><div><span class="eyebrow">Çözüm alanları</span><h2>Teknoloji değil, öğrenme sonucu.</h2></div><p>Her ürünü gerçek bir eğitim ihtiyacından başlatıyoruz. Öğrencinin deneyimi, öğretmenin zamanı ve kurumun hedefleri aynı sistem içinde buluşuyor.</p></div>
       <div class="solution-grid">
         <article class="solution" data-index="01"><div class="solution-icon" aria-hidden="true">◈</div><h3>Oyunlaştırılmış öğrenme</h3><p>Mantık, problem çözme ve matematik becerilerini tekrar oynanabilir dijital deneyimlere dönüştürüyoruz.</p><button class="solution-link product-trigger" type="button">İlgili ürünler</button></article>
@@ -473,14 +478,14 @@
         <article class="solution" data-index="03"><div class="solution-icon" aria-hidden="true">⌁</div><h3>Kuruma özel çözümler</h3><p>Okulların ve eğitim ekiplerinin süreçlerine uyarlanan, ölçeklenebilir dijital ürün ve platform geliştirme yaklaşımı.</p><a href="mailto:exaque2@gmail.com">Birlikte geliştirelim</a></article>
       </div>
     </div></section>
-    <section id="kurumlar"><div class="shell platform">
+    <section id="kurumlar" class="reveal-item"><div class="shell platform">
       <div class="platform-copy"><span class="eyebrow">Eğitim kurumları için</span><h2>Bir uygulamadan daha fazlası: gelişen bir ürün ekosistemi.</h2><p>CodExa ürün ailesi; sınıf içi etkinliklerden bireysel pratiğe, dikkat yönetiminden dijital okul süreçlerine kadar birbirini tamamlayan deneyimler sunmak üzere tasarlanır.</p>
         <div class="feature-list"><div class="feature"><b>✓</b><div><strong>Öğrenci merkezli tasarım</strong><span>Karmaşıklığı azaltan, keşfetmeyi teşvik eden etkileşimler.</span></div></div><div class="feature"><b>✓</b><div><strong>Modüler ürün yaklaşımı</strong><span>Kurumun ihtiyacına göre büyüyebilen çözüm yapısı.</span></div></div><div class="feature"><b>✓</b><div><strong>Güvenli ve erişilebilir deneyim</strong><span>Mobil öncelikli, okunabilir ve kapsayıcı arayüzler.</span></div></div></div>
         <a class="button secondary" href="mailto:exaque2@gmail.com">Kurumunuz için görüşelim</a>
       </div>
       <div class="orbit" aria-label="CodExa ürün ekosistemi"><div class="core">CodExa<br>Ekosistemi</div><div class="satellite">Mantık oyunları</div><div class="satellite">Matematik araçları</div><div class="satellite">Odak sistemleri</div><div class="satellite">Sınıf çözümleri</div></div>
     </div></section>
-    <section id="yaklasim"><div class="shell product-callout"><div><span class="eyebrow">Ürün ekosistemi</span><h2>Tüm CodExa ürünleri bir dokunuş uzağınızda.</h2><p>Yayındaki uygulamalara ve geliştirilmekte olan projelere sayfadan ayrılmadan açılan ürün paneli üzerinden ulaşın.</p></div><button class="button primary product-trigger" type="button">Ürünleri aç</button></div></section>
+    <section id="yaklasim" class="reveal-item"><div class="shell product-callout"><div><span class="eyebrow">Ürün ekosistemi</span><h2>Tüm CodExa ürünleri bir dokunuş uzağınızda.</h2><p>Yayındaki uygulamalara ve geliştirilmekte olan projelere sayfadan ayrılmadan açılan ürün paneli üzerinden ulaşın.</p></div><button class="button primary product-trigger" type="button">Ürünleri aç</button></div></section>
   </main>
   <div class="drawer-overlay" id="drawerOverlay" hidden></div>
   <aside class="product-drawer" id="productDrawer" aria-hidden="true" aria-labelledby="drawerTitle">

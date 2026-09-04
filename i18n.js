@@ -80,43 +80,47 @@
         display: inline-block;
       }
       .i18n-btn {
-        background: rgba(18, 17, 36, 0.85);
-        border: 1.5px solid rgba(212, 160, 23, 0.4);
-        color: #e8d7b3;
-        padding: 8px 16px;
-        border-radius: 12px;
-        font-size: 14px;
-        font-weight: 600;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1.5px solid rgba(197, 160, 89, 0.35);
+        color: #1c1917;
+        padding: 8px 18px;
+        border-radius: 999px;
+        font-size: 13.5px;
+        font-weight: 700;
         cursor: pointer;
         display: flex;
         align-items: center;
         gap: 8px;
-        backdrop-filter: blur(10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 16px rgba(197, 160, 89, 0.12), 0 2px 6px rgba(0, 0, 0, 0.03);
       }
       .i18n-btn:hover {
-        border-color: #F0C040;
-        color: #ffffff;
-        box-shadow: 0 6px 20px rgba(212, 160, 23, 0.25);
+        border-color: #c5a059;
+        color: #997736;
+        background: #ffffff;
+        box-shadow: 0 8px 24px rgba(197, 160, 89, 0.25);
         transform: translateY(-1px);
       }
       .i18n-menu {
         position: absolute;
         top: calc(100% + 8px);
         right: 0;
-        background: #121124;
-        border: 1.5px solid rgba(212, 160, 23, 0.3);
-        border-radius: 14px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-        width: 170px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1.5px solid rgba(197, 160, 89, 0.28);
+        border-radius: 16px;
+        box-shadow: 0 16px 40px rgba(197, 160, 89, 0.16), 0 4px 12px rgba(0, 0, 0, 0.05);
+        width: 175px;
         max-height: 320px;
         overflow-y: auto;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(-8px);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         padding: 6px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
       .i18n-menu.show {
         opacity: 1;
@@ -124,23 +128,23 @@
         transform: translateY(0);
       }
       .i18n-menu::-webkit-scrollbar {
-        width: 6px;
+        width: 5px;
       }
       .i18n-menu::-webkit-scrollbar-thumb {
-        background: rgba(212, 160, 23, 0.2);
+        background: rgba(197, 160, 89, 0.28);
         border-radius: 10px;
       }
       .i18n-menu::-webkit-scrollbar-thumb:hover {
-        background: rgba(212, 160, 23, 0.4);
+        background: rgba(197, 160, 89, 0.5);
       }
       .i18n-item {
         width: 100%;
         background: transparent;
         border: none;
-        color: #9ca3af;
+        color: #57534e;
         padding: 8px 12px;
         text-align: left;
-        border-radius: 8px;
+        border-radius: 9px;
         font-size: 13.5px;
         font-weight: 500;
         cursor: pointer;
@@ -150,14 +154,14 @@
         transition: all 0.2s ease;
       }
       .i18n-item:hover {
-        background: rgba(212, 160, 23, 0.08);
-        color: #F0C040;
+        background: rgba(197, 160, 89, 0.1);
+        color: #997736;
       }
       .i18n-item.active {
-        background: rgba(212, 160, 23, 0.15);
-        color: #ffffff;
+        background: rgba(197, 160, 89, 0.16);
+        color: #1c1917;
         font-weight: 700;
-        border: 1px solid rgba(212, 160, 23, 0.25);
+        border: 1px solid rgba(197, 160, 89, 0.28);
       }
       
       /* RTL overrides for layout */
