@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <circle cx="256" cy="256" r="200" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="6"/>
+  <!-- Chess Knight Silhouette -->
+  <g filter="url(#shadow)" fill="#ffffff">
+    <path d="M 330 380 L 182 380 C 182 368 186 356 195 348 C 205 338 212 328 210 310 C 206 280 185 272 170 252 C 158 236 156 214 162 195 C 166 182 176 172 186 168 C 182 152 186 135 198 124 C 210 112 230 110 248 116 C 265 106 288 104 308 110 C 315 112 320 118 318 126 C 316 134 308 140 300 138 C 285 134 268 136 256 144 C 274 150 290 162 300 178 C 315 202 320 232 322 260 C 324 285 330 310 334 335 C 336 350 335 365 330 380 Z M 205 195 C 212 195 218 189 218 182 C 218 175 212 169 205 169 C 198 169 192 175 192 182 C 192 189 198 195 205 195 Z"/>
+    <rect x="168" y="386" width="176" height="22" rx="6" fill="#ffffff"/>
+  </g>
+</svg>

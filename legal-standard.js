@@ -15,7 +15,8 @@
     resonant:{name:'Resonant',icon:'assets/app-icon.jpg',colors:['#38bdf8','#6366f1'],bg:'#07121b'},
     screenrecall:{name:'ScreenRecall',icon:'assets/app-icon.svg',colors:['#38bdf8','#8b5cf6'],bg:'#07111d'},
     stackingbalance:{name:'Stacking Balance',icon:'assets/app-icon.png',colors:['#5146e5','#7568ff'],bg:'#09091a'},
-    'visual-timer':{name:'Visual Timer',icon:'assets/app-icon.jpg',colors:['#ef4444','#f97316'],bg:'#170a0a'}
+    'visual-timer':{name:'Visual Timer',icon:'assets/app-icon.jpg',colors:['#ef4444','#f97316'],bg:'#170a0a'},
+    vouchkeep:{name:'VouchKeep',icon:'assets/app-icon.svg',colors:['#ffb869','#f97316'],bg:'#111315'}
   };
   const copy={
     tr:{privacy:'Gizlilik Politikası',terms:'Kullanım Koşulları',support:'Destek ve Yardım',home:'Uygulamaya dön',kicker:'CodExa · Yasal ve Destek',desc:'Şeffaf, okunabilir ve güncel uygulama bilgileri.',privacyTab:'Gizlilik',termsTab:'Koşullar',supportTab:'Destek'},

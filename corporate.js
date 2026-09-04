@@ -45,3 +45,20 @@ document.querySelectorAll('.product-trigger').forEach(button => button.addEventL
 drawerClose.addEventListener('click', closeProducts);
 drawerOverlay.addEventListener('click', closeProducts);
 document.addEventListener('keydown', event => { if (event.key === 'Escape' && drawer.classList.contains('open')) closeProducts(); });
+
+// Portfolio filter interaction
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      const isActive = b === btn;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', String(isActive));
+    });
+    document.querySelectorAll('.showcase-card').forEach(card => {
+      const match = filter === 'all' || card.dataset.category === filter;
+      card.style.display = match ? '' : 'none';
+    });
+  });
+});
+
