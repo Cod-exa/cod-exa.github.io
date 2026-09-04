@@ -26,9 +26,9 @@
     ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live'],
     ['S','ScreenRecall: Ekran Görseli','Gizlilik & organizasyon','screenrecall/index.html','live'],
     ['S','Stacking Balance','Fizik & denge','stackingbalance/index.html','live'],
+    ['R','Resonant','Odak & nefes','resonant/index.html','live'],
     ['C','Classtings','Eğitim yönetimi','classtings/index.html','soon'],
     ['P','Pixel Garden','Yaratıcı deneyim','pixel-garden/index.html','soon'],
-    ['R','Resonant','Odak & nefes','resonant/index.html','soon'],
     ['M','Magnetic Maze','Fizik bulmacası','magneticmaze/index.html','soon']
   ];
   const root = location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
