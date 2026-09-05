@@ -120,6 +120,74 @@ body::before {
   100% { transform: translate3d(-35px, 30px, 0) scale(0.94); }
 }
 
+/* ==========================================================================
+   Interactive Scroll Progress Bar (Zarif Altın Işık Çizgisi)
+   ========================================================================== */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #c5a059, #dfba73, #f5d799, #c5a059);
+  background-size: 200% 100%;
+  box-shadow: 0 0 14px rgba(223, 186, 115, 0.9), 0 0 4px rgba(197, 160, 89, 0.7);
+  z-index: 10001;
+  pointer-events: none;
+  animation: progressShine 3s linear infinite;
+  transition: width 0.08s ease-out;
+}
+@keyframes progressShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ==========================================================================
+   Luxury Ambient Cursor (Elit Altın Manyetik İmleç & Işık Halkası)
+   ========================================================================== */
+.luxury-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #c5a059;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.85);
+}
+.luxury-cursor-aura {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(197, 160, 89, 0.55);
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.25s ease, 
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+.luxury-cursor-aura.hovered {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(197, 160, 89, 0.9);
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.28) 0%, transparent 75%);
+  box-shadow: 0 0 24px rgba(197, 160, 89, 0.3);
+}
+@media (hover: none) and (pointer: coarse) {
+  .luxury-cursor-dot, .luxury-cursor-aura { display: none !important; }
+}
+
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
@@ -259,12 +327,26 @@ button { font: inherit; }
    Hero Section (Airy, Minimalist, Luxury Studio)
    ========================================================================== */
 .hero {
+  position: relative;
   min-height: 700px;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 50px;
   padding: 75px 0 95px;
+}
+.hero-particle-canvas {
+  position: absolute;
+  inset: -60px -40px;
+  width: calc(100% + 80px);
+  height: calc(100% + 120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 .eyebrow {
   display: inline-flex;
@@ -295,11 +377,21 @@ h1 {
   font-size: clamp(3rem, 6.5vw, 5.8rem);
   font-weight: 800;
 }
+/* Kinetic Liquid Gold Text Flow */
 .gradient-word {
   color: transparent;
-  background: linear-gradient(135deg, #1c1917 20%, #997736 60%, #dfba73 100%);
+  background: linear-gradient(135deg, #1c1917 12%, #dfba73 38%, #f5d799 50%, #997736 68%, #1c1917 92%);
+  background-size: 260% 100%;
   background-clip: text;
   -webkit-background-clip: text;
+  animation: goldLiquidFlow 6s ease-in-out infinite;
+  display: inline-block;
+  will-change: background-position;
+}
+@keyframes goldLiquidFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .hero-copy > p {
   max-width: 620px;
@@ -321,6 +413,15 @@ h1 {
   color: var(--muted);
   font-size: 0.84rem;
 }
+.microcopy span {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.microcopy span:hover {
+  transform: translateY(-2px);
+  color: var(--ink);
+}
 .microcopy span::before {
   content: "✓";
   margin-right: 6px;
@@ -341,6 +442,7 @@ h1 {
   box-shadow: 0 30px 80px -15px rgba(197, 160, 89, 0.16), 0 8px 24px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   backdrop-filter: blur(16px);
+  transform-style: preserve-3d;
 }
 .system-card::before {
   content: "";
@@ -364,20 +466,34 @@ h1 {
   text-transform: uppercase;
   font-weight: 700;
 }
+/* Live Radar Pulse Indicator */
 .live {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   color: var(--lime);
   font-weight: 700;
 }
-.live::before {
-  content: "";
-  width: 7px;
-  height: 7px;
+.radar-beacon {
+  position: relative;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--lime);
   box-shadow: 0 0 10px rgba(4, 120, 87, 0.6);
+}
+.radar-beacon::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--lime);
+  animation: radarPing 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes radarPing {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(3.2); opacity: 0; }
 }
 .dashboard {
   position: relative;
@@ -1014,6 +1130,69 @@ section { padding: 110px 0; }
 .reveal-item.is-revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 3D Specular Glare Reflection (Gerçekçi Yansıma & Işık Kırılması) */
+.card-specular-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(380px circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, 0.5), transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+  mix-blend-mode: overlay;
+}
+.showcase-card:hover .card-specular-glare {
+  opacity: 1;
+}
+
+/* Card Filter Morphing Animation (Akıcı Kategori Geçişleri) */
+.showcase-card.filtering-out {
+  opacity: 0 !important;
+  transform: scale(0.92) translateY(12px) !important;
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.showcase-card.filtering-in {
+  animation: cardPopIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes cardPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Magnetic Button Physics (Akıllı İmleç Çekimi) */
+.magnetic-elem {
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+/* Click Ripple Effect (Altın Haptik Dalga) */
+.click-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.5) 0%, rgba(197, 160, 89, 0.15) 60%, transparent 80%);
+  animation: ripplePop 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+@keyframes ripplePop {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
 }
 
 /* ==========================================================================
