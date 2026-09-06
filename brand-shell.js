@@ -30,7 +30,8 @@
     ['C','Classtings','Eğitim yönetimi','classtings/index.html','soon'],
     ['P','Pixel Garden','Yaratıcı deneyim','pixel-garden/index.html','soon'],
     ['M','Magnetic Maze','Fizik bulmacası','magneticmaze/index.html','soon'],
-    ['N','Nexus: Oathbound Realms','Fantastik kart stratejisi','nexus-oathbound-realms/index.html','soon']
+    ['N','Nexus: Oathbound Realms','Fantastik kart stratejisi','nexus-oathbound-realms/index.html','soon'],
+    ['G','Grid Heist Vault Breaker','Taktik blok bulmacası','grid-heist-vault-breaker/index.html','soon']
   ];
   const root = location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const makeGroup = (label, status) => {

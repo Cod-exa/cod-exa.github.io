@@ -21,7 +21,7 @@
   keys.forEach((key,index) => { window.PAGE_TRANSLATIONS[key] = {}; Object.keys(rows).forEach(lang => { window.PAGE_TRANSLATIONS[key][lang] = rows[lang][index]; }); });
   Object.assign(window.PAGE_TRANSLATIONS, {
     micro_game:{tr:'Oyunlaştırılmış öğrenme',en:'Gamified learning'},micro_multi:{tr:'Çok dilli deneyim',en:'Multilingual experience'},micro_mobile:{tr:'Mobil öncelikli',en:'Mobile-first'},
-    system_active:{tr:'Sistem aktif',en:'System active'},interaction:{tr:'Öğrenme etkileşimi',en:'Learning engagement'},ecosystem:{tr:'Ürün ekosistemi',en:'Product ecosystem'},product_count:{tr:'18<small> ürün</small>',en:'18<small> products</small>'},learning_areas:{tr:'Öğrenme alanları',en:'Learning areas'},logic:{tr:'Mantık',en:'Logic'},active:{tr:'aktif',en:'active'},math:{tr:'Matematik',en:'Mathematics'},focus:{tr:'Odak',en:'Focus'},
+    system_active:{tr:'Sistem aktif',en:'System active'},interaction:{tr:'Öğrenme etkileşimi',en:'Learning engagement'},ecosystem:{tr:'Ürün ekosistemi',en:'Product ecosystem'},product_count:{tr:'19<small> ürün</small>',en:'19<small> products</small>'},learning_areas:{tr:'Öğrenme alanları',en:'Learning areas'},logic:{tr:'Mantık',en:'Logic'},active:{tr:'aktif',en:'active'},math:{tr:'Matematik',en:'Mathematics'},focus:{tr:'Odak',en:'Focus'},
     one_ecosystem:{tr:'Tek bir ekosistemde',en:'In one ecosystem'},published_count:{tr:'14 yayında',en:'14 published'},growing_family:{tr:'gelişen ürün ailesi',en:'growing product family'},language_count:{tr:'15 dil',en:'15 languages'},accessible_content:{tr:'erişilebilir içerik',en:'accessible content'},area_count:{tr:'4 alan',en:'4 areas'},domain_list:{tr:'öğrenme, odak ve yönetim',en:'learning, focus, and management'},
     game_desc:{tr:'Mantık, problem çözme ve matematik becerilerini tekrar oynanabilir dijital deneyimlere dönüştürüyoruz.',en:'We turn logic, problem-solving, and mathematics skills into replayable digital experiences.'},focus_desc:{tr:'Dikkati görünür kılan, öğrencilerin zamanı anlamasına ve kendi öğrenme ritmini kurmasına yardımcı olan araçlar.',en:'Tools that make attention visible and help learners understand time and build their own learning rhythm.'},custom_desc:{tr:'Okulların ve eğitim ekiplerinin süreçlerine uyarlanan, ölçeklenebilir dijital ürün ve platform geliştirme yaklaşımı.',en:'A scalable product and platform approach adapted to the workflows of schools and education teams.'},related_products:{tr:'İlgili ürünler',en:'Related products'},build_together:{tr:'Birlikte geliştirelim',en:'Build together'},
     institution_desc:{tr:'CodExa ürün ailesi; sınıf içi etkinliklerden bireysel pratiğe, dikkat yönetiminden dijital okul süreçlerine kadar birbirini tamamlayan deneyimler sunmak üzere tasarlanır.',en:'The CodExa product family connects classroom activities, individual practice, attention management, and digital school workflows.'},student_design:{tr:'Öğrenci merkezli tasarım',en:'Student-centered design'},student_design_desc:{tr:'Karmaşıklığı azaltan, keşfetmeyi teşvik eden etkileşimler.',en:'Interactions that reduce complexity and encourage discovery.'},modular:{tr:'Modüler ürün yaklaşımı',en:'Modular product approach'},modular_desc:{tr:'Kurumun ihtiyacına göre büyüyebilen çözüm yapısı.',en:'A solution structure that grows with each institution’s needs.'},safe_accessible:{tr:'Güvenli ve erişilebilir deneyim',en:'Safe and accessible experience'},safe_accessible_desc:{tr:'Mobil öncelikli, okunabilir ve kapsayıcı arayüzler.',en:'Mobile-first, readable, and inclusive interfaces.'},institution_cta:{tr:'Kurumunuz için görüşelim',en:'Let’s talk about your institution'},
@@ -32,91 +32,91 @@
   const extraKeys=['micro_game','micro_multi','micro_mobile','system_active','interaction','ecosystem','product_count','learning_areas','logic','active','math','focus','one_ecosystem','published_count','growing_family','language_count','accessible_content','area_count','domain_list','game_desc','focus_desc','custom_desc','related_products','build_together','institution_desc','student_design','student_design_desc','modular','modular_desc','safe_accessible','safe_accessible_desc','institution_cta','core_ecosystem','logic_games','math_tools','focus_systems','class_solutions','ecosystem_eyebrow','all_products_title','all_products_desc','open_products','footer_products','footer_contact','footer_privacy','footer_delete','footer_rights','footer_location'];
   const localizedExtras={
     de:[
-      'Spielerisches Lernen','Mehrsprachiges Erlebnis','Mobile-First','System aktiv','Lerninteraktion','Produktökosystem','18<small> Produkte</small>','Lernbereiche','Logik','aktiv','Mathematik','Fokus',
+      'Spielerisches Lernen','Mehrsprachiges Erlebnis','Mobile-First','System aktiv','Lerninteraktion','Produktökosystem','19<small> Produkte</small>','Lernbereiche','Logik','aktiv','Mathematik','Fokus',
       'In einem Ökosystem','14 veröffentlicht','wachsende Produktfamilie','15 Sprachen','barrierefreie Inhalte','4 Bereiche','Lernen, Fokus und Verwaltung',
       'Wir verwandeln Logik, Problemlösung und Mathematik in wiederholbare digitale Lernerlebnisse.','Tools, die Aufmerksamkeit sichtbar machen und Lernenden helfen, Zeit und Lernrhythmus zu verstehen.','Skalierbare Produkte und Plattformen, angepasst an Schulen und Bildungsteams.','Passende Produkte','Gemeinsam entwickeln',
       'Die CodExa-Produktfamilie verbindet Unterricht, individuelles Üben, Aufmerksamkeitsmanagement und digitale Schulprozesse.','Lernendenzentriertes Design','Interaktionen, die Komplexität reduzieren und Entdecken fördern.','Modularer Produktansatz','Lösungen, die mit den Anforderungen der Einrichtung wachsen.','Sicheres und barrierefreies Erlebnis','Mobile, lesbare und inklusive Oberflächen.','Sprechen wir über Ihre Einrichtung',
       'CodExa<br>Ökosystem','Logikspiele','Mathematik-Tools','Fokussysteme','Klassenraumlösungen','Produktökosystem','Alle CodExa-Produkte sind nur einen Klick entfernt.','Greifen Sie über das Produktpanel auf veröffentlichte Apps und laufende Projekte zu.','Produkte öffnen','Produkte','Kontakt','Datenschutz','Konto löschen','© 2026 CodExa. Alle Rechte vorbehalten.','Istanbul, Türkiye · Für Bildung entwickelt.'
     ],
     zh:[
-      '游戏化学习','多语言体验','移动优先','系统运行中','学习互动','产品生态','18<small> 款产品</small>','学习领域','逻辑','运行中','数学','专注',
+      '游戏化学习','多语言体验','移动优先','系统运行中','学习互动','产品生态','19<small> 款产品</small>','学习领域','逻辑','运行中','数学','专注',
       '一个完整生态','14 款已发布','持续成长的产品家族','15 种语言','无障碍内容','4 个领域','学习、专注与管理',
       '我们将逻辑、问题解决与数学能力转化为可反复体验的数字学习产品。','让专注力可视化，帮助学习者理解时间并建立自己的学习节奏。','为学校和教育团队流程定制的可扩展产品与平台方案。','相关产品','共同开发',
       'CodExa 产品家族连接课堂活动、个人练习、专注管理和数字校园流程。','以学生为中心的设计','减少复杂度并鼓励探索的互动。','模块化产品方式','可随机构需求成长的解决方案。','安全且无障碍的体验','移动优先、清晰且包容的界面。','讨论您的机构需求',
       'CodExa<br>生态','逻辑游戏','数学工具','专注系统','课堂解决方案','产品生态','所有 CodExa 产品触手可及。','无需离开页面，即可通过产品面板访问已发布应用和开发中项目。','打开产品','产品','联系','隐私','删除账户','© 2026 CodExa。保留所有权利。','伊斯坦布尔，Türkiye · 为教育而设计。'
     ],
     hi:[
-      'खेल-आधारित सीखना','बहुभाषी अनुभव','मोबाइल-प्रथम','सिस्टम सक्रिय','सीखने की सहभागिता','उत्पाद तंत्र','18<small> उत्पाद</small>','सीखने के क्षेत्र','तर्क','सक्रिय','गणित','एकाग्रता',
+      'खेल-आधारित सीखना','बहुभाषी अनुभव','मोबाइल-प्रथम','सिस्टम सक्रिय','सीखने की सहभागिता','उत्पाद तंत्र','19<small> उत्पाद</small>','सीखने के क्षेत्र','तर्क','सक्रिय','गणित','एकाग्रता',
       'एक ही तंत्र में','14 प्रकाशित','बढ़ता उत्पाद परिवार','15 भाषाएँ','सुलभ सामग्री','4 क्षेत्र','सीखना, एकाग्रता और प्रबंधन',
       'हम तर्क, समस्या समाधान और गणित कौशल को दोबारा खेले जा सकने वाले डिजिटल अनुभवों में बदलते हैं।','ऐसे उपकरण जो ध्यान को स्पष्ट बनाते हैं और समय तथा सीखने की लय समझने में मदद करते हैं।','स्कूलों और शिक्षा टीमों के लिए अनुकूलित, विस्तार योग्य उत्पाद और प्लेटफ़ॉर्म।','संबंधित उत्पाद','साथ मिलकर बनाएँ',
       'CodExa उत्पाद परिवार कक्षा गतिविधियों, व्यक्तिगत अभ्यास, ध्यान प्रबंधन और डिजिटल स्कूल प्रक्रियाओं को जोड़ता है।','विद्यार्थी-केंद्रित डिज़ाइन','जटिलता घटाने और खोज को बढ़ावा देने वाली सहभागिता।','मॉड्यूलर उत्पाद दृष्टिकोण','संस्था की जरूरत के साथ बढ़ने वाला समाधान।','सुरक्षित और सुलभ अनुभव','मोबाइल-प्रथम, पठनीय और समावेशी इंटरफ़ेस।','अपनी संस्था के लिए बात करें',
       'CodExa<br>तंत्र','तर्क खेल','गणित उपकरण','एकाग्रता प्रणालियाँ','कक्षा समाधान','उत्पाद तंत्र','सभी CodExa उत्पाद एक क्लिक दूर हैं।','पेज छोड़े बिना प्रकाशित ऐप और विकासाधीन परियोजनाएँ देखें।','उत्पाद खोलें','उत्पाद','संपर्क','गोपनीयता','खाता हटाएँ','© 2026 CodExa. सर्वाधिकार सुरक्षित।','इस्तांबुल, Türkiye · शिक्षा के लिए डिज़ाइन किया गया।'
     ],
     es:[
-      'Aprendizaje gamificado','Experiencia multilingüe','Diseño móvil primero','Sistema activo','Interacción de aprendizaje','Ecosistema de productos','18<small> productos</small>','Áreas de aprendizaje','Lógica','activo','Matemáticas','Concentración',
+      'Aprendizaje gamificado','Experiencia multilingüe','Diseño móvil primero','Sistema activo','Interacción de aprendizaje','Ecosistema de productos','19<small> productos</small>','Áreas de aprendizaje','Lógica','activo','Matemáticas','Concentración',
       'En un solo ecosistema','14 publicados','familia de productos en crecimiento','15 idiomas','contenido accesible','4 áreas','aprendizaje, concentración y gestión',
       'Convertimos la lógica, la resolución de problemas y las matemáticas en experiencias digitales rejugables.','Herramientas que hacen visible la atención y ayudan a comprender el tiempo y el ritmo de aprendizaje.','Productos y plataformas escalables adaptados a escuelas y equipos educativos.','Productos relacionados','Creemos juntos',
       'La familia CodExa conecta actividades de aula, práctica individual, gestión de la atención y procesos escolares digitales.','Diseño centrado en el estudiante','Interacciones que reducen la complejidad y fomentan el descubrimiento.','Enfoque modular','Soluciones que crecen con las necesidades de cada institución.','Experiencia segura y accesible','Interfaces móviles, legibles e inclusivas.','Hablemos de su institución',
       'Ecosistema<br>CodExa','Juegos de lógica','Herramientas matemáticas','Sistemas de concentración','Soluciones para el aula','Ecosistema de productos','Todos los productos CodExa están a un clic.','Accede a aplicaciones publicadas y proyectos en desarrollo desde el panel de productos.','Abrir productos','Productos','Contacto','Privacidad','Eliminar cuenta','© 2026 CodExa. Todos los derechos reservados.','Estambul, Türkiye · Diseñado para la educación.'
     ],
     fr:[
-      'Apprentissage ludifié','Expérience multilingue','Priorité au mobile','Système actif','Interaction pédagogique','Écosystème de produits','18<small> produits</small>','Domaines pédagogiques','Logique','actif','Mathématiques','Concentration',
+      'Apprentissage ludifié','Expérience multilingue','Priorité au mobile','Système actif','Interaction pédagogique','Écosystème de produits','19<small> produits</small>','Domaines pédagogiques','Logique','actif','Mathématiques','Concentration',
       'Dans un seul écosystème','14 publiés','gamme de produits en croissance','15 langues','contenu accessible','4 domaines','apprentissage, concentration et gestion',
       'Nous transformons la logique, la résolution de problèmes et les mathématiques en expériences numériques rejouables.','Des outils qui rendent l’attention visible et aident à comprendre le temps et le rythme d’apprentissage.','Des produits et plateformes évolutifs adaptés aux écoles et équipes éducatives.','Produits associés','Créons ensemble',
       'La gamme CodExa relie activités en classe, pratique individuelle, gestion de l’attention et processus scolaires numériques.','Conception centrée sur l’élève','Des interactions qui réduisent la complexité et encouragent l’exploration.','Approche modulaire','Des solutions qui évoluent avec les besoins de chaque établissement.','Expérience sûre et accessible','Des interfaces mobiles, lisibles et inclusives.','Parlons de votre établissement',
       'Écosystème<br>CodExa','Jeux de logique','Outils mathématiques','Systèmes de concentration','Solutions pour la classe','Écosystème de produits','Tous les produits CodExa sont à portée de clic.','Accédez aux applications publiées et aux projets en cours depuis le panneau des produits.','Ouvrir les produits','Produits','Contact','Confidentialité','Supprimer le compte','© 2026 CodExa. Tous droits réservés.','Istanbul, Türkiye · Conçu pour l’éducation.'
     ],
     ar:[
-      'التعلّم بالألعاب','تجربة متعددة اللغات','تصميم للجوال أولاً','النظام نشط','التفاعل التعليمي','منظومة المنتجات','18<small> منتجًا</small>','مجالات التعلّم','المنطق','نشط','الرياضيات','التركيز',
+      'التعلّم بالألعاب','تجربة متعددة اللغات','تصميم للجوال أولاً','النظام نشط','التفاعل التعليمي','منظومة المنتجات','19<small> منتجًا</small>','مجالات التعلّم','المنطق','نشط','الرياضيات','التركيز',
       'في منظومة واحدة','11 منتجًا منشورًا','عائلة منتجات متنامية','15 لغة','محتوى سهل الوصول','4 مجالات','التعلّم والتركيز والإدارة',
       'نحوّل مهارات المنطق وحل المشكلات والرياضيات إلى تجارب رقمية قابلة للتكرار.','أدوات تُظهر الانتباه وتساعد المتعلمين على فهم الوقت وبناء إيقاعهم التعليمي.','منتجات ومنصات قابلة للتوسع ومتكيفة مع المدارس وفرق التعليم.','منتجات ذات صلة','لنطوّر معًا',
       'تربط عائلة CodExa أنشطة الصف والممارسة الفردية وإدارة الانتباه والعمليات المدرسية الرقمية.','تصميم يتمحور حول الطالب','تفاعلات تقلّل التعقيد وتشجّع الاستكشاف.','نهج منتجات معياري','حلول تنمو مع احتياجات المؤسسة.','تجربة آمنة وسهلة الوصول','واجهات للجوال واضحة وشاملة.','لنتحدث عن مؤسستك',
       'منظومة<br>CodExa','ألعاب المنطق','أدوات الرياضيات','أنظمة التركيز','حلول الصفوف','منظومة المنتجات','جميع منتجات CodExa على بُعد نقرة.','ادخل إلى التطبيقات المنشورة والمشاريع قيد التطوير من لوحة المنتجات.','فتح المنتجات','المنتجات','اتصال','الخصوصية','حذف الحساب','© 2026 CodExa. جميع الحقوق محفوظة.','إسطنبول، Türkiye · صُمم للتعليم.'
     ],
     pt:[
-      'Aprendizagem gamificada','Experiência multilíngue','Prioridade para dispositivos móveis','Sistema ativo','Interação de aprendizagem','Ecossistema de produtos','18<small> produtos</small>','Áreas de aprendizagem','Lógica','ativo','Matemática','Foco',
+      'Aprendizagem gamificada','Experiência multilíngue','Prioridade para dispositivos móveis','Sistema ativo','Interação de aprendizagem','Ecossistema de produtos','19<small> produtos</small>','Áreas de aprendizagem','Lógica','ativo','Matemática','Foco',
       'Em um único ecossistema','14 publicados','família de produtos em expansão','15 idiomas','conteúdo acessível','4 áreas','aprendizagem, foco e gestão',
       'Transformamos lógica, resolução de problemas e matemática em experiências digitais que podem ser repetidas.','Ferramentas que tornam a atenção visível e ajudam a compreender o tempo e o ritmo de aprendizagem.','Produtos e plataformas escaláveis adaptados a escolas e equipes educacionais.','Produtos relacionados','Vamos criar juntos',
       'A família CodExa conecta atividades em sala, prática individual, gestão da atenção e processos escolares digitais.','Design centrado no aluno','Interações que reduzem a complexidade e incentivam a descoberta.','Abordagem modular','Soluções que crescem com as necessidades da instituição.','Experiência segura e acessível','Interfaces móveis, legíveis e inclusivas.','Fale sobre sua instituição',
       'Ecossistema<br>CodExa','Jogos de lógica','Ferramentas de matemática','Sistemas de foco','Soluções para sala de aula','Ecossistema de produtos','Todos os produtos CodExa estão a um clique.','Acesse aplicativos publicados e projetos em desenvolvimento pelo painel de produtos.','Abrir produtos','Produtos','Contato','Privacidade','Excluir conta','© 2026 CodExa. Todos os direitos reservados.','Istambul, Türkiye · Criado para a educação.'
     ],
     ru:[
-      'Игровое обучение','Многоязычный интерфейс','Приоритет мобильным устройствам','Система активна','Учебное взаимодействие','Экосистема продуктов','18<small> продуктов</small>','Области обучения','Логика','активно','Математика','Внимание',
+      'Игровое обучение','Многоязычный интерфейс','Приоритет мобильным устройствам','Система активна','Учебное взаимодействие','Экосистема продуктов','19<small> продуктов</small>','Области обучения','Логика','активно','Математика','Внимание',
       'В единой экосистеме','14 опубликовано','растущая линейка продуктов','15 языков','доступный контент','4 направления','обучение, внимание и управление',
       'Мы превращаем логику, решение задач и математику в цифровые упражнения, к которым хочется возвращаться.','Инструменты, которые делают внимание заметным и помогают понимать время и собственный ритм обучения.','Масштабируемые продукты и платформы для школ и образовательных команд.','Связанные продукты','Создадим вместе',
       'Линейка CodExa объединяет занятия в классе, самостоятельную практику, управление вниманием и цифровые школьные процессы.','Дизайн для ученика','Взаимодействия, которые снижают сложность и поощряют исследование.','Модульный подход','Решения, растущие вместе с потребностями учреждения.','Безопасный и доступный опыт','Мобильные, читаемые и инклюзивные интерфейсы.','Обсудить ваше учреждение',
       'Экосистема<br>CodExa','Логические игры','Математические инструменты','Системы внимания','Решения для класса','Экосистема продуктов','Все продукты CodExa доступны в один клик.','Открывайте опубликованные приложения и проекты в разработке через панель продуктов.','Открыть продукты','Продукты','Контакты','Конфиденциальность','Удалить аккаунт','© 2026 CodExa. Все права защищены.','Стамбул, Türkiye · Создано для образования.'
     ],
     id:[
-      'Pembelajaran berbasis permainan','Pengalaman multibahasa','Utamakan perangkat seluler','Sistem aktif','Interaksi pembelajaran','Ekosistem produk','18<small> produk</small>','Bidang pembelajaran','Logika','aktif','Matematika','Fokus',
+      'Pembelajaran berbasis permainan','Pengalaman multibahasa','Utamakan perangkat seluler','Sistem aktif','Interaksi pembelajaran','Ekosistem produk','19<small> produk</small>','Bidang pembelajaran','Logika','aktif','Matematika','Fokus',
       'Dalam satu ekosistem','14 diterbitkan','keluarga produk yang berkembang','15 bahasa','konten yang mudah diakses','4 bidang','pembelajaran, fokus, dan pengelolaan',
       'Kami mengubah logika, pemecahan masalah, dan matematika menjadi pengalaman digital yang dapat dimainkan kembali.','Alat yang membuat perhatian terlihat dan membantu pelajar memahami waktu serta ritme belajarnya.','Produk dan platform yang dapat dikembangkan untuk sekolah dan tim pendidikan.','Produk terkait','Mari kembangkan bersama',
       'Keluarga CodExa menghubungkan kegiatan kelas, latihan mandiri, pengelolaan perhatian, dan proses sekolah digital.','Desain berpusat pada siswa','Interaksi yang mengurangi kerumitan dan mendorong eksplorasi.','Pendekatan produk modular','Solusi yang tumbuh bersama kebutuhan institusi.','Pengalaman aman dan mudah diakses','Antarmuka seluler yang jelas dan inklusif.','Bicarakan kebutuhan institusi Anda',
       'Ekosistem<br>CodExa','Permainan logika','Alat matematika','Sistem fokus','Solusi kelas','Ekosistem produk','Semua produk CodExa hanya satu klik.','Akses aplikasi yang diterbitkan dan proyek yang dikembangkan dari panel produk.','Buka produk','Produk','Kontak','Privasi','Hapus akun','© 2026 CodExa. Hak cipta dilindungi.','Istanbul, Türkiye · Dirancang untuk pendidikan.'
     ],
     bn:[
-      'গেমভিত্তিক শিক্ষা','বহুভাষিক অভিজ্ঞতা','মোবাইল-প্রথম','সিস্টেম সক্রিয়','শেখার মিথস্ক্রিয়া','পণ্য ব্যবস্থা','18<small>টি পণ্য</small>','শেখার ক্ষেত্র','যুক্তি','সক্রিয়','গণিত','মনোযোগ',
+      'গেমভিত্তিক শিক্ষা','বহুভাষিক অভিজ্ঞতা','মোবাইল-প্রথম','সিস্টেম সক্রিয়','শেখার মিথস্ক্রিয়া','পণ্য ব্যবস্থা','19<small>টি পণ্য</small>','শেখার ক্ষেত্র','যুক্তি','সক্রিয়','গণিত','মনোযোগ',
       'একটি ব্যবস্থায়','14টি প্রকাশিত','বিকাশমান পণ্য পরিবার','15টি ভাষা','সহজলভ্য বিষয়বস্তু','4টি ক্ষেত্র','শিক্ষা, মনোযোগ ও ব্যবস্থাপনা',
       'আমরা যুক্তি, সমস্যা সমাধান ও গণিত দক্ষতাকে বারবার ব্যবহারযোগ্য ডিজিটাল অভিজ্ঞতায় রূপ দিই।','মনোযোগ দৃশ্যমান করে এবং সময় ও শেখার ছন্দ বুঝতে সাহায্য করে এমন সরঞ্জাম।','স্কুল ও শিক্ষা দলের জন্য মানানসই সম্প্রসারণযোগ্য পণ্য ও প্ল্যাটফর্ম।','সম্পর্কিত পণ্য','একসঙ্গে তৈরি করি',
       'CodExa পরিবার শ্রেণিকক্ষ, ব্যক্তিগত অনুশীলন, মনোযোগ ব্যবস্থাপনা ও ডিজিটাল স্কুল প্রক্রিয়াকে যুক্ত করে।','শিক্ষার্থী-কেন্দ্রিক নকশা','জটিলতা কমিয়ে অনুসন্ধান উৎসাহিত করে এমন মিথস্ক্রিয়া।','মডিউলার পদ্ধতি','প্রতিষ্ঠানের প্রয়োজনের সঙ্গে বাড়ে এমন সমাধান।','নিরাপদ ও সহজলভ্য অভিজ্ঞতা','মোবাইল-প্রথম, পাঠযোগ্য ও অন্তর্ভুক্তিমূলক ইন্টারফেস।','আপনার প্রতিষ্ঠান নিয়ে কথা বলুন',
       'CodExa<br>ব্যবস্থা','যুক্তির খেলা','গণিত সরঞ্জাম','মনোযোগ ব্যবস্থা','শ্রেণিকক্ষ সমাধান','পণ্য ব্যবস্থা','সব CodExa পণ্য এক ক্লিক দূরে।','পণ্য প্যানেল থেকে প্রকাশিত অ্যাপ ও উন্নয়নাধীন প্রকল্প দেখুন।','পণ্য খুলুন','পণ্য','যোগাযোগ','গোপনীয়তা','অ্যাকাউন্ট মুছুন','© 2026 CodExa. সর্বস্বত্ব সংরক্ষিত।','ইস্তাম্বুল, Türkiye · শিক্ষার জন্য তৈরি।'
     ],
     ur:[
-      'کھیل کے ذریعے تعلیم','کثیر لسانی تجربہ','موبائل اوّل','نظام فعال','تعلیمی تعامل','مصنوعات کا نظام','18<small> مصنوعات</small>','تعلیمی شعبے','منطق','فعال','ریاضی','توجہ',
+      'کھیل کے ذریعے تعلیم','کثیر لسانی تجربہ','موبائل اوّل','نظام فعال','تعلیمی تعامل','مصنوعات کا نظام','19<small> مصنوعات</small>','تعلیمی شعبے','منطق','فعال','ریاضی','توجہ',
       'ایک ہی نظام میں','14 شائع شدہ','بڑھتا ہوا پروڈکٹ خاندان','15 زبانیں','قابلِ رسائی مواد','4 شعبے','تعلیم، توجہ اور انتظام',
       'ہم منطق، مسئلہ حل کرنے اور ریاضی کی مہارتوں کو بار بار استعمال ہونے والے ڈیجیٹل تجربات میں بدلتے ہیں۔','ایسے اوزار جو توجہ کو واضح کرتے اور وقت و سیکھنے کی رفتار سمجھنے میں مدد دیتے ہیں۔','اسکولوں اور تعلیمی ٹیموں کے لیے قابلِ توسیع مصنوعات اور پلیٹ فارم۔','متعلقہ مصنوعات','مل کر بنائیں',
       'CodExa خاندان کلاس سرگرمیوں، ذاتی مشق، توجہ کے انتظام اور ڈیجیٹل اسکول عمل کو جوڑتا ہے۔','طالب علم پر مبنی ڈیزائن','پیچیدگی کم اور دریافت کی حوصلہ افزائی کرنے والے تعاملات۔','ماڈیولر طریقہ','ادارے کی ضرورت کے ساتھ بڑھنے والا حل۔','محفوظ اور قابلِ رسائی تجربہ','موبائل اوّل، واضح اور جامع انٹرفیس۔','اپنے ادارے کے بارے میں بات کریں',
       'CodExa<br>نظام','منطقی کھیل','ریاضی کے اوزار','توجہ کے نظام','کلاس روم حل','مصنوعات کا نظام','تمام CodExa مصنوعات ایک کلک دور ہیں۔','پروڈکٹ پینل سے شائع شدہ ایپس اور زیرِ تیاری منصوبے دیکھیں۔','مصنوعات کھولیں','مصنوعات','رابطہ','رازداری','اکاؤنٹ حذف کریں','© 2026 CodExa. جملہ حقوق محفوظ ہیں۔','استنبول، Türkiye · تعلیم کے لیے تیار کیا گیا۔'
     ],
     ja:[
-      'ゲーミフィケーション学習','多言語体験','モバイルファースト','システム稼働中','学習エンゲージメント','製品エコシステム','18<small> 製品</small>','学習領域','論理','稼働中','数学','集中',
+      'ゲーミフィケーション学習','多言語体験','モバイルファースト','システム稼働中','学習エンゲージメント','製品エコシステム','19<small> 製品</small>','学習領域','論理','稼働中','数学','集中',
       '一つのエコシステムで','13 製品を公開','成長する製品群','15 言語','アクセシブルなコンテンツ','4 領域','学習・集中・管理',
       '論理、問題解決、数学の力を、繰り返し取り組めるデジタル体験に変えます。','集中を可視化し、時間と自分の学習リズムを理解するためのツールです。','学校や教育チームの業務に合わせて拡張できる製品とプラットフォームです。','関連製品','一緒に開発する',
       'CodExa製品群は、授業、個人練習、集中管理、デジタル校務をつなぎます。','学習者中心のデザイン','複雑さを減らし、発見を促すインタラクション。','モジュール型アプローチ','教育機関のニーズとともに成長するソリューション。','安全でアクセシブルな体験','モバイルファーストで読みやすく包括的な画面。','教育機関について相談する',
       'CodExa<br>エコシステム','論理ゲーム','数学ツール','集中システム','教室向けソリューション','製品エコシステム','CodExaの全製品にワンクリックでアクセス。','製品パネルから公開アプリと開発中のプロジェクトをご覧ください。','製品を開く','製品','お問い合わせ','プライバシー','アカウント削除','© 2026 CodExa. All rights reserved.','イスタンブール、Türkiye · 教育のために設計。'
     ],
     ko:[
-      '게임 기반 학습','다국어 경험','모바일 우선','시스템 활성','학습 참여','제품 생태계','18<small>개 제품</small>','학습 영역','논리','활성','수학','집중',
+      '게임 기반 학습','다국어 경험','모바일 우선','시스템 활성','학습 참여','제품 생태계','19<small>개 제품</small>','학습 영역','논리','활성','수학','집중',
       '하나의 생태계에서','14개 출시','성장하는 제품군','15개 언어','접근 가능한 콘텐츠','4개 영역','학습, 집중 및 관리',
       '논리, 문제 해결, 수학 능력을 반복해서 즐길 수 있는 디지털 경험으로 만듭니다.','집중을 시각화하고 시간과 학습 리듬을 이해하도록 돕는 도구입니다.','학교와 교육 팀의 업무에 맞춘 확장 가능한 제품 및 플랫폼입니다.','관련 제품','함께 만들기',
       'CodExa 제품군은 교실 활동, 개인 연습, 집중 관리, 디지털 학교 과정을 연결합니다.','학생 중심 디자인','복잡성을 줄이고 탐색을 장려하는 상호작용.','모듈형 제품 접근','기관의 요구와 함께 성장하는 솔루션.','안전하고 접근 가능한 경험','모바일 우선의 읽기 쉽고 포용적인 인터페이스.','교육 기관 상담하기',
@@ -196,7 +196,7 @@
       ko: 'Google Play에 출시된 분석적 사고력, 주의 집중력, 수학적 감각을 길러주는 교육 앱입니다.'
     },
     filter_all: {
-      tr: 'Tüm Uygulamalar (18)', en: 'All Applications (18)', de: 'Alle Apps (18)', zh: '全部应用 (18)', hi: 'सभी ऐप्स (18)', es: 'Todas las aplicaciones (18)', fr: 'Toutes les applications (18)', ar: 'جميع التطبيقات (18)', pt: 'Todos os aplicativos (18)', ru: 'Все приложения (18)', id: 'Semua Aplikasi (18)', bn: 'সব অ্যাপ (18)', ur: 'تمام ایپس (18)', ja: 'すべてのアプリ (18)', ko: '모든 앱 (18)'
+      tr: 'Tüm Uygulamalar (19)', en: 'All Applications (19)', de: 'Alle Apps (19)', zh: '全部应用 (19)', hi: 'सभी ऐप्स (19)', es: 'Todas las aplicaciones (19)', fr: 'Toutes les applications (19)', ar: 'جميع التطبيقات (19)', pt: 'Todos os aplicativos (19)', ru: 'Все приложения (19)', id: 'Semua Aplikasi (19)', bn: 'সব অ্যাপ (19)', ur: 'تمام ایپس (19)', ja: 'すべてのアプリ (19)', ko: '모든 앱 (19)'
     },
     filter_logic: {
       tr: 'Mantık & Strateji', en: 'Logic & Strategy', de: 'Logik & Strategie', zh: '逻辑与策略', hi: 'तर्क और रणनीति', es: 'Lógica y estrategia', fr: 'Logique et stratégie', ar: 'المنطق والاستراتيجية', pt: 'Lógica e estratégia', ru: 'Логика и стратегия', id: 'Logika & Strategi', bn: 'যুক্তি ও কৌশল', ur: 'منطق اور حکمت عملی', ja: '論理＆戦略', ko: '논리 및 전략'
@@ -208,7 +208,7 @@
       tr: 'Odak & Araçlar', en: 'Focus & Tools', de: 'Fokus & Werkzeuge', zh: '专注与工具', hi: 'फोकस और उपकरण', es: 'Concentración y herramientas', fr: 'Concentration et outils', ar: 'التركيز والأدوات', pt: 'Foco e ferramentas', ru: 'Внимание и инструменты', id: 'Fokus & Alat', bn: 'মনোযোগ ও সরঞ্জাম', ur: 'توجہ اور آلات', ja: '集中＆ツール', ko: '집중 및 도구'
     },
     filter_soon: {
-      tr: 'Geliştirilmekte (4)', en: 'In Development (4)', de: 'In Entwicklung (4)', zh: '开发中 (4)', hi: 'विकास में (4)', es: 'En desarrollo (4)', fr: 'En cours de développement (4)', ar: 'قيد التطوير (4)', pt: 'Em desenvolvimento (4)', ru: 'В разработке (4)', id: 'Dalam Pengembangan (4)', bn: 'উন্নয়নাধীন (4)', ur: 'زیرِ تکمیل (4)', ja: '開発中 (4)', ko: '개발 중 (4)'
+      tr: 'Geliştirilmekte (5)', en: 'In Development (5)', de: 'In Entwicklung (5)', zh: '开发中 (5)', hi: 'विकास में (5)', es: 'En desarrollo (5)', fr: 'En cours de développement (5)', ar: 'قيد التطوير (5)', pt: 'Em desenvolvimento (5)', ru: 'В разработке (5)', id: 'Dalam Pengembangan (5)', bn: 'উন্নয়নাধীন (5)', ur: 'زیرِ تکمیل (5)', ja: '開発中 (5)', ko: '개발 중 (5)'
     },
     btn_view_app: {
       tr: 'Sayfayı Aç <span>→</span>', en: 'View Project <span>→</span>', de: 'Projekt ansehen <span>→</span>', zh: '查看项目 <span>→</span>', hi: 'प्रोजेक्ट देखें <span>→</span>', es: 'Ver proyecto <span>→</span>', fr: 'Voir le projet <span>→</span>', ar: 'عرض المشروع <span>→</span>', pt: 'Ver projeto <span>→</span>', ru: 'Открыть проект <span>→</span>', id: 'Buka Proyek <span>→</span>', bn: 'প্রকল্প দেখুন <span>→</span>', ur: 'پروجیکٹ دیکھیں <span>→</span>', ja: 'プロジェクトを見る <span>→</span>', ko: '프로젝트 보기 <span>→</span>'
@@ -334,3 +334,7 @@
 // Nexus portal copy; other project translations are unchanged.
 window.PAGE_TRANSLATIONS.nexus_category = {tr:'Fantastik kart stratejisi',en:'Fantasy card strategy'};
 window.PAGE_TRANSLATIONS.nexus_description = {tr:'20 soy, 220 kart ve sıra tabanlı düellolar. Desteni kur, birliklerini alana sürükle ve hamleni planla.',en:'20 lineages, 220 cards and turn-based duels. Build your deck, drag units onto the battlefield and plan your moves.'};
+
+// Grid Heist portfolio entry; existing project copy is preserved.
+window.PAGE_TRANSLATIONS.ghvb_category = {tr:"Taktik blok bulmacası",en:"Tactical block puzzle"};
+window.PAGE_TRANSLATIONS.ghvb_description = {tr:"7×7 tahtada blokları yerleştir, hatları tamamla ve çekirdekleri onar. 625 bölüm, üç protokol ve ücretsiz antrenman.",en:"Place blocks on a 7×7 board, complete lines and repair cores. 625 levels, three protocols and free practice."};
