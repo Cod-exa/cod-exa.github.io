@@ -1,5 +1,5 @@
 /**
- * Grid Heist Vault Breaker — Multi-language Engine & i18n Integration
+ * Math Meadow — Multi-language Engine & i18n Integration
  * Supports all 15 CodExa languages with seamless fallback
  */
 (() => {
@@ -41,7 +41,7 @@
     const isEn = lang !== 'tr';
     const title = isEn ? (document.body.dataset.titleEn || document.body.dataset.titleTr) : document.body.dataset.titleTr;
     if (title) {
-      document.title = `${title} — Grid Heist Vault Breaker — CodExa`;
+      document.title = `${title} — Math Meadow — CodExa`;
     }
     const desc = isEn ? (document.body.dataset.descEn || document.body.dataset.descTr) : document.body.dataset.descTr;
     if (desc) {

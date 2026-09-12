@@ -1,6 +1,8 @@
 /* Project-scoped additions to the existing CodExa cream/gold theme. */
 :root { --text-muted: #655f59; --accent-cyan: #806025; }
 [hidden] { display: none !important; }
+html[lang="tr"] [data-language]:not([data-language="tr"]) { display: none !important; }
+html:not([lang="tr"]) [data-language="tr"] { display: none !important; }
 .gh-header { border-bottom: 1px solid var(--cx-line); background: rgba(250,249,245,.94); }
 .header-inner { display: flex; align-items: center; gap: 24px; min-height: 82px; }
 .header-inner .cx-brand { margin-right: auto; }

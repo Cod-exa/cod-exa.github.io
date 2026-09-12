@@ -68,7 +68,7 @@
     ],
     ar:[
       'التعلّم بالألعاب','تجربة متعددة اللغات','تصميم للجوال أولاً','النظام نشط','التفاعل التعليمي','منظومة المنتجات','19<small> منتجًا</small>','مجالات التعلّم','المنطق','نشط','الرياضيات','التركيز',
-      'في منظومة واحدة','11 منتجًا منشورًا','عائلة منتجات متنامية','15 لغة','محتوى سهل الوصول','4 مجالات','التعلّم والتركيز والإدارة',
+      'في منظومة واحدة','14 منتجًا منشورًا','عائلة منتجات متنامية','15 لغة','محتوى سهل الوصول','4 مجالات','التعلّم والتركيز والإدارة',
       'نحوّل مهارات المنطق وحل المشكلات والرياضيات إلى تجارب رقمية قابلة للتكرار.','أدوات تُظهر الانتباه وتساعد المتعلمين على فهم الوقت وبناء إيقاعهم التعليمي.','منتجات ومنصات قابلة للتوسع ومتكيفة مع المدارس وفرق التعليم.','منتجات ذات صلة','لنطوّر معًا',
       'تربط عائلة CodExa أنشطة الصف والممارسة الفردية وإدارة الانتباه والعمليات المدرسية الرقمية.','تصميم يتمحور حول الطالب','تفاعلات تقلّل التعقيد وتشجّع الاستكشاف.','نهج منتجات معياري','حلول تنمو مع احتياجات المؤسسة.','تجربة آمنة وسهلة الوصول','واجهات للجوال واضحة وشاملة.','لنتحدث عن مؤسستك',
       'منظومة<br>CodExa','ألعاب المنطق','أدوات الرياضيات','أنظمة التركيز','حلول الصفوف','منظومة المنتجات','جميع منتجات CodExa على بُعد نقرة.','ادخل إلى التطبيقات المنشورة والمشاريع قيد التطوير من لوحة المنتجات.','فتح المنتجات','المنتجات','اتصال','الخصوصية','حذف الحساب','© 2026 CodExa. جميع الحقوق محفوظة.','إسطنبول، Türkiye · صُمم للتعليم.'
@@ -110,7 +110,7 @@
     ],
     ja:[
       'ゲーミフィケーション学習','多言語体験','モバイルファースト','システム稼働中','学習エンゲージメント','製品エコシステム','19<small> 製品</small>','学習領域','論理','稼働中','数学','集中',
-      '一つのエコシステムで','13 製品を公開','成長する製品群','15 言語','アクセシブルなコンテンツ','4 領域','学習・集中・管理',
+      '一つのエコシステムで','14 製品を公開','成長する製品群','15 言語','アクセシブルなコンテンツ','4 領域','学習・集中・管理',
       '論理、問題解決、数学の力を、繰り返し取り組めるデジタル体験に変えます。','集中を可視化し、時間と自分の学習リズムを理解するためのツールです。','学校や教育チームの業務に合わせて拡張できる製品とプラットフォームです。','関連製品','一緒に開発する',
       'CodExa製品群は、授業、個人練習、集中管理、デジタル校務をつなぎます。','学習者中心のデザイン','複雑さを減らし、発見を促すインタラクション。','モジュール型アプローチ','教育機関のニーズとともに成長するソリューション。','安全でアクセシブルな体験','モバイルファーストで読みやすく包括的な画面。','教育機関について相談する',
       'CodExa<br>エコシステム','論理ゲーム','数学ツール','集中システム','教室向けソリューション','製品エコシステム','CodExaの全製品にワンクリックでアクセス。','製品パネルから公開アプリと開発中のプロジェクトをご覧ください。','製品を開く','製品','お問い合わせ','プライバシー','アカウント削除','© 2026 CodExa. All rights reserved.','イスタンブール、Türkiye · 教育のために設計。'
@@ -125,23 +125,23 @@
   };
   Object.entries(localizedExtras).forEach(([lang,values])=>extraKeys.forEach((key,index)=>{if(values[index]!==undefined)window.PAGE_TRANSLATIONS[key][lang]=values[index];}));
   window.PAGE_TRANSLATIONS.skip_content={tr:'İçeriğe geç',en:'Skip to content',de:'Zum Inhalt springen',zh:'跳到内容',hi:'सामग्री पर जाएँ',es:'Ir al contenido',fr:'Aller au contenu',ar:'انتقل إلى المحتوى',pt:'Ir para o conteúdo',ru:'Перейти к содержанию',id:'Lewati ke konten',bn:'বিষয়বস্তুতে যান',ur:'مواد پر جائیں',ja:'コンテンツへ移動',ko:'콘텐츠로 건너뛰기'};
-  const productKeys=['product_2048','product_knight_brain','product_multiplication','product_kakuro','product_kenken','product_timer','product_nim','product_mangala','product_hanoi','product_knight_classic','product_vouchkeep','product_screenrecall','product_stacking','product_resonant','product_classtings','product_pixel','product_magnetic'];
+  const productKeys=['product_2048','product_knight_brain','product_multiplication','product_kakuro','product_kenken','product_timer','product_nim','product_mangala','product_hanoi','product_knight_classic','product_vouchkeep','product_screenrecall','product_stacking','product_resonant','product_classtings','product_pixel','product_magnetic','product_nexus','product_grid_heist'];
   const productNames={
-    tr:['2048 - Sayı Bulmaca Oyunu','At Satrancı: Zeka Oyunu','Çarpım Tablosu','Kakuro','KenKen Logic: Zeka Bulmaca','Görsel Zamanlayıcı: Odak','Nim Master','Mangala Oyunu','Hanoi Tower: Temple Puzzle','At Satrancı','VouchKeep: Fiş ve Garanti','ScreenRecall: Ekran Görseli','Stacking Balance','Resonant','Classtings','Pixel Garden','Magnetic Maze'],
-    en:['2048 - Number Puzzle Game','Knight’s Tour: Brain Game','Multiplication Tables','Kakuro','KenKen Logic: Brain Puzzle','Visual Timer: Focus','Nim Master','Mangala Game','Hanoi Tower: Temple Puzzle','Knight’s Tour','VouchKeep: Receipts & Warranty','ScreenRecall: Screenshots','Stacking Balance','Resonant','Classtings','Pixel Garden','Magnetic Maze'],
-    de:['2048 - Zahlenrätsel','Springertour: Denkspiel','Einmaleins','Kakuro','KenKen Logic: Denkrätsel','Visueller Timer: Fokus','Nim Master','Mangala-Spiel','Turm von Hanoi: Tempelrätsel','Springertour','VouchKeep: Belege & Garantie','ScreenRecall: Bildschirmfotos','Stacking Balance','Resonant','Classtings','Pixel Garden','Magnetisches Labyrinth'],
-    zh:['2048 - 数字益智游戏','骑士巡游：益智游戏','乘法表','数和','KenKen 逻辑：益智谜题','视觉计时器：专注','Nim Master','播棋游戏','汉诺塔：神庙谜题','骑士巡游','VouchKeep：收据与保修','ScreenRecall：屏幕截图','Stacking Balance','Resonant','Classtings','像素花园','磁力迷宫'],
-    hi:['2048 - संख्या पहेली खेल','नाइट टूर: दिमागी खेल','गुणा तालिका','काकुरो','KenKen Logic: दिमागी पहेली','विज़ुअल टाइमर: फोकस','Nim Master','मंगला खेल','हनोई टॉवर: मंदिर पहेली','नाइट टूर','VouchKeep: रसीदें और वारंटी','ScreenRecall: स्क्रीनशॉट','Stacking Balance','Resonant','Classtings','पिक्सेल गार्डन','चुंबकीय भूलभुलैया'],
-    es:['2048 - Juego de números','Recorrido del caballo: Juego mental','Tablas de multiplicar','Kakuro','KenKen Logic: Rompecabezas mental','Temporizador visual: Concentración','Nim Master','Juego de Mangala','Torre de Hanói: Puzzle del templo','Recorrido del caballo','VouchKeep: Recibos y garantía','ScreenRecall: Capturas de pantalla','Stacking Balance','Resonant','Classtings','Jardín de píxeles','Laberinto magnético'],
-    fr:['2048 - Jeu de nombres','Parcours du cavalier : Jeu cérébral','Tables de multiplication','Kakuro','KenKen Logic : Casse-tête','Minuteur visuel : Concentration','Nim Master','Jeu de Mangala','Tours de Hanoï : Énigme du temple','Parcours du cavalier','VouchKeep : Reçus et garantie','ScreenRecall : Captures d\'écran','Stacking Balance','Resonant','Classtings','Jardin de pixels','Labyrinthe magnétique'],
-    ar:['2048 - لعبة ألغاز الأرقام','جولة الحصان: لعبة ذهنية','جدول الضرب','كاكورو','KenKen Logic: لغز ذهني','المؤقت المرئي: التركيز','Nim Master','لعبة المنقلة','برج هانوي: لغز المعبد','جولة الحصان','VouchKeep: الإيصالات والضمان','ScreenRecall: لقطات الشاشة','Stacking Balance','Resonant','Classtings','حديقة البكسل','المتاهة المغناطيسية'],
-    pt:['2048 - Jogo de números','Passeio do cavalo: Jogo mental','Tabuada','Kakuro','KenKen Logic: Quebra-cabeça','Temporizador visual: Foco','Nim Master','Jogo de Mangala','Torre de Hanói: Enigma do templo','Passeio do cavalo','VouchKeep: Recibos e garantia','ScreenRecall: Capturas de tela','Stacking Balance','Resonant','Classtings','Jardim de pixels','Labirinto magnético'],
-    ru:['2048 - Числовая головоломка','Ход конём: Игра для ума','Таблица умножения','Какуро','KenKen Logic: Головоломка','Визуальный таймер: Фокус','Nim Master','Игра Манкала','Ханойская башня: Загадка храма','Ход конём','VouchKeep: Чеки и гарантия','ScreenRecall: Скриншоты','Stacking Balance','Resonant','Classtings','Пиксельный сад','Магнитный лабиринт'],
-    id:['2048 - Teka-teki Angka','Tur Kuda: Permainan Otak','Tabel Perkalian','Kakuro','KenKen Logic: Teka-teki Otak','Timer Visual: Fokus','Nim Master','Permainan Mangala','Menara Hanoi: Teka-teki Kuil','Tur Kuda','VouchKeep: Struk & Garansi','ScreenRecall: Tangkapan Layar','Stacking Balance','Resonant','Classtings','Taman Piksel','Labirin Magnetik'],
-    bn:['2048 - সংখ্যার ধাঁধা','নাইট ট্যুর: মস্তিষ্কের খেলা','নামতা','কাকুরো','KenKen Logic: মস্তিষ্কের ধাঁধা','ভিজ্যুয়াল টাইমার: মনোযোগ','Nim Master','মাঙ্গালা খেলা','হ্যানয় টাওয়ার: মন্দিরের ধাঁধা','নাইট ট্যুর','VouchKeep: রসিদ ও ওয়ারেন্টি','ScreenRecall: স্ক্রিনশট','Stacking Balance','Resonant','Classtings','পিক্সেল গার্ডেন','চৌম্বক গোলকধাঁধা'],
-    ur:['2048 - اعداد کی پہیلی','نائٹ ٹور: ذہنی کھیل','ضرب کا جدول','کاکورو','KenKen Logic: ذہنی پہیلی','بصری ٹائمر: توجہ','Nim Master','منگالا کھیل','ہنوئی ٹاور: مندر کی پہیلی','نائٹ ٹور','VouchKeep: رسیدیں اور وارنٹی','ScreenRecall: اسکرین شاٹس','Stacking Balance','Resonant','Classtings','پکسل گارڈن','مقناطیسی بھول بھلیاں'],
-    ja:['2048 - 数字パズルゲーム','ナイトツアー：脳トレゲーム','かけ算九九','カックロ','KenKen Logic：脳トレパズル','ビジュアルタイマー：集中','Nim Master','マンカラゲーム','ハノイの塔：神殿パズル','ナイトツアー','VouchKeep：レシート＆保証','ScreenRecall：スクリーンショット','Stacking Balance','Resonant','Classtings','ピクセルガーデン','マグネット迷路'],
-    ko:['2048 - 숫자 퍼즐 게임','나이트 투어: 두뇌 게임','구구단','가쿠로','KenKen Logic: 두뇌 퍼즐','비주얼 타이머: 집중','Nim Master','만칼라 게임','하노이 탑: 사원 퍼즐','나이트 투어','VouchKeep: 영수증 및 보증','ScreenRecall: 스크린샷','Stacking Balance','Resonant','Classtings','픽셀 가든','자기 미로']
+    tr:['2048 - Sayı Bulmaca Oyunu','At Satrancı: Zeka Oyunu','Çarpım Tablosu','Kakuro','KenKen Logic: Zeka Bulmaca','Görsel Zamanlayıcı: Odak','Nim Master','Mangala Oyunu','Hanoi Tower: Temple Puzzle','At Satrancı','VouchKeep: Fiş ve Garanti','ScreenRecall: Ekran Görseli','Stacking Balance','Resonant','Classtings','Pixel Garden','Magnetic Maze','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    en:['2048 - Number Puzzle Game','Knight’s Tour: Brain Game','Multiplication Tables','Kakuro','KenKen Logic: Brain Puzzle','Visual Timer: Focus','Nim Master','Mangala Game','Hanoi Tower: Temple Puzzle','Knight’s Tour','VouchKeep: Receipts & Warranty','ScreenRecall: Screenshots','Stacking Balance','Resonant','Classtings','Pixel Garden','Magnetic Maze','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    de:['2048 - Zahlenrätsel','Springertour: Denkspiel','Einmaleins','Kakuro','KenKen Logic: Denkrätsel','Visueller Timer: Fokus','Nim Master','Mangala-Spiel','Turm von Hanoi: Tempelrätsel','Springertour','VouchKeep: Belege & Garantie','ScreenRecall: Bildschirmfotos','Stacking Balance','Resonant','Classtings','Pixel Garden','Magnetisches Labyrinth','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    zh:['2048 - 数字益智游戏','骑士巡游：益智游戏','乘法表','数和','KenKen 逻辑：益智谜题','视觉计时器：专注','Nim Master','播棋游戏','汉诺塔：神庙谜题','骑士巡游','VouchKeep：收据与保修','ScreenRecall：屏幕截图','Stacking Balance','Resonant','Classtings','像素花园','磁力迷宫','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    hi:['2048 - संख्या पहेली खेल','नाइट टूर: दिमागी खेल','गुणा तालिका','काकुरो','KenKen Logic: दिमागी पहेली','विज़ुअल टाइमर: फोकस','Nim Master','मंगला खेल','हनोई टॉवर: मंदिर पहेली','नाइट टूर','VouchKeep: रसीदें और वारंटी','ScreenRecall: स्क्रीनशॉट','Stacking Balance','Resonant','Classtings','पिक्सेल गार्डन','चुंबकीय भूलभुलैया','नेक्सस: ओथबाउंड रियल्म्स','ग्रिड हीस्ट वॉल्ट ब्रेकर'],
+    es:['2048 - Juego de números','Recorrido del caballo: Juego mental','Tablas de multiplicar','Kakuro','KenKen Logic: Rompecabezas mental','Temporizador visual: Concentración','Nim Master','Juego de Mangala','Torre de Hanói: Puzzle del templo','Recorrido del caballo','VouchKeep: Recibos y garantía','ScreenRecall: Capturas de pantalla','Stacking Balance','Resonant','Classtings','Jardín de píxeles','Laberinto magnético','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    fr:['2048 - Jeu de nombres','Parcours du cavalier : Jeu cérébral','Tables de multiplication','Kakuro','KenKen Logic : Casse-tête','Minuteur visuel : Concentration','Nim Master','Jeu de Mangala','Tours de Hanoï : Énigme du temple','Parcours du cavalier','VouchKeep : Reçus et garantie','ScreenRecall : Captures d\'écran','Stacking Balance','Resonant','Classtings','Jardin de pixels','Labyrinthe magnétique','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    ar:['2048 - لعبة ألغاز الأرقام','جولة الحصان: لعبة ذهنية','جدول الضرب','كاكورو','KenKen Logic: لغز ذهني','المؤقت المرئي: التركيز','Nim Master','لعبة المنقلة','برج هانوي: لغز المعبد','جولة الحصان','VouchKeep: الإيصالات والضمان','ScreenRecall: لقطات الشاشة','Stacking Balance','Resonant','Classtings','حديقة البكسل','المتاهة المغناطيسية','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    pt:['2048 - Jogo de números','Passeio do cavalo: Jogo mental','Tabuada','Kakuro','KenKen Logic: Quebra-cabeça','Temporizador visual: Foco','Nim Master','Jogo de Mangala','Torre de Hanói: Enigma do templo','Passeio do cavalo','VouchKeep: Recibos e garantia','ScreenRecall: Capturas de tela','Stacking Balance','Resonant','Classtings','Jardim de pixels','Labirinto magnético','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    ru:['2048 - Числовая головоломка','Ход конём: Игра для ума','Таблица умножения','Какуро','KenKen Logic: Головоломка','Визуальный таймер: Фокус','Nim Master','Игра Манкала','Ханойская башня: Загадка храма','Ход конём','VouchKeep: Чеки и гарантия','ScreenRecall: Скриншоты','Stacking Balance','Resonant','Classtings','Пиксельный сад','Магнитный лабиринт','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    id:['2048 - Teka-teki Angka','Tur Kuda: Permainan Otak','Tabel Perkalian','Kakuro','KenKen Logic: Teka-teki Otak','Timer Visual: Fokus','Nim Master','Permainan Mangala','Menara Hanoi: Teka-teki Kuil','Tur Kuda','VouchKeep: Struk & Garansi','ScreenRecall: Tangkapan Layar','Stacking Balance','Resonant','Classtings','Taman Piksel','Labirin Magnetik','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    bn:['2048 - সংখ্যার ধাঁধা','নাইট ট্যুর: মস্তিষ্কের খেলা','নামতা','কাকুরো','KenKen Logic: মস্তিষ্কের ধাঁধা','ভিজ্যুয়াল টাইমার: মনোযোগ','Nim Master','মাঙ্গালা খেলা','হ্যানয় টাওয়ার: মন্দিরের ধাঁধা','নাইট ট্যুর','VouchKeep: রসিদ ও ওয়ারেন্টি','ScreenRecall: স্ক্রিনশট','Stacking Balance','Resonant','Classtings','পিক্সেল গার্ডেন','চৌম্বক গোলকধাঁধা','নেক্সাস: ওথবাউন্ড রিয়েলমস','গ্রিড হেইস্ট ভল্ট ব্রেকার'],
+    ur:['2048 - اعداد کی پہیلی','نائٹ ٹور: ذہنی کھیل','ضرب کا جدول','کاکورو','KenKen Logic: ذہنی پہیلی','بصری ٹائمر: توجہ','Nim Master','منگالا کھیل','ہنوئی ٹاور: مندر کی پہیلی','نائٹ ٹور','VouchKeep: رسیدیں اور وارنٹی','ScreenRecall: اسکرین شاٹس','Stacking Balance','Resonant','Classtings','پکسل گارڈن','مقناطیسی بھول بھلیاں','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    ja:['2048 - 数字パズルゲーム','ナイトツアー：脳トレゲーム','かけ算九九','カックロ','KenKen Logic：脳トレパズル','ビジュアルタイマー：集中','Nim Master','マンカラゲーム','ハノイの塔：神殿パズル','ナイトツアー','VouchKeep：レシート＆保証','ScreenRecall：スクリーンショット','Stacking Balance','Resonant','Classtings','ピクセルガーデン','マグネット迷路','Nexus: Oathbound Realms','Grid Heist Vault Breaker'],
+    ko:['2048 - 숫자 퍼즐 게임','나이트 투어: 두뇌 게임','구구단','가쿠로','KenKen Logic: 두뇌 퍼즐','비주얼 타이머: 집중','Nim Master','만칼拉 게임','하노이 탑: 사원 퍼즐','나이트 투어','VouchKeep: 영수증 및 보증','ScreenRecall: 스크린샷','Stacking Balance','Resonant','Classtings','픽셀 가든','자기 미로','넥서스: 오스바운드 렐름','그리드 하이스트 볼트 브레이커']
   };
   productKeys.forEach((key,index)=>{window.PAGE_TRANSLATIONS[key]={};Object.entries(productNames).forEach(([lang,names])=>window.PAGE_TRANSLATIONS[key][lang]=names[index]);});
   (() => {
@@ -318,23 +318,132 @@
       tr: 'Etkileşimli piksel dünyası ve yaratıcı tasarım bahçesi. Dijital sanat, ritmik keşif ve serbest üretim ortamı.',
       en: 'An interactive pixel garden and creative sandbox. Generative digital art, mindful exploration, and playful creation.'
     },
-    card_title_16: { tr: 'Resonant', en: 'Resonant: Breath & Focus' },
-    card_desc_16: {
-      tr: 'Bilişsel dinginlik, ritmik nefes ve derin çalışma odaklanmasını destekleyen sakinleştirici ses ve frekans sistemi.',
-      en: 'Guided rhythmic breathing and acoustic frequency sessions crafted for cognitive reset, deep focus, and screen fatigue.'
+    card_title_18: {
+      tr: 'Nexus: Oathbound Realms', en: 'Nexus: Oathbound Realms', de: 'Nexus: Oathbound Realms', zh: 'Nexus: Oathbound Realms', hi: 'नेक्सस: ओथबाउंड रियल्म्स', es: 'Nexus: Oathbound Realms', fr: 'Nexus: Oathbound Realms', ar: 'Nexus: Oathbound Realms', pt: 'Nexus: Oathbound Realms', ru: 'Nexus: Oathbound Realms', id: 'Nexus: Oathbound Realms', bn: 'নেক্সাস: ওথবাউন্ড রিয়েলমস', ur: 'Nexus: Oathbound Realms', ja: 'Nexus: Oathbound Realms', ko: '넥서스: 오스바운드 렐름'
     },
-    card_title_17: { tr: 'Magnetic Maze', en: 'Magnetic Maze' },
-    card_desc_17: {
-      tr: 'Manyetik kutuplar, yerçekimi ve dinamik engellerle tasarlanan yenilikçi labirent ve fizik simülasyonu.',
-      en: 'Innovative labyrinth simulation governed by magnetic poles, gravity fields, and dynamic obstacle routing.'
+    card_desc_18: {
+      tr: '20 soy, 220 kart ve sıra tabanlı düellolar. Desteni kur, birliklerini alana sürükle ve hamleni planla.',
+      en: '20 lineages, 220 cards and turn-based duels. Build your deck, drag units onto the battlefield and plan your moves.',
+      de: '20 Abstammungen, 220 Karten und rundenbasierte Duelle. Baue dein Deck, platziere Einheiten auf dem Schlachtfeld und plane deine Züge.',
+      zh: '20个血脉阵营、220张卡牌与回合制对决。构筑套牌，将单位部署至战场并精心运筹帷幄。',
+      hi: '20 वंशावली, 220 कार्ड और टर्न-आधारित द्वंद्व। अपना डेक बनाएं, इकाइयों को युद्ध के मैदान में लाएं और अपनी चाल की योजना बनाएं।',
+      es: '20 linajes, 220 cartas y duelos por turnos. Construye tu mazo, despliega unidades en el campo de batalla y planea tus movimientos.',
+      fr: '20 lignées, 220 cartes et duels au tour par tour. Composez votre deck, déployez vos unités sur le champ de bataille et planifiez vos tactiques.',
+      ar: '20 سلالة، 220 بطاقة ومبارزات قائمة على تبادل الأدوار. أنشئ مجموعتك، وانشر الوحدات في ساحة المعركة وخطط لتحركاتك.',
+      pt: '20 linhagens, 220 cartas e duelos em turnos. Construa seu baralho, posicione unidades no campo de batalha e planeje seus movimentos.',
+      ru: '20 родословных, 220 карт и пошаговые дуэли. Соберите колоду, ведите отряды на поле боя и рассчитывайте каждый ход.',
+      id: '20 garis keturunan, 220 kartu dan duel berbasis giliran. Bangun dek Anda, tempatkan unit ke medan perang dan rencanakan langkah Anda.',
+      bn: '২০টি বংশধারা, ২২০টি কার্ড এবং টার্ন-ভিত্তিক দ্বন্দ্ব। আপনার ডেক তৈরি করুন, যুদ্ধক্ষেত্রে সৈন্য নামান এবং আপনার চাল পরিকল্পনা করুন।',
+      ur: '20 نسب، 220 کارڈز اور باری پر مبنی مقابلے۔ اپنا ڈیک بنائیں، میدانِ جنگ میں دستے اتاریں اور اپنی چالوں کی منصوبہ بندی کریں۔',
+      ja: '20の血統、220枚のカード、ターン制デュエル。デッキを構築し、ユニットを戦場に配備して勝利への戦略を描く。',
+      ko: '20개 혈통, 220장의 카드, 턴제 듀얼. 덱을 구성하고 전장에 유닛을 배치하며 전략적인 수를 계획하세요.'
+    },
+    nexus_title: {
+      tr: 'Nexus: Oathbound Realms', en: 'Nexus: Oathbound Realms', de: 'Nexus: Oathbound Realms', zh: 'Nexus: Oathbound Realms', hi: 'नेक्सस: ओथबाउंड रियल्म्स', es: 'Nexus: Oathbound Realms', fr: 'Nexus: Oathbound Realms', ar: 'Nexus: Oathbound Realms', pt: 'Nexus: Oathbound Realms', ru: 'Nexus: Oathbound Realms', id: 'Nexus: Oathbound Realms', bn: 'নেক্সাস: ওথবাউন্ড রিয়েলমস', ur: 'Nexus: Oathbound Realms', ja: 'Nexus: Oathbound Realms', ko: '넥서스: 오스바운드 렐름'
+    },
+    nexus_category: {
+      tr: 'Fantastik kart stratejisi', en: 'Fantasy card strategy', de: 'Fantasy-Kartenstrategie', zh: '奇幻卡牌策略', hi: 'काल्पनिक कार्ड रणनीति', es: 'Estrategia de cartas de fantasía', fr: 'Stratégie de cartes fantastique', ar: 'استراتيجية بطاقات فانتازيا', pt: 'Estratégia de cartas de fantasia', ru: 'Фэнтези карточная стратегия', id: 'Strategi kartu fantasi', bn: 'ফ্যান্টাসি কার্ড কৌশল', ur: 'خیالی کارڈ حکمت عملی', ja: 'ファンタジーカード戦略', ko: '판타지 카드 전략'
+    },
+    nexus_description: {
+      tr: '20 soy, 220 kart ve sıra tabanlı düellolar. Desteni kur, birliklerini alana sürükle ve hamleni planla.',
+      en: '20 lineages, 220 cards and turn-based duels. Build your deck, drag units onto the battlefield and plan your moves.',
+      de: '20 Abstammungen, 220 Karten und rundenbasierte Duelle. Baue dein Deck, platziere Einheiten auf dem Schlachtfeld und plane deine Züge.',
+      zh: '20个血脉阵营、220张卡牌与回合制对决。构筑套牌，将单位部署至战场并精心运筹帷幄。',
+      hi: '20 वंशावली, 220 कार्ड और टर्न-आधारित द्वंद्व। अपना डेक बनाएं, इकाइयों को युद्ध के मैदान में लाएं और अपनी चाल की योजना बनाएं।',
+      es: '20 linajes, 220 cartas y duelos por turnos. Construye tu mazo, despliega unidades en el campo de batalla y planea tus movimientos.',
+      fr: '20 lignées, 220 cartes et duels au tour par tour. Composez votre deck, déployez vos unités sur le champ de bataille et planifiez vos tactiques.',
+      ar: '20 سلالة، 220 بطاقة ومبارزات قائمة على تبادل الأدوار. أنشئ مجموعتك، وانشر الوحدات في ساحة المعركة وخطط لتحركاتك.',
+      pt: '20 linhagens, 220 cartas e duelos em turnos. Construa seu baralho, posicione unidades no campo de batalha e planeje seus movimentos.',
+      ru: '20 родословных, 220 карт и пошаговые дуэли. Соберите колоду, ведите отряды на поле боя и рассчитывайте каждый ход.',
+      id: '20 garis keturunan, 220 kartu dan duel berbasis giliran. Bangun dek Anda, tempatkan unit ke medan perang dan rencanakan langkah Anda.',
+      bn: '২০টি বংশধারা, ২২০টি কার্ড এবং টার্ন-ভিত্তিক দ্বন্দ্ব। আপনার ডেক তৈরি করুন, যুদ্ধক্ষেত্রে সৈন্য নামান এবং আপনার চাল পরিকল্পনা করুন।',
+      ur: '20 نسب، 220 کارڈز اور باری پر مبنی مقابلے۔ اپنا ڈیک بنائیں، میدانِ جنگ میں دستے اتاریں اور اپنی چالوں کی منصوبہ بندی کریں۔',
+      ja: '20の血統、220枚のカード、ターン制デュエル。デッキを構築し、ユニットを戦場に配備して勝利への戦略を描く。',
+      ko: '20개 혈통, 220장의 카드, 턴제 듀얼. 덱을 구성하고 전장에 유닛을 배치하며 전략적인 수를 계획하세요.'
+    },
+    nexus_deletion: {
+      tr: 'Nexus: Oathbound Realms — Hesap ve Veri Silme', en: 'Nexus: Oathbound Realms — Account & Data Deletion', de: 'Nexus: Oathbound Realms — Konto- und Datenlöschung', zh: 'Nexus: Oathbound Realms — 帐户和数据删除', hi: 'नेक्सस: ओथबाउंड रियल्म्स — खाता और डेटा हटाना', es: 'Nexus: Oathbound Realms — Eliminación de cuenta y datos', fr: 'Nexus: Oathbound Realms — Suppression de compte et de données', ar: 'Nexus: Oathbound Realms — حذف الحساب والبيانات', pt: 'Nexus: Oathbound Realms — Exclusão de conta e dados', ru: 'Nexus: Oathbound Realms — Удаление аккаунта и данных', id: 'Nexus: Oathbound Realms — Penghapusan Akun & Data', bn: 'নেক্সাস: ওথবাউন্ড রিয়েলমস — অ্যাকাউন্ট ও ডেটা মুছে ফেলা', ur: 'Nexus: Oathbound Realms — اکاؤنٹ اور ڈیٹا ڈیلیشن', ja: 'Nexus: Oathbound Realms — アカウントとデータの削除', ko: 'Nexus: Oathbound Realms — 계정 및 데이터 삭제'
+    },
+    drawer_nexus_desc: {
+      tr: 'Fantastik kart stratejisi · Geliştirilmekte', en: 'Fantasy card strategy · In development', de: 'Fantasy-Kartenstrategie · In Entwicklung', zh: '奇幻卡牌策略 · 开发中', hi: 'काल्पनिक कार्ड रणनीति · विकास में', es: 'Estrategia de cartas · En desarrollo', fr: 'Stratégie de cartes · En développement', ar: 'استراتيجية بطاقات · قيد التطوير', pt: 'Estratégia de cartas · Em desenvolvimento', ru: 'Карточная стратегия · В разработке', id: 'Strategi kartu · Dalam pengembangan', bn: 'কার্ড কৌশল · উন্নয়নাধীন', ur: 'کارڈ حکمت عملی · زیرِ تیاری', ja: 'ファンタジーカード戦略 · 開発中', ko: '판타지 카드 전략 · 개발 중'
+    },
+    card_title_19: {
+      tr: 'Grid Heist Vault Breaker', en: 'Grid Heist Vault Breaker', de: 'Grid Heist Vault Breaker', zh: 'Grid Heist Vault Breaker', hi: 'ग्रिड हीस्ट वॉल्ट ब्रेकर', es: 'Grid Heist Vault Breaker', fr: 'Grid Heist Vault Breaker', ar: 'Grid Heist Vault Breaker', pt: 'Grid Heist Vault Breaker', ru: 'Grid Heist Vault Breaker', id: 'Grid Heist Vault Breaker', bn: 'গ্রিড হেইস্ট ভল্ট ব্রেকার', ur: 'Grid Heist Vault Breaker', ja: 'Grid Heist Vault Breaker', ko: '그리드 하이스트 볼트 브레이커'
+    },
+    card_desc_19: {
+      tr: '7×7 tahtada blokları yerleştir, hatları tamamla ve çekirdekleri onar. 625 bölüm, üç protokol ve ücretsiz antrenman.',
+      en: 'Place blocks on a 7×7 board, complete lines and repair cores. 625 levels, three protocols and free practice.',
+      de: 'Platziere Blöcke auf einem 7×7-Feld, vervollständige Linien und repariere Kerne. 625 Level, drei Protokolle und freies Training.',
+      zh: '在 7×7 棋盘上放置方块，消除整行整列并修复核心。625个关卡、三种协议与自由练习模式。',
+      hi: '7×7 बोर्ड पर ब्लॉक रखें, लाइनें पूरी करें और कोर की मरम्मत करें। 625 स्तर, तीन प्रोटोकॉल और नि:शुल्क अभ्यास।',
+      es: 'Coloca bloques en un tablero de 7×7, completa líneas y repara núcleos. 625 niveles, tres protocolos y práctica libre.',
+      fr: 'Placez des blocs sur une grille 7×7, complétez des lignes et réparez les cœurs. 625 niveaux, trois protocoles et entraînement libre.',
+      ar: 'ضع الكتل على لوحة 7×7، وأكمل الخطوط وأصلح النوى. 625 مستوى، ثلاثة بروتوكولات وتدريب مجاني.',
+      pt: 'Coloque blocos em um tabuleiro 7×7, complete linhas e repare núcleos. 625 níveis, três protocolos e treino livre.',
+      ru: 'Размещайте блоки на доске 7×7, заполняйте линии и восстанавливайте ядра. 625 уровней, три протокола и свободная практика.',
+      id: 'Tempatkan balok di papan 7×7, selesaikan garis dan perbaiki inti. 625 level, tiga protokol dan latihan gratis.',
+      bn: '৭×৭ বোর্ডে ব্লক বসান, লাইন সম্পূর্ণ করুন এবং কোর মেরামত করুন। ৬২৫টি স্তর, তিনটি প্রোটোকল এবং নিখরচায় অনুশীলন।',
+      ur: '7×7 بورڈ پر بلاکس رکھیں، لائنیں مکمل کریں اور کورز کی مرمت کریں۔ 625 لیولز، تین پروٹوکولز اور مفت مشق۔',
+      ja: '7×7のボードにブロックを配置し、ラインを揃えてコアを修復。625のステージ、3つのプロトコル、自由練習モード。',
+      ko: '7×7 보드에 블록을 배치하고 라인을 완성하여 코어를 복구하세요. 625개 레벨, 3가지 프로토콜 및 무료 연습 모드.'
+    },
+    ghvb_title: {
+      tr: 'Grid Heist Vault Breaker', en: 'Grid Heist Vault Breaker', de: 'Grid Heist Vault Breaker', zh: 'Grid Heist Vault Breaker', hi: 'ग्रिड हीस्ट वॉल्ट ब्रेकर', es: 'Grid Heist Vault Breaker', fr: 'Grid Heist Vault Breaker', ar: 'Grid Heist Vault Breaker', pt: 'Grid Heist Vault Breaker', ru: 'Grid Heist Vault Breaker', id: 'Grid Heist Vault Breaker', bn: 'গ্রিড হেইস্ট ভল্ট ব্রেকার', ur: 'Grid Heist Vault Breaker', ja: 'Grid Heist Vault Breaker', ko: '그리드 하이스트 볼트 브레이커'
+    },
+    ghvb_category: {
+      tr: 'Taktik blok bulmacası', en: 'Tactical block puzzle', de: 'Taktisches Blockrätsel', zh: '战术方块益智', hi: 'रणनीतिक ब्लॉक पहेली', es: 'Rompecabezas táctico de bloques', fr: 'Casse-tête tactique de blocs', ar: 'لغز الكتل التكتيكي', pt: 'Quebra-cabeça tático de blocos', ru: 'Тактическая блочная головоломка', id: 'Teka-teki balok taktis', bn: 'কৌশলগত ব্লক ধাঁধা', ur: 'حکمت عملی پر مبنی بلاک پہیلی', ja: 'タクティカルブロックパズル', ko: '전술 블록 퍼즐'
+    },
+    ghvb_description: {
+      tr: '7×7 tahtada blokları yerleştir, hatları tamamla ve çekirdekleri onar. 625 bölüm, üç protokol ve ücretsiz antrenman.',
+      en: 'Place blocks on a 7×7 board, complete lines and repair cores. 625 levels, three protocols and free practice.',
+      de: 'Platziere Blöcke auf einem 7×7-Feld, vervollständige Linien und repariere Kerne. 625 Level, drei Protokolle und freies Training.',
+      zh: '在 7×7 棋盘上放置方块，消除整行整列并修复核心。625个关卡、三种协议与自由练习模式。',
+      hi: '7×7 बोर्ड पर ब्लॉक रखें, लाइनें पूरी करें और कोर की मरम्मत करें। 625 स्तर, तीन प्रोटोकॉल और नि:शुल्क अभ्यास।',
+      es: 'Coloca bloques en un tablero de 7×7, completa líneas y repara núcleos. 625 niveles, tres protocolos y práctica libre.',
+      fr: 'Placez des blocs sur une grille 7×7, complétez des lignes et réparez les cœurs. 625 niveaux, trois protocoles et entraînement libre.',
+      ar: 'ضع الكتل على لوحة 7×7، وأكمل الخطوط وأصلح النوى. 625 مستوى، ثلاثة بروتوكولات وتدريب مجاني.',
+      pt: 'Coloque blocos em um tabuleiro 7×7, complete linhas e repare núcleos. 625 níveis, três protocolos e treino livre.',
+      ru: 'Размещайте блоки на доске 7×7, заполняйте линии и восстанавливайте ядра. 625 уровней, три протокола и свободная практика.',
+      id: 'Tempatkan balok di papan 7×7, selesaikan garis dan perbaiki inti. 625 level, tiga protokol dan latihan gratis.',
+      bn: '৭×৭ বোর্ডে ব্লক বসান, লাইন সম্পূর্ণ করুন এবং কোর মেরামত করুন। ৬২৫টি স্তর, তিনটি প্রোটোকল এবং নিখরচায় অনুশীলন।',
+      ur: '7×7 بورڈ پر بلاکس رکھیں، لائنیں مکمل کریں اور کورز کی مرمت کریں۔ 625 لیولز، تین پروٹوکولز اور مفت مشق۔',
+      ja: '7×7のボードにブロックを配置し、ラインを揃えてコアを修復。625のステージ、3つのプロトコル、自由練習モード。',
+      ko: '7×7 보드에 블록을 배치하고 라인을 완성하여 코어를 복구하세요. 625개 레벨, 3가지 프로토콜 및 무료 연습 모드.'
+    },
+    ghvb_status: {
+      tr: 'Geliştirilmekte · Android ve iOS', en: 'In development · Android and iOS', de: 'In Entwicklung · Android und iOS', zh: '开发中 · Android 和 iOS', hi: 'विकास में · Android और iOS', es: 'En desarrollo · Android e iOS', fr: 'En développement · Android et iOS', ar: 'قيد التطوير · Android وiOS', pt: 'Em desenvolvimento · Android e iOS', ru: 'В разработке · Android и iOS', id: 'Dalam pengembangan · Android dan iOS', bn: 'উন্নয়নাধীন · Android এবং iOS', ur: 'زیرِ تیاری · Android اور iOS', ja: '開発中 · Android & iOS', ko: '개발 중 · Android 및 iOS'
+    },
+    ghvb_deletion: {
+      tr: 'Grid Heist Vault Breaker — Hesap ve Veri Silme', en: 'Grid Heist Vault Breaker — Account & Data Deletion', de: 'Grid Heist Vault Breaker — Konto- und Datenlöschung', zh: 'Grid Heist Vault Breaker — 帐户和数据删除', hi: 'ग्रिड हीस्ट वॉल्ट ब्रेकर — खाता और डेटा हटाना', es: 'Grid Heist Vault Breaker — Eliminación de cuenta y datos', fr: 'Grid Heist Vault Breaker — Suppression de compte et de données', ar: 'Grid Heist Vault Breaker — حذف الحساب والبيانات', pt: 'Grid Heist Vault Breaker — Exclusão de conta e dados', ru: 'Grid Heist Vault Breaker — Удаление аккаунта и данных', id: 'Grid Heist Vault Breaker — Penghapusan Akun & Data', bn: 'গ্রিড হেইস্ট ভল্ট ব্রেকার — অ্যাকাউন্ট ও ডেটা মুছে ফেলা', ur: 'Grid Heist Vault Breaker — اکاؤنٹ اور ڈیٹا ڈیلیشن', ja: 'Grid Heist Vault Breaker — アカウントとデータの削除', ko: 'Grid Heist Vault Breaker — 계정 및 데이터 삭제'
+    },
+    drawer_ghvb_desc: {
+      tr: 'Taktik blok bulmacası · Geliştirilmekte', en: 'Tactical block puzzle · In development', de: 'Taktisches Blockrätsel · In Entwicklung', zh: '战术方块益智 · 开发中', hi: 'रणनीतिक ब्लॉक पहेली · विकास में', es: 'Rompecabezas de bloques · En desarrollo', fr: 'Casse-tête de blocs · En développement', ar: 'لغز الكتل · قيد التطوير', pt: 'Quebra-cabeça de blocos · Em desenvolvimento', ru: 'Блочная головоломка · В разработке', id: 'Teka-teki balok · Dalam pengembangan', bn: 'ব্লক ধাঁধা · উন্নয়নাধীন', ur: 'بلاک پہیلی · زیرِ تیاری', ja: 'タクティカルブロックパズル · 開発中', ko: '전술 블록 퍼즐 · 개발 중'
+    },
+    card_title_20: {
+      tr: 'Math Meadow', en: 'Math Meadow', de: 'Math Meadow', zh: 'Math Meadow', hi: 'Math Meadow', es: 'Math Meadow', fr: 'Math Meadow', ar: 'Math Meadow', pt: 'Math Meadow', ru: 'Math Meadow', id: 'Math Meadow', bn: 'Math Meadow', ur: 'Math Meadow', ja: 'Math Meadow', ko: 'Math Meadow'
+    },
+    card_desc_20: {
+      tr: 'Müfredatla uyumlu, reklamsız ve %100 gizlilik odaklı erken yaş matematik öğrenme bahçesi. Çevrimdışı, güvenli ve pedagojik.',
+      en: 'Curriculum-aligned, ad-free, and 100% privacy-focused early childhood math learning garden. Offline, safe, and pedagogical.',
+      de: 'Lehrplankonformer, werbefreier und 100 % datenschutzorientierter Mathe-Lerngarten für die frühe Kindheit. Offline, sicher und pädagogisch wertvoll.',
+      zh: '符合课程标准、零广告、100%注重隐私的幼儿数学启蒙乐园。完全离线、安全且寓教于乐。',
+      hi: 'पाठ्यचर्या-संरेखित, विज्ञापन-मुक्त और 100% गोपनीयता-केंद्रित प्रारंभिक बाल गणित सीखने का बगीचा। ऑफ़लाइन, सुरक्षित और शैक्षणिक।',
+      es: 'Jardín de aprendizaje de matemáticas para la primera infancia, alineado con el plan de estudios, sin anuncios y 100% privado. Sin conexión, seguro y pedagógico.',
+      fr: 'Jardin d’apprentissage des mathématiques pour la petite enfance, conforme aux programmes, sans publicité et 100 % privé. Hors ligne, sûr et pédagogique.',
+      ar: 'حديقة لتعلم الرياضيات في الطفولة المبكرة متوافقة مع المناهج وخالية من الإعلانات وخصوصية 100٪. دون اتصال، آمنة وتربوية.',
+      pt: 'Jardim de aprendizado de matemática para a primeira infância, alinhado ao currículo, sem anúncios e 100% privado. Offline, seguro e pedagógico.',
+      ru: 'Спокойный математический сад для детей раннего возраста: соответствие стандартам, без рекламы и со 100% конфиденциальностью. Офлайн, безопасно и познавательно.',
+      id: 'Taman belajar matematika anak usia dini yang selaras kurikulum, bebas iklan, dan 100% privat. Offline, aman, dan mendidik.',
+      bn: 'পাঠ্যক্রম-সঙ্গতিপূর্ণ, বিজ্ঞাপনহীন ও ১০০% ব্যক্তিগত শৈশবকালীন গণিত শেখার বাগান। অফলাইন, নিরাপদ এবং শিক্ষামূলক।',
+      ur: 'نصاب کے مطابق، اشتہارات سے پاک اور 100٪ نجی ابتدائی بچپن کی ریاضی سیکھنے کا باغ۔ آف لائن، محفوظ اور تعلیمی।',
+      ja: 'カリキュラム準拠、広告ゼロ、100%プライバシー重視の幼児向け算数学习ガーデン。オフライン対応で安心・安全。',
+      ko: '커리큘럼 연계, 무광고, 100% 개인정보 보호 중심의 유아 수학 학습 정원. 오프라인 작동, 안전하고 교육적인 환경.'
+    },
+    category_math_meadow: {
+      tr: 'Eğitici Çocuk Matematiği', en: 'Early Childhood Educational Math', de: 'Pädagogische Kindermathematik', zh: '幼儿早教数学', hi: 'प्रारंभिक बचपन शैक्षिक गणित', es: 'Matemáticas Educativas Infantiles', fr: 'Mathématiques Éducatives pour Enfants', ar: 'رياضيات تعليمية للأطفال', pt: 'Matemática Educativa Infantil', ru: 'Обучающая детская математика', id: 'Matematika Edukasi Anak', bn: 'শিশুদের শিক্ষামূলক গণিত', ur: 'بچوں کی تعلیمی ریاضی', ja: '幼児向け知育算数', ko: '어린이 교육 수학'
+    },
+    drawer_math_meadow_desc: {
+      tr: 'Eğitici çocuk matematiği', en: 'Early childhood math', de: 'Kindermathematik', zh: '幼儿启蒙数学', hi: 'बाल गणित', es: 'Matemáticas infantiles', fr: 'Mathématiques pour enfants', ar: 'رياضيات الأطفال', pt: 'Matemática infantil', ru: 'Детская математика', id: 'Matematika anak', bn: 'শিশুদের গণিত', ur: 'بچوں کی ریاضی', ja: '幼児向け算数', ko: '어린이 수학'
     }
   });
 })();
-
-// Nexus portal copy; other project translations are unchanged.
-window.PAGE_TRANSLATIONS.nexus_category = {tr:'Fantastik kart stratejisi',en:'Fantasy card strategy'};
-window.PAGE_TRANSLATIONS.nexus_description = {tr:'20 soy, 220 kart ve sıra tabanlı düellolar. Desteni kur, birliklerini alana sürükle ve hamleni planla.',en:'20 lineages, 220 cards and turn-based duels. Build your deck, drag units onto the battlefield and plan your moves.'};
-
-// Grid Heist portfolio entry; existing project copy is preserved.
-window.PAGE_TRANSLATIONS.ghvb_category = {tr:"Taktik blok bulmacası",en:"Tactical block puzzle"};
-window.PAGE_TRANSLATIONS.ghvb_description = {tr:"7×7 tahtada blokları yerleştir, hatları tamamla ve çekirdekleri onar. 625 bölüm, üç protokol ve ücretsiz antrenman.",en:"Place blocks on a 7×7 board, complete lines and repair cores. 625 levels, three protocols and free practice."};

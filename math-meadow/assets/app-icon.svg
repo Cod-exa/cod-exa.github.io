@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#236b4e"/>
+      <stop offset="100%" stop-color="#165139"/>
+    </linearGradient>
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- Rounded App Icon Background -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bgGrad)"/>
+  
+  <!-- Flower Stem -->
+  <path d="M256 195 V380" stroke="#FFFFFF" stroke-width="26" stroke-linecap="round"/>
+  
+  <!-- Left Leaf -->
+  <ellipse cx="205" cy="285" rx="55" ry="30" fill="#A8D08D"/>
+  
+  <!-- Right Leaf -->
+  <ellipse cx="307" cy="255" rx="55" ry="30" fill="#A8D08D"/>
+  
+  <!-- White Flower Center / Bulb -->
+  <circle cx="256" cy="216" r="24" fill="#FFFFFF"/>
+  
+  <!-- Top Center Petal -->
+  <circle cx="256" cy="162" r="32" fill="#F5BA42"/>
+  
+  <!-- Top Left Petal -->
+  <circle cx="198" cy="198" r="30" fill="#F5BA42"/>
+  
+  <!-- Top Right Petal -->
+  <circle cx="314" cy="198" r="30" fill="#F5BA42"/>
+</svg>

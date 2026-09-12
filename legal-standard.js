@@ -16,6 +16,9 @@
     screenrecall:{name:'ScreenRecall',icon:'assets/app-icon.svg',colors:['#38bdf8','#8b5cf6'],bg:'#07111d'},
     stackingbalance:{name:'Stacking Balance',icon:'assets/app-icon.png',colors:['#5146e5','#7568ff'],bg:'#09091a'},
     'visual-timer':{name:'Visual Timer',icon:'assets/app-icon.jpg',colors:['#ef4444','#f97316'],bg:'#170a0a'},
+    'grid-heist-vault-breaker':{name:'Grid Heist Vault Breaker',icon:'assets/app-icon.svg',colors:['#eab308','#38bdf8'],bg:'#08131d'},
+    'nexus-oathbound-realms':{name:'Nexus: Oathbound Realms',icon:'assets/app-icon.svg',colors:['#f59e0b','#d97706'],bg:'#120d08'},
+    'math-meadow':{name:'Math Meadow',icon:'assets/app-icon.svg',colors:['#2e7d32','#4caf50'],bg:'#07160c'},
     vouchkeep:{name:'VouchKeep',icon:'assets/app-icon.svg',colors:['#ffb869','#f97316'],bg:'#111315'}
   };
   const copy={

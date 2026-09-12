@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8F5E9"/>
+      <stop offset="100%" stop-color="#C8E6C9"/>
+    </linearGradient>
+    <linearGradient id="hill1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#81C784"/>
+      <stop offset="100%" stop-color="#4CAF50"/>
+    </linearGradient>
+    <linearGradient id="hill2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#43A047"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1B5E20" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Sky -->
+  <rect width="500" height="500" rx="36" fill="url(#skyGrad)"/>
+
+  <!-- Sun -->
+  <circle cx="410" cy="90" r="42" fill="#FFE082" opacity="0.85"/>
+  <circle cx="410" cy="90" r="30" fill="#FFCA28"/>
+
+  <!-- Rolling Meadow Hills -->
+  <path d="M0 320 Q120 250 250 290 T500 270 L500 500 L0 500 Z" fill="url(#hill1)"/>
+  <path d="M0 370 Q160 310 320 360 T500 340 L500 500 L0 500 Z" fill="url(#hill2)"/>
+
+  <!-- Math Cards Floating on Meadow -->
+  <!-- Card 1: 2 + 3 = 5 -->
+  <g filter="url(#cardShadow)" transform="translate(60, 80)">
+    <rect width="180" height="90" rx="18" fill="#FFFFFF"/>
+    <text x="90" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#2E7D32" text-anchor="middle">2 + 3 = 5</text>
+    <!-- Petals decoration -->
+    <circle cx="28" cy="28" r="8" fill="#F5BA42"/>
+    <circle cx="152" cy="62" r="8" fill="#F5BA42"/>
+  </g>
+
+  <!-- Card 2: 7 - 4 = 3 -->
+  <g filter="url(#cardShadow)" transform="translate(260, 150)">
+    <rect width="180" height="90" rx="18" fill="#FFFFFF"/>
+    <text x="90" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1565C0" text-anchor="middle">7 - 4 = 3</text>
+    <circle cx="28" cy="62" r="8" fill="#81C784"/>
+    <circle cx="152" cy="28" r="8" fill="#81C784"/>
+  </g>
+
+  <!-- Meadow Sprouting Flowers (Counting Activity) -->
+  <!-- Flower 1 -->
+  <g transform="translate(110, 310)">
+    <path d="M0 40 V100" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="-16" cy="70" rx="18" ry="9" fill="#A8D08D"/>
+    <ellipse cx="16" cy="60" rx="18" ry="9" fill="#A8D08D"/>
+    <circle cx="0" cy="40" r="10" fill="#FFFFFF"/>
+    <circle cx="0" cy="20" r="14" fill="#F5BA42"/>
+    <circle cx="-16" cy="36" r="13" fill="#F5BA42"/>
+    <circle cx="16" cy="36" r="13" fill="#F5BA42"/>
+    <text x="0" y="130" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Flower 2 -->
+  <g transform="translate(250, 290)">
+    <path d="M0 40 V120" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="-18" cy="75" rx="20" ry="10" fill="#A8D08D"/>
+    <ellipse cx="18" cy="65" rx="20" ry="10" fill="#A8D08D"/>
+    <circle cx="0" cy="40" r="12" fill="#FFFFFF"/>
+    <circle cx="0" cy="18" r="16" fill="#F5BA42"/>
+    <circle cx="-18" cy="36" r="15" fill="#F5BA42"/>
+    <circle cx="18" cy="36" r="15" fill="#F5BA42"/>
+    <text x="0" y="150" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+  </g>
+
+  <!-- Flower 3 -->
+  <g transform="translate(390, 320)">
+    <path d="M0 40 V90" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="-16" cy="65" rx="18" ry="9" fill="#A8D08D"/>
+    <ellipse cx="16" cy="55" rx="18" ry="9" fill="#A8D08D"/>
+    <circle cx="0" cy="40" r="10" fill="#FFFFFF"/>
+    <circle cx="0" cy="20" r="14" fill="#F5BA42"/>
+    <circle cx="-16" cy="36" r="13" fill="#F5BA42"/>
+    <circle cx="16" cy="36" r="13" fill="#F5BA42"/>
+    <text x="0" y="120" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+  </g>
+
+  <!-- Floating Math Symbols Badge -->
+  <g filter="url(#cardShadow)" transform="translate(170, 420)">
+    <rect width="160" height="48" rx="24" fill="#1B5E20"/>
+    <text x="80" y="31" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#E8F5E9" text-anchor="middle">100% Ad-Free</text>
+  </g>
+</svg>
