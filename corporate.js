@@ -61,7 +61,7 @@ function initPortfolioFilter() {
       });
 
       cards.forEach((card, idx) => {
-        const match = filter === 'all' || card.dataset.category === filter;
+        const match = filter === 'all' || (card.dataset.category || '').split(/\s+/).includes(filter);
         if (match) {
           card.classList.remove('filtering-out');
           card.style.display = '';

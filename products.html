@@ -872,6 +872,23 @@
                     </div>
                 </a>
 
+                <!-- Lights Out: Night Atlas Card -->
+                <a href="lights-out/index.html" class="project-card project-card-link" data-category="puzzle math" data-status="coming">
+                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #f5c97a 0%, #101820 100%); box-shadow: 0 10px 25px rgba(245, 201, 122, 0.25), inset 0 1px 0 rgba(255,255,255,0.15); overflow: hidden;">
+                        <img src="lights-out/assets/app-icon.svg" alt="Lights Out: Night Atlas" width="80" height="80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                    </div>
+                    <div class="app-details">
+                        <span class="app-category" data-i18n="lights_out_category">Matematik ve mantık bulmacası</span>
+                        <h3 data-i18n="lights_out_title">Lights Out: Night Atlas</h3>
+                        <p class="app-desc" data-i18n="lights_out_description">8 takımyıldız adasında 240 bölüm. Minimum hamle çözücüsü, günlük meydan okumalar ve çevrimdışı oyun.</p>
+                        <div class="status-badge" style="background: rgba(245, 201, 122, 0.1); border-color: rgba(245, 201, 122, 0.25); color: #a47a35;">
+                            <span class="dot" style="background-color: #c5a059; box-shadow: 0 0 10px #c5a059;"></span>
+                            <span data-i18n="lights_out_status">Android için hazırlanıyor</span>
+                        </div>
+                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
+                    </div>
+                </a>
+
                 <!-- 2048 Card -->
                 <a href="2048/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
                     <!-- App Icon -->
@@ -1170,6 +1187,8 @@
 
         <p style="text-align:center"><a href="math-meadow/delete-account.html" data-i18n="math_meadow_deletion">Math Meadow — Hesap ve Veri Silme</a></p>
 
+        <p style="text-align:center"><a href="lights-out/delete-account.html" data-i18n="lights_out_deletion">Lights Out: Night Atlas — Veri ve İlerleme Sıfırlama</a></p>
+
         <!-- Direct Contact Form -->
         <section class="contact-section" id="iletisim">
             <div class="contact-header">
@@ -1232,6 +1251,7 @@
                         <option value="Magnetic Maze">Magnetic Maze</option>
                         <option value="Nexus: Oathbound Realms">Nexus: Oathbound Realms</option>
                         <option value="Grid Heist Vault Breaker">Grid Heist Vault Breaker</option>
+                        <option value="Lights Out: Night Atlas">Lights Out: Night Atlas</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -1331,7 +1351,7 @@
                 var d = card.querySelector('.app-desc');
                 var name = (h3 ? h3.textContent : '').toLowerCase();
                 var desc = (d ? d.textContent : '').toLowerCase();
-                var okCat = (curCat === 'all' || cat === curCat);
+                var okCat = (curCat === 'all' || cat.split(/\s+/).indexOf(curCat) !== -1);
                 var okStatus = (curStatus === 'all' || st === curStatus || (curStatus === 'live' && st === 'available'));
                 var okSearch = (q === '' || name.indexOf(q) !== -1 || desc.indexOf(q) !== -1);
                 if (okCat && okStatus && okSearch) { card.classList.remove('hidden'); shown++; }
@@ -2462,6 +2482,11 @@
                 "ru": "&copy; 2026 Erdinç TOPAL (CodExa). Все права защищены."
             }
         };
+        window.PAGE_TRANSLATIONS.lights_out_title = {"tr":"Lights Out: Night Atlas","en":"Lights Out: Night Atlas","de":"Lights Out: Night Atlas","zh":"Lights Out: 暗夜星图","hi":"लाइट्स आउट: नाइट एटलस","es":"Lights Out: Night Atlas","fr":"Lights Out: Night Atlas","ar":"Lights Out: أطلس الليل","pt":"Lights Out: Night Atlas","ru":"Lights Out: Ночной атлас","id":"Lights Out: Night Atlas","bn":"লাইটস আউট: নাইট অ্যাটলাস","ur":"Lights Out: نائٹ اٹلس","ja":"Lights Out: ナイトアトラス","ko":"Lights Out: 나이트 아틀라스"};
+        window.PAGE_TRANSLATIONS.lights_out_category = {"tr":"Matematik ve mantık bulmacası","en":"Math & logic puzzle","de":"Mathe- und Logikrätsel","zh":"数学与逻辑谜题","hi":"गणित और तर्क पहेली","es":"Rompecabezas de lógica y matemáticas","fr":"Casse-tête de logique et de maths","ar":"لغز رياضيات ومنطق","pt":"Quebra-cabeça de matemática e lógica","ru":"Математическая логическая головоломка","id":"Teka-teki matematika & logika","bn":"গণিত ও যুক্তির ধাঁধা","ur":"ریاضی اور منطق کی پہیلی","ja":"数学・ロジックパズル","ko":"수학 및 논리 퍼즐"};
+        window.PAGE_TRANSLATIONS.lights_out_description = {"tr":"8 takımyıldız adasında 240 bölüm. Modulo-2 minimum hamle çözücüsü, günlük meydan okumalar ve çevrimdışı oyun.","en":"240 puzzles across eight constellation islands, with a modulo-2 minimum-move solver, daily challenges and offline play.","de":"240 Rätsel auf acht Sternbildinseln mit Modulo-2-Minimalzug-Löser, täglichen Herausforderungen und Offline-Spiel.","zh":"穿越八座星群岛屿挑战240道谜题，体验模2最少步数求解、每日挑战与离线游玩。","hi":"आठ नक्षत्र द्वीपों में 240 पहेलियाँ, मॉड्यूलो-2 न्यूनतम चाल सॉल्वर, दैनिक चुनौतियाँ और ऑफ़लाइन खेल।","es":"240 rompecabezas en ocho islas de constelaciones, con solucionador de movimientos mínimos módulo 2, retos diarios y juego sin conexión.","fr":"240 casse-têtes sur huit îles de constellations, avec solveur modulo 2 en coups minimum, défis quotidiens et jeu hors ligne.","ar":"240 لغزًا عبر ثماني جزر كوكبية، مع محلل لأقل الحركات بترديد 2 وتحديات يومية ولعب دون اتصال.","pt":"240 quebra-cabeças em oito ilhas de constelações, com solucionador módulo 2 de movimentos mínimos, desafios diários e jogo offline.","ru":"240 головоломок на восьми островах созвездий, решатель минимального числа ходов по модулю 2, ежедневные испытания и офлайн-игра.","id":"240 teka-teki di delapan pulau rasi bintang, dengan pemecah langkah minimum modulo-2, tantangan harian, dan permainan offline.","bn":"আটটি নক্ষত্রমণ্ডল দ্বীপে ২৪০টি ধাঁধা, মডুলো-২ ন্যূনতম চালের সমাধানকারী, দৈনিক চ্যালেঞ্জ ও অফলাইন খেলা।","ur":"آٹھ جھرمٹ جزیروں میں 240 پہیلیاں، modulo-2 کم از کم چال حل کرنے والا، روزانہ چیلنجز اور آف لائن کھیل۔","ja":"8つの星座の島に広がる240のパズル。modulo-2最少手数ソルバー、デイリーチャレンジ、オフラインプレイに対応。","ko":"여덟 별자리 섬의 240개 퍼즐, 모듈로-2 최소 이동 풀이, 일일 도전과 오프라인 플레이를 제공합니다."};
+        window.PAGE_TRANSLATIONS.lights_out_status = {"tr":"Android için hazırlanıyor","en":"Preparing for Android","de":"Für Android in Vorbereitung","zh":"正在准备 Android 版本","hi":"Android के लिए तैयारी जारी","es":"En preparación para Android","fr":"En préparation pour Android","ar":"قيد الإعداد لنظام Android","pt":"Em preparação para Android","ru":"Готовится для Android","id":"Sedang disiapkan untuk Android","bn":"Android-এর জন্য প্রস্তুত করা হচ্ছে","ur":"Android کے لیے تیاری جاری ہے","ja":"Android版を準備中","ko":"Android용 준비 중"};
+        window.PAGE_TRANSLATIONS.lights_out_deletion = {"tr":"Lights Out: Night Atlas — Veri ve İlerleme Sıfırlama","en":"Lights Out: Night Atlas — Data & Progress Reset","de":"Lights Out: Night Atlas — Daten und Fortschritt zurücksetzen","zh":"Lights Out: Night Atlas — 数据与进度重置","hi":"Lights Out: Night Atlas — डेटा और प्रगति रीसेट","es":"Lights Out: Night Atlas — Restablecer datos y progreso","fr":"Lights Out: Night Atlas — Réinitialiser les données et la progression","ar":"Lights Out: Night Atlas — إعادة ضبط البيانات والتقدم","pt":"Lights Out: Night Atlas — Redefinir dados e progresso","ru":"Lights Out: Night Atlas — Сброс данных и прогресса","id":"Lights Out: Night Atlas — Atur Ulang Data & Progres","bn":"Lights Out: Night Atlas — ডেটা ও অগ্রগতি রিসেট","ur":"Lights Out: Night Atlas — ڈیٹا اور پیش رفت ری سیٹ","ja":"Lights Out: Night Atlas — データと進行状況をリセット","ko":"Lights Out: Night Atlas — 데이터 및 진행 상황 초기화"};
     </script>
     <script src="i18n.js?v=20260826"></script>
 <script src="brand-shell.js?v=20260826"></script>

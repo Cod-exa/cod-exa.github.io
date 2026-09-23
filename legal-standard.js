@@ -19,6 +19,7 @@
     'grid-heist-vault-breaker':{name:'Grid Heist Vault Breaker',icon:'assets/app-icon.svg',colors:['#eab308','#38bdf8'],bg:'#08131d'},
     'nexus-oathbound-realms':{name:'Nexus: Oathbound Realms',icon:'assets/app-icon.svg',colors:['#f59e0b','#d97706'],bg:'#120d08'},
     'math-meadow':{name:'Math Meadow',icon:'assets/app-icon.svg',colors:['#2e7d32','#4caf50'],bg:'#07160c'},
+    'lights-out':{name:'Lights Out: Night Atlas',icon:'assets/app-icon.svg',colors:['#f5c97a','#101820'],bg:'#081017'},
     vouchkeep:{name:'VouchKeep',icon:'assets/app-icon.svg',colors:['#ffb869','#f97316'],bg:'#111315'}
   };
   const copy={
