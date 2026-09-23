@@ -196,7 +196,7 @@
       ko: 'Google Play에 출시된 분석적 사고력, 주의 집중력, 수학적 감각을 길러주는 교육 앱입니다.'
     },
     filter_all: {
-      tr: 'Tüm Uygulamalar (20)', en: 'All Applications (20)', de: 'Alle Apps (20)', zh: '全部应用 (20)', hi: 'सभी ऐप्स (20)', es: 'Todas las aplicaciones (20)', fr: 'Toutes les applications (20)', ar: 'جميع التطبيقات (20)', pt: 'Todos os aplicativos (20)', ru: 'Все приложения (20)', id: 'Semua Aplikasi (20)', bn: 'সব অ্যাপ (20)', ur: 'تمام ایپس (20)', ja: 'すべてのアプリ (20)', ko: '모든 앱 (20)'
+      tr: 'Tüm Uygulamalar (21)', en: 'All Applications (21)', de: 'Alle Apps (21)', zh: '全部应用 (21)', hi: 'सभी ऐप्स (21)', es: 'Todas las aplicaciones (21)', fr: 'Toutes les applications (21)', ar: 'جميع التطبيقات (21)', pt: 'Todos os aplicativos (21)', ru: 'Все приложения (21)', id: 'Semua Aplikasi (21)', bn: 'সব অ্যাপ (21)', ur: 'تمام ایپس (21)', ja: 'すべてのアプリ (21)', ko: '모든 앱 (21)'
     },
     filter_logic: {
       tr: 'Mantık & Strateji', en: 'Logic & Strategy', de: 'Logik & Strategie', zh: '逻辑与策略', hi: 'तर्क और रणनीति', es: 'Lógica y estrategia', fr: 'Logique et stratégie', ar: 'المنطق والاستراتيجية', pt: 'Lógica e estratégia', ru: 'Логика и стратегия', id: 'Logika & Strategi', bn: 'যুক্তি ও কৌশল', ur: 'منطق اور حکمت عملی', ja: '論理＆戦略', ko: '논리 및 전략'
@@ -208,7 +208,7 @@
       tr: 'Odak & Araçlar', en: 'Focus & Tools', de: 'Fokus & Werkzeuge', zh: '专注与工具', hi: 'फोकस और उपकरण', es: 'Concentración y herramientas', fr: 'Concentration et outils', ar: 'التركيز والأدوات', pt: 'Foco e ferramentas', ru: 'Внимание и инструменты', id: 'Fokus & Alat', bn: 'মনোযোগ ও সরঞ্জাম', ur: 'توجہ اور آلات', ja: '集中＆ツール', ko: '집중 및 도구'
     },
     filter_soon: {
-      tr: 'Geliştirilmekte (5)', en: 'In Development (5)', de: 'In Entwicklung (5)', zh: '开发中 (5)', hi: 'विकास में (5)', es: 'En desarrollo (5)', fr: 'En cours de développement (5)', ar: 'قيد التطوير (5)', pt: 'Em desenvolvimento (5)', ru: 'В разработке (5)', id: 'Dalam Pengembangan (5)', bn: 'উন্নয়নাধীন (5)', ur: 'زیرِ تکمیل (5)', ja: '開発中 (5)', ko: '개발 중 (5)'
+      tr: 'Geliştirilmekte (6)', en: 'In Development (6)', de: 'In Entwicklung (6)', zh: '开发中 (6)', hi: 'विकास में (6)', es: 'En desarrollo (6)', fr: 'En cours de développement (6)', ar: 'قيد التطوير (6)', pt: 'Em desenvolvimento (6)', ru: 'В разработке (6)', id: 'Dalam Pengembangan (6)', bn: 'উন্নয়নাধীন (6)', ur: 'زیرِ تکمیل (6)', ja: '開発中 (6)', ko: '개발 중 (6)'
     },
     btn_view_app: {
       tr: 'Sayfayı Aç <span>→</span>', en: 'View Project <span>→</span>', de: 'Projekt ansehen <span>→</span>', zh: '查看项目 <span>→</span>', hi: 'प्रोजेक्ट देखें <span>→</span>', es: 'Ver proyecto <span>→</span>', fr: 'Voir le projet <span>→</span>', ar: 'عرض المشروع <span>→</span>', pt: 'Ver projeto <span>→</span>', ru: 'Открыть проект <span>→</span>', id: 'Buka Proyek <span>→</span>', bn: 'প্রকল্প দেখুন <span>→</span>', ur: 'پروجیکٹ دیکھیں <span>→</span>', ja: 'プロジェクトを見る <span>→</span>', ko: '프로젝트 보기 <span>→</span>'
