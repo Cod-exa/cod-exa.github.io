@@ -46,6 +46,7 @@
   };
   const parts=location.pathname.split('/').filter(Boolean),slug=parts.length>1?parts[parts.length-2]:'';
   const app=apps[slug]; if(!app)return;
+  const appNameFor=lang=>slug==='tek-tas'?(window.PAGE_TRANSLATIONS?.product_tek_tas?.[lang]||window.PAGE_TRANSLATIONS?.tek_tas_legal_marker?.[lang]||app.name):app.name;
   const file=(parts[parts.length-1]||'').toLowerCase(),type=file.startsWith('privacy')?'privacy':file.startsWith('terms')?'terms':'support';
   const contentMain=document.querySelector('main')||document.querySelector('.document')||document.querySelector('.container'),originalMain=contentMain?contentMain.innerHTML:'';
   const render=()=>{
@@ -53,6 +54,7 @@
     const lang=(requested||document.documentElement.lang||'en').toLowerCase().split('-')[0],t=copy[lang]||copy.en;
     document.documentElement.lang=lang;
     document.documentElement.dir=['ar','ur'].includes(lang)?'rtl':'ltr';
+    document.querySelectorAll('[data-legal-app-name]').forEach(el=>{el.textContent=appNameFor(lang)});
     document.querySelectorAll('[data-legal-copy]').forEach(el=>{const key=el.dataset.legalCopy;el.textContent=t[key]||copy.en[key]||''});
     const translations=window.PAGE_TRANSLATIONS;
     const hasSelectedTranslation=translations&&Object.values(translations).some(value=>value&&typeof value==='object'&&value[lang]);
@@ -70,7 +72,9 @@
   document.documentElement.style.setProperty('--legal-bg',app.bg);
   const css=document.createElement('link');css.rel='stylesheet';css.href='../legal-standard.css?v=20260826';document.head.appendChild(css);
   const hero=document.createElement('header');hero.className='legal-hero';
-  hero.innerHTML=`<nav class="legal-nav"><a class="legal-brand" href="index.html"><img src="${app.icon}" alt=""><span>${app.name}</span></a><a class="legal-home" href="index.html" data-legal-copy="home"></a></nav><div class="legal-heading"><div><span class="legal-kicker" data-legal-copy="kicker"></span><h1 data-legal-copy="${type}"></h1><p data-legal-copy="desc"></p></div><div class="legal-app-badge"><span>CodExa application</span><strong>${app.name}</strong></div></div><div class="legal-tabs"><a class="legal-tab ${type==='privacy'?'active':''}" href="privacy.html" data-legal-copy="privacyTab"></a><a class="legal-tab ${type==='terms'?'active':''}" href="terms.html" data-legal-copy="termsTab"></a><a class="legal-tab ${type==='support'?'active':''}" href="support.html" data-legal-copy="supportTab"></a></div>`;
+  const initialLang=(new URLSearchParams(location.search).get('lang')||document.documentElement.lang||'en').toLowerCase().split('-')[0];
+  const initialAppName=appNameFor(initialLang);
+  hero.innerHTML=`<nav class="legal-nav"><a class="legal-brand" href="index.html"><img src="${app.icon}" alt=""><span data-legal-app-name>${initialAppName}</span></a><a class="legal-home" href="index.html" data-legal-copy="home"></a></nav><div class="legal-heading"><div><span class="legal-kicker" data-legal-copy="kicker"></span><h1 data-legal-copy="${type}"></h1><p data-legal-copy="desc"></p></div><div class="legal-app-badge"><span>CodExa application</span><strong data-legal-app-name>${initialAppName}</strong></div></div><div class="legal-tabs"><a class="legal-tab ${type==='privacy'?'active':''}" href="privacy.html" data-legal-copy="privacyTab"></a><a class="legal-tab ${type==='terms'?'active':''}" href="terms.html" data-legal-copy="termsTab"></a><a class="legal-tab ${type==='support'?'active':''}" href="support.html" data-legal-copy="supportTab"></a></div>`;
   document.body.prepend(hero);render();
   document.addEventListener('DOMContentLoaded',render);
   addEventListener('codexa:languagechange',render);

@@ -38,11 +38,8 @@
     });
 
     // Update document title & meta description
-    const isEn = lang !== 'tr';
-    const title = isEn ? (document.body.dataset.titleEn || document.body.dataset.titleTr) : document.body.dataset.titleTr;
-    if (title) {
-      document.title = `${title} — Tek Taş — CodExa`;
-    }
+    const title = window.PAGE_TRANSLATIONS?.tek_tas_legal_marker?.[lang];
+    if (title) document.title = `${title} — CodExa`;
     const desc = isEn ? (document.body.dataset.descEn || document.body.dataset.descTr) : document.body.dataset.descTr;
     if (desc) {
       const metaDesc = document.querySelector('meta[name="description"]');
