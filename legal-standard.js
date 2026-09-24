@@ -22,7 +22,7 @@
     'lights-out':{name:'Lights Out: Night Atlas',icon:'assets/app-icon.svg',colors:['#f5c97a','#101820'],bg:'#081017'},
     'tek-tas':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
     'peg-solitaire-maht-game':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
-    'math-crosswords':{name:'Math Crosswords: Number Atlas',icon:'assets/app-icon.svg',colors:['#215d53','#a86341'],bg:'#173c36'},
+    'math-crosswords':{name:'Math Crosswords: Number Atlas',icon:'assets/app-icon-512.png',colors:['#215d53','#a86341'],bg:'#173c36'},
     vouchkeep:{name:'VouchKeep',icon:'assets/app-icon.svg',colors:['#ffb869','#f97316'],bg:'#111315'}
   };
   const copy={
