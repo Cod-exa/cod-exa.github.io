@@ -22,6 +22,7 @@
     'lights-out':{name:'Lights Out: Night Atlas',icon:'assets/app-icon.svg',colors:['#f5c97a','#101820'],bg:'#081017'},
     'tek-tas':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
     'peg-solitaire-maht-game':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
+    'math-crosswords':{name:'Math Crosswords: Number Atlas',icon:'assets/app-icon.svg',colors:['#215d53','#a86341'],bg:'#173c36'},
     vouchkeep:{name:'VouchKeep',icon:'assets/app-icon.svg',colors:['#ffb869','#f97316'],bg:'#111315'}
   };
   const copy={
@@ -47,7 +48,7 @@
   };
   const parts=location.pathname.split('/').filter(Boolean),slug=parts.length>1?parts[parts.length-2]:'';
   const app=apps[slug]; if(!app)return;
-  const appNameFor=lang=>(slug==='tek-tas'||slug==='peg-solitaire-maht-game')?(window.PAGE_TRANSLATIONS?.product_tek_tas?.[lang]||window.PAGE_TRANSLATIONS?.tek_tas_legal_marker?.[lang]||app.name):app.name;
+  const appNameFor=lang=>(slug==='tek-tas'||slug==='peg-solitaire-maht-game')?(window.PAGE_TRANSLATIONS?.product_tek_tas?.[lang]||window.PAGE_TRANSLATIONS?.tek_tas_legal_marker?.[lang]||app.name):(slug==='math-crosswords')?(window.PAGE_TRANSLATIONS?.product_math_crosswords?.[lang]||window.PAGE_TRANSLATIONS?.math_crosswords_legal_marker?.[lang]||app.name):app.name;
   const file=(parts[parts.length-1]||'').toLowerCase(),type=file.startsWith('privacy')?'privacy':file.startsWith('terms')?'terms':'support';
   const contentMain=document.querySelector('main')||document.querySelector('.document')||document.querySelector('.container'),originalMain=contentMain?contentMain.innerHTML:'';
   const render=()=>{

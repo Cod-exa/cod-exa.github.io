@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500" role="img" aria-labelledby="title desc">
+  <title id="title">Math Crosswords: Number Atlas</title><desc id="desc">Connect numbers. Explore the possibilities. Original promotional artwork showing two equations intersecting at five.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f7f2e6"/><stop offset="1" stop-color="#e0e8d9"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#244d3e" flood-opacity=".13"/></filter>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#215d53" opacity=".11"/></pattern>
+  </defs>
+  <rect width="1024" height="500" fill="url(#bg)"/><rect width="1024" height="500" fill="url(#grid)"/>
+  <path d="M535 500C475 402 553 354 548 265S674 182 763 106 928 66 1024 119" fill="none" stroke="#cbd8c5" stroke-width="22"/>
+  <path d="M535 500C475 402 553 354 548 265S674 182 763 106 928 66 1024 119" fill="none" stroke="#fffaf0" stroke-width="11"/>
+  <g font-family="Segoe UI,Arial,sans-serif" fill="#173f36">
+    <text x="64" y="90" font-size="15" font-weight="650" letter-spacing="3">CODEXA / NUMBER ATLAS</text>
+    <text x="60" y="190" font-size="66" font-weight="650" letter-spacing="-3">Math</text><text x="60" y="257" font-size="66" font-weight="650" letter-spacing="-3">Crosswords<tspan fill="#a86341">.</tspan></text>
+    <text x="64" y="321" font-size="23">Connect numbers.</text><text x="64" y="355" font-size="23">Explore the possibilities.</text>
+    <rect x="64" y="399" width="187" height="37" rx="18.5" fill="#215d53"/><text x="157.5" y="423" text-anchor="middle" font-size="13" fill="#fffaf0" letter-spacing="1">A LITTLE LOGIC, DAILY</text>
+  </g>
+  <g transform="translate(593 115)" font-family="Segoe UI,Arial,sans-serif" text-anchor="middle" font-size="36" fill="#215d53">
+    <g filter="url(#shadow)"><rect x="0" y="0" width="76" height="76" rx="18" fill="#fffaf0"/><rect x="126" y="0" width="76" height="76" rx="18" fill="#215d53"/><rect x="252" y="0" width="76" height="76" rx="18" fill="#fffaf0"/><rect x="126" y="126" width="76" height="76" rx="18" fill="#fffaf0"/><rect x="126" y="252" width="76" height="76" rx="18" fill="#d6b377"/></g>
+    <text x="38" y="51">8</text><text x="101" y="50" font-size="27">+</text><text x="164" y="51" fill="#fffaf0">5</text><text x="227" y="50" font-size="27">=</text><text x="290" y="51">13</text>
+    <text x="164" y="111" font-size="27">+</text><text x="164" y="177">2</text><text x="164" y="237" font-size="27">=</text><text x="164" y="303">7</text>
+    <circle cx="291" cy="179" r="7" fill="#a86341"/><circle cx="41" cy="282" r="5" fill="#a86341"/>
+  </g>
+</svg>

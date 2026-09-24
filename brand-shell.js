@@ -32,6 +32,7 @@
     ['C','Classtings','Eğitim yönetimi','classtings/index.html','soon'],
     ['L','Lights Out: Night Atlas','Matematik & mantık bulmacası','lights-out/index.html','soon'],
     ['M','Magnetic Maze','Fizik bulmacası','magneticmaze/index.html','soon'],
+    ['M','Math Crosswords: Number Atlas','Matematik & mantık bulmacası','math-crosswords/index.html','soon'],
     ['N','Nexus: Oathbound Realms','Fantastik kart stratejisi','nexus-oathbound-realms/index.html','soon'],
     ['P','Peg Solitaire Maht Game','Taş atlatma mantık bulmacası','peg-solitaire-maht-game/index.html','soon'],
     ['P','Pixel Garden','Yaratıcı deneyim','pixel-garden/index.html','soon']
