@@ -20,7 +20,8 @@
     'nexus-oathbound-realms':{name:'Nexus: Oathbound Realms',icon:'assets/app-icon.svg',colors:['#f59e0b','#d97706'],bg:'#120d08'},
     'math-meadow':{name:'Math Meadow',icon:'assets/app-icon.svg',colors:['#2e7d32','#4caf50'],bg:'#07160c'},
     'lights-out':{name:'Lights Out: Night Atlas',icon:'assets/app-icon.svg',colors:['#f5c97a','#101820'],bg:'#081017'},
-    'tek-tas':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon.svg',colors:['#c8aa70','#285747'],bg:'#183e33'},
+    'tek-tas':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
+    'peg-solitaire-maht-game':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
     vouchkeep:{name:'VouchKeep',icon:'assets/app-icon.svg',colors:['#ffb869','#f97316'],bg:'#111315'}
   };
   const copy={
@@ -46,7 +47,7 @@
   };
   const parts=location.pathname.split('/').filter(Boolean),slug=parts.length>1?parts[parts.length-2]:'';
   const app=apps[slug]; if(!app)return;
-  const appNameFor=lang=>slug==='tek-tas'?(window.PAGE_TRANSLATIONS?.product_tek_tas?.[lang]||window.PAGE_TRANSLATIONS?.tek_tas_legal_marker?.[lang]||app.name):app.name;
+  const appNameFor=lang=>(slug==='tek-tas'||slug==='peg-solitaire-maht-game')?(window.PAGE_TRANSLATIONS?.product_tek_tas?.[lang]||window.PAGE_TRANSLATIONS?.tek_tas_legal_marker?.[lang]||app.name):app.name;
   const file=(parts[parts.length-1]||'').toLowerCase(),type=file.startsWith('privacy')?'privacy':file.startsWith('terms')?'terms':'support';
   const contentMain=document.querySelector('main')||document.querySelector('.document')||document.querySelector('.container'),originalMain=contentMain?contentMain.innerHTML:'';
   const render=()=>{

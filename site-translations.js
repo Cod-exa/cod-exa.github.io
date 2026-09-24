@@ -148,7 +148,7 @@
     const tag = (selector,key,all=false) => (all ? document.querySelectorAll(selector) : [document.querySelector(selector)]).forEach(el => { if(el) el.dataset.i18n=key; });
     tag('.nav-links a[href="#cozumler"]','nav_solutions'); tag('.nav-links .product-trigger','nav_products'); tag('.nav-links a[href="#kurumlar"]','nav_institutions'); tag('.nav-links a[href="#yaklasim"]','nav_technology'); tag('.nav-cta','nav_contact');
     tag('.skip-link','skip_content');
-    document.querySelectorAll('.product-drawer .drawer-product strong').forEach((el,index)=>el.dataset.i18n=productKeys[index]);
+    document.querySelectorAll('.product-drawer .drawer-product strong').forEach((el,index)=>{ if(!el.dataset.i18n) el.dataset.i18n=productKeys[index]; });
     tag('.hero-copy .eyebrow','hero_eyebrow'); tag('.hero-copy h1','hero_title'); tag('.hero-copy>p','hero_desc'); tag('.hero-actions .primary','discover_products'); tag('.hero-actions .secondary','view_solutions');
     tag('#cozumler .section-head .eyebrow','solutions_eyebrow'); tag('#cozumler .section-head h2','solutions_title'); tag('#cozumler .section-head>p','solutions_desc');
     document.querySelectorAll('.solution h3').forEach((el,i)=>el.dataset.i18n=['solution_game','solution_focus','solution_custom'][i]);

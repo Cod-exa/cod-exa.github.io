@@ -5,7 +5,7 @@
 (() => {
   const SUPPORTED_LANGS = ['tr', 'en', 'de', 'zh', 'hi', 'es', 'fr', 'ar', 'pt', 'ru', 'id', 'bn', 'ur', 'ja', 'ko'];
   const RTL_LANGS = new Set(['ar', 'ur']);
-  const HOME_PATH = /\/tek-tas\/(?:index\.html)?$/;
+  const HOME_PATH = /\/(?:peg-solitaire-maht-game|tek-tas)\/(?:index\.html)?$/;
 
   function normalizeLang(value) {
     if (!value) return null;

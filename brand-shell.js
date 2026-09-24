@@ -15,23 +15,26 @@
   const products = [
     ['2','2048 - Sayı Bulmaca Oyunu','Sayı & strateji','2048/index.html','live'],
     ['A','At Satrancı: Zeka Oyunu','Strateji & uzamsal düşünme','atsatranci/index.html','live'],
-    ['Ç','Çarpım Tablosu','Matematik pratiği','carpma-oyunu/index.html','live'],
+    ['G','Grid Heist: Vault Breaker','Taktik blok bulmacası','grid-heist-vault-breaker/index.html','live'],
+    ['H','Hanoi Tower: Temple Puzzle','Mantık & problem çözme','hanoikulesi/index.html','live'],
     ['+','Kakuro','Sayı bulmacası','kakuro/index.html','live'],
     ['K','KenKen Logic: Zeka Bulmaca','Matematik & mantık','kenken/index.html','live'],
-    ['V','Görsel Zamanlayıcı: Odak','Odak & zaman yönetimi','visual-timer/index.html','live'],
-    ['N','Nim Master','Stratejik düşünme','nimmaster/index.html','live'],
+    ['K','Knight Tour: Chess Puzzle','Klasik strateji oyunu','atsatranci/index.html','live'],
     ['M','Mangala Oyunu','Geleneksel strateji','mangala/index.html','live'],
-    ['H','Hanoi Tower: Temple Puzzle','Mantık & problem çözme','hanoikulesi/index.html','live'],
-    ['A','At Satrancı','Klasik strateji oyunu','atsatranci/index.html','live'],
-    ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live'],
+    ['M','Math Meadow','Eğitici çocuk matematiği','math-meadow/index.html','live'],
+    ['N','Nim Master','Stratejik düşünme','nimmaster/index.html','live'],
+    ['R','Resonant','Odak & nefes','resonant/index.html','live'],
     ['S','ScreenRecall: Ekran Görseli','Gizlilik & organizasyon','screenrecall/index.html','live'],
     ['S','Stacking Balance','Fizik & denge','stackingbalance/index.html','live'],
-    ['R','Resonant','Odak & nefes','resonant/index.html','live'],
+    ['V','Visual Timer: Odak','Odak & zaman yönetimi','visual-timer/index.html','live'],
+    ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live'],
+    ['Ç','Çarpım Tablosu','Matematik pratiği','carpma-oyunu/index.html','live'],
     ['C','Classtings','Eğitim yönetimi','classtings/index.html','soon'],
-    ['P','Pixel Garden','Yaratıcı deneyim','pixel-garden/index.html','soon'],
+    ['L','Lights Out: Night Atlas','Matematik & mantık bulmacası','lights-out/index.html','soon'],
     ['M','Magnetic Maze','Fizik bulmacası','magneticmaze/index.html','soon'],
     ['N','Nexus: Oathbound Realms','Fantastik kart stratejisi','nexus-oathbound-realms/index.html','soon'],
-    ['G','Grid Heist Vault Breaker','Taktik blok bulmacası','grid-heist-vault-breaker/index.html','soon']
+    ['P','Peg Solitaire Maht Game','Taş atlatma mantık bulmacası','peg-solitaire-maht-game/index.html','soon'],
+    ['P','Pixel Garden','Yaratıcı deneyim','pixel-garden/index.html','soon']
   ];
   const root = location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const makeGroup = (label, status) => {

@@ -870,6 +870,7 @@ section { padding: 110px 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding-top: 16px;
   border-top: 1px solid var(--line-subtle);
   gap: 8px;
@@ -906,6 +907,26 @@ section { padding: 110px 0; }
   background: rgba(16, 185, 129, 0.18);
   border-color: #059669;
   color: #065f46;
+  transform: translateY(-1px);
+}
+.card-ios-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: rgba(2, 132, 199, 0.1);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  border-radius: 8px;
+  padding: 4px 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.card-ios-link:hover {
+  background: rgba(2, 132, 199, 0.18);
+  border-color: #0284c7;
+  color: #0c4a6e;
   transform: translateY(-1px);
 }
 .card-privacy-link {
@@ -1099,11 +1120,11 @@ section { padding: 110px 0; }
 .satellite:nth-of-type(5) { bottom: 40px; right: 30px; }
 
 /* Luxury Button Sweeps (Altın Parlama Efekti) */
-.card-play-link, .nav-cta, .primary {
+.card-play-link, .card-ios-link, .nav-cta, .primary {
   position: relative;
   overflow: hidden;
 }
-.card-play-link::before, .nav-cta::before, .primary::before {
+.card-play-link::before, .card-ios-link::before, .nav-cta::before, .primary::before {
   content: "";
   position: absolute;
   top: -50%;
@@ -1115,7 +1136,7 @@ section { padding: 110px 0; }
   transition: transform 0.65s ease;
   pointer-events: none;
 }
-.card-play-link:hover::before, .nav-cta:hover::before, .primary:hover::before {
+.card-play-link:hover::before, .card-ios-link:hover::before, .nav-cta:hover::before, .primary:hover::before {
   transform: rotate(25deg) translateX(150%);
 }
 
