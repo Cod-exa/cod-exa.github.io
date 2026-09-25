@@ -23,7 +23,7 @@
     'tek-tas':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
     'peg-solitaire-maht-game':{name:'Peg Solitaire Maht Game',icon:'assets/app-icon-512.png',colors:['#e06d53','#285747'],bg:'#183e33'},
     'math-crosswords':{name:'Math Crosswords: Number Atlas',icon:'assets/app-icon-512.png',colors:['#215d53','#a86341'],bg:'#173c36'},
-    'one-line-math-game':{name:'One Line Math Game',icon:'assets/app-icon-512.png',colors:['#173F37','#D5AA62'],bg:'#173F37'},
+    'one-line-math-game':{name:'One Line Math Game',icon:'assets/app-icon-512.png',colors:['#426A70','#E8A77B'],bg:'#F1EDFC'},
     vouchkeep:{name:'VouchKeep',icon:'assets/app-icon.svg',colors:['#ffb869','#f97316'],bg:'#111315'}
   };
   const copy={
