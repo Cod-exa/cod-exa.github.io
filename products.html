@@ -353,6 +353,79 @@
         }
         .project-card:hover::before { opacity: 1; }
 
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .app-card-title-wrap {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-card-title-wrap .app-category {
+            font-size: 0.72rem;
+            letter-spacing: 0.8px;
+            margin-bottom: 4px;
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+        }
+        .app-card-title-wrap h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0;
+            color: var(--text-heading);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding-top: 14px;
+            border-top: 1px solid rgba(197, 160, 89, 0.16);
+        }
+        .card-actions .btn-inspect {
+            margin-top: 0;
+            padding: 8px 14px;
+            font-size: 0.84rem;
+        }
+        .card-actions .btn-store {
+            background: #1c1917;
+            color: #ffffff;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.84rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+        .card-actions .btn-store:hover {
+            background: #292524;
+            color: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.16);
+        }
+        .status-badge.live-badge {
+            background: rgba(22, 163, 74, 0.08);
+            border: 1px solid rgba(22, 163, 74, 0.22);
+            color: #15803d;
+        }
+        .status-badge.live-badge .dot {
+            background-color: #16a34a;
+            box-shadow: 0 0 8px rgba(22, 163, 74, 0.4);
+        }
+
+
         .app-icon-wrap {
             width: 64px;
             height: 64px;
@@ -634,8 +707,8 @@
             <p data-i18n="header_subtitle">Erdinç TOPAL – Mobil Oyun & Uygulama Geliştirici / Mobile Developer</p>
             <div class="lang-badge" data-i18n="header_badge">🌐 Çok Dilli Portal / Multi-language Portal</div>
             <div class="hero-stats">
-                <div class="hero-stat"><b>24</b><span data-i18n="stat_total">Uygulama</span></div>
-                <div class="hero-stat"><b>15</b><span data-i18n="stat_live">Yayında</span></div>
+                <div class="hero-stat"><b>21</b><span data-i18n="stat_total">Uygulama</span></div>
+                <div class="hero-stat"><b>21</b><span data-i18n="stat_live">Yayında</span></div>
                 <div class="hero-stat"><b>15</b><span data-i18n="stat_lang">Dil</span></div>
             </div>
         </header>
@@ -653,565 +726,524 @@
                     <input type="text" id="projectSearch" oninput="filterProjects()" data-i18n-placeholder="search_placeholder" placeholder="Uygulama ara...">
                 </div>
                 <div class="filter-group" id="catFilters">
-                    <button type="button" class="filter-chip active" data-cat="all" onclick="setCat(this)" data-i18n="filter_all">Tümü</button>
-                    <button type="button" class="filter-chip" data-cat="puzzle" onclick="setCat(this)" data-i18n="filter_puzzle">Zeka & Bulmaca</button>
-                    <button type="button" class="filter-chip" data-cat="math" onclick="setCat(this)" data-i18n="filter_math">Matematik</button>
-                    <button type="button" class="filter-chip" data-cat="focus" onclick="setCat(this)" data-i18n="filter_focus">Odak & Araçlar</button>
-                    <button type="button" class="filter-chip" data-cat="education" onclick="setCat(this)" data-i18n="filter_education">Eğitim & Yönetim</button>
-                    <button type="button" class="filter-chip" data-cat="game" onclick="setCat(this)" data-i18n="filter_game">Oyunlar</button>
+                    <button type="button" class="filter-chip active" data-cat="all" onclick="setCat(this)" data-i18n="filter_all">Tümü (21)</button>
+                    <button type="button" class="filter-chip" data-cat="puzzle" onclick="setCat(this)" data-i18n="filter_puzzle">Zeka & Bulmaca (7)</button>
+                    <button type="button" class="filter-chip" data-cat="math" onclick="setCat(this)" data-i18n="filter_math">Matematik (8)</button>
+                    <button type="button" class="filter-chip" data-cat="focus" onclick="setCat(this)" data-i18n="filter_focus">Odak & Araçlar (6)</button>
+                    <button type="button" class="filter-chip" data-cat="education" onclick="setCat(this)" data-i18n="filter_education">Eğitim</button>
                 </div>
                 <div class="filter-group" id="statusFilters">
                     <button type="button" class="filter-chip active" data-status="all" onclick="setStatus(this)" data-i18n="filter_all">Tümü</button>
-                    <button type="button" class="filter-chip" data-status="live" onclick="setStatus(this)" data-i18n="filter_live">Yayında</button>
-                    <button type="button" class="filter-chip" data-status="coming" onclick="setStatus(this)" data-i18n="filter_coming">Yakında</button>
+                    <button type="button" class="filter-chip" data-status="live" onclick="setStatus(this)" data-i18n="filter_live">Google Play'de Yayında (21)</button>
                 </div>
             </div>
 
             <div class="projects-grid">
-                <!-- Hanoi Kulesi Card -->
-                <a href="hanoikulesi/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="hanoikulesi/assets/app-icon.jpg" alt="Hanoi Kulesi uygulama ikonu">
+                <!-- 1. 2048 - Sayı Bulmaca Oyunu -->
+                <div class="project-card" data-category="math puzzle" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="2048/app_icon.jpg" alt="2048 - Sayı Bulmaca Oyunu" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Matematik & Bulmaca</span>
+                            <h3>2048 - Sayı Bulmaca Oyunu</h3>
+                        </div>
                     </div>
-
-                    <!-- App Details -->
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title">Hanoi Kulesi</h3>
-
-                        <p class="app-desc" data-i18n="game_desc">
-                            Hanoi Kulesi bulmacasını modern, göz alıcı grafikler, antik temalı müzikler ve zorlayıcı modlar ile yeniden keşfedin! Seviyeleri geçerek mistik altınlar toplayın ve tapınaktaki derecenizi yükseltin.
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available">
+                        <p class="app-desc">Klasik 2048 sayı birleştirme zeka oyunu; akıcı animasyonlar, farklı karo hedefleri ve reklamsız saf matematik deneyimi.</p>
+                        <div class="status-badge live-badge">
                             <span class="dot"></span>
-                            Google Play'de Yayında!
+                            Google Play'de Yayında
                         </div>
-
-                        <!-- Navigates to hanoikulesi.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
                     </div>
-                </a>
-
-                <!-- At Satrancı: Zeka Oyunu Card -->
-                <a href="atsatranci/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="atsatranci/assets/app-icon.jpg" alt="At Satrancı: Zeka Oyunu uygulama ikonu">
+                    <div class="card-actions">
+                        <a href="2048/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.game2048" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
                     </div>
+                </div>
 
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka &amp; Bulmaca / Puzzle</span>
-                        <h3>At Satrancı: Zeka Oyunu</h3>
-
-                        <p class="app-desc">
-                            At Satrancı oyununu 5x5'ten başlayan zorluk seviyeleri, Klasik ve Engelli oyun modlarıyla (Günün Bulmacası) modern bir arayüzde deneyimleyin!
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
-                            Google Play'de Yayında!
+                <!-- 2. At Satrancı: Zeka Oyunu -->
+                <div class="project-card" data-category="puzzle" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="atsatranci/assets/app-icon.jpg" alt="At Satrancı: Zeka Oyunu" loading="lazy">
                         </div>
-
-                        <!-- Navigates to atsatranci/index.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- At Satrancı (Klasik) Card -->
-                <a href="atsatranci/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="atsatranci/assets/app-icon-classic.svg" alt="At Satrancı uygulama ikonu">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka &amp; Bulmaca / Puzzle</span>
-                        <h3>At Satrancı</h3>
-
-                        <p class="app-desc">
-                            Satranç atının L hamleleriyle tüm kareleri dolaşma stratejisi; reklamsız, odaklı ve eğitici saf zeka deneyimi.
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
-                            Google Play'de Yayında!
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Zeka & Strateji</span>
+                            <h3>At Satrancı: Zeka Oyunu</h3>
                         </div>
-
-                        <!-- Navigates to atsatranci/index.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- KenKen Card -->
-                <a href="kenken/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="kenken/assets/app-icon.png" alt="KenKen uygulama ikonu">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title_kenken">KenKen</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_kenken">
-                            KenKen mantık bulmacasını modern grafikler, sakinleştirici Zen teması ve zihinden matematik becerilerinizi geliştirecek pedagojik zorluk seviyeleriyle deneyimleyin!
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play'de Yayında!
-                        </div>
-
-                        <!-- Navigates to kenken.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Nim Master Card -->
-                <a href="nimmaster/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="nimmaster/assets/app-icon.jpg" alt="Nim Master uygulama ikonu">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title_nimmaster">Nim Master</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_nimmaster">
-                            Nim Master oyununu Normal ve Misère modları, yapay zeka rakibi ve matematiksel teoriyi öğreten XOR Akademi analizörü ile premium arayüzde deneyimleyin!
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play'de Yayında!
-                        </div>
-
-                        <!-- Navigates to nimmaster.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Mangala Card -->
-                <a href="mangala/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35); overflow: hidden; padding: 0;">
-                        <img class="app-icon-image" src="mangala/assets/app-icon.svg" alt="Mangala Oyunu uygulama ikonu">
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka &amp; Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title_mangala">Mangala Oyunu</h3>
-                        <p class="app-desc" data-i18n="game_desc_mangala">Geleneksel Türk zeka ve strateji oyunu. Taşları doğru kuyulara dağıtarak en çok taşı topla.</p>
-                        <div class="status-badge" data-i18n="status_live">
+                        <p class="app-desc">At Satrancı oyununu 5x5'ten başlayan zorluk seviyeleri, Klasik ve Engelli oyun modlarıyla modern bir arayüzde deneyimleyin!</p>
+                        <div class="status-badge live-badge">
                             <span class="dot"></span>
-                            Google Play'de Yayında!
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
                     </div>
-                </a>
-
-                <!-- Çarpma Oyunu Card -->
-                <a href="carpma-oyunu/index.html" class="project-card project-card-link" data-category="math" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="carpma-oyunu/assets/app-icon.png" alt="Çarpma Oyunu uygulama ikonu">
+                    <div class="card-actions">
+                        <a href="atsatranci/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.atsatranci.knight_tour" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
                     </div>
+                </div>
 
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_math">Matematik & Eğitim / Math</span>
-                        <h3 data-i18n="game_title_carpma">Çarpma Oyunu</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_carpma">
-                            Çarpım tablosunu eğlenceli ve etkileşimli bir şekilde öğrenin! Puanlar, rozetler ve kombolarla zihinden çarpma becerilerinizi geliştirin.
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(78, 205, 196, 0.1); border-color: rgba(78, 205, 196, 0.2); color: #4ECDC4;" data-i18n="status_available">
-                            <span class="dot" style="background-color: #4ECDC4; box-shadow: 0 0 10px #4ECDC4;"></span>
-                            Google Play'de Yayında!
+                <!-- 3. At Satrancı: Klasik (Knight Tour) -->
+                <div class="project-card" data-category="puzzle" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="atsatranci/assets/app-icon-classic.svg" alt="At Satrancı: Klasik (Knight Tour)" loading="lazy">
                         </div>
-
-                        <!-- Navigates to carpma-oyunu legal pages -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Math Meadow Card -->
-                <a href="math-meadow/index.html" class="project-card project-card-link" data-category="math" data-status="live">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%); box-shadow: 0 10px 25px rgba(46, 125, 50, 0.35), inset 0 1px 0 rgba(255,255,255,0.15); overflow: hidden;">
-                        <img src="math-meadow/assets/app-icon.svg" alt="Math Meadow" width="80" height="80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
-                    </div>
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_math_meadow">Eğitici Çocuk Matematiği</span>
-                        <h3 data-i18n="game_title_math_meadow">Math Meadow</h3>
-                        <p class="app-desc" data-i18n="game_desc_math_meadow">Müfredatla uyumlu, reklamsız ve %100 gizlilik odaklı erken yaş matematik öğrenme bahçesi. Çevrimdışı, güvenli ve pedagojik.</p>
-                        <div class="status-badge" style="background: rgba(46, 125, 50, 0.1); border-color: rgba(46, 125, 50, 0.25); color: #2E7D32;">
-                            <span class="dot" style="background-color: #2E7D32; box-shadow: 0 0 10px #2E7D32;"></span>
-                            <span data-i18n="status_math_meadow">Google Play'de Yayında!</span>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Klasik Strateji</span>
+                            <h3>At Satrancı: Klasik (Knight Tour)</h3>
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
-                    </div>
-                </a>
-
-                <!-- Lights Out: Night Atlas Card -->
-                <a href="lights-out/index.html" class="project-card project-card-link" data-category="puzzle math" data-status="coming">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #f5c97a 0%, #101820 100%); box-shadow: 0 10px 25px rgba(245, 201, 122, 0.25), inset 0 1px 0 rgba(255,255,255,0.15); overflow: hidden;">
-                        <img src="lights-out/assets/app-icon.svg" alt="Lights Out: Night Atlas" width="80" height="80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="lights_out_category">Matematik ve mantık bulmacası</span>
-                        <h3 data-i18n="lights_out_title">Lights Out: Night Atlas</h3>
-                        <p class="app-desc" data-i18n="lights_out_description">8 takımyıldız adasında 240 bölüm. Minimum hamle çözücüsü, günlük meydan okumalar ve çevrimdışı oyun.</p>
-                        <div class="status-badge" style="background: rgba(245, 201, 122, 0.1); border-color: rgba(245, 201, 122, 0.25); color: #a47a35;">
-                            <span class="dot" style="background-color: #c5a059; box-shadow: 0 0 10px #c5a059;"></span>
-                            <span data-i18n="lights_out_status">Android için hazırlanıyor</span>
+                        <p class="app-desc">Satranç atının L hamleleriyle tüm kareleri dolaşma stratejisi; reklamsız, odaklı ve eğitici saf zeka deneyimi.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
-
-                <!-- Peg Solitaire Maht Game Card -->
-                <a href="peg-solitaire-maht-game/index.html" class="project-card project-card-link" data-category="puzzle logic math" data-status="coming">
-                    <div class="app-icon-wrap" style="background:linear-gradient(135deg,#fff1ed 0%,#e06d53 100%);box-shadow:0 10px 25px rgba(224,109,83,.25);overflow:hidden;">
-                        <img src="peg-solitaire-maht-game/assets/app-icon-512.png" alt="Peg Solitaire Maht Game" width="80" height="80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                    <div class="card-actions">
+                        <a href="atsatranci/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.atsatrancitam" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
                     </div>
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle_math">Zeka &amp; Bulmaca / Logic</span>
-                        <h3 data-i18n="product_tek_tas">Peg Solitaire Maht Game</h3>
-                        <p class="app-desc" data-i18n="tek_tas_description">120 kampanya ve 90 günlük peg solitaire bulmacası. Üç tahta biçimi, ücretsiz ipuçları ve çevrimdışı oyun.</p>
-                        <div class="status-badge" style="background:rgba(224,109,83,.08);border-color:rgba(224,109,83,.22);color:#c2410c;"><span class="dot" style="background-color:#f59e0b;box-shadow:0 0 10px #f59e0b;"></span><span data-i18n="tek_tas_status">Android için hazırlanıyor</span></div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
-                    </div>
-                </a>
+                </div>
 
-                <!-- Math Crosswords Card -->
-                <a href="math-crosswords/index.html" class="project-card project-card-link" data-category="puzzle logic math" data-status="coming">
-                    <div class="app-icon-wrap" style="background:linear-gradient(135deg,#173c36 0%,#215d53 100%);box-shadow:0 10px 25px rgba(33,93,83,.25);overflow:hidden;">
-                        <img src="math-crosswords/assets/app-icon-512.png" alt="Math Crosswords: Number Atlas" width="80" height="80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
-                    </div>
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle_math">Zeka &amp; Bulmaca / Logic</span>
-                        <h3 data-i18n="product_math_crosswords">Math Crosswords: Number Atlas</h3>
-                        <p class="app-desc" data-i18n="math_crosswords_description">240 el yapımı bölüm, 6 resimli bölge, kesişen denklemler ve dört işlem. Günlük üçleme, serbest mod ve internetsiz oyun.</p>
-                        <div class="status-badge" style="background:rgba(33,93,83,.08);border-color:rgba(33,93,83,.22);color:#1b4b41;"><span class="dot" style="background-color:#215d53;box-shadow:0 0 10px #215d53;"></span><span data-i18n="math_crosswords_status">Android için hazırlanıyor</span></div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
-                    </div>
-                </a>
-
-                <!-- 2048 Card -->
-                <a href="2048/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent; box-shadow: 0 10px 25px rgba(234, 179, 8, 0.3);">
-                        <img src="2048/app_icon.jpg" alt="2048 Hex uygulama ikonu" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title_2048">2048</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_2048">
-                            Klasik 2048 sayı bulmacasını modern neon grafikleri, akıcı kaydırma animasyonları ve farklı oyun tahtası boyutlarıyla (3x3'ten 6x6'ya) premium bir arayüzde deneyimleyin!
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available_both">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play & App Store'da Yayında!
+                <!-- 4. Çarpım Tablosu -->
+                <div class="project-card" data-category="math education" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="carpma-oyunu/assets/app-icon.png" alt="Çarpım Tablosu" loading="lazy">
                         </div>
-
-                        <!-- Navigates to 2048/index.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Kakuro Card -->
-                <a href="kakuro/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="kakuro/assets/app-icon.jpg" alt="Kakuro uygulama ikonu">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka & Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title_kakuro">Kakuro</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_kakuro">
-                            Kakuro sayı çapraz bulmacasını modern, sade bir arayüzde keşfedin! İpuçlarındaki toplamları yakalayın, farklı zorluk seviyelerinde mantığınızı geliştirin.
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play'de Yayında!
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Matematik & Eğitim</span>
+                            <h3>Çarpım Tablosu</h3>
                         </div>
-
-                        <!-- Navigates to kakuro/index.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Visual Timer Card -->
-                <a href="visual-timer/index.html" class="project-card project-card-link" data-category="focus" data-status="live">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="visual-timer/assets/app-icon.jpg" alt="Visual Timer uygulama ikonu">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="filter_focus">Odak & Araçlar / Focus & Tools</span>
-                        <h3 data-i18n="game_title_visualtimer">Visual Timer</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_visualtimer">
-                            Süreyi gösteren değil, hissettiren görsel zamanlayıcı! ADHD, otizm ve odaklanma için özel tasarlanmış, sınıfta ve evde çalışan reklamsız görsel odak aracı.
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available_both">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play & App Store'da Yayında!
-                        </div>
-
-                        <!-- Navigates to visual-timer/index.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Classtings Card -->
-                <a href="classtings/index.html" class="project-card project-card-link" data-category="education" data-status="coming">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="classtings/assets/app-icon.svg" alt="Classtings uygulama ikonu">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="filter_education">Eğitim & Yönetim / Education & Management</span>
-                        <h3 data-i18n="game_title_classtings">Classtings</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_classtings">
-                            Modern Öğretmen Ajandası ve Pedagojik Analiz Platformu! Sınıf yönetimini kolaylaştıran, öğrenci gelişimini analiz eden akıllı eğitim asistanı.
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.2); color: #C7D2FE;" data-i18n="coming_soon">
-                            <span class="dot" style="background-color: #6366F1; box-shadow: 0 0 10px #6366F1;"></span>
-                            Yakında Google Play'de!
-                        </div>
-
-                        <!-- Navigates to classtings/index.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Pixel Garden Card -->
-                <a href="pixel-garden/index.html" class="project-card project-card-link" data-category="game" data-status="coming">
-                    <!-- App Icon -->
-                    <div class="app-icon-wrap" style="padding: 0; overflow: hidden; background: transparent;">
-                        <img class="app-icon-image" src="pixel-garden/assets/app-icon.svg" alt="Pixel Garden uygulama ikonu">
-                    </div>
-
-                    <!-- App Details -->
-                    <div class="app-details">
-                        <span class="app-category" data-i18n="filter_game">Oyunlar / Games</span>
-                        <h3 data-i18n="game_title_pixelgarden">Pixel Garden</h3>
-
-                        <p class="app-desc" data-i18n="game_desc_pixelgarden">
-                            Tetris benzeri blok yerleştirme ile her turda kalıcı olarak büyüyen bir piksel bahçe yetiştirin! 20 aşamalı macera, nadir çiçekler ve strateji rozetleri...
-                        </p>
-
-                        <div class="status-badge" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); color: #6EE7B7;" data-i18n="coming_soon">
-                            <span class="dot" style="background-color: #10B981; box-shadow: 0 0 10px #10B981;"></span>
-                            Yakında Google Play'de!
-                        </div>
-
-                        <!-- Navigates to pixel-garden/index.html -->
-                        <span class="btn-inspect" data-i18n="btn_inspect">
-                            Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Stacking Balance Card -->
-                <a href="stackingbalance/index.html" class="project-card project-card-link" data-category="game" data-status="live">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #5146E5 0%, #3028BA 100%); box-shadow: 0 10px 25px rgba(48, 40, 186, 0.35), inset 0 1px 0 rgba(255,255,255,0.15); overflow: hidden;">
-                        <img src="stackingbalance/assets/app-icon.png" alt="Stacking Balance" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_balance">Denge &amp; Beceri</span>
-                        <h3 data-i18n="game_title_stacking">Stacking Balance</h3>
-                        <p class="app-desc" data-i18n="game_desc_stacking">120 bölüm, altı atmosfer ve giderek gelişen fizik mekanikleriyle kulenizi hedef çizgisine taşıyın.</p>
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play'de Yayında!
+                        <p class="app-desc">Çarpım tablosunu eğlenceli ve etkileşimli bir şekilde öğrenin! Puanlar, rozetler ve kombolarla zihinden çarpma becerilerinizi geliştirin.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="carpma-oyunu/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.erdinc.carpimtablosu" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- Grid Heist Vault Breaker Card -->
-                <a href="grid-heist-vault-breaker/index.html" class="project-card project-card-link" data-category="puzzle" data-status="live">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #0284C7 0%, #082F49 100%); box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35), inset 0 1px 0 rgba(255,255,255,0.15); overflow: hidden;">
-                        <img src="grid-heist-vault-breaker/assets/app-icon.svg" alt="Grid Heist Vault Breaker" width="80" height="80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                <!-- 5. Classtings: Sınıf Planlayıcı -->
+                <div class="project-card" data-category="education utility" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="classtings/assets/app-icon.svg" alt="Classtings: Sınıf Planlayıcı" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Eğitim & Planlama</span>
+                            <h3>Classtings: Sınıf Planlayıcı</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_ghvb">Taktik Blok Bulmacası</span>
-                        <h3 data-i18n="game_title_ghvb">Grid Heist Vault Breaker</h3>
-                        <p class="app-desc" data-i18n="game_desc_ghvb">7×7 tahtada blokları yerleştir, hatları tamamla ve çekirdekleri onar. 625 bölüm, üç protokol ve ücretsiz antrenman.</p>
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play'de Yayında!
+                        <p class="app-desc">Öğretmenler ve eğitimciler için modern ders, yoklama, oturma düzeni ve sınıf etkinlik yönetimi aracı.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="classtings/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.classtings" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- Nexus: Oathbound Realms Card -->
-                <a href="nexus-oathbound-realms/index.html" class="project-card project-card-link" data-category="game" data-status="coming">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #C5A059 0%, #1C1917 100%); box-shadow: 0 10px 25px rgba(197, 160, 89, 0.35), inset 0 1px 0 rgba(255,255,255,0.15); overflow: hidden;">
-                        <img src="nexus-oathbound-realms/assets/app-icon.svg" alt="Nexus: Oathbound Realms" width="80" height="80" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                <!-- 6. Grid Heist: Vault Breaker -->
+                <div class="project-card" data-category="puzzle" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="grid-heist-vault-breaker/assets/app-icon.svg" alt="Grid Heist: Vault Breaker" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Taktik Blok Bulmaca</span>
+                            <h3>Grid Heist: Vault Breaker</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_nexus">Fantastik Kart Stratejisi</span>
-                        <h3 data-i18n="game_title_nexus">Nexus: Oathbound Realms</h3>
-                        <p class="app-desc" data-i18n="game_desc_nexus">20 soy, 220 kart ve sıra tabanlı düellolar. Desteni kur, birliklerini alana sürükle ve hamleni planla.</p>
-                        <div class="status-badge" style="background: rgba(197, 160, 89, 0.1); border-color: rgba(197, 160, 89, 0.25); color: #C5A059;">
-                            <span class="dot" style="background-color: #C5A059; box-shadow: 0 0 10px #C5A059;"></span>
-                            <span data-i18n="status_nexus">Geliştirilmekte · Android test sürümü</span>
+                        <p class="app-desc">7×7 tahtada blokları yerleştir, hatları tamamla ve çekirdekleri onar. 625 bölüm, üç protokol ve ücretsiz antrenman.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="grid-heist-vault-breaker/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.gridheist.vaultbreaker" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- Magnetic Maze Card -->
-                <a href="magneticmaze/index.html" class="project-card project-card-link" data-category="puzzle" data-status="coming">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #37B7FF 0%, #09111E 100%); box-shadow: 0 10px 25px rgba(55, 183, 255, 0.3), inset 0 1px 0 rgba(255,255,255,0.15); overflow: hidden;">
-                        <img src="magneticmaze/assets/app-icon.png" alt="Magnetic Maze" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+                <!-- 7. Hanoi Tower: Temple Puzzle -->
+                <div class="project-card" data-category="puzzle" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="hanoikulesi/assets/app-icon.jpg" alt="Hanoi Tower: Temple Puzzle" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Zeka & Problem Çözme</span>
+                            <h3>Hanoi Tower: Temple Puzzle</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle">Zeka &amp; Bulmaca / Puzzle</span>
-                        <h3 data-i18n="game_title_magnetic_maze">Magnetic Maze</h3>
-                        <p class="app-desc" data-i18n="game_desc_magnetic_maze">Çekim ve itme alanları çizerek metal çekirdeği hareketli bir fizik labirentinden geçirin.</p>
-                        <div class="status-badge" style="background: rgba(55, 183, 255, 0.1); border-color: rgba(55, 183, 255, 0.25); color: #37B7FF;" data-i18n="coming_soon">
-                            <span class="dot" style="background-color: #37B7FF; box-shadow: 0 0 10px #37B7FF;"></span>
-                            Yakında Google Play'de!
+                        <p class="app-desc">Hanoi Kulesi bulmacasını modern grafikler, antik temalı atmosfer ve zorlayıcı modlar ile yeniden keşfedin! Seviyeleri geçerek tapınaktaki derecenizi yükseltin.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="hanoikulesi/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.mathquest.hanokulesi" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- Resonant Card -->
-                <a href="resonant/index.html" class="project-card project-card-link" data-category="focus" data-status="live">
-                    <div class="app-icon-wrap" style="background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3); overflow: hidden; padding: 0;">
-                        <img class="app-icon-image" src="resonant/assets/app-icon.jpg" alt="Resonant uygulama ikonu">
+                <!-- 8. Kakuro: Logic Numbers -->
+                <div class="project-card" data-category="puzzle math" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="kakuro/assets/app-icon.jpg" alt="Kakuro: Logic Numbers" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Sayı Bulmacası</span>
+                            <h3>Kakuro: Logic Numbers</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_focus">Odak &amp; Araçlar</span>
-                        <h3 data-i18n="game_title_resonant">Resonant</h3>
-                        <p class="app-desc" data-i18n="game_desc_resonant">Nefes egzersizleri ve ses dalgalarıyla odaklanmayı destekleyen görsel ve işitsel rahatlama deneyimi.</p>
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;" data-i18n="status_available_both">
-                            <span class="dot" style="background-color: #22C55E; box-shadow: 0 0 10px #22C55E;"></span>
-                            Google Play & App Store'da Yayında!
+                        <p class="app-desc">Japon sayı bulmacası Kakuro; çapraz toplam mantığı, analitik düşünme ve farklı zorluk seviyeleriyle zihninizi keskinleştirin.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="kakuro/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.kakuro" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- ScreenRecall Card -->
-                <a href="screenrecall/index.html" class="project-card project-card-link" data-category="focus" data-status="live">
-                    <div class="app-icon-wrap" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 10px 25px rgba(56,189,248,.25)">
-                        <img class="app-icon-image" src="screenrecall/assets/app-icon.svg" alt="ScreenRecall: Ekran Görseli uygulama ikonu">
+                <!-- 9. KenKen Logic: Zeka Bulmaca -->
+                <div class="project-card" data-category="puzzle math" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="kenken/assets/app-icon.png" alt="KenKen Logic: Zeka Bulmaca" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Matematik & Mantık</span>
+                            <h3>KenKen Logic: Zeka Bulmaca</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_screenrecall">Üretkenlik · Gizlilik · Organizasyon</span>
-                        <h3>ScreenRecall: Ekran Görseli</h3>
-                        <p class="app-desc" data-i18n="game_desc_screenrecall">Ekran görüntülerini cihaz üzerinde analiz eden, aranabilir hale getiren ve güvenle düzenlemeye yardımcı olan özel arşiv uygulaması.</p>
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
-                            Google Play'de Yayında!
+                        <p class="app-desc">KenKen aritmetik bulmacasını 3x3'ten 9x9'a kadar dinamik zorluk seçenekleri, detaylı çözüm rehberleri ve analitik mantık alıştırmalarıyla çözün!</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="kenken/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.kenkenedu.kenken_edu" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- VouchKeep Card -->
-                <a href="vouchkeep/index.html" class="project-card project-card-link" data-category="focus" data-status="live">
-                    <div class="app-icon-wrap" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 10px 25px rgba(255,184,105,.22)">
-                        <img class="app-icon-image" src="vouchkeep/assets/app-icon.svg" alt="VouchKeep: Fiş ve Garanti uygulama ikonu">
+                <!-- 10. Lights Out: Night Atlas -->
+                <div class="project-card" data-category="puzzle math" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="lights-out/assets/app-icon.svg" alt="Lights Out: Night Atlas" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Matematik Bulmacası</span>
+                            <h3>Lights Out: Night Atlas</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_vouchkeep">Üretkenlik · Gizlilik · Satın alma</span>
-                        <h3>VouchKeep: Fiş ve Garanti</h3>
-                        <p class="app-desc" data-i18n="game_desc_vouchkeep">Satın alma kayıtlarını, kanıtları, kullanıcı kaynaklı tarihleri ve sorun geçmişini cihazdaki yerel kasada düzenleyen çevrimdışı asistan.</p>
-                        <div class="status-badge" style="background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); color: #4ADE80;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" /></svg>
-                            Google Play'de Yayında!
+                        <p class="app-desc">Bütün ışıkları söndürme mantığına dayanan klasik modüler aritmetik bulmacası; taktiksel hamle zincirleri ve gece atlası atmosferi.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="lights-out/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.lightsout" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- Math Crosswords Card -->
-                <a href="math-crosswords/index.html" class="project-card project-card-link" data-category="puzzle math" data-status="coming">
-                    <div class="app-icon-wrap" style="padding:0;overflow:hidden;background:#173c36;box-shadow:0 10px 25px rgba(23,60,54,.25)">
-                        <img class="app-icon-image" src="math-crosswords/assets/app-icon-512.png" alt="Math Crosswords: Number Atlas uygulama ikonu">
+                <!-- 11. Mangala Oyunu -->
+                <div class="project-card" data-category="puzzle" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="mangala/assets/app-icon.svg" alt="Mangala Oyunu" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Geleneksel Strateji</span>
+                            <h3>Mangala Oyunu</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle_math">Matematik ve mantık bulmacası</span>
-                        <h3 data-i18n="product_math_crosswords">Math Crosswords: Number Atlas</h3>
-                        <p class="app-desc" data-i18n="math_crosswords_description">240 el yapımı bölüm, 6 resimli bölge, kesişen denklemler ve dört işlem. Günlük üçleme, serbest mod ve internetsiz oyun.</p>
-                        <div class="status-badge" style="background: rgba(197, 160, 89, 0.1); border-color: rgba(197, 160, 89, 0.25); color: #C5A059;">
-                            <span class="dot" style="background-color: #C5A059; box-shadow: 0 0 10px #C5A059;"></span>
-                            <span data-i18n="math_crosswords_status">Android için hazırlanıyor</span>
+                        <p class="app-desc">Geleneksel Türk zeka ve strateji oyunu. Taşları doğru kuyulara dağıtarak en çok taşı topla, taktiksel derinliği keşfet.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="mangala/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.mangala.oyunu" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- One Line Math Game Card -->
-                <a href="one-line-math-game/index.html" class="project-card project-card-link" data-category="puzzle math" data-status="coming">
-                    <div class="app-icon-wrap" style="padding:0;overflow:hidden;background:#F1EDFC;box-shadow:0 10px 25px rgba(66,106,112,.22)">
-                        <img class="app-icon-image" src="one-line-math-game/assets/app-icon-512.png" alt="One Line Math Game uygulama ikonu">
+                <!-- 12. Math Crosswords: Number Atlas -->
+                <div class="project-card" data-category="math puzzle" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="math-crosswords/assets/app-icon-512.png" alt="Math Crosswords: Number Atlas" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Kesişen Denklemler</span>
+                            <h3>Math Crosswords: Number Atlas</h3>
+                        </div>
                     </div>
                     <div class="app-details">
-                        <span class="app-category" data-i18n="category_puzzle_math">Matematik ve mantık bulmacası</span>
-                        <h3 data-i18n="product_one_line_math">One Line Math Game</h3>
-                        <p class="app-desc" data-i18n="one_line_math_description">12 resimli bölgede 1.200 tek çizgi bulmacası. Euler yolları, çizge teorisi, günlük üçlemeler ve internetsiz mantık oyunu.</p>
-                        <div class="status-badge" style="background: rgba(197, 160, 89, 0.1); border-color: rgba(197, 160, 89, 0.25); color: #C5A059;">
-                            <span class="dot" style="background-color: #C5A059; box-shadow: 0 0 10px #C5A059;"></span>
-                            <span data-i18n="one_line_math_status">Android için hazırlanıyor</span>
+                        <p class="app-desc">Kesişen matematiksel denklemler ve sayı bulmacaları; işlem önceliği ve mantıksal çıkarım ile zihin egzersizi.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
                         </div>
-                        <span class="btn-inspect" data-i18n="btn_inspect">Proje Sayfası <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
                     </div>
-                </a>
+                    <div class="card-actions">
+                        <a href="math-crosswords/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.mathcrosswords" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
 
-                <!-- Future educational games will be added here -->
+                <!-- 13. Math Meadow: Çocuk Matematiği -->
+                <div class="project-card" data-category="math education" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="math-meadow/assets/app-icon.svg" alt="Math Meadow: Çocuk Matematiği" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Eğitici Çocuk Matematiği</span>
+                            <h3>Math Meadow: Çocuk Matematiği</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Müfredatla uyumlu, reklamsız ve %100 gizlilik odaklı erken yaş matematik öğrenme bahçesi. Çevrimdışı, güvenli ve pedagojik.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="math-meadow/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=codexa.math_meadow" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 14. Nim Master -->
+                <div class="project-card" data-category="puzzle math" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="nimmaster/assets/app-icon.jpg" alt="Nim Master" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Oyun Teorisi & Strateji</span>
+                            <h3>Nim Master</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Nim oyununu Normal ve Misère modları, yapay zeka rakibi ve matematiksel teoriyi öğreten XOR Akademi analizörü ile premium arayüzde deneyimleyin!</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="nimmaster/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.exaque.nimmaster.nimMaster" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 15. One Line Math Game -->
+                <div class="project-card" data-category="puzzle math" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="one-line-math-game/assets/app-icon-512.png" alt="One Line Math Game" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Euler & Çizge</span>
+                            <h3>One Line Math Game</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">12 resimli bölgede 1.200 tek çizgi bulmacası. Euler yolları, çizge teorisi, günlük üçlemeler ve internetsiz mantık oyunu.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="one-line-math-game/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.izatlas" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 16. Peg Solitaire Math Game -->
+                <div class="project-card" data-category="puzzle math" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="peg-solitaire-maht-game/assets/app-icon-512.png" alt="Peg Solitaire Math Game" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Taş Atlatma Bulmacası</span>
+                            <h3>Peg Solitaire Math Game</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Tek Taş (Peg Solitaire) strateji bulmacası; hamle optimizasyonu, geometri ve zihinsel planlama meydan okuması.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="peg-solitaire-maht-game/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.tektas" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 17. Resonant: Odak & Nefes -->
+                <div class="project-card" data-category="utility education" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="resonant/assets/app-icon.jpg" alt="Resonant: Odak & Nefes" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Odak & Solunum</span>
+                            <h3>Resonant: Odak & Nefes</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Bilimsel nefes ritimleri, kalp hızı değişkenliği (HRV) rehberliği ve çalışma seansları için sakinleştirici odak alanı.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="resonant/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.resonant" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 18. ScreenRecall: Ekran Görseli & OCR -->
+                <div class="project-card" data-category="utility" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="screenrecall/assets/app-icon.svg" alt="ScreenRecall: Ekran Görseli & OCR" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Görsel Hafıza & OCR</span>
+                            <h3>ScreenRecall: Ekran Görseli & OCR</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Ekran görüntülerini yerel cihazda indeksleyen, çevrimdışı OCR ile metin aratan ve gizliliği koruyan görsel hafıza asistanı.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="screenrecall/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.screenrecall" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 19. Stacking Balance: Fizik & Denge -->
+                <div class="project-card" data-category="puzzle education" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="stackingbalance/assets/app-icon.png" alt="Stacking Balance: Fizik & Denge" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Fizik & Denge</span>
+                            <h3>Stacking Balance: Fizik & Denge</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Blokları devirmeden üst üste yerleştirme fizik bulmacası; ağırlık merkezi hesaplama ve uzamsal denge deneyimi.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="stackingbalance/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.stackingbalance" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 20. Visual Timer: Görsel Zamanlayıcı -->
+                <div class="project-card" data-category="utility education" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="visual-timer/assets/app-icon.jpg" alt="Visual Timer: Görsel Zamanlayıcı" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Zaman Yönetimi</span>
+                            <h3>Visual Timer: Görsel Zamanlayıcı</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Zaman algısını somutlaştıran renkli görsel disk sayacı; ders çalışma, sınav hazırlığı ve zaman yönetimi için ideal odak aracı.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="visual-timer/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.visual_timer" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
+
+                <!-- 21. VouchKeep: Fiş ve Garanti -->
+                <div class="project-card" data-category="utility" data-status="live">
+                    <div class="app-card-header">
+                        <div class="app-icon-wrap">
+                            <img class="app-icon-image" src="vouchkeep/assets/app-icon.svg" alt="VouchKeep: Fiş ve Garanti" loading="lazy">
+                        </div>
+                        <div class="app-card-title-wrap">
+                            <span class="app-category">Güvenli Arşiv</span>
+                            <h3>VouchKeep: Fiş ve Garanti</h3>
+                        </div>
+                    </div>
+                    <div class="app-details">
+                        <p class="app-desc">Fiş, fatura ve garanti belgelerini tamamen cihazınızda yerel ve şifreli saklayan akıllı dijital arşiv yöneticisi.</p>
+                        <div class="status-badge live-badge">
+                            <span class="dot"></span>
+                            Google Play'de Yayında
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="vouchkeep/index.html" class="btn-inspect">Proje Sayfası <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.codexa.vouchkeep" target="_blank" rel="noopener noreferrer" class="btn-store">Google Play <span>↗</span></a>
+                    </div>
+                </div>
             </div>
+
             <p class="no-results" id="noResults" data-i18n="no_results">Eşleşen uygulama bulunamadı.</p>
         </section>
 
@@ -1219,7 +1251,7 @@
         <section class="deletion-section" id="hesap-silme">
             <div class="deletion-header">
                 <h2 data-i18n="del_title">Hesap ve Veri Silme</h2>
-                <p data-i18n="del_intro">CodExa (Erdinç TOPAL) tarafından yayınlanan veya geliştirilen uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.</p>
+                <p data-i18n="del_intro">CodExa (Erdinç TOPAL) tarafından yayınlanan veya geliştirilen uygulamalarda (2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.</p>
             </div>
             <div class="deletion-grid">
                 <div class="deletion-item">
@@ -1243,14 +1275,10 @@
             </div>
         </section>
 
-        <p style="text-align:center"><a href="nexus-oathbound-realms/delete-account.html" data-i18n="nexus_deletion">Nexus: Oathbound Realms — Hesap ve Veri Silme</a></p>
-
         <p style="text-align:center"><a href="grid-heist-vault-breaker/delete-account.html" data-i18n="ghvb_deletion">Grid Heist Vault Breaker — Hesap ve Veri Silme</a></p>
-
         <p style="text-align:center"><a href="math-meadow/delete-account.html" data-i18n="math_meadow_deletion">Math Meadow — Hesap ve Veri Silme</a></p>
-
         <p style="text-align:center"><a href="lights-out/delete-account.html" data-i18n="lights_out_deletion">Lights Out: Night Atlas — Veri ve İlerleme Sıfırlama</a></p>
-        <p style="text-align:center"><a href="peg-solitaire-maht-game/delete-account.html" data-i18n="tek_tas_deletion">Tek Taş — Veri Silme</a></p>
+        <p style="text-align:center"><a href="peg-solitaire-maht-game/delete-account.html" data-i18n="tek_tas_deletion">Peg Solitaire Math Game — Veri Silme</a></p>
         <p style="text-align:center"><a href="math-crosswords/delete-account.html" data-i18n="math_crosswords_deletion">Math Crosswords: Number Atlas — Hesap ve Veri Silme</a></p>
         <p style="text-align:center"><a href="one-line-math-game/delete-account.html" data-i18n="one_line_math_deletion">One Line Math Game — Hesap ve Veri Silme</a></p>
 
@@ -1302,24 +1330,27 @@
                 <div class="form-group">
                     <label for="del_app" data-i18n="del_label_app">Uygulama / App</label>
                     <select id="del_app" class="form-control" required>
-                        <option value="Hanoi Kulesi">Hanoi Kulesi</option>
-                        <option value="At Satrancı">At Satrancı</option>
-                        <option value="KenKen">KenKen</option>
-                        <option value="Nim Master">Nim Master</option>
-                        <option value="Çarpma Oyunu">Çarpma Oyunu</option>
-                        <option value="Math Meadow">Math Meadow</option>
-                        <option value="2048: Ultimate Edition">2048: Ultimate Edition</option>
-                        <option value="Kakuro">Kakuro</option>
-                        <option value="Visual Timer: ADHD & Focus">Visual Timer: ADHD & Focus</option>
-                        <option value="Classtings">Classtings</option>
-                        <option value="Pixel Garden">Pixel Garden</option>
-                        <option value="Magnetic Maze">Magnetic Maze</option>
-                        <option value="Nexus: Oathbound Realms">Nexus: Oathbound Realms</option>
-                        <option value="Grid Heist Vault Breaker">Grid Heist Vault Breaker</option>
+                        <option value="2048 - Sayı Bulmaca">2048 - Sayı Bulmaca</option>
+                        <option value="At Satrancı: Zeka Oyunu">At Satrancı: Zeka Oyunu</option>
+                        <option value="At Satrancı: Klasik (Knight Tour)">At Satrancı: Klasik (Knight Tour)</option>
+                        <option value="Çarpım Tablosu">Çarpım Tablosu</option>
+                        <option value="Classtings: Sınıf Planlayıcı">Classtings: Sınıf Planlayıcı</option>
+                        <option value="Grid Heist: Vault Breaker">Grid Heist: Vault Breaker</option>
+                        <option value="Hanoi Tower: Temple Puzzle">Hanoi Tower: Temple Puzzle</option>
+                        <option value="Kakuro: Logic Numbers">Kakuro: Logic Numbers</option>
+                        <option value="KenKen Logic: Zeka Bulmaca">KenKen Logic: Zeka Bulmaca</option>
                         <option value="Lights Out: Night Atlas">Lights Out: Night Atlas</option>
-                        <option value="Peg Solitaire Maht Game">Peg Solitaire Maht Game</option>
+                        <option value="Mangala Oyunu">Mangala Oyunu</option>
                         <option value="Math Crosswords: Number Atlas">Math Crosswords: Number Atlas</option>
+                        <option value="Math Meadow: Çocuk Matematiği">Math Meadow: Çocuk Matematiği</option>
+                        <option value="Nim Master">Nim Master</option>
                         <option value="One Line Math Game">One Line Math Game</option>
+                        <option value="Peg Solitaire Math Game">Peg Solitaire Math Game</option>
+                        <option value="Resonant: Odak & Nefes">Resonant: Odak & Nefes</option>
+                        <option value="ScreenRecall: Ekran Görseli & OCR">ScreenRecall: Ekran Görseli & OCR</option>
+                        <option value="Stacking Balance: Fizik & Denge">Stacking Balance: Fizik & Denge</option>
+                        <option value="Visual Timer: Görsel Zamanlayıcı">Visual Timer: Görsel Zamanlayıcı</option>
+                        <option value="VouchKeep: Fiş ve Garanti">VouchKeep: Fiş ve Garanti</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -1750,21 +1781,21 @@
                 "ru": "Удаление аккаунта и данных"
             },
             "del_intro": {
-                "tr": "CodExa (Erdinç TOPAL) tarafından yayınlanan veya geliştirilen uygulamalarda (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.",
-                "en": "For the apps published or developed by CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — you can delete your account and data at any time.",
-                "de": "Für die von CodExa (Erdinç TOPAL) veröffentlichten oder entwickelten Apps (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker) können Sie Ihr Konto und Ihre Daten jederzeit löschen.",
+                "tr": "CodExa (Erdinç TOPAL) tarafından yayınlanan veya geliştirilen uygulamalarda (2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep) hesabınızı ve verilerinizi dilediğiniz zaman silebilirsiniz.",
+                "en": "For the apps published or developed by CodExa (Erdinç TOPAL) — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — you can delete your account and data at any time.",
+                "de": "Für die von CodExa (Erdinç TOPAL) veröffentlichten oder entwickelten Apps (2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep) können Sie Ihr Konto und Ihre Daten jederzeit löschen.",
                 "zh": "对于 CodExa (Erdinç TOPAL) 发布或开发的应用（Hanoi Kulesi、At Satrancı、KenKen、Nim Master、Çarpma Oyunu、2048、Kakuro、Visual Timer、Classtings、Pixel Garden、Magnetic Maze、Nexus: Oathbound Realms、Grid Heist Vault Breaker），您可以随时删除您的帐户和数据。",
-                "hi": "CodExa (Erdinç TOPAL) द्वारा प्रकाशित या विकसित ऐप्स (Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker) के लिए आप किसी भी समय अपना खाता और डेटा हटा सकते हैं।",
-                "es": "Para las aplicaciones publicadas o desarrolladas por CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — puede eliminar su cuenta y sus datos en cualquier momento.",
-                "fr": "Pour les applications publiées ou développées par CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — vous pouvez supprimer votre compte et vos données à tout moment.",
+                "hi": "CodExa (Erdinç TOPAL) द्वारा प्रकाशित या विकसित ऐप्स (2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep) के लिए आप किसी भी समय अपना खाता और डेटा हटा सकते हैं।",
+                "es": "Para las aplicaciones publicadas o desarrolladas por CodExa (Erdinç TOPAL) — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — puede eliminar su cuenta y sus datos en cualquier momento.",
+                "fr": "Pour les applications publiées ou développées par CodExa (Erdinç TOPAL) — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — vous pouvez supprimer votre compte et vos données à tout moment.",
                 "ar": "بالنسبة للتطبيقات التي تنشرها أو تطورها CodExa (Erdinç TOPAL) — Hanoi Kulesi، At Satrancı، KenKen، Nim Master، Çarpma Oyunu، 2048، Kakuro، Visual Timer، Classtings، Pixel Garden، Magnetic Maze، Nexus: Oathbound Realms، Grid Heist Vault Breaker — يمكنك حذف حسابك وبياناتك في أي وقت.",
-                "pt": "Para os aplicativos publicados ou desenvolvidos pela CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — você pode excluir sua conta e seus dados a qualquer momento.",
-                "ru": "Для приложений, опубликованных или разрабатываемых CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — вы можете удалить свою учетную запись и данные в любое время.",
-                "id": "Untuk aplikasi yang diterbitkan atau dikembangkan oleh CodExa (Erdinç TOPAL) — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — Anda dapat menghapus akun dan data Anda kapan saja.",
-                "bn": "CodExa (Erdinç TOPAL) দ্বারা প্রকাশিত বা তৈরি অ্যাপগুলির জন্য — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — আপনি যে কোনো সময় আপনার অ্যাকাউন্ট এবং ডেটা মুছে ফেলতে পারেন।",
-                "ur": "CodExa (Erdinç TOPAL) کی شائع کردہ یا تیار کردہ ایپس کے لیے — Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker — آپ کسی بھی وقت اپنا اکاؤنٹ اور ڈیٹا حذف کر سکتے ہیں۔",
+                "pt": "Para os aplicativos publicados ou desenvolvidos pela CodExa (Erdinç TOPAL) — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — você pode excluir sua conta e seus dados a qualquer momento.",
+                "ru": "Для приложений, опубликованных или разрабатываемых CodExa (Erdinç TOPAL) — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — вы можете удалить свою учетную запись и данные в любое время.",
+                "id": "Untuk aplikasi yang diterbitkan atau dikembangkan oleh CodExa (Erdinç TOPAL) — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — Anda dapat menghapus akun dan data Anda kapan saja.",
+                "bn": "CodExa (Erdinç TOPAL) দ্বারা প্রকাশিত বা তৈরি অ্যাপগুলির জন্য — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — আপনি যে কোনো সময় আপনার অ্যাকাউন্ট এবং ডেটা মুছে ফেলতে পারেন।",
+                "ur": "CodExa (Erdinç TOPAL) کی شائع کردہ یا تیار کردہ ایپس کے لیے — 2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep — آپ کسی بھی وقت اپنا اکاؤنٹ اور ڈیٹا حذف کر سکتے ہیں۔",
                 "ja": "CodExa（Erdinç TOPAL）が公開または開発したアプリ（Hanoi Kulesi、At Satrancı、KenKen、Nim Master、Çarpma Oyunu、2048、Kakuro、Visual Timer、Classtings、Pixel Garden、Magnetic Maze、Nexus: Oathbound Realms、Grid Heist Vault Breaker）では、いつでもアカウントとデータを削除できます。",
-                "ko": "CodExa (Erdinç TOPAL)에서 출시하거나 개발 중인 앱(Hanoi Kulesi, At Satrancı, KenKen, Nim Master, Çarpma Oyunu, 2048, Kakuro, Visual Timer, Classtings, Pixel Garden, Magnetic Maze, Nexus: Oathbound Realms, Grid Heist Vault Breaker)의 경우 언제든지 계정과 데이터를 삭제할 수 있습니다."
+                "ko": "CodExa (Erdinç TOPAL)에서 출시하거나 개발 중인 앱(2048, At Satrancı, Çarpım Tablosu, Classtings, Grid Heist, Hanoi Tower, Kakuro, KenKen, Lights Out, Mangala, Math Crosswords, Math Meadow, Nim Master, One Line Math Game, Peg Solitaire, Resonant, ScreenRecall, Stacking Balance, Visual Timer, VouchKeep)의 경우 언제든지 계정과 데이터를 삭제할 수 있습니다."
             },
             "del_h_account": {
                 "tr": "Hesabınızı Silme",
@@ -2379,7 +2410,7 @@
                 "tr":"Ekran görüntülerini cihaz üzerinde analiz eden, aranabilir hale getiren ve güvenle düzenlemeye yardımcı olan özel arşiv uygulaması.","en":"A private archive that analyzes screenshots on device, makes them searchable, and helps you organize them safely.","de":"Ein privates Archiv, das Screenshots auf dem Gerät analysiert, durchsuchbar macht und sicher organisiert.","zh":"一款在设备上分析截图、支持搜索并帮助安全整理的私密归档应用。","hi":"एक निजी संग्रह जो डिवाइस पर स्क्रीनशॉट का विश्लेषण, खोज और सुरक्षित संगठन करता है।","es":"Un archivo privado que analiza capturas en el dispositivo, permite buscarlas y organizarlas con seguridad.","fr":"Une archive privée qui analyse les captures sur l’appareil, les rend recherchables et aide à les organiser en toute sécurité.","ar":"أرشيف خاص يحلل لقطات الشاشة على الجهاز ويجعلها قابلة للبحث ويساعدك على تنظيمها بأمان.","pt":"Um arquivo privado que analisa capturas no dispositivo, permite pesquisá-las e organizá-las com segurança.","ru":"Приватный архив, который анализирует скриншоты на устройстве, делает их доступными для поиска и помогает безопасно организовать."
             },
             "status_screenrecall": {
-                "tr":"Geliştiriliyor","en":"In development","de":"In Entwicklung","zh":"开发中","hi":"विकास में","es":"En desarrollo","fr":"En développement","ar":"قيد التطوير","pt":"Em desenvolvimento","ru":"В разработке"
+                "tr":"Google Play'de Yayında","en":"Published on Google Play","de":"Bei Google Play verfügbar","zh":"已在 Google Play 上架","hi":"Google Play पर उपलब्ध","es":"Disponible en Google Play","fr":"Disponible sur Google Play","ar":"متوفر على Google Play","pt":"Disponível no Google Play","ru":"Доступно в Google Play"
             },
             "category_vouchkeep": {
                 "tr":"Üretkenlik · Gizlilik · Satın alma","en":"Productivity · Privacy · Purchases"
@@ -2388,7 +2419,7 @@
                 "tr":"Satın alma kayıtlarını, kanıtları, kullanıcı kaynaklı tarihleri ve sorun geçmişini cihazdaki yerel kasada düzenleyen çevrimdışı asistan.","en":"An offline assistant that organizes purchase records, proof, user-sourced dates, and issue history in a local on-device vault."
             },
             "status_vouchkeep": {
-                "tr":"Geliştiriliyor","en":"In development"
+                "tr":"Google Play'de Yayında","en":"Published on Google Play","de":"Bei Google Play verfügbar","zh":"已在 Google Play 上架","hi":"Google Play पर उपलब्ध","es":"Disponible en Google Play","fr":"Disponible sur Google Play","ar":"متوفر على Google Play","pt":"Disponível no Google Play","ru":"Доступно в Google Play"
             },
             "game_desc_magnetic_maze": {
                 "tr": "Çekim ve itme alanları çizerek metal çekirdeği hareketli bir fizik labirentinden geçirin.",
@@ -2565,11 +2596,11 @@
         window.PAGE_TRANSLATIONS.lights_out_title = {"tr":"Lights Out: Night Atlas","en":"Lights Out: Night Atlas","de":"Lights Out: Night Atlas","zh":"Lights Out: 暗夜星图","hi":"लाइट्स आउट: नाइट एटलस","es":"Lights Out: Night Atlas","fr":"Lights Out: Night Atlas","ar":"Lights Out: أطلس الليل","pt":"Lights Out: Night Atlas","ru":"Lights Out: Ночной атлас","id":"Lights Out: Night Atlas","bn":"লাইটস আউট: নাইট অ্যাটলাস","ur":"Lights Out: نائٹ اٹلس","ja":"Lights Out: ナイトアトラス","ko":"Lights Out: 나이트 아틀라스"};
         window.PAGE_TRANSLATIONS.lights_out_category = {"tr":"Matematik ve mantık bulmacası","en":"Math & logic puzzle","de":"Mathe- und Logikrätsel","zh":"数学与逻辑谜题","hi":"गणित और तर्क पहेली","es":"Rompecabezas de lógica y matemáticas","fr":"Casse-tête de logique et de maths","ar":"لغز رياضيات ومنطق","pt":"Quebra-cabeça de matemática e lógica","ru":"Математическая логическая головоломка","id":"Teka-teki matematika & logika","bn":"গণিত ও যুক্তির ধাঁধা","ur":"ریاضی اور منطق کی پہیلی","ja":"数学・ロジックパズル","ko":"수학 및 논리 퍼즐"};
         window.PAGE_TRANSLATIONS.lights_out_description = {"tr":"8 takımyıldız adasında 240 bölüm. Modulo-2 minimum hamle çözücüsü, günlük meydan okumalar ve çevrimdışı oyun.","en":"240 puzzles across eight constellation islands, with a modulo-2 minimum-move solver, daily challenges and offline play.","de":"240 Rätsel auf acht Sternbildinseln mit Modulo-2-Minimalzug-Löser, täglichen Herausforderungen und Offline-Spiel.","zh":"穿越八座星群岛屿挑战240道谜题，体验模2最少步数求解、每日挑战与离线游玩。","hi":"आठ नक्षत्र द्वीपों में 240 पहेलियाँ, मॉड्यूलो-2 न्यूनतम चाल सॉल्वर, दैनिक चुनौतियाँ और ऑफ़लाइन खेल।","es":"240 rompecabezas en ocho islas de constelaciones, con solucionador de movimientos mínimos módulo 2, retos diarios y juego sin conexión.","fr":"240 casse-têtes sur huit îles de constellations, avec solveur modulo 2 en coups minimum, défis quotidiens et jeu hors ligne.","ar":"240 لغزًا عبر ثماني جزر كوكبية، مع محلل لأقل الحركات بترديد 2 وتحديات يومية ولعب دون اتصال.","pt":"240 quebra-cabeças em oito ilhas de constelações, com solucionador módulo 2 de movimentos mínimos, desafios diários e jogo offline.","ru":"240 головоломок на восьми островах созвездий, решатель минимального числа ходов по модулю 2, ежедневные испытания и офлайн-игра.","id":"240 teka-teki di delapan pulau rasi bintang, dengan pemecah langkah minimum modulo-2, tantangan harian, dan permainan offline.","bn":"আটটি নক্ষত্রমণ্ডল দ্বীপে ২৪০টি ধাঁধা, মডুলো-২ ন্যূনতম চালের সমাধানকারী, দৈনিক চ্যালেঞ্জ ও অফলাইন খেলা।","ur":"آٹھ جھرمٹ جزیروں میں 240 پہیلیاں، modulo-2 کم از کم چال حل کرنے والا، روزانہ چیلنجز اور آف لائن کھیل۔","ja":"8つの星座の島に広がる240のパズル。modulo-2最少手数ソルバー、デイリーチャレンジ、オフラインプレイに対応。","ko":"여덟 별자리 섬의 240개 퍼즐, 모듈로-2 최소 이동 풀이, 일일 도전과 오프라인 플레이를 제공합니다."};
-        window.PAGE_TRANSLATIONS.lights_out_status = {"tr":"Android için hazırlanıyor","en":"Preparing for Android","de":"Für Android in Vorbereitung","zh":"正在准备 Android 版本","hi":"Android के लिए तैयारी जारी","es":"En preparación para Android","fr":"En préparation pour Android","ar":"قيد الإعداد لنظام Android","pt":"Em preparação para Android","ru":"Готовится для Android","id":"Sedang disiapkan untuk Android","bn":"Android-এর জন্য প্রস্তুত করা হচ্ছে","ur":"Android کے لیے تیاری جاری ہے","ja":"Android版を準備中","ko":"Android용 준비 중"};
+        window.PAGE_TRANSLATIONS.lights_out_status = {"tr":"Google Play'de Yayında","en":"Published on Google Play","de":"Bei Google Play verfügbar","zh":"已在 Google Play 上架","hi":"Google Play पर उपलब्ध","es":"Disponible en Google Play","fr":"Disponible sur Google Play","ar":"متوفر على Google Play","pt":"Disponível no Google Play","ru":"Доступно в Google Play","id":"Tersedia di Google Play","bn":"Google Play-এ উপলব্ধ","ur":"Google Play پر دستیاب","ja":"Google Playで公開中","ko":"Google Play 출시"};
         window.PAGE_TRANSLATIONS.lights_out_deletion = {"tr":"Lights Out: Night Atlas — Veri ve İlerleme Sıfırlama","en":"Lights Out: Night Atlas — Data & Progress Reset","de":"Lights Out: Night Atlas — Daten und Fortschritt zurücksetzen","zh":"Lights Out: Night Atlas — 数据与进度重置","hi":"Lights Out: Night Atlas — डेटा और प्रगति रीसेट","es":"Lights Out: Night Atlas — Restablecer datos y progreso","fr":"Lights Out: Night Atlas — Réinitialiser les données et la progression","ar":"Lights Out: Night Atlas — إعادة ضبط البيانات والتقدم","pt":"Lights Out: Night Atlas — Redefinir dados e progresso","ru":"Lights Out: Night Atlas — Сброс данных и прогресса","id":"Lights Out: Night Atlas — Atur Ulang Data & Progres","bn":"Lights Out: Night Atlas — ডেটা ও অগ্রগতি রিসেট","ur":"Lights Out: Night Atlas — ڈیٹا اور پیش رفت ری سیٹ","ja":"Lights Out: Night Atlas — データと進行状況をリセット","ko":"Lights Out: Night Atlas — 데이터 및 진행 상황 초기화"};
     </script>
-    <script src="site-translations.js?v=20260924-1"></script>
-    <script src="i18n.js?v=20260826"></script>
-<script src="brand-shell.js?v=20260826"></script>
+    <script src="site-translations.js?v=20261005-1"></script>
+    <script src="i18n.js?v=20261005-1"></script>
+    <script src="brand-shell.js?v=20261005-1"></script>
 </body>
 </html>

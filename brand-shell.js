@@ -15,33 +15,32 @@
   const products = [
     ['2','2048 - Sayı Bulmaca Oyunu','Sayı & strateji','2048/index.html','live'],
     ['A','At Satrancı: Zeka Oyunu','Strateji & uzamsal düşünme','atsatranci/index.html','live'],
+    ['K','At Satrancı: Klasik (Knight Tour)','Klasik strateji oyunu','atsatranci/index.html','live'],
+    ['Ç','Çarpım Tablosu','Matematik pratiği','carpma-oyunu/index.html','live'],
+    ['C','Classtings: Sınıf Planlayıcı','Eğitim yönetimi','classtings/index.html','live'],
     ['G','Grid Heist: Vault Breaker','Taktik blok bulmacası','grid-heist-vault-breaker/index.html','live'],
     ['H','Hanoi Tower: Temple Puzzle','Mantık & problem çözme','hanoikulesi/index.html','live'],
-    ['+','Kakuro','Sayı bulmacası','kakuro/index.html','live'],
+    ['+','Kakuro: Logic Numbers','Sayı bulmacası','kakuro/index.html','live'],
     ['K','KenKen Logic: Zeka Bulmaca','Matematik & mantık','kenken/index.html','live'],
-    ['K','Knight Tour: Chess Puzzle','Klasik strateji oyunu','atsatranci/index.html','live'],
+    ['L','Lights Out: Night Atlas','Matematik & mantık bulmacası','lights-out/index.html','live'],
     ['M','Mangala Oyunu','Geleneksel strateji','mangala/index.html','live'],
-    ['M','Math Meadow','Eğitici çocuk matematiği','math-meadow/index.html','live'],
+    ['M','Math Crosswords: Number Atlas','Kesişen denklemler & mantık','math-crosswords/index.html','live'],
+    ['M','Math Meadow: Çocuk Matematiği','Eğitici çocuk matematiği','math-meadow/index.html','live'],
     ['N','Nim Master','Stratejik düşünme','nimmaster/index.html','live'],
-    ['R','Resonant','Odak & nefes','resonant/index.html','live'],
-    ['S','ScreenRecall: Ekran Görseli','Gizlilik & organizasyon','screenrecall/index.html','live'],
+    ['O','One Line Math Game','Euler yolları & tek çizgi','one-line-math-game/index.html','live'],
+    ['P','Peg Solitaire Math Game','Taş atlatma mantık bulmacası','peg-solitaire-maht-game/index.html','live'],
+    ['R','Resonant: Odak & Nefes','Odak & nefes','resonant/index.html','live'],
+    ['S','ScreenRecall: Ekran Görseli','Cihaz içi OCR & arşiv','screenrecall/index.html','live'],
     ['S','Stacking Balance','Fizik & denge','stackingbalance/index.html','live'],
     ['V','Visual Timer: Odak','Odak & zaman yönetimi','visual-timer/index.html','live'],
-    ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live'],
-    ['Ç','Çarpım Tablosu','Matematik pratiği','carpma-oyunu/index.html','live'],
-    ['C','Classtings','Eğitim yönetimi','classtings/index.html','soon'],
-    ['L','Lights Out: Night Atlas','Matematik & mantık bulmacası','lights-out/index.html','soon'],
-    ['M','Magnetic Maze','Fizik bulmacası','magneticmaze/index.html','soon'],
-    ['M','Math Crosswords: Number Atlas','Matematik & mantık bulmacası','math-crosswords/index.html','soon'],
-    ['N','Nexus: Oathbound Realms','Fantastik kart stratejisi','nexus-oathbound-realms/index.html','soon'],
-    ['O','One Line Math Game','Matematik & mantık bulmacası','one-line-math-game/index.html','soon'],
-    ['P','Peg Solitaire Maht Game','Taş atlatma mantık bulmacası','peg-solitaire-maht-game/index.html','soon'],
-    ['P','Pixel Garden','Yaratıcı deneyim','pixel-garden/index.html','soon']
+    ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live']
   ];
   const root = location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const makeGroup = (label, status) => {
-    const items = products.filter(item => item[4] === status).map(item => `<a class="cx-product" href="${root}${item[3]}"><i>${item[0]}</i><span><strong>${item[1]}</strong></span><em>→</em></a>`).join('');
-    return `<div class="cx-group"><div class="cx-group-label"><span data-i18n="${status === 'live' ? 'cx_published' : 'cx_developing'}">${label}</span><b>${products.filter(item => item[4] === status).length}</b></div><div class="cx-product-list">${items}</div></div>`;
+    const list = products.filter(item => item[4] === status);
+    if (!list.length) return '';
+    const items = list.map(item => `<a class="cx-product" href="${root}${item[3]}"><i>${item[0]}</i><span><strong>${item[1]}</strong><small style="display:block;font-size:0.78rem;color:#78716c;font-weight:400">${item[2]}</small></span><em>→</em></a>`).join('');
+    return `<div class="cx-group"><div class="cx-group-label"><span data-i18n="${status === 'live' ? 'cx_published' : 'cx_developing'}">${label}</span><b>${list.length}</b></div><div class="cx-product-list">${items}</div></div>`;
   };
   const bar = document.createElement('nav');
   bar.className = 'cx-brandbar';
