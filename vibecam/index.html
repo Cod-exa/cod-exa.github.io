@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07070c">
+  <meta name="description" content="VibeCam: Cyber Synth Camera — Sıradan filtreleri unutun. Analog sentezleyici kadranları, 5 akademik matematik fizik modeli ve canlı Metal GPU gölgelendiricileri ile fotoğraflarınızı yeniden sentezleyin.">
+  <title>VibeCam: Cyber Synth Camera — CodExa</title>
+  <link rel="canonical" href="https://cod-exa.github.io/vibecam/index.html">
+  <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg">
+  <link rel="apple-touch-icon" href="assets/app-icon-192.png">
+  
+  <meta property="og:title" content="VibeCam: Cyber Synth Camera — CodExa">
+  <meta property="og:description" content="Matematik, fizik ve siber estetiğin buluşması: Gerçek zamanlı analog synthesizer kontrolleri ile fotoğraflarınızı sanat eserine dönüştürün.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cod-exa.github.io/vibecam/index.html">
+  <meta property="og:image" content="https://cod-exa.github.io/vibecam/assets/sample_feed.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../brand-system.css">
+  <link rel="stylesheet" href="site.css?v=20261008-1">
+</head>
+<body data-title-tr="VibeCam: Cyber Synth Camera" data-title-en="VibeCam: Cyber Synth Camera" data-desc-tr="Sıradan filtreleri unutun. Analog sentezleyici kadranları, 5 akademik matematik fizik modeli ve canlı Metal GPU gölgelendiricileri ile fotoğraflarınızı yeniden sentezleyin." data-desc-en="Forget standard filters. Synthesize reality in real-time with tactile synthesizer knobs, 5 academic mathematical physics models, and raw 60 FPS GPU shaders.">
+
+  <!-- Ambient Glow Orbs -->
+  <div class="bg-glow-orb orb-cyan"></div>
+  <div class="bg-glow-orb orb-pink"></div>
+
+  <!-- Header -->
+  <header class="vc-header">
+    <div class="shell vc-header-inner">
+      <a class="vc-brand" href="index.html">
+        <img src="assets/app-icon.svg" alt="VibeCam Logo" class="vc-brand-icon" width="38" height="38">
+        <span>VibeCam</span>
+        <span class="vc-badge-live">SYNTH ENGINE</span>
+      </a>
+      <div class="vc-header-right">
+        <div class="lang-switch" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="tr">TR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub Navigation -->
+  <div class="shell">
+    <nav class="vc-subnav" aria-label="VibeCam Menü">
+      <a href="index.html" aria-current="page">
+        <span data-language="tr">Sentezleyici</span><span data-language="en">Synthesizer</span>
+      </a>
+      <a href="privacy.html">
+        <span data-language="tr">Gizlilik</span><span data-language="en">Privacy</span>
+      </a>
+      <a href="terms.html">
+        <span data-language="tr">Kullanım Koşulları</span><span data-language="en">Terms</span>
+      </a>
+      <a href="support.html">
+        <span data-language="tr">Destek & SSS</span><span data-language="en">Support & FAQ</span>
+      </a>
+      <a href="delete-account.html">
+        <span data-language="tr">Veri Silme</span><span data-language="en">Data Deletion</span>
+      </a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- HERO SECTION -->
+    <section class="shell vc-hero">
+      <div class="vc-hero-copy">
+        <div class="vc-eyebrow">
+          <span>⚡ 60 FPS RAW METAL SHADER</span>
+          <span>•</span>
+          <span>5 AKADEMİK MODEL</span>
+        </div>
+        
+        <!-- Turkish Hero Title -->
+        <h1 data-language="tr">
+          Geleceğin Estetiği.<br>
+          <em>Fotoğraf Sentezleyici.</em>
+        </h1>
+        <!-- English Hero Title -->
+        <h1 data-language="en">
+          Aesthetic of the Future.<br>
+          <em>Visual Synthesizer.</em>
+        </h1>
+
+        <!-- Turkish Lead -->
+        <p class="lead" data-language="tr">
+          Sıradan, kopya filtreleri unutun. Müzik yapımcılarının synthesizer cihazlarından ilham alan analog döner kadranlar, 2D XY dokunmatik pad ve gerçek matematiksel fizik denklemleriyle fotoğraflarınızı anında yaşayan bir görsel sanat eserine dönüştürün.
+        </p>
+        <!-- English Lead -->
+        <p class="lead" data-language="en">
+          Forget generic photo filters. Inspired by tactile music synthesizer instruments, VibeCam gives you analog rotational knobs, a 2D XY touchpad, and validated mathematical physics models to warp light and pixels into unprecedented art.
+        </p>
+
+        <div class="vc-hero-actions">
+          <a class="btn btn-primary" href="#synth-demo">
+            <span data-language="tr">Canlı Sentezleyiciyi Dene ↓</span>
+            <span data-language="en">Try Live Synthesizer ↓</span>
+          </a>
+          <a class="btn btn-pro" href="#pricing">
+            <span data-language="tr">VibeCam PRO'yu İncele</span>
+            <span data-language="en">Explore VibeCam PRO</span>
+          </a>
+        </div>
+
+        <div class="vc-hero-meta">
+          <div><span data-language="tr">İşlem Gücü:</span><span data-language="en">Engine:</span> <span>Apple Metal / Vulkan</span></div>
+          <div><span data-language="tr">Gizlilik:</span><span data-language="en">Privacy:</span> <span>%100 Cihaz İçi (Zero Cloud)</span></div>
+          <div><span data-language="tr">Platform:</span><span data-language="en">Platform:</span> <span>iOS & Android</span></div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE SYNTHESIZER CONSOLE -->
+      <div class="synth-deck" id="synth-demo">
+        <div class="synth-topbar">
+          <div class="synth-title">CYBER SYNTH DECK v1.0</div>
+          <div class="synth-hud-badge">PRO SHADER ENGINE</div>
+        </div>
+
+        <!-- Live Viewfinder with CRT & Math Overlay -->
+        <div class="viewfinder-box">
+          <img id="synthImage" class="viewfinder-img" src="assets/sample_feed.jpg" alt="VibeCam Sentezleyici Canlı Önizleme">
+          <canvas id="synthCanvas" class="viewfinder-canvas"></canvas>
+          <div class="crt-scanlines"></div>
+
+          <div class="viewfinder-hud">
+            <div class="hud-top">
+              <span>● REC // 60 FPS</span>
+              <button type="button" id="holdAbBtn" class="hud-btn">HOLD A/B</button>
+            </div>
+            <div class="hud-bottom">
+              <span id="xyVal">(50, 50)</span>
+              <span>4K RENDER READY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene Selector Chips -->
+        <div class="scene-chips">
+          <button type="button" class="scene-chip active" data-src="assets/sample_feed.jpg">PORTRAIT</button>
+          <button type="button" class="scene-chip" data-src="assets/sample_city.jpg">NEO TOKYO</button>
+          <button type="button" class="scene-chip" data-src="assets/sample_cybercar.jpg">CYBER RACER</button>
+        </div>
+
+        <!-- Controls: Sliders & XY Pad -->
+        <div class="synth-controls">
+          <!-- Distortion Slider -->
+          <div class="synth-slider-group">
+            <div class="synth-slider-head">
+              <span class="synth-slider-label">DISTORTION MATRIX</span>
+              <span class="synth-slider-val" id="distVal">45%</span>
+            </div>
+            <input type="range" id="distSlider" class="synth-slider" min="0" max="1" step="0.01" value="0.45" aria-label="Bozulma Matrisi">
+          </div>
+
+          <!-- RGB Split Slider -->
+          <div class="synth-slider-group">
+            <div class="synth-slider-head">
+              <span class="synth-slider-label">RGB CHROMA SPLIT</span>
+              <span class="synth-slider-val" id="rgbVal">35%</span>
+            </div>
+            <input type="range" id="rgbSlider" class="synth-slider" min="0" max="1" step="0.01" value="0.35" aria-label="Kromatik Ayrışma">
+          </div>
+
+          <!-- 2D XY Touchpad Field -->
+          <div class="xy-pad-container">
+            <div class="xy-pad-head">
+              <span>2D XY TOUCH MODULATOR (F / K RATES)</span>
+              <span>DRAG TO WARP</span>
+            </div>
+            <div class="xy-pad-field" id="xyPad" role="region" aria-label="2D Dokunmatik Modülasyon Alanı">
+              <div class="xy-cursor" id="xyCursor"></div>
+            </div>
+          </div>
+
+          <!-- Live Shareable Formula Seed Bar -->
+          <div class="seed-bar">
+            <div>
+              <small style="color:var(--vc-text-subtle);display:block;font-size:0.68rem;font-family:var(--vc-font-mono);">FORMULA SEED RECIPE</small>
+              <span class="seed-code" id="seedCode">#CHL-450-350-500</span>
+            </div>
+            <button type="button" id="copySeedBtn" class="seed-copy-btn">COPY RECIPE</button>
+          </div>
+        </div>
+
+        <!-- Live Dynamic LaTeX Formula Box -->
+        <div style="margin-top:14px;background:#050509;border:1px solid rgba(255,255,255,0.06);border-radius:var(--vc-radius-sm);padding:10px 14px;">
+          <div style="font-family:var(--vc-font-mono);font-size:0.68rem;color:var(--vc-text-subtle);margin-bottom:4px;">LIVE MATHEMATICAL EQUATION</div>
+          <div id="liveFormula" style="font-family:var(--vc-font-mono);font-size:0.75rem;color:var(--vc-cyan);overflow-x:auto;white-space:nowrap;">
+            \Psi_{6,6}(x,y) = \cos(6\pi x)\cos(6\pi y) - \cos(6\pi x)\cos(6\pi y) = 0 \quad [Q=67.0]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: THE 5 ACADEMIC MATHEMATICAL PHYSICS MODELS -->
+    <section class="section" id="models">
+      <div class="shell">
+        <div class="section-head">
+          <div class="vc-eyebrow">
+            <span data-language="tr">Bilimsel ve Matematiksel Temel</span>
+            <span data-language="en">Scientific & Mathematical Foundation</span>
+          </div>
+          <h2 data-language="tr">Rastgele Efekt Değil.<br>Doğrulanmış Fizik Modelleri.</h2>
+          <h2 data-language="en">Not Random Filters.<br>Validated Physics Models.</h2>
+          <p data-language="tr">
+            VibeCam, görüntü piksellerini manipüle etmek için 18. yüzyıldan günümüze uzanan gerçek akustik rezonans, morfolojik difüzyon ve doğrusal olmayan optik diferansiyel denklemlerini kullanır.
+          </p>
+          <p data-language="en">
+            VibeCam evaluates genuine acoustic resonance, morphological diffusion, and nonlinear optical differential equations across your image's pixel field in real time.
+          </p>
+        </div>
+
+        <div class="models-grid">
+          <!-- 1. Chladni Cymatics -->
+          <article class="model-card" style="--card-accent:#00f5d4;--card-glow:rgba(0,245,212,0.3)">
+            <div class="model-card-top">
+              <span class="model-number">MODEL 01</span>
+              <span class="model-year">1787 / 1990</span>
+            </div>
+            <h3>CHLADNI CYMATICS</h3>
+            <div class="model-author">Ernst Chladni & Hans Jenny • Nature 344 (1990)</div>
+            <div class="model-latex">\Psi_{n,m}(x,y) = \cos(n\pi x)\cos(m\pi y) - \cos(m\pi x)\cos(n\pi y) = 0</div>
+            <p data-language="tr">
+              2 boyutlu plakalardaki akustik duran dalgalar, parçacıkların sıfır ivmeyle toplandığı geometrik düğüm çizgileri oluşturur. Kadranı çevirdikçe portrenizin hatları üzerinde holografik rezonans halkaları belirir.
+            </p>
+            <p data-language="en">
+              Acoustic standing waves on 2D vibrational plates produce zero-velocity nodal curves where particles aggregate. As you rotate the dial, harmonic luminescent rings contour around edges and highlights.
+            </p>
+            <div class="model-impact">
+              <strong data-language="tr">Optik Etki:</strong><strong data-language="en">Optical Impact:</strong>
+              <span data-language="tr">Portre konturlarında holografik akustik dalga kırılımları ve prizmatik düğüm hatları.</span>
+              <span data-language="en">Holographic acoustic standing wave interference and prismatic nodal boundaries.</span>
+            </div>
+          </article>
+
+          <!-- 2. Turing Lab -->
+          <article class="model-card" style="--card-accent:#39ff14;--card-glow:rgba(57,255,20,0.3)">
+            <div class="model-card-top">
+              <span class="model-number">MODEL 02</span>
+              <span class="model-year">1952 / 1991</span>
+            </div>
+            <h3>TURING LAB</h3>
+            <div class="model-author">Alan M. Turing & Greg Turk • ACM SIGGRAPH (1991)</div>
+            <div class="model-latex">\frac{\partial u}{\partial t} = D_u \nabla^2 u + u^2 v - (f+k)u</div>
+            <p data-language="tr">
+              Alan Turing'in kimyasal morfogenez teorisine dayanan Gray-Scott reaksiyon-difüzyon sistemi. Piksellerin parlaklığı besleme (F) ve yok etme (k) oranlarını modüle ederek yaşayan hücresel örgü desenleri üretir.
+            </p>
+            <p data-language="en">
+              The Gray-Scott reaction-diffusion system models chemical morphogenesis. Image luminance dynamically modulates feed (F) and kill (k) rates, generating self-organizing bio-cybernetic cell lattices.
+            </p>
+            <div class="model-impact">
+              <strong data-language="tr">Optik Etki:</strong><strong data-language="en">Optical Impact:</strong>
+              <span data-language="tr">Nesne kenarlarına organik biçimde kenetlenen siber leopar ve labirent dokuları.</span>
+              <span data-language="en">Self-organizing organic cellular spots, bio-cybernetic stripes, and labyrinthine topologies.</span>
+            </div>
+          </article>
+
+          <!-- 3. Lorenz Chaos -->
+          <article class="model-card" style="--card-accent:#ff007f;--card-glow:rgba(255,0,127,0.3)">
+            <div class="model-card-top">
+              <span class="model-number">MODEL 03</span>
+              <span class="model-year">1963</span>
+            </div>
+            <h3>LORENZ CHAOS</h3>
+            <div class="model-author">Edward N. Lorenz • Journal of Atmospheric Sciences</div>
+            <div class="model-latex">\dot{x}=\sigma(y-x), \quad \dot{y}=x(\rho-z)-y, \quad \dot{z}=xy-\beta z</div>
+            <p data-language="tr">
+              Kelebek etkisinin doğduğu 3 boyutlu deterministik kaotik çekici (Strange Attractor). Dokunmatik ekranda parmağınızı gezdirdiğiniz odak noktası etrafında parlayan lazer plazma filamentleri örülür.
+            </p>
+            <p data-language="en">
+              The iconic 3-dimensional deterministic chaotic system. Evaluates strange attractor differential manifolds in real-time around your touch focal points, weaving glowing laser plasma filaments.
+            </p>
+            <div class="model-impact">
+              <strong data-language="tr">Optik Etki:</strong><strong data-language="en">Optical Impact:</strong>
+              <span data-language="tr">Işık kaynakları boyunca uzanan ultra-ince lazer plazma yörüngeleri ve yerçekimsel kırılma.</span>
+              <span data-language="en">Ultra-fine laser plasma filament orbits and gravitational light distortion.</span>
+            </div>
+          </article>
+
+          <!-- 4. Kerr Soliton -->
+          <article class="model-card" style="--card-accent:#9d4edd;--card-glow:rgba(157,78,221,0.3)">
+            <div class="model-card-top">
+              <span class="model-number">MODEL 04</span>
+              <span class="model-year">1973</span>
+            </div>
+            <h3>KERR SOLITON</h3>
+            <div class="model-author">Akira Hasegawa & Govind Agrawal • Appl. Phys. Lett.</div>
+            <div class="model-latex">i\frac{\partial \psi}{\partial z} + \frac{1}{2}\nabla^2\psi + n_2|\psi|^2\psi = 0</div>
+            <p data-language="tr">
+              Doğrusal olmayan optik kendi kendine faz modülasyonu. Elektromanyetik alan yoğunluğuyla kırılma indisi değişir; ışık patlamaları kendi içine odaklanan dalga paketlerine ve lazer kırınım parlamalarına ayrışır.
+            </p>
+            <p data-language="en">
+              Nonlinear self-phase modulation balances chromatic dispersion. Highlights and reflective surfaces burst into self-focusing chromatic halos, optical soliton wave packets, and diffraction flares.
+            </p>
+            <div class="model-impact">
+              <strong data-language="tr">Optik Etki:</strong><strong data-language="en">Optical Impact:</strong>
+              <span data-language="tr">Güneşlenmiş prizmatik ters çevirme, lazer haç parlamaları ve eşmerkezli soliton haleleri.</span>
+              <span data-language="en">Solarized prismatic color inversion, cross diffraction spikes, and soliton photonic flares.</span>
+            </div>
+          </article>
+
+          <!-- 5. Blue Noise -->
+          <article class="model-card" style="--card-accent:#ffb703;--card-glow:rgba(255,183,3,0.3)">
+            <div class="model-card-top">
+              <span class="model-number">MODEL 05</span>
+              <span class="model-year">1988 / 2001</span>
+            </div>
+            <h3>BLUE NOISE</h3>
+            <div class="model-author">Victor Ostromoukhov & Robert Ulichney • ACM SIGGRAPH</div>
+            <div class="model-latex">e_{x,y} = I_{x,y} - B_{x,y}, \quad \sum W_{i,j} e_{i,j}</div>
+            <p data-language="tr">
+              İnsan retinasındaki fotoreseptör dağılımını taklit eden yüksek frekanslı izotropik Poisson disk dither algoritması. Görsel tonları kaba gren kümelenmesi olmadan saf Tokyo risograf mikro yarı tonlarına ayrıştırır.
+            </p>
+            <p data-language="en">
+              High-frequency spectral error diffusion eliminating low-frequency clumping. Recreates human retinal photoreceptor Poisson-disk distributions, turning tones into pristine Tokyo risograph halftones.
+            </p>
+            <div class="model-impact">
+              <strong data-language="tr">Optik Etki:</strong><strong data-language="en">Optical Impact:</strong>
+              <span data-language="tr">Siberpunk mikro-baskı dokusu, saf camgöbeği-kızıl frekans ayrışması ve sıfır çamurlanma.</span>
+              <span data-language="en">Cyberpunk micro-halftone print grain, pure cyan-crimson frequency split without visual clutter.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FORMULA SEEDS SYSTEM (VIRAL SHARING) -->
+    <section class="section" style="background:#090910;">
+      <div class="shell">
+        <div class="section-head">
+          <div class="vc-eyebrow">
+            <span data-language="tr">Viral Topluluk & Sosyal Keşif</span>
+            <span data-language="en">Viral Community & Social Sharing</span>
+          </div>
+          <h2 data-language="tr">Formül Tohumları.<br>Her Filtre Dünyada Tek.</h2>
+          <h2 data-language="en">Formula Seeds.<br>Every Recipe Is One-of-a-Kind.</h2>
+          <p data-language="tr">
+            Sentezlediğiniz her kare arkasında benzersiz bir tohum kodu (Örn: <code style="color:var(--vc-cyan);font-family:var(--vc-font-mono);">#CHL-450-400-550</code>) oluşturur. Bu kodu TikTok veya Instagram'da paylaşın, arkadaşlarınız aynı kodu girerek sizin estetik tonunuzu birebir kopyalasın.
+          </p>
+          <p data-language="en">
+            Every synthesized frame generates a mathematical recipe seed code. Share it on TikTok or Instagram: anyone can paste the code into VibeCam's Formula Decoder to instantly recreate your signature visual aesthetic.
+          </p>
+        </div>
+
+        <div class="viral-seeds-grid">
+          <div class="seed-card">
+            <div class="seed-card-head">
+              <span class="seed-tag">TIKTOK TREND #1</span>
+              <span style="color:var(--vc-cyan);font-size:0.75rem;font-family:var(--vc-font-mono);">1.4M VIEWS</span>
+            </div>
+            <div class="seed-code-large">#CHL-720-810-440</div>
+            <p data-language="tr">Neo Tokyo neon sokaklarında akustik düğüm halkaları ve mor-turuncu kromatik yarılma.</p>
+            <p data-language="en">Acoustic nodal rings and violet-orange chromatic splitting for Neo Tokyo night captures.</p>
+          </div>
+
+          <div class="seed-card">
+            <div class="seed-card-head">
+              <span class="seed-tag">PORTRAIT VIRAL</span>
+              <span style="color:var(--vc-cyan);font-size:0.75rem;font-family:var(--vc-font-mono);">850K VIEWS</span>
+            </div>
+            <div class="seed-code-large">#TUR-310-220-650</div>
+            <p data-language="tr">Yüz hatlarına organik kenetlenen biyolojik leopar hücresi gölgeleri ve yüksek kontrast.</p>
+            <p data-language="en">Organic bio-cellular leopard shadows locking seamlessly onto facial contours.</p>
+          </div>
+
+          <div class="seed-card">
+            <div class="seed-card-head">
+              <span class="seed-tag">CYBER RACER</span>
+              <span style="color:var(--vc-cyan);font-size:0.75rem;font-family:var(--vc-font-mono);">620K VIEWS</span>
+            </div>
+            <div class="seed-code-large">#LOR-940-520-880</div>
+            <p data-language="tr">Hız yapan araç farlarında kelebek manifoldu lazer plazma filamentleri ve yerçekimsel bükülme.</p>
+            <p data-language="en">Butterfly strange attractor plasma laser filaments trailing behind speed headlights.</p>
+          </div>
+
+          <div class="seed-card">
+            <div class="seed-card-head">
+              <span class="seed-tag">TOKYO RISOGRAPH</span>
+              <span style="color:var(--vc-cyan);font-size:0.75rem;font-family:var(--vc-font-mono);">490K VIEWS</span>
+            </div>
+            <div class="seed-code-large">#BLU-420-190-780</div>
+            <p data-language="tr">Analog matbaa risograf dokusu, Poisson disk dither ve sarı-turkuaz spektral ayrışım.</p>
+            <p data-language="en">Analog risograph print texture, Poisson-disk error diffusion, and amber-cyan split.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CORE PILLARS & ARCHITECTURE -->
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <div class="vc-eyebrow">
+            <span data-language="tr">Mühendislik & Gizlilik</span>
+            <span data-language="en">Engineering & Privacy</span>
+          </div>
+          <h2 data-language="tr">Maksimum Performans.<br>Sıfır Bulut Takibi.</h2>
+          <h2 data-language="en">Maximum Performance.<br>Zero Cloud Tracking.</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-badge">⚡</div>
+            <h3 data-language="tr">60 FPS Metal GPU Motoru</h3>
+            <h3 data-language="en">60 FPS Metal GPU Engine</h3>
+            <p data-language="tr">
+              Apple Silicon Metal ve Vulkan grafik hattı üzerinde doğrudan çalışan ham fragment shader'lar ile vizörde sıfır gecikme ve kesintisiz akıcılık.
+            </p>
+            <p data-language="en">
+              Raw fragment shaders compiled directly onto Apple Silicon Metal and Vulkan GPU pipelines deliver butter-smooth 60 FPS live viewfinders.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-badge">🔒</div>
+            <h3 data-language="tr">%100 Cihaz İçi Gizlilik</h3>
+            <h3 data-language="en">100% On-Device Privacy</h3>
+            <p data-language="tr">
+              Fotoğraflarınız, yüz verileriniz veya vizör akışınız asla harici bir sunucuya yüklenmez. Tüm matematiksel hesaplamalar telefonunuzda yerel çalışır.
+            </p>
+            <p data-language="en">
+              Your photos, biometric contours, and camera feeds are processed strictly on your hardware. Zero photos or telemetry are sent to external servers.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-badge">🎛️</div>
+            <h3 data-language="tr">Dokunsal Haptik Geri Bildirim</h3>
+            <h3 data-language="en">Tactile Haptic Feedback</h3>
+            <p data-language="tr">
+              Kadranları çevirirken ve eşik değerlerine yaklaşırken telefonun motorundan gelen mikro-titreşimlerle gerçek bir analog ses aygıtı hissi.
+            </p>
+            <p data-language="en">
+              Tactile rotational ticks and micro-vibrations emulate an authentic analog hardware deck as you twist virtual knobs past resonance notches.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-badge">💎</div>
+            <h3 data-language="tr">Kayıpsız 4K Ultra HD Export</h3>
+            <h3 data-language="en">Lossless 4K Ultra HD Export</h3>
+            <p data-language="tr">
+              Tam çözünürlüklü sensör çıktısı. Sosyal medyada sıkıştırma kaybı yaşamadan en net ve keskin poster baskılarına uygun dışa aktarma.
+            </p>
+            <p data-language="en">
+              Full uncompressed sensor resolution renders ready for high-resolution print or crisp, compression-proof Instagram and TikTok uploads.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PRICING & MEMBERSHIP (PAYWALL) -->
+    <section class="section" id="pricing" style="background:#090910;">
+      <div class="shell">
+        <div class="section-head">
+          <div class="vc-eyebrow">
+            <span data-language="tr">Şeffaf Model</span>
+            <span data-language="en">Transparent Tiering</span>
+          </div>
+          <h2 data-language="tr">Sonsuz Laboratuvarı Açın</h2>
+          <h2 data-language="en">Unlock the Infinite Lab</h2>
+          <p data-language="tr">Herkes için ücretsiz günlük sentezler veya profesyoneller için sınırsız güç.</p>
+          <p data-language="en">Free daily syntheses for casual creators, or unlimited GPU power for Pro creators.</p>
+        </div>
+
+        <div class="pricing-wrap">
+          <!-- Free Tier Card -->
+          <div class="tier-card">
+            <div class="tier-name" data-language="tr">Ücretsiz Giriş</div>
+            <div class="tier-name" data-language="en">Free Tier</div>
+            <div class="tier-price">$0 <small>/ gün</small></div>
+            <p data-language="tr">Uygulamayı keşfetmek ve eğlenmek isteyen kullanıcılar için temel sentez paketi.</p>
+            <p data-language="en">Explore the cyber synth camera and discover the aesthetic power of mathematical physics.</p>
+
+            <ul class="tier-list">
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#00f5d4"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Günlük 5 Ücretsiz Sentez Kredisi</span>
+                <span data-language="en">5 Free Daily Syntheses</span>
+              </li>
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#00f5d4"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Ödüllü Reklamla +2 Ek Kredi</span>
+                <span data-language="en">+2 Bonus Credits per Rewarded Ad</span>
+              </li>
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#00f5d4"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Temel Formül Tohumu Paylaşımı</span>
+                <span data-language="en">Basic Formula Seed Sharing</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="#626278"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Sınırsız 4K Dışa Aktarma</span>
+                <span data-language="en">Unlimited 4K Export</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="#626278"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Reklamsız Deneyim</span>
+                <span data-language="en">Ad-free Experience</span>
+              </li>
+            </ul>
+
+            <a class="btn btn-secondary" href="#synth-demo">
+              <span data-language="tr">Ücretsiz Başla</span>
+              <span data-language="en">Start Free</span>
+            </a>
+          </div>
+
+          <!-- Pro Tier Card -->
+          <div class="tier-card featured">
+            <div class="tier-badge">3 GÜN ÜCRETSİZ DENEME</div>
+            <div class="tier-name" style="color:var(--vc-pink);">VIBECAM PRO</div>
+            <div class="tier-price">$29.99 <small>/ yıl ($2.49/ay)</small></div>
+            <p data-language="tr">Sınırsız yaratıcılık, sıfır reklam ve kayıpsız 4K çıktı ile tam profesyonel stüdyo paketi.</p>
+            <p data-language="en">Unlimited 4K renders, all 5 mathematical shader engines, zero advertisements.</p>
+
+            <ul class="tier-list">
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#ff007f"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Sınırsız Günlük Sentez & Fotoğraf İşleme</span>
+                <span data-language="en">Unlimited Daily Syntheses & Exports</span>
+              </li>
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#ff007f"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Kayıpsız 4K Ultra HD Çözünürlük</span>
+                <span data-language="en">Lossless 4K Ultra HD Resolution</span>
+              </li>
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#ff007f"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Tüm 5 Akademik Fizik Model Modülü</span>
+                <span data-language="en">All 5 Academic Physics Modules</span>
+              </li>
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#ff007f"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Sıfır Reklam & Sıfır Kesinti</span>
+                <span data-language="en">100% Ad-Free & Zero Interruptions</span>
+              </li>
+              <li class="active">
+                <svg viewBox="0 0 20 20" fill="#ff007f"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span data-language="tr">Filigransız (No Watermark) Kayıt</span>
+                <span data-language="en">No Watermark Clean Renders</span>
+              </li>
+            </ul>
+
+            <a class="btn btn-pro" href="support.html#faq">
+              <span data-language="tr">3 Günlük Denemeyi Başlat</span>
+              <span data-language="en">Start 3-Day Free Trial</span>
+            </a>
+            <small style="color:var(--vc-text-subtle);text-align:center;font-size:0.75rem;">
+              <span data-language="tr">İstediğiniz zaman App Store veya Google Play'den iptal edin.</span>
+              <span data-language="en">Cancel anytime in App Store or Google Play settings.</span>
+            </small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ ACCORDION -->
+    <section class="section">
+      <div class="shell" style="max-width:840px;">
+        <div class="section-head">
+          <div class="vc-eyebrow">
+            <span data-language="tr">Sıkça Sorulan Sorular</span>
+            <span data-language="en">Frequently Asked Questions</span>
+          </div>
+          <h2 data-language="tr">Merak Edilenler</h2>
+          <h2 data-language="en">Answers & Clarifications</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item open">
+            <div class="faq-question">
+              <span data-language="tr">Formül Tohumu (Formula Seed) nedir ve nasıl kullanılır?</span>
+              <span data-language="en">What is a Formula Seed and how does it work?</span>
+            </div>
+            <div class="faq-answer">
+              <p data-language="tr">
+                Formül Tohumu (Örn: #CHL-450-350-500), o an uyguladığınız matematik modelini, bozulma matrisini, kromatik yarılmayı ve 2D dokunmatik koordinatları içeren şifrelenmiş bir tarif kodudur. Arkadaşlarınız bu kodu kopyalayıp VibeCam'e yapıştırdığında, fotoğrafınıza uyguladığınız efektin aynısını kendi karelerinde görürler.
+              </p>
+              <p data-language="en">
+                A Formula Seed (e.g. #CHL-450-350-500) encodes your chosen physical model, distortion intensity, chromatic shift, and 2D modulation coordinates. Pasting this seed into VibeCam automatically reproduces that exact mathematical shader state.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-language="tr">Fotoğraflarım herhangi bir sunucuya yükleniyor mu?</span>
+              <span data-language="en">Are my photos uploaded to any external servers?</span>
+            </div>
+            <div class="faq-answer">
+              <p data-language="tr">
+                Kesinlikle hayır. VibeCam %100 yerel çalışan bir grafik motoruna sahiptir. Tüm Metal ve Vulkan gölgelendirici operasyonları doğrudan telefonunuzun GPU çipinde işlenir. Hiçbir fotoğraf, yüz geometrisi veya görsel meta veri CodExa veya üçüncü taraf sunucularına aktarılmaz.
+              </p>
+              <p data-language="en">
+                Never. VibeCam operates strictly on-device. All mathematical calculations and Metal shaders run natively on your device's GPU. No photos, facial biometric data, or telemetry ever leave your phone.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-language="tr">Satın aldığım VibeCam Pro aboneliğini nasıl geri yüklerim?</span>
+              <span data-language="en">How do I restore my VibeCam Pro subscription?</span>
+            </div>
+            <div class="faq-answer">
+              <p data-language="tr">
+                Uygulama içerisindeki Ayarlar ekranına gidin ve "Satın Alımları Geri Yükle" (Restore Purchases) düğmesine dokunun. Apple ID veya Google hesabınızdaki aktif abonelik anında doğrulanarak Pro özellikleriniz aktif edilir.
+              </p>
+              <p data-language="en">
+                Open Settings inside VibeCam and tap 'Restore Purchases'. Your active Apple ID or Google Play receipt will be validated instantly without any additional charge.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-language="tr">Günlük ücretsiz haklarım ne zaman yenilenir?</span>
+              <span data-language="en">When do daily free credits reset?</span>
+            </div>
+            <div class="faq-answer">
+              <p data-language="tr">
+                Ücretsiz kullanıcıların 5 adet günlük sentez hakkı her gece yarısı yerel saatinize göre sıfırlanır. Gün içinde haklarınız biterse kısa bir ödüllü reklam izleyerek anında +2 ek kredi kazanabilirsiniz.
+              </p>
+              <p data-language="en">
+                Free daily credits reset every midnight according to your local time. If you run out, watching an optional rewarded video ad instantly grants +2 bonus syntheses.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="vc-footer">
+    <div class="shell vc-footer-inner">
+      <div>
+        <strong>VibeCam</strong> by <a href="../index.html" style="color:#fff;text-decoration:none;">CodExa</a> — Designed for Education & Aesthetics.
+      </div>
+      <div class="vc-footer-links">
+        <a href="privacy.html"><span data-language="tr">Gizlilik</span><span data-language="en">Privacy</span></a>
+        <a href="terms.html"><span data-language="tr">Koşullar</span><span data-language="en">Terms</span></a>
+        <a href="support.html"><span data-language="tr">Destek</span><span data-language="en">Support</span></a>
+        <a href="delete-account.html"><span data-language="tr">Veri Silme</span><span data-language="en">Data Deletion</span></a>
+        <a href="../products.html"><span data-language="tr">Tüm Ürünler</span><span data-language="en">All Products</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="language.js"></script>
+  <script src="synth-engine.js"></script>
+  <script src="../brand-shell.js"></script>
+  <script>
+    // FAQ Accordion interaction
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

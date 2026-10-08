@@ -33,7 +33,8 @@
     ['S','ScreenRecall: Ekran Görseli','Cihaz içi OCR & arşiv','screenrecall/index.html','live'],
     ['S','Stacking Balance','Fizik & denge','stackingbalance/index.html','live'],
     ['V','Visual Timer: Odak','Odak & zaman yönetimi','visual-timer/index.html','live'],
-    ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live']
+    ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live'],
+    ['V','VibeCam: Cyber Synth Camera','Görsel sentezleyici & estetik kamera','vibecam/index.html','soon']
   ];
   const root = location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const makeGroup = (label, status) => {
