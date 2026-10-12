@@ -2,197 +2,444 @@
 <html lang="tr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Nexus: Oathbound Realms — CodExa</title>
-  <meta name="description" content="20 soyun ve 220 kartın buluştuğu fantastik bir strateji oyunu. Destenin gücü kadar, ne zaman hangi kartı oynadığın da önemli.">
-  <meta name="theme-color" content="#faf9f5">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07090e">
+  <meta name="description" content="Nexus: Card Duel & Deckbuilder — Tactical Fantasy TCG Arena. 20 fraksiyon, 220 özgün kart, dinamik mana sistemi, iPhone Duo çift ekran Battlestation ve %100 çevrimdışı rogue seferi.">
+  <title>Nexus: Card Duel & Deckbuilder — Tactical Fantasy TCG Arena — CodExa</title>
   <link rel="canonical" href="https://cod-exa.github.io/nexus-oathbound-realms/index.html">
-  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/css/project-template.css">
-  <link rel="stylesheet" href="nexus.css">
+  <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+
+  <meta property="og:title" content="Nexus: Card Duel & Deckbuilder — CodExa">
+  <meta property="og:description" content="Tactical Fantasy TCG Arena: 20 fraksiyon, 220 kart, dinamik mana dengesi ve çevrimdışı rogue seferi.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cod-exa.github.io/nexus-oathbound-realms/index.html">
+  <meta property="og:image" content="https://cod-exa.github.io/nexus-oathbound-realms/assets/oath-hall.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../brand-system.css">
+  <link rel="stylesheet" href="nexus.css?v=20261012-1">
 </head>
-<body data-title-tr="Oyun" data-title-en="Game" data-desc-tr="20 soyun ve 220 kartın buluştuğu fantastik bir strateji oyunu. Destenin gücü kadar, ne zaman hangi kartı oynadığın da önemli." data-desc-en="A fantasy strategy card game where 20 bloodlines and 220 cards collide. Tactical timing matters as much as your deck.">
-  <a class="skip-link" href="#main">İçeriğe geç / Skip to content</a>
-  <div class="shell">
-    <header class="topbar nav-inner">
-      <a class="brand" href="../index.html"><img src="assets/app-icon.svg" width="42" height="42" alt="">CodExa</a>
-      <a class="all-products" href="../products.html" data-i18n="all_products" style="margin-left:auto;color:#72521f;text-decoration:none;font-weight:600;font-size:0.9rem;display:inline-flex;align-items:center;">
-        <span data-language="tr" lang="tr">Tüm ürünler ↗</span>
-        <span data-language="en" lang="en" hidden>All products ↗</span>
+<body data-title-tr="Nexus: Card Duel & Deckbuilder" data-title-en="Nexus: Card Duel & Deckbuilder" data-desc-tr="20 fraksiyon, 220 özgün kart, dinamik mana sistemi, iPhone Duo çift ekran Battlestation ve %100 çevrimdışı rogue seferi." data-desc-en="Tactical Fantasy TCG Arena: 20 factions, 220 unique cards, dynamic mana curve, iPhone Duo Battlestation, and 100% offline rogue campaign.">
+
+  <!-- Ambient Glow Orbs -->
+  <div class="bg-glow-orb orb-gold"></div>
+  <div class="bg-glow-orb orb-mana"></div>
+  <div class="bg-glow-orb orb-purple"></div>
+
+  <!-- Header -->
+  <header class="nx-header">
+    <div class="shell nx-header-inner">
+      <a class="nx-brand" href="index.html">
+        <img src="assets/app-icon.png" alt="Nexus Logo" class="nx-brand-icon" width="40" height="40">
+        <span>Nexus</span>
+        <span class="nx-badge-live">TCG ARENA</span>
       </a>
-    </header>
-
-    <main id="main">
-      <!-- Türkçe İçerik -->
-      <div data-language="tr" lang="tr">
-        <nav class="nexus-nav" aria-label="Nexus">
-          <a href="index.html?lang=tr" aria-current="page">Oyun</a>
-          <a href="privacy.html?lang=tr">Gizlilik Politikası</a>
-          <a href="terms.html?lang=tr">Kullanım Koşulları</a>
-          <a href="support.html?lang=tr">Destek</a>
-          <a href="delete-account.html?lang=tr">Hesap ve Veri Silme</a>
-        </nav>
-
-        <section class="hero">
-          <div>
-            <p class="eyebrow">Fantastik Kart Stratejisi</p>
-            <h1>Sözünü ver.<br><span>Meydanı değiştir.</span></h1>
-            <p class="lead">20 soyun ve 220 kartın buluştuğu fantastik bir strateji oyunu. Destenin gücü kadar, ne zaman hangi kartı oynadığın da önemli.</p>
-            <p class="status">Geliştirilmekte</p>
-            <div class="actions">
-              <a class="button primary" href="#how-tr">Nasıl oynanır?</a>
-              <a class="button secondary" href="support.html?lang=tr">Destek</a>
-            </div>
-          </div>
-          <figure class="nexus-art">
-            <img src="assets/oath-hall.png" width="1024" height="1536" alt="Nexus: Oathbound Realms görseli" fetchpriority="high">
-            <figcaption>Ant Salonu — Savaş Meydanı</figcaption>
-          </figure>
-        </section>
-
-        <section class="section" id="how-tr">
-          <h2>Nasıl oynanır?</h2>
-          <div class="grid">
-            <article class="card">
-              <span class="step">01</span>
-              <h3>Desteni kur</h3>
-              <p>30 kartlık desteni oluştur. Mana, saldırı, can ve kart özellikleri arasında denge kur.</p>
-            </article>
-            <article class="card">
-              <span class="step">02</span>
-              <h3>Meydana çık</h3>
-              <p>Her tur artan mananla birliğini alana sürükle. Kartın özelliğine uygun hedefi seç.</p>
-            </article>
-            <article class="card">
-              <span class="step">03</span>
-              <h3>Hamleni tamamla</h3>
-              <p>Birliklerinle saldır, kahraman gücünü kullan ve rakip kahramanın 30 canını sıfırla.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2>Öne çıkan özellikler</h2>
-          <div class="grid">
-            <article class="card">
-              <span class="icon">⚔</span>
-              <b>20 Soy &amp; 220 Kart</b>
-              <span>Farklı sinerjilere sahip 20 soy ve derin stratejiler kurabileceğin 220 benzersiz kart.</span>
-            </article>
-            <article class="card">
-              <span class="icon">♟</span>
-              <b>Taktiksel Düellolar</b>
-              <span>Mana dengesi, birim konumlandırma ve kahraman güçleriyle derin yapay zekâ mücadeleleri.</span>
-            </article>
-            <article class="card">
-              <span class="icon">🛡</span>
-              <b>Cihaz Üzerinde Güvenlik</b>
-              <span>Koleksiyonun ve ilerlemen cihazında güvenle saklanır; reklamsız ve kesintisiz odaklan.</span>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" style="padding-top: 0;">
-          <div class="legal-links">
-            <a class="chip" href="privacy.html?lang=tr">Gizlilik Politikası</a>
-            <a class="chip" href="terms.html?lang=tr">Kullanım Koşulları</a>
-            <a class="chip" href="support.html?lang=tr">Destek ve Yardım</a>
-            <a class="chip" href="delete-account.html?lang=tr">Hesap ve Veri Silme</a>
-          </div>
-        </section>
+      <div class="nx-header-right">
+        <div class="lang-switch" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="tr">TR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
       </div>
+    </div>
+  </header>
 
-      <!-- English Content -->
-      <div data-language="en" lang="en" hidden>
-        <nav class="nexus-nav" aria-label="Nexus">
-          <a href="index.html?lang=en" aria-current="page">Game</a>
-          <a href="privacy.html?lang=en">Privacy Policy</a>
-          <a href="terms.html?lang=en">Terms of Use</a>
-          <a href="support.html?lang=en">Support</a>
-          <a href="delete-account.html?lang=en">Account &amp; Data Deletion</a>
-        </nav>
-
-        <section class="hero">
-          <div>
-            <p class="eyebrow">Fantasy Card Strategy</p>
-            <h1>Make your oath.<br><span>Change the battlefield.</span></h1>
-            <p class="lead">A fantasy strategy game with 20 lineages and 220 cards. The strength of your deck matters—and so does the moment you choose to play each card.</p>
-            <p class="status">In Development</p>
-            <div class="actions">
-              <a class="button primary" href="#how-en">How to play</a>
-              <a class="button secondary" href="support.html?lang=en">Support</a>
-            </div>
-          </div>
-          <figure class="nexus-art">
-            <img src="assets/oath-hall.png" width="1024" height="1536" alt="Nexus: Oathbound Realms artwork" fetchpriority="high">
-            <figcaption>Oath Hall — The Battlefield</figcaption>
-          </figure>
-        </section>
-
-        <section class="section" id="how-en">
-          <h2>How to play</h2>
-          <div class="grid">
-            <article class="card">
-              <span class="step">01</span>
-              <h3>Build your deck</h3>
-              <p>Create a 30-card deck. Balance mana, attack, health and card abilities.</p>
-            </article>
-            <article class="card">
-              <span class="step">02</span>
-              <h3>Enter the battlefield</h3>
-              <p>Spend your growing mana each turn. Drag a unit onto your field and choose a valid target for its ability.</p>
-            </article>
-            <article class="card">
-              <span class="step">03</span>
-              <h3>Finish your move</h3>
-              <p>Attack with your units, use your hero power and reduce the opposing hero’s 30 health to zero.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2>Key Highlights</h2>
-          <div class="grid">
-            <article class="card">
-              <span class="icon">⚔</span>
-              <b>20 Lineages &amp; 220 Cards</b>
-              <span>20 distinct lineages with unique synergies and 220 individual cards for rich deckbuilding.</span>
-            </article>
-            <article class="card">
-              <span class="icon">♟</span>
-              <b>Tactical Duels</b>
-              <span>Dynamic turn-based AI duels demanding precise mana planning, unit positioning, and hero powers.</span>
-            </article>
-            <article class="card">
-              <span class="icon">🛡</span>
-              <b>On-Device Storage</b>
-              <span>Your collection and progress stay safely on your device for an uninterrupted strategic journey.</span>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" style="padding-top: 0;">
-          <div class="legal-links">
-            <a class="chip" href="privacy.html?lang=en">Privacy Policy</a>
-            <a class="chip" href="terms.html?lang=en">Terms of Use</a>
-            <a class="chip" href="support.html?lang=en">Support &amp; Help</a>
-            <a class="chip" href="delete-account.html?lang=en">Account &amp; Data Deletion</a>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <footer>
-      <p>© 2026 CodExa · Nexus: Oathbound Realms</p>
-      <p>
-        <a href="../index.html" data-i18n="footer_portal">← CodExa Portal</a> · 
-        <a href="../products.html" data-i18n="footer_all_products"><span data-language="tr" lang="tr">Tüm ürünler</span><span data-language="en" lang="en" hidden>All products</span></a> · 
-        <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a>
-      </p>
-    </footer>
+  <!-- Sub Navigation -->
+  <div class="shell">
+    <nav class="nx-subnav" aria-label="Nexus Menü">
+      <a href="index.html" aria-current="page" data-i18n="nav_game">
+        <span data-language="tr">Arena & Deste</span><span data-language="en">Arena & Deck</span>
+      </a>
+      <a href="privacy.html" data-i18n="nav_privacy">
+        <span data-language="tr">Gizlilik</span><span data-language="en">Privacy</span>
+      </a>
+      <a href="terms.html" data-i18n="nav_terms">
+        <span data-language="tr">Kullanım Koşulları</span><span data-language="en">Terms</span>
+      </a>
+      <a href="support.html" data-i18n="nav_support">
+        <span data-language="tr">Destek & SSS</span><span data-language="en">Support & FAQ</span>
+      </a>
+      <a href="delete-account.html" data-i18n="nav_deletion">
+        <span data-language="tr">Veri Silme</span><span data-language="en">Data Deletion</span>
+      </a>
+    </nav>
   </div>
+
+  <main id="main">
+    <!-- HERO SECTION -->
+    <section class="shell nx-hero">
+      <div class="nx-hero-copy">
+        <div class="nx-eyebrow">
+          <span>⚔ 20 FRAKSİYON</span>
+          <span>•</span>
+          <span>220 ÖZGÜN KART</span>
+          <span>•</span>
+          <span>ÇEVRİMDIŞI ROGUE SEFERİ</span>
+        </div>
+
+        <!-- Turkish Hero Title -->
+        <h1 data-language="tr">
+          Nexus: Card Duel & Deckbuilder.<br>
+          <em>Tactical Fantasy TCG Arena.</em>
+        </h1>
+        <!-- English Hero Title -->
+        <h1 data-language="en">
+          Nexus: Card Duel & Deckbuilder.<br>
+          <em>Tactical Fantasy TCG Arena.</em>
+        </h1>
+
+        <!-- Turkish Lead -->
+        <p class="lead" data-language="tr">
+          Orijinal seri adı <strong>Nexus: Oathbound Realms</strong> olan bu taktiksel kart stratejisinde 20 kadim fraksiyon ve 220 özgün kart buluşuyor. Dinamik mana dengesi, iPhone Duo çift ekran Battlestation entegrasyonu ve internet gerektirmeyen çevrimdışı sefer modu ile kartların kaderini siz yazın.
+        </p>
+        <!-- English Lead -->
+        <p class="lead" data-language="en">
+          From the original series <strong>Nexus: Oathbound Realms</strong>, experience a tactical collectible card arena featuring 20 ancient factions and 220 unique cards. Dynamic mana mechanics, iPhone Duo dual-screen Battlestation integration, and a completely offline rogue campaign.
+        </p>
+
+        <div class="nx-hero-actions">
+          <a class="btn btn-store" href="https://apps.apple.com/app/id6822046146" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.93.04-2.02.63-2.66 1.38-.56.65-1.06 1.71-.93 2.74 1.05.08 2.07-.53 2.67-1.25z"/></svg>
+            <span data-language="tr">App Store'da İncele (ID: 6822046146)</span>
+            <span data-language="en">View on App Store (ID: 6822046146)</span>
+          </a>
+          <a class="btn btn-primary" href="#arena-demo">
+            <span data-language="tr">Canlı Arenayı Dene ↓</span>
+            <span data-language="en">Try Live Arena ↓</span>
+          </a>
+        </div>
+
+        <div class="nx-hero-meta">
+          <div><span data-language="tr">Platform:</span><span data-language="en">Platform:</span> <span>iOS 17+ • iPadOS 17+ • macOS 14+</span></div>
+          <div><span data-language="tr">Gizlilik:</span><span data-language="en">Privacy:</span> <span>%100 Cihaz İçi (Sıfır Takip)</span></div>
+          <div><span data-language="tr">Fiyat:</span><span data-language="en">Pricing:</span> <span>Ücretsiz (VIP Geçiş: ₺69,99)</span></div>
+        </div>
+      </div>
+
+      <!-- Hero Art Frame -->
+      <div class="nexus-art-box">
+        <img src="assets/oath-hall.png" alt="Nexus: Card Duel & Deckbuilder Sanat Görseli" width="1024" height="1536" fetchpriority="high">
+        <div class="art-badge-overlay">
+          <div>
+            <strong>Ant Salonu — Savaş Meydanı</strong>
+            <div style="font-size:0.8rem;color:var(--nx-text-muted);">Oath Hall Battleground</div>
+          </div>
+          <span>TCG ARENA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BATTLESTATION & CARD CONSOLE -->
+    <section class="shell" id="arena-demo">
+      <div class="section-head">
+        <div class="eyebrow">İNTERAKTİF ÖNİZLEME • LIVE SIMULATOR</div>
+        <h2 data-language="tr">Taktiksel Düello &amp; Deste Konsolu</h2>
+        <h2 data-language="en">Tactical Duel &amp; Deck Console</h2>
+        <p data-language="tr">Fraksiyon seçin, 3D kart yeteneklerini inceleyin ve mananızı kullanarak kartı sahaya sürün.</p>
+        <p data-language="en">Select a faction, inspect 3D card abilities, and deploy your units with dynamic mana.</p>
+      </div>
+
+      <div class="arena-deck">
+        <div class="arena-topbar">
+          <div class="arena-topbar-title">
+            <span>⚔ BATTLESTATION SIMULATOR v1.0</span>
+          </div>
+          <div class="arena-hud-badge">METAL 60 FPS READY</div>
+        </div>
+
+        <div class="arena-console-layout">
+          <!-- Picker Col -->
+          <div class="arena-picker-col">
+            <div>
+              <div class="card-roster-label" data-language="tr">Fraksiyon Seçin</div>
+              <div class="card-roster-label" data-language="en">Choose Faction</div>
+              <div class="faction-tabs">
+                <button type="button" class="faction-tab active" data-faction="sun">
+                  <span>Güneş Tapınağı (Sun Citadel)</span>
+                  <span class="faction-icon">☀️</span>
+                </button>
+                <button type="button" class="faction-tab" data-faction="shadow">
+                  <span>Gölge Tarikatı (Shadow Syndicate)</span>
+                  <span class="faction-icon">🌑</span>
+                </button>
+                <button type="button" class="faction-tab" data-faction="rune">
+                  <span>Rün Muhafızları (Runeward)</span>
+                  <span class="faction-icon">🔮</span>
+                </button>
+                <button type="button" class="faction-tab" data-faction="dragon">
+                  <span>Ejderha Ocağı (Dragon Pyre)</span>
+                  <span class="faction-icon">🐉</span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div class="card-roster-label" data-language="tr">Fraksiyon Kartları</div>
+              <div class="card-roster-label" data-language="en">Faction Cards</div>
+              <div class="card-roster" id="cardRoster">
+                <!-- Dynamically loaded -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Arena Stage Col -->
+          <div class="arena-stage-col">
+            <div class="arena-stage-grid">
+              <!-- Holographic 3D Card -->
+              <div class="card-3d-wrap">
+                <div class="mythic-card" id="inspectCard">
+                  <div class="card-header-bar">
+                    <div class="card-mana-gem">4</div>
+                    <div class="card-rarity-pill">EFSANEVİ</div>
+                  </div>
+                  <div class="card-art-frame">
+                    <div class="card-art-symbol">⚔️</div>
+                  </div>
+                  <div class="card-details-box">
+                    <div class="card-display-title">Aethelgard Şövalyesi</div>
+                    <div class="card-display-fraction">Güneş Tapınağı • Muhafız</div>
+                    <div class="card-display-ability">Savaş Narası: Bitişik dost birimlere +2 Zırh ve Kutsal Kalkan bahşeder.</div>
+                  </div>
+                  <div class="card-footer-stats">
+                    <div class="stat-badge stat-attack">5</div>
+                    <div class="stat-badge stat-health">6</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Battlefield Controls & Console -->
+              <div class="battlefield-console">
+                <div class="mana-tray">
+                  <div class="mana-tray-head">
+                    <span data-language="tr">MANA REZERVİ</span>
+                    <span data-language="en">MANA POOL</span>
+                    <strong id="manaVal">10/10</strong>
+                  </div>
+                  <div class="mana-crystals-row">
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                    <div class="crystal filled"></div>
+                  </div>
+                </div>
+
+                <div class="combat-log-box" id="combatLog">
+                  <div class="combat-log-line">
+                    <span class="log-tag">[SYSTEM]</span>
+                    <span data-language="tr">Meydan hazır. Kartı sahaya sürmek için butona dokunun.</span>
+                    <span data-language="en">Battlefield ready. Click button to deploy card to arena.</span>
+                  </div>
+                </div>
+
+                <div class="arena-actions-row">
+                  <button type="button" class="btn btn-play-card" id="playCardBtn">
+                    <span data-language="tr">⚡ Sahaya Sür (Deploy)</span>
+                    <span data-language="en">⚡ Deploy to Arena</span>
+                  </button>
+                  <button type="button" class="btn btn-reset-arena" id="resetArenaBtn">
+                    <span data-language="tr">Yenile (Reset)</span>
+                    <span data-language="en">Reset Mana</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES GRID -->
+    <section class="shell">
+      <div class="section-head">
+        <div class="eyebrow">OYUN SİSTEMLERİ • TCG ARİTMETİĞİ</div>
+        <h2 data-language="tr">Öne Çıkan Özellikler</h2>
+        <h2 data-language="en">Core Game Highlights</h2>
+        <p data-language="tr">Derin strateji, sıfır takip ve donanım gücünün mükemmel uyumu.</p>
+        <p data-language="en">Deep tactical strategy, zero tracking, and pure on-device power.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon-badge">⚔️</div>
+          <h3 data-language="tr">20 Fraksiyon &amp; 220 Özgün Kart</h3>
+          <h3 data-language="en">20 Factions &amp; 220 Unique Cards</h3>
+          <p data-language="tr">Her biri kendi özel mekaniğine ve pasif sinerjisine sahip 20 kadim soy. 220 zengin kart ile binlerce farklı kombo ve deste varyasyonu kurun.</p>
+          <p data-language="en">20 ancient bloodlines each boasting distinct synergies and passives. Formulate countless combo decks from a pool of 220 handcrafted cards.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge">♟️</div>
+          <h3 data-language="tr">Dinamik Mana &amp; 625+ Bölüm</h3>
+          <h3 data-language="en">Dynamic Mana &amp; 625+ Stages</h3>
+          <p data-language="tr">Her tur 1 artan mana havuzu ile tempo kontrolü yapın. 625'ten fazla taktiksel bulmaca ve karşılaşma bölümüyle zihninizi sınayın.</p>
+          <p data-language="en">Master the growing mana curve to dictate match tempo. Conquer over 625 tactical puzzles and challenging battle encounter variations.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge">✈️</div>
+          <h3 data-language="tr">%100 Çevrimdışı (Offline) Sefer</h3>
+          <h3 data-language="en">100% Offline Single-Player</h3>
+          <p data-language="tr">Rogue Seferi, Taktiksel Bulmacalar ve Yapay Zekaya Karşı Antrenman modları uçakta, metroda veya seyahatte internet olmadan kesintisiz çalışır.</p>
+          <p data-language="en">Rogue Expeditions, Tactical Puzzles, and AI Practice modes operate completely offline without requiring any cellular data or Wi-Fi.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge">📱</div>
+          <h3 data-language="tr">iPhone Duo &amp; Split-Screen</h3>
+          <h3 data-language="en">iPhone Duo &amp; Split-Screen</h3>
+          <p data-language="tr">Dynamic Island bildirimleri, iPhone Duo çift ekran Battlestation görünümü, 13 inç iPad Pro Split-View ve Apple Silicon Mac tam ekran desteği.</p>
+          <p data-language="en">Dynamic Island integration, iPhone Duo split-screen Battlestation view, 13-inch iPad Pro Split-View, and full native Apple Silicon Mac support.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge">🛡️</div>
+          <h3 data-language="tr">Sıfır Veri Toplama &amp; Gizlilik</h3>
+          <h3 data-language="en">Zero Data Collection &amp; Privacy</h3>
+          <p data-language="tr">Kamera yok, mikrofon yok, konum yok, takip (IDFA) yok. Apple onaylı NSPrivacyCollectedDataTypes: [] beyanıyla deste ilerlemeniz yalnız cihazınızda saklanır.</p>
+          <p data-language="en">No camera, no mic, no GPS, zero tracking (IDFA). Apple verified NSPrivacyCollectedDataTypes: [] ensuring all card data stays local on your device.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-badge">👑</div>
+          <h3 data-language="tr">VIP Geçiş (com.codexa.nexus.removeads)</h3>
+          <h3 data-language="en">VIP Pass (com.codexa.nexus.removeads)</h3>
+          <p data-language="tr">₺69,99 tek seferlik opsiyonel uygulama içi satın alma ile tüm reklamları kalıcı olarak kaldırın ve kesintisiz VIP düello deneyimine erişin.</p>
+          <p data-language="en">Permanent optional in-app purchase (₺69.99 / $1.99) removing all advertisements forever and granting uninterrupted VIP duel access.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVICE & SPECS MATRIX -->
+    <section class="shell">
+      <div class="specs-card">
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-label" data-language="tr">İşletim Sistemi</div>
+            <div class="spec-label" data-language="en">Operating System</div>
+            <div class="spec-val-primary">iOS 17.0+ / iPadOS 17.0+</div>
+            <div class="spec-val-desc">macOS 14.0+ (M1 / M2 / M3 / M4 Apple Silicon)</div>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-label" data-language="tr">Donanım Desteği</div>
+            <div class="spec-label" data-language="en">Hardware Support</div>
+            <div class="spec-val-primary">iPhone Duo &amp; iPad Pro 13"</div>
+            <div class="spec-val-desc">Dynamic Island, Split-View &amp; Metal Shader</div>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-label" data-language="tr">İnternet İhtiyacı</div>
+            <div class="spec-label" data-language="en">Connectivity</div>
+            <div class="spec-val-primary">%100 Çevrimdışı (Offline)</div>
+            <div class="spec-val-desc" data-language="tr">Sadece mağaza &amp; sandık için internet gerekir</div>
+            <div class="spec-val-desc" data-language="en">Internet only required for StoreKit &amp; chests</div>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-label" data-language="tr">Mağaza Kimliği</div>
+            <div class="spec-label" data-language="en">Store Identifiers</div>
+            <div class="spec-val-primary">ID: 6822046146</div>
+            <div class="spec-val-desc">com.codexa.nexus (Games / Card &amp; Strategy)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING TIERS -->
+    <section class="shell" id="pricing">
+      <div class="section-head">
+        <div class="eyebrow">FİYATLANDIRMA • STORE PRICING</div>
+        <h2 data-language="tr">Şeffaf ve Adil Model</h2>
+        <h2 data-language="en">Transparent Pricing</h2>
+        <p data-language="tr">Kazanmak için ödeme (Pay-to-Win) yok. Tamamen oyuncunun stratejik zekâsına dayalı.</p>
+        <p data-language="en">Zero pay-to-win mechanics. Pure tactical skill and deck mastery.</p>
+      </div>
+
+      <div class="pricing-wrap">
+        <div class="tier-card">
+          <div class="tier-name" data-language="tr">Temel Oyun</div>
+          <div class="tier-name" data-language="en">Standard Game</div>
+          <div class="tier-price">₺0 <small>/ Ücretsiz</small></div>
+          <ul class="tier-list">
+            <li class="active">✓ 20 Fraksiyon &amp; 220 Kart Koleksiyonu</li>
+            <li class="active">✓ %100 Çevrimdışı Rogue Seferi</li>
+            <li class="active">✓ 625+ Taktiksel Bulmaca &amp; Maç</li>
+            <li class="active">✓ iPhone Duo &amp; iPad Pro 13" Desteği</li>
+            <li>Standart ödüllü sandık reklamları</li>
+          </ul>
+          <a class="btn btn-secondary" href="https://apps.apple.com/app/id6822046146" target="_blank" rel="noopener noreferrer">
+            <span data-language="tr">Ücretsiz İndir ↗</span><span data-language="en">Download Free ↗</span>
+          </a>
+        </div>
+
+        <div class="tier-card featured">
+          <div class="tier-badge">VIP GEÇİŞ</div>
+          <div class="tier-name" data-language="tr">VIP Geçiş (Kalıcı)</div>
+          <div class="tier-name" data-language="en">VIP Pass (Permanent)</div>
+          <div class="tier-price">₺69,99 <small>/ Tek Seferlik</small></div>
+          <ul class="tier-list">
+            <li class="active">✓ Tüm reklamları kalıcı olarak kaldırır</li>
+            <li class="active">✓ Sandık ödüllerini beklemeden anında açma</li>
+            <li class="active">✓ Özel altın battlestation teması</li>
+            <li class="active">✓ Apple ID ile tüm cihazlarda geri yükleme</li>
+            <li class="active">✓ com.codexa.nexus.removeads</li>
+          </ul>
+          <a class="btn btn-primary" href="https://apps.apple.com/app/id6822046146" target="_blank" rel="noopener noreferrer">
+            <span data-language="tr">VIP Geçişi Satın Al ↗</span><span data-language="en">Get VIP Pass ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEGAL CHIPS SECTION -->
+    <section class="shell" style="padding-bottom: 40px;">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a class="btn btn-secondary" href="privacy.html" style="font-size:0.85rem;padding:8px 18px;">
+          <span data-language="tr">Gizlilik Politikası</span><span data-language="en">Privacy Policy</span>
+        </a>
+        <a class="btn btn-secondary" href="terms.html" style="font-size:0.85rem;padding:8px 18px;">
+          <span data-language="tr">Kullanım Koşulları</span><span data-language="en">Terms of Use</span>
+        </a>
+        <a class="btn btn-secondary" href="support.html" style="font-size:0.85rem;padding:8px 18px;">
+          <span data-language="tr">Destek &amp; SSS</span><span data-language="en">Support &amp; Help</span>
+        </a>
+        <a class="btn btn-secondary" href="delete-account.html" style="font-size:0.85rem;padding:8px 18px;">
+          <span data-language="tr">Hesap ve Veri Silme</span><span data-language="en">Data Deletion</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="nx-footer">
+    <div class="shell nx-footer-inner">
+      <div>
+        <p style="color:#fff;font-weight:700;margin-bottom:4px;">© 2026 Erdinç Topal. Tüm hakları saklıdır.</p>
+        <p style="font-size:0.85rem;">Nexus: Card Duel & Deckbuilder (Nexus: Oathbound Realms) · CodExa</p>
+      </div>
+      <div class="nx-footer-links">
+        <a href="../index.html">← CodExa Portal</a>
+        <a href="../products.html"><span data-language="tr">Tüm Ürünler</span><span data-language="en">All Products</span></a>
+        <a href="tel:+905558058276">+90 555 805 82 76</a>
+        <a href="mailto:exaque@icloud.com">exaque@icloud.com</a>
+        <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="nexus-i18n.js"></script>
   <script src="../i18n.js?v=20260912"></script>
   <script src="language.js"></script>
+  <script src="arena-engine.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /**
- * Nexus: Oathbound Realms — Multi-language Engine & i18n Integration
- * Supports all 15 CodExa languages with seamless fallback
+ * Nexus: Card Duel & Deckbuilder — Multi-language Engine & i18n Integration
+ * Supports CodExa language switching with Turkish and English content blocks.
  */
 (() => {
   const SUPPORTED_LANGS = ['tr','en','de','zh','hi','es','fr','ar','pt','ru','id','bn','ur','ja','ko'];
@@ -41,12 +41,7 @@
     const isEn = lang !== 'tr';
     const title = isEn ? (document.body.dataset.titleEn || document.body.dataset.titleTr) : document.body.dataset.titleTr;
     if (title) {
-      document.title = `${title} — Nexus: Oathbound Realms — CodExa`;
-    } else {
-      const h = document.querySelector(`[data-language="${targetGroup}"] h1`);
-      if (h) {
-        document.title = 'Nexus: Oathbound Realms — ' + h.innerHTML.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]*>/g, '').trim() + ' — CodExa';
-      }
+      document.title = `${title} — Nexus: Card Duel & Deckbuilder — CodExa`;
     }
     const desc = isEn ? (document.body.dataset.descEn || document.body.dataset.descTr) : document.body.dataset.descTr;
     if (desc) {
@@ -55,6 +50,11 @@
       const ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) ogDesc.setAttribute('content', desc);
     }
+
+    // Update active state in language selector if present
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === (lang === 'tr' ? 'tr' : 'en'));
+    });
 
     // Preserve language parameter on all internal navigation links
     document.querySelectorAll('a[href]').forEach(link => {
@@ -76,6 +76,24 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(getCurrentLang());
+
+    // Bind language switcher buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selected = btn.dataset.lang || 'tr';
+        applyLanguage(selected);
+        window.dispatchEvent(new CustomEvent('codexa:languagechange', { detail: { lang: selected } }));
+      });
+    });
+
+    // Bind FAQ accordions if present
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        if (item) item.classList.toggle('open');
+      });
+    });
   });
 
   window.addEventListener('codexa:languagechange', (e) => {
@@ -83,4 +101,6 @@
       applyLanguage(e.detail.lang);
     }
   });
+
+  window.setNexusLanguage = applyLanguage;
 })();
