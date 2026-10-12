@@ -1,34 +1,38 @@
 /* ==========================================================================
    NEXUS: CARD DUEL & DECKBUILDER
    Tactical Fantasy TCG Arena (Nexus: Oathbound Realms)
-   Design System & Premium Aesthetics
+   CodExa Noble Cream & Warm Gold Design System — High Contrast Typography
    ========================================================================== */
 
 :root {
-  --nx-bg: #07090e;
-  --nx-bg-surface: #0e121b;
-  --nx-bg-card: #141824;
-  --nx-bg-card-hover: #1c2233;
-  --nx-border: rgba(229, 184, 105, 0.16);
-  --nx-border-glow: rgba(229, 184, 105, 0.42);
+  --nx-bg: #faf9f5;
+  --nx-bg-surface: #ffffff;
+  --nx-bg-card: #ffffff;
+  --nx-bg-card-hover: #faf8f2;
+  --nx-border: rgba(197, 160, 89, 0.25);
+  --nx-border-hover: rgba(197, 160, 89, 0.55);
+  --nx-border-glow: rgba(197, 160, 89, 0.45);
 
-  --nx-gold: #e5b869;
-  --nx-gold-light: #fde08b;
-  --nx-gold-dim: rgba(229, 184, 105, 0.15);
+  --nx-gold: #765519;
+  --nx-gold-accent: #997736;
+  --nx-gold-light: #dfba73;
+  --nx-gold-badge: #f3ead9;
+  --nx-gold-badge-border: #d6bd88;
   
-  --nx-mana: #38bdf8;
-  --nx-mana-dim: rgba(56, 189, 248, 0.15);
-  --nx-purple: #a855f7;
-  --nx-purple-dim: rgba(168, 85, 247, 0.15);
-  --nx-crimson: #f43f5e;
-  --nx-green: #34d399;
+  --nx-mana: #0284c7;
+  --nx-mana-light: #38bdf8;
+  --nx-purple: #7e22ce;
+  --nx-crimson: #be123c;
+  --nx-green: #047857;
 
-  --nx-text: #f5f5f7;
-  --nx-text-muted: #9da3b4;
-  --nx-text-subtle: #676e82;
+  /* High-Contrast, Super Readable Text Colors */
+  --nx-text: #1c1917;         /* Deep charcoal heading */
+  --nx-text-body: #44403c;    /* Deep readable slate body */
+  --nx-text-muted: #57534e;   /* Crisp neutral secondary */
+  --nx-text-subtle: #78716c;  /* Meta labels */
 
   --nx-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --nx-font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --nx-font-display: 'Outfit', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --nx-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
 
   --nx-radius-sm: 8px;
@@ -36,8 +40,9 @@
   --nx-radius-lg: 22px;
   --nx-radius-full: 9999px;
 
-  --nx-shadow-gold: 0 0 30px rgba(229, 184, 105, 0.25);
-  --nx-shadow-mana: 0 0 30px rgba(56, 189, 248, 0.25);
+  --nx-shadow-card: 0 10px 30px rgba(153, 119, 54, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --nx-shadow-hover: 0 18px 45px rgba(153, 119, 54, 0.16);
+  --nx-shadow-gold: 0 8px 24px rgba(197, 160, 89, 0.25);
 }
 
 * {
@@ -51,24 +56,24 @@
 }
 
 body {
-  background-color: var(--nx-bg);
-  color: var(--nx-text);
+  background-color: var(--nx-bg) !important;
+  color: var(--nx-text-body) !important;
   font-family: var(--nx-font-sans);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Background Mythic Grid */
+/* Subtle Warm Background Glow */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(229, 184, 105, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.02) 1px, transparent 1px);
-  background-size: 44px 44px;
+    radial-gradient(ellipse 65% 50% at 50% 0%, rgba(223, 186, 115, 0.12), transparent 60%),
+    radial-gradient(circle 500px at 10% 40%, rgba(197, 160, 89, 0.08), transparent 70%),
+    linear-gradient(180deg, #faf9f5 0%, #f7f5ed 55%, #faf9f5 100%);
   pointer-events: none;
   z-index: -1;
 }
@@ -76,54 +81,55 @@ body::before {
 /* Glow Orbs */
 .bg-glow-orb {
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  filter: blur(130px);
+  filter: blur(140px);
   pointer-events: none;
-  opacity: 0.16;
+  opacity: 0.1;
   z-index: -1;
 }
 .orb-gold {
-  top: 120px;
-  left: -140px;
-  background: var(--nx-gold);
+  top: 100px;
+  left: -120px;
+  background: var(--nx-gold-accent);
 }
 .orb-mana {
-  top: 620px;
-  right: -140px;
+  top: 600px;
+  right: -120px;
   background: var(--nx-mana);
 }
 .orb-purple {
   top: 1300px;
   left: 20%;
   background: var(--nx-purple);
-  opacity: 0.12;
+  opacity: 0.06;
 }
 
 /* Base Container */
 .shell {
   width: 100%;
-  max-width: 1160px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 /* Focus outline */
 a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--nx-gold);
+  outline: 3px solid var(--nx-gold-accent);
   outline-offset: 4px;
 }
 
 /* Header */
 .nx-header {
   border-bottom: 1px solid var(--nx-border);
-  background: rgba(7, 9, 14, 0.88);
+  background: rgba(250, 249, 245, 0.94);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.06);
 }
 
 .nx-header-inner {
@@ -138,7 +144,7 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   gap: 14px;
   text-decoration: none;
-  color: #fff;
+  color: var(--nx-text);
   font-family: var(--nx-font-display);
   font-weight: 800;
   font-size: 1.25rem;
@@ -150,21 +156,21 @@ a:focus-visible, button:focus-visible {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  box-shadow: var(--nx-shadow-gold);
-  border: 1px solid rgba(229, 184, 105, 0.35);
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.25);
+  border: 1px solid var(--nx-border);
   object-fit: cover;
 }
 
 .nx-badge-live {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-family: var(--nx-font-mono);
-  background: var(--nx-gold-dim);
+  background: var(--nx-gold-badge);
   color: var(--nx-gold);
-  border: 1px solid var(--nx-gold);
-  padding: 3px 9px;
+  border: 1px solid var(--nx-gold-badge-border);
+  padding: 3px 10px;
   border-radius: var(--nx-radius-full);
   letter-spacing: 0.05em;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .nx-header-right {
@@ -175,11 +181,12 @@ a:focus-visible, button:focus-visible {
 
 .lang-switch {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--nx-border);
+  background: #ffffff;
+  border: 1.5px solid var(--nx-border);
   border-radius: var(--nx-radius-full);
   padding: 3px;
   gap: 4px;
+  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.08);
 }
 
 .lang-btn {
@@ -189,16 +196,17 @@ a:focus-visible, button:focus-visible {
   font-family: var(--nx-font-mono);
   font-size: 0.78rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 4px 11px;
   border-radius: var(--nx-radius-full);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .lang-btn.active {
-  background: var(--nx-gold);
-  color: #000;
-  box-shadow: 0 0 12px rgba(229, 184, 105, 0.6);
+  background: #efe5ce;
+  color: var(--nx-text);
+  font-weight: 800;
+  border: 1px solid var(--nx-gold-badge-border);
 }
 
 /* Sub Navigation */
@@ -206,32 +214,32 @@ a:focus-visible, button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 14px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--nx-border);
-  margin-bottom: 32px;
+  margin-bottom: 34px;
 }
 
 .nx-subnav a {
   color: var(--nx-text-muted);
   text-decoration: none;
   font-family: var(--nx-font-sans);
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 6px 14px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 7px 16px;
   border-radius: var(--nx-radius-full);
   transition: all 0.2s;
 }
 
 .nx-subnav a:hover {
   color: var(--nx-text);
-  background: rgba(229, 184, 105, 0.08);
+  background: rgba(197, 160, 89, 0.12);
 }
 
 .nx-subnav a[aria-current="page"] {
   color: var(--nx-gold);
-  background: var(--nx-gold-dim);
-  border: 1px solid rgba(229, 184, 105, 0.3);
-  font-weight: 700;
+  background: #efe5ce;
+  border: 1px solid var(--nx-gold-badge-border);
+  font-weight: 800;
 }
 
 /* Hero Section */
@@ -248,12 +256,12 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   gap: 10px;
   font-family: var(--nx-font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--nx-gold);
-  background: var(--nx-gold-dim);
-  border: 1px solid rgba(229, 184, 105, 0.3);
+  background: var(--nx-gold-badge);
+  border: 1px solid var(--nx-gold-badge-border);
   padding: 6px 14px;
   border-radius: var(--nx-radius-full);
   margin-bottom: 20px;
@@ -265,23 +273,25 @@ a:focus-visible, button:focus-visible {
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--nx-text);
   margin-bottom: 18px;
 }
 
 .nx-hero h1 span,
 .nx-hero h1 em {
   font-style: normal;
-  background: linear-gradient(135deg, var(--nx-gold-light) 0%, var(--nx-gold) 60%, #c48c35 100%);
+  background: linear-gradient(135deg, #1c1917 25%, #765519 65%, #c5a059 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .nx-hero .lead {
-  font-size: 1.12rem;
-  line-height: 1.7;
-  color: var(--nx-text-muted);
+  font-size: 1.14rem;
+  line-height: 1.75;
+  color: var(--nx-text-body);
   margin-bottom: 28px;
+  font-weight: 500;
 }
 
 .nx-hero-actions {
@@ -298,7 +308,7 @@ a:focus-visible, button:focus-visible {
   gap: 10px;
   font-family: var(--nx-font-sans);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   padding: 13px 26px;
   border-radius: var(--nx-radius-md);
   text-decoration: none;
@@ -308,40 +318,42 @@ a:focus-visible, button:focus-visible {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--nx-gold-light) 0%, var(--nx-gold) 100%);
-  color: #0b0c10;
-  box-shadow: 0 4px 20px rgba(229, 184, 105, 0.35);
+  background: linear-gradient(135deg, #dfba73 0%, #c5a059 100%);
+  color: #1c1917 !important;
+  font-weight: 800;
+  box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(229, 184, 105, 0.55);
+  box-shadow: 0 8px 26px rgba(197, 160, 89, 0.48);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--nx-text);
-  border: 1px solid var(--nx-border);
+  background: #ffffff;
+  color: var(--nx-text) !important;
+  border: 1.5px solid var(--nx-border);
+  box-shadow: 0 2px 10px rgba(197, 160, 89, 0.08);
 }
 
 .btn-secondary:hover {
-  background: rgba(229, 184, 105, 0.1);
-  border-color: var(--nx-gold);
-  color: #fff;
+  background: #efe5ce;
+  border-color: #c5a059;
+  color: #1c1917 !important;
   transform: translateY(-2px);
 }
 
 .btn-store {
-  background: #000;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  background: #1c1917;
+  color: #ffffff !important;
+  border: 1px solid #1c1917;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.25);
 }
 
 .btn-store:hover {
-  border-color: var(--nx-gold);
-  box-shadow: 0 0 20px rgba(229, 184, 105, 0.3);
+  background: #000000;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.35);
 }
 
 .nx-hero-meta {
@@ -350,18 +362,19 @@ a:focus-visible, button:focus-visible {
   gap: 16px 24px;
   padding-top: 20px;
   border-top: 1px solid var(--nx-border);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--nx-text-subtle);
 }
 
 .nx-hero-meta div span:first-child {
   color: var(--nx-text-muted);
   margin-right: 6px;
+  font-weight: 500;
 }
 
 .nx-hero-meta div span:last-child {
   color: var(--nx-gold);
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--nx-font-mono);
 }
 
@@ -370,9 +383,9 @@ a:focus-visible, button:focus-visible {
   position: relative;
   border-radius: 28px;
   overflow: hidden;
-  border: 1px solid rgba(229, 184, 105, 0.3);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(229, 184, 105, 0.18);
-  background: #090c14;
+  border: 1.5px solid var(--nx-border);
+  box-shadow: 0 20px 50px rgba(153, 119, 54, 0.16);
+  background: #fff;
 }
 
 .nexus-art-box img {
@@ -392,27 +405,30 @@ a:focus-visible, button:focus-visible {
   bottom: 18px;
   left: 18px;
   right: 18px;
-  background: rgba(14, 18, 27, 0.85);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(229, 184, 105, 0.25);
+  border: 1px solid var(--nx-border);
   padding: 14px 20px;
   border-radius: var(--nx-radius-md);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 8px 24px rgba(153, 119, 54, 0.14);
 }
 
 .art-badge-overlay strong {
-  color: #fff;
+  color: var(--nx-text);
   font-family: var(--nx-font-display);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
+  font-weight: 800;
 }
 
 .art-badge-overlay span {
   color: var(--nx-gold);
   font-family: var(--nx-font-mono);
   font-size: 0.78rem;
+  font-weight: 800;
 }
 
 /* Section Header */
@@ -427,7 +443,7 @@ a:focus-visible, button:focus-visible {
   font-family: var(--nx-font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -435,25 +451,26 @@ a:focus-visible, button:focus-visible {
 .section-head h2 {
   font-family: var(--nx-font-display);
   font-size: clamp(2rem, 3.8vw, 2.7rem);
-  font-weight: 800;
-  color: #fff;
+  font-weight: 900;
+  color: var(--nx-text);
   margin-bottom: 12px;
   letter-spacing: -0.02em;
 }
 
 .section-head p {
   color: var(--nx-text-muted);
-  font-size: 1.05rem;
+  font-size: 1.06rem;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
    INTERACTIVE BATTLESTATION & CARD DECK CONSOLE
    ========================================================================== */
 .arena-deck {
-  background: var(--nx-bg-surface);
-  border: 1px solid rgba(229, 184, 105, 0.25);
+  background: #ffffff;
+  border: 1.5px solid var(--nx-border);
   border-radius: var(--nx-radius-lg);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(229, 184, 105, 0.12);
+  box-shadow: var(--nx-shadow-card);
   overflow: hidden;
   margin-bottom: 80px;
 }
@@ -462,7 +479,7 @@ a:focus-visible, button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #090c13;
+  background: #f7f5ed;
   padding: 14px 24px;
   border-bottom: 1px solid var(--nx-border);
 }
@@ -481,12 +498,12 @@ a:focus-visible, button:focus-visible {
 .arena-hud-badge {
   font-family: var(--nx-font-mono);
   font-size: 0.72rem;
-  background: var(--nx-mana-dim);
-  color: var(--nx-mana);
-  border: 1px solid var(--nx-mana);
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
   padding: 3px 10px;
   border-radius: var(--nx-radius-full);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .arena-console-layout {
@@ -497,7 +514,7 @@ a:focus-visible, button:focus-visible {
 
 /* Faction & Card Picker Column */
 .arena-picker-col {
-  background: #0b0e17;
+  background: #faf8f2;
   border-right: 1px solid var(--nx-border);
   padding: 24px;
   display: flex;
@@ -512,13 +529,13 @@ a:focus-visible, button:focus-visible {
 }
 
 .faction-tab {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  color: var(--nx-text-muted);
+  background: #ffffff;
+  border: 1px solid var(--nx-border);
+  color: var(--nx-text-body);
   padding: 12px 16px;
   border-radius: var(--nx-radius-md);
   font-family: var(--nx-font-sans);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -529,27 +546,28 @@ a:focus-visible, button:focus-visible {
 }
 
 .faction-tab:hover {
-  background: rgba(229, 184, 105, 0.06);
-  border-color: rgba(229, 184, 105, 0.2);
-  color: #fff;
+  background: #f4ece0;
+  color: var(--nx-text);
 }
 
 .faction-tab.active {
-  background: linear-gradient(90deg, rgba(229, 184, 105, 0.15) 0%, rgba(229, 184, 105, 0.03) 100%);
-  border-color: var(--nx-gold);
-  color: var(--nx-gold-light);
+  background: #efe5ce;
+  border-color: #c5a059;
+  color: var(--nx-text);
+  font-weight: 800;
   box-shadow: inset 3px 0 0 var(--nx-gold);
 }
 
 .faction-icon {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 /* Card Selection Row */
 .card-roster-label {
   font-family: var(--nx-font-mono);
-  font-size: 0.75rem;
-  color: var(--nx-text-subtle);
+  font-size: 0.78rem;
+  color: var(--nx-gold);
+  font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -562,8 +580,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .roster-card-btn {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  border: 1px solid var(--nx-border);
   border-radius: var(--nx-radius-sm);
   padding: 10px 14px;
   cursor: pointer;
@@ -571,26 +589,28 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: space-between;
   color: var(--nx-text);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   transition: all 0.2s;
 }
 
 .roster-card-btn:hover {
-  background: rgba(56, 189, 248, 0.08);
-  border-color: var(--nx-mana);
+  background: #f0f9ff;
+  border-color: #0284c7;
+  color: #0284c7;
 }
 
 .roster-card-btn.active {
-  background: rgba(56, 189, 248, 0.12);
-  border-color: var(--nx-mana);
-  color: var(--nx-mana);
+  background: #e0f2fe;
+  border-color: #0284c7;
+  color: #0284c7;
+  font-weight: 700;
 }
 
 .roster-mana-badge {
-  background: rgba(56, 189, 248, 0.2);
-  color: var(--nx-mana);
-  border: 1px solid var(--nx-mana);
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #0284c7;
   border-radius: 50%;
   width: 22px;
   height: 22px;
@@ -608,7 +628,7 @@ a:focus-visible, button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  background: radial-gradient(circle at 60% 40%, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
+  background: radial-gradient(circle at 60% 40%, rgba(197, 160, 89, 0.08) 0%, #ffffff 70%);
 }
 
 .arena-stage-grid {
@@ -618,7 +638,7 @@ a:focus-visible, button:focus-visible {
   align-items: center;
 }
 
-/* Holographic 3D Card */
+/* Holographic 3D Card (Dark fantasy centerpiece) */
 .card-3d-wrap {
   perspective: 1000px;
   display: flex;
@@ -628,10 +648,10 @@ a:focus-visible, button:focus-visible {
 .mythic-card {
   width: 260px;
   height: 380px;
-  background: linear-gradient(145deg, #181d2a 0%, #0d1018 100%);
-  border: 2px solid var(--nx-gold);
+  background: linear-gradient(145deg, #1c202c 0%, #0e121b 100%);
+  border: 2.5px solid #d4a350;
   border-radius: 18px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(229, 184, 105, 0.3);
+  box-shadow: 0 16px 40px rgba(28, 25, 23, 0.4), 0 0 25px rgba(212, 163, 80, 0.25);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -646,13 +666,13 @@ a:focus-visible, button:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(125deg, rgba(255, 255, 255, 0.15) 0%, transparent 40%, rgba(229, 184, 105, 0.1) 100%);
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.15) 0%, transparent 40%, rgba(229, 184, 105, 0.15) 100%);
   pointer-events: none;
 }
 
 .mythic-card:hover {
   transform: translateY(-6px) rotateY(4deg) rotateX(2deg);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 184, 105, 0.45);
+  box-shadow: 0 24px 50px rgba(28, 25, 23, 0.5), 0 0 35px rgba(212, 163, 80, 0.4);
 }
 
 .card-header-bar {
@@ -681,9 +701,9 @@ a:focus-visible, button:focus-visible {
 .card-rarity-pill {
   font-family: var(--nx-font-mono);
   font-size: 0.65rem;
-  background: var(--nx-gold-dim);
-  color: var(--nx-gold);
-  border: 1px solid var(--nx-gold);
+  background: rgba(229, 184, 105, 0.2);
+  color: #fde08b;
+  border: 1px solid #d4a350;
   padding: 3px 8px;
   border-radius: var(--nx-radius-full);
   font-weight: 700;
@@ -693,7 +713,7 @@ a:focus-visible, button:focus-visible {
 .card-art-frame {
   height: 140px;
   background: #090c13;
-  border: 1px solid rgba(229, 184, 105, 0.3);
+  border: 1px solid rgba(229, 184, 105, 0.35);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -704,8 +724,8 @@ a:focus-visible, button:focus-visible {
 
 .card-art-symbol {
   font-size: 4rem;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 14px var(--nx-gold));
+  opacity: 0.9;
+  filter: drop-shadow(0 0 14px rgba(229, 184, 105, 0.8));
   transition: transform 0.3s;
 }
 
@@ -714,8 +734,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .card-details-box {
-  background: rgba(10, 13, 20, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 13, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 10px;
   text-align: center;
@@ -732,14 +752,15 @@ a:focus-visible, button:focus-visible {
 
 .card-display-fraction {
   font-size: 0.72rem;
-  color: var(--nx-gold);
+  color: #dfba73;
   font-family: var(--nx-font-mono);
   margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .card-display-ability {
-  font-size: 0.76rem;
-  color: var(--nx-text-muted);
+  font-size: 0.78rem;
+  color: #e2e8f0;
   line-height: 1.4;
 }
 
@@ -783,7 +804,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .mana-tray {
-  background: #090c13;
+  background: #f7f5ed;
   border: 1px solid var(--nx-border);
   border-radius: var(--nx-radius-md);
   padding: 16px 20px;
@@ -797,13 +818,15 @@ a:focus-visible, button:focus-visible {
   justify-content: space-between;
   align-items: center;
   font-family: var(--nx-font-mono);
-  font-size: 0.8rem;
-  color: var(--nx-text-muted);
+  font-size: 0.82rem;
+  color: var(--nx-text-body);
+  font-weight: 700;
 }
 
 .mana-tray-head strong {
   color: var(--nx-mana);
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 900;
 }
 
 .mana-crystals-row {
@@ -815,8 +838,8 @@ a:focus-visible, button:focus-visible {
 .crystal {
   width: 22px;
   height: 22px;
-  background: #151b27;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
   border-radius: 4px;
   transform: rotate(45deg);
   transition: all 0.25s ease;
@@ -824,22 +847,22 @@ a:focus-visible, button:focus-visible {
 
 .crystal.filled {
   background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-  border-color: #e0f2fe;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+  border-color: #0284c7;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
 }
 
 /* Combat Log */
 .combat-log-box {
-  background: #090c13;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1c1917;
+  border: 1px solid rgba(197, 160, 89, 0.35);
   border-radius: var(--nx-radius-md);
   padding: 16px 20px;
   min-height: 120px;
   max-height: 160px;
   overflow-y: auto;
   font-family: var(--nx-font-mono);
-  font-size: 0.8rem;
-  color: var(--nx-text-muted);
+  font-size: 0.82rem;
+  color: #f5f5f7;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -852,7 +875,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .log-tag {
-  color: var(--nx-gold);
+  color: #dfba73;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -865,26 +888,27 @@ a:focus-visible, button:focus-visible {
 .btn-play-card {
   flex: 1;
   background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-  color: #fff;
+  color: #fff !important;
   border: 1px solid #7dd3fc;
-  box-shadow: 0 0 20px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.35);
 }
 
 .btn-play-card:hover {
   background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.5);
 }
 
 .btn-reset-arena {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--nx-text-muted);
+  background: #ffffff;
+  color: var(--nx-text-body) !important;
   border: 1px solid var(--nx-border);
 }
 
 .btn-reset-arena:hover {
-  color: #fff;
-  border-color: var(--nx-gold);
+  color: #1c1917 !important;
+  border-color: #c5a059;
+  background: #efe5ce;
 }
 
 /* ==========================================================================
@@ -898,7 +922,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .feature-box {
-  background: var(--nx-bg-surface);
+  background: #ffffff;
   border: 1px solid var(--nx-border);
   border-radius: var(--nx-radius-md);
   padding: 30px;
@@ -908,6 +932,7 @@ a:focus-visible, button:focus-visible {
   transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--nx-shadow-card);
 }
 
 .feature-box::after {
@@ -916,17 +941,17 @@ a:focus-visible, button:focus-visible {
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--nx-gold), transparent);
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .feature-box:hover {
-  border-color: var(--nx-gold);
-  background: var(--nx-bg-card);
+  border-color: #c5a059;
+  background: #ffffff;
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(229, 184, 105, 0.15);
+  box-shadow: var(--nx-shadow-hover);
 }
 
 .feature-box:hover::after {
@@ -937,38 +962,38 @@ a:focus-visible, button:focus-visible {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(229, 184, 105, 0.1);
-  border: 1px solid rgba(229, 184, 105, 0.3);
+  background: #f3ead9;
+  border: 1px solid #d6bd88;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
   color: var(--nx-gold);
-  box-shadow: 0 0 15px rgba(229, 184, 105, 0.15);
 }
 
 .feature-box h3 {
   font-family: var(--nx-font-display);
   font-size: 1.25rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--nx-text);
 }
 
 .feature-box p {
-  color: var(--nx-text-muted);
-  font-size: 0.94rem;
-  line-height: 1.65;
+  color: var(--nx-text-body);
+  font-size: 0.96rem;
+  line-height: 1.68;
 }
 
 /* ==========================================================================
-   STORE & SYSTEM SPECS MATRIX (iOS 17+, macOS 14+, Dynamic Island, Offline)
+   STORE & SYSTEM SPECS MATRIX
    ========================================================================== */
 .specs-card {
-  background: #090c13;
-  border: 1px solid var(--nx-border);
+  background: #ffffff;
+  border: 1.5px solid var(--nx-border);
   border-radius: var(--nx-radius-lg);
   padding: 36px 32px;
   margin-bottom: 80px;
+  box-shadow: var(--nx-shadow-card);
 }
 
 .specs-grid {
@@ -985,23 +1010,24 @@ a:focus-visible, button:focus-visible {
 
 .spec-label {
   font-family: var(--nx-font-mono);
-  font-size: 0.76rem;
-  color: var(--nx-text-subtle);
+  font-size: 0.78rem;
+  color: var(--nx-gold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  font-weight: 800;
 }
 
 .spec-val-primary {
   font-family: var(--nx-font-display);
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--nx-text);
 }
 
 .spec-val-desc {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--nx-text-muted);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* ==========================================================================
@@ -1016,8 +1042,8 @@ a:focus-visible, button:focus-visible {
 }
 
 .tier-card {
-  background: var(--nx-bg-surface);
-  border: 1px solid var(--nx-border);
+  background: #ffffff;
+  border: 1.5px solid var(--nx-border);
   border-radius: var(--nx-radius-lg);
   padding: 38px 32px;
   display: flex;
@@ -1025,12 +1051,13 @@ a:focus-visible, button:focus-visible {
   gap: 22px;
   position: relative;
   transition: all 0.3s;
+  box-shadow: var(--nx-shadow-card);
 }
 
 .tier-card.featured {
-  background: linear-gradient(180deg, #181d2c 0%, #0d101a 100%);
-  border-color: var(--nx-gold);
-  box-shadow: var(--nx-shadow-gold);
+  background: linear-gradient(180deg, #ffffff 0%, #faf8f2 100%);
+  border: 2px solid #c5a059;
+  box-shadow: 0 16px 40px rgba(197, 160, 89, 0.22);
 }
 
 .tier-badge {
@@ -1038,28 +1065,28 @@ a:focus-visible, button:focus-visible {
   top: -12px;
   right: 24px;
   background: var(--nx-gold);
-  color: #000;
+  color: #ffffff;
   font-family: var(--nx-font-mono);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 800;
-  padding: 4px 12px;
+  padding: 4px 14px;
   border-radius: var(--nx-radius-full);
   letter-spacing: 0.05em;
-  box-shadow: 0 0 15px rgba(229, 184, 105, 0.6);
+  box-shadow: 0 4px 14px rgba(118, 85, 25, 0.35);
 }
 
 .tier-name {
   font-family: var(--nx-font-display);
   font-size: 1.5rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--nx-text);
 }
 
 .tier-price {
   font-family: var(--nx-font-display);
   font-size: 2.5rem;
-  font-weight: 800;
-  color: #fff;
+  font-weight: 900;
+  color: var(--nx-text);
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -1068,7 +1095,7 @@ a:focus-visible, button:focus-visible {
 .tier-price small {
   font-size: 0.95rem;
   color: var(--nx-text-muted);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .tier-list {
@@ -1082,7 +1109,7 @@ a:focus-visible, button:focus-visible {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--nx-text-muted);
 }
 
@@ -1091,59 +1118,55 @@ a:focus-visible, button:focus-visible {
   font-weight: 600;
 }
 
-.tier-list li svg {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-}
-
 /* ==========================================================================
    LEGAL & DOCUMENT TEMPLATE (Privacy, Terms, Support, Deletion)
    ========================================================================== */
 .document {
-  padding: 30px 0 80px;
-  max-width: 860px;
+  padding: 40px 0 80px;
+  max-width: 880px;
 }
 
 .document h1 {
   font-family: var(--nx-font-display);
-  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   font-weight: 900;
   margin-bottom: 8px;
-  color: #fff;
+  color: var(--nx-text) !important;
   letter-spacing: -0.02em;
 }
 
 .document .updated {
   font-family: var(--nx-font-mono);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--nx-gold);
   margin-bottom: 28px;
+  font-weight: 700;
 }
 
 .document h2 {
   font-family: var(--nx-font-display);
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--nx-gold) !important;
   margin: 40px 0 16px;
-  border-bottom: 1px solid rgba(229, 184, 105, 0.2);
+  border-bottom: 1.5px solid var(--nx-border);
   padding-bottom: 10px;
 }
 
 .document h3 {
   font-family: var(--nx-font-display);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--nx-gold-light);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--nx-text) !important;
   margin: 24px 0 10px;
 }
 
 .document p, .document li {
-  color: var(--nx-text-muted);
+  color: var(--nx-text-body) !important;
   font-size: 1.02rem;
   line-height: 1.75;
   margin-bottom: 16px;
+  font-weight: 450;
 }
 
 .document ul, .document ol {
@@ -1153,25 +1176,27 @@ a:focus-visible, button:focus-visible {
 
 .document a {
   color: var(--nx-gold);
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 .document a:hover {
-  color: var(--nx-gold-light);
+  color: var(--nx-gold-accent);
 }
 
 .info-callout {
-  background: rgba(229, 184, 105, 0.08);
-  border-left: 3px solid var(--nx-gold);
+  background: #f7f5ed;
+  border-left: 4px solid var(--nx-gold-accent);
   padding: 18px 22px;
   border-radius: 0 var(--nx-radius-md) var(--nx-radius-md) 0;
   margin: 28px 0;
-  color: #fff;
+  color: var(--nx-text) !important;
+  box-shadow: 0 4px 16px rgba(197, 160, 89, 0.08);
 }
 
 .info-callout strong {
-  color: var(--nx-gold-light);
+  color: var(--nx-gold);
 }
 
 /* FAQ Accordion */
@@ -1183,23 +1208,24 @@ a:focus-visible, button:focus-visible {
 }
 
 .faq-item {
-  background: var(--nx-bg-surface);
+  background: #ffffff;
   border: 1px solid var(--nx-border);
   border-radius: var(--nx-radius-md);
   overflow: hidden;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.06);
 }
 
 .faq-item:hover {
-  border-color: rgba(229, 184, 105, 0.35);
+  border-color: #c5a059;
 }
 
 .faq-question {
   padding: 18px 22px;
   font-family: var(--nx-font-display);
   font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 800;
+  color: var(--nx-text);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -1212,6 +1238,7 @@ a:focus-visible, button:focus-visible {
   font-family: var(--nx-font-mono);
   font-size: 1.3rem;
   color: var(--nx-gold);
+  font-weight: 800;
   transition: transform 0.2s;
 }
 
@@ -1221,7 +1248,7 @@ a:focus-visible, button:focus-visible {
 
 .faq-answer {
   padding: 0 22px 22px;
-  color: var(--nx-text-muted);
+  color: var(--nx-text-body);
   font-size: 0.98rem;
   line-height: 1.7;
   display: none;
@@ -1233,11 +1260,12 @@ a:focus-visible, button:focus-visible {
 
 /* Footer */
 .nx-footer {
+  background: #f7f5ed;
   border-top: 1px solid var(--nx-border);
   padding: 44px 0 64px;
   margin-top: 60px;
   color: var(--nx-text-subtle);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .nx-footer-inner {
@@ -1257,11 +1285,13 @@ a:focus-visible, button:focus-visible {
 .nx-footer-links a {
   color: var(--nx-text-muted);
   text-decoration: none;
+  font-weight: 500;
   transition: color 0.2s;
 }
 
 .nx-footer-links a:hover {
   color: var(--nx-gold);
+  font-weight: 700;
 }
 
 /* Responsive */
