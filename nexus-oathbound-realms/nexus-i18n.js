@@ -224,21 +224,21 @@
       ko: '← CodExa 포털'
     },
     footer_rights: {
-      tr: '© 2026 Erdinç Topal. Tüm hakları saklıdır.',
-      en: '© 2026 Erdinç Topal. All rights reserved.',
-      de: '© 2026 Erdinç Topal. Alle Rechte vorbehalten.',
-      zh: '© 2026 Erdinç Topal. 保留所有权利。',
-      hi: '© 2026 Erdinç Topal. सर्वाधिकार सुरक्षित।',
-      es: '© 2026 Erdinç Topal. Todos los derechos reservados.',
-      fr: '© 2026 Erdinç Topal. Tous droits réservés.',
-      ar: '© 2026 Erdinç Topal. جميع الحقوق محفوظة.',
-      pt: '© 2026 Erdinç Topal. Todos os direitos reservados.',
-      ru: '© 2026 Erdinç Topal. Все права защищены.',
-      id: '© 2026 Erdinç Topal. Hak cipta dilindungi undang-undang.',
-      bn: '© 2026 Erdinç Topal. সর্বস্বত্ব সংরক্ষিত।',
-      ur: '© 2026 Erdinç Topal. جملہ حقوق محفوظ ہیں۔',
-      ja: '© 2026 Erdinç Topal. 無断転載を禁じます。',
-      ko: '© 2026 Erdinç Topal. 판권 소유.'
+      tr: '© 2026 CodExa. Tüm hakları saklıdır.',
+      en: '© 2026 CodExa. All rights reserved.',
+      de: '© 2026 CodExa. Alle Rechte vorbehalten.',
+      zh: '© 2026 CodExa. 保留所有权利。',
+      hi: '© 2026 CodExa. सर्वाधिकार सुरक्षित।',
+      es: '© 2026 CodExa. Todos los derechos reservados.',
+      fr: '© 2026 CodExa. Tous droits réservés.',
+      ar: '© 2026 CodExa. جميع الحقوق محفوظة.',
+      pt: '© 2026 CodExa. Todos os direitos reservados.',
+      ru: '© 2026 CodExa. Все права защищены.',
+      id: '© 2026 CodExa. Hak cipta dilindungi undang-undang.',
+      bn: '© 2026 CodExa. সর্বস্বত্ব সংরক্ষিত।',
+      ur: '© 2026 CodExa. جملہ حقوق محفوظ ہیں۔',
+      ja: '© 2026 CodExa. 無断転載を禁じます。',
+      ko: '© 2026 CodExa. 판권 소유.'
     }
   };
 

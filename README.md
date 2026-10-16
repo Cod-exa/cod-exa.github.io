@@ -1,6 +1,6 @@
 # CodExa — Eğitim, Mantık ve Üretkenlik Ekosistemi
 
-**CodExa (Erdinç TOPAL)** tarafından geliştirilen, Google Play'de yayında olan 21 eğitsel mobil uygulama, mantık oyunu ve üretkenlik aracının resmi tanıtım, vitrin, yasal uyumluluk (Gizlilik Politikası, Kullanım Koşulları, Hesap ve Veri Silme) ve destek portalıdır.
+**CodExa** tarafından geliştirilen, Google Play'de yayında olan 21 eğitsel mobil uygulama, mantık oyunu ve üretkenlik aracının resmi tanıtım, vitrin, yasal uyumluluk (Gizlilik Politikası, Kullanım Koşulları, Hesap ve Veri Silme) ve destek portalıdır.
 
 🌐 **Canlı Site:** [cod-exa.github.io](https://cod-exa.github.io)  
 📱 **Google Play Geliştirici Portföyü:** 21 Yayında Uygulama
@@ -79,10 +79,10 @@ Tüm portal ve yasal sayfalar **15 dilde** sunulmaktadır:
 
 ## 📬 İletişim & Destek
 
-- **Geliştirici:** Erdinç TOPAL (CodExa)
-- **E-posta:** [erdinctopal.et@gmail.com](mailto:erdinctopal.et@gmail.com) / [exaque2@gmail.com](mailto:exaque2@gmail.com)
+- **Geliştirici:** CodExa
+- **E-posta:** [exaque2@gmail.com](mailto:exaque2@gmail.com) / [exaque2@gmail.com](mailto:exaque2@gmail.com)
 - **Konum:** İstanbul, Türkiye
 
 ---
 
-<sub>© 2026 Erdinç TOPAL (CodExa). Tüm hakları saklıdır. Eğitim ve odaklanma için tasarlandı.</sub>
+<sub>© 2026 CodExa. Tüm hakları saklıdır. Eğitim ve odaklanma için tasarlandı.</sub>

@@ -1,7 +1,7 @@
 # PIXEL GARDEN — GİZLİLİK POLİTİKASI / PRIVACY POLICY
 
 **Son güncelleme / Last updated:** 23 Temmuz 2026  
-**Geliştirici / Developer:** CodExa (Erdinç TOPAL)  
+**Geliştirici / Developer:** CodExa  
 **İletişim / Contact:** [exaque2@gmail.com](mailto:exaque2@gmail.com)  
 
 ---

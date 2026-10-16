@@ -1,6 +1,6 @@
 /**
  * Premium i18n Internationalization Framework
- * Developed for Erdinç TOPAL (CodExa)
+ * Developed for CodExa
  * Supports 15 languages: EN, TR, ZH, HI, ES, FR, AR, PT, RU, DE, ID, BN, UR, JA, KO
  */
 
