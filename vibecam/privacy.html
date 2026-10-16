@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07070c">
-  <meta name="description" content="VibeCam Gizlilik Politikası: Kamera ve galeri izinleri, yerel GPU shader işleme prensipleri, reklamlar ve veri güvenliği hakkında kapsamlı yasal bilgilendirme.">
+  <meta name="description" content="VibeCam Gizlilik Politikası: cihaz içi görüntü işleme ve yapay zekâ, isteğe bağlı hesap ve Topluluk, kamera izinleri, şikâyet/engelleme, reklamlar ve hesap silme.">
   <title>Gizlilik Politikası — VibeCam — CodExa</title>
   <link rel="canonical" href="https://cod-exa.github.io/vibecam/privacy.html">
   <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg">
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../brand-system.css">
   <link rel="stylesheet" href="site.css?v=20261008-1">
 </head>
-<body data-title-tr="Gizlilik Politikası" data-title-en="Privacy Policy" data-desc-tr="VibeCam Gizlilik Politikası: Kamera ve galeri izinleri, yerel GPU shader işleme prensipleri, reklamlar ve veri güvenliği hakkında kapsamlı yasal bilgilendirme." data-desc-en="VibeCam Privacy Policy: Camera permissions, local GPU shader rendering, advertising, and user data protection details.">
+<body data-title-tr="Gizlilik Politikası" data-title-en="Privacy Policy" data-desc-tr="VibeCam Gizlilik Politikası: cihaz içi görüntü işleme ve yapay zekâ, isteğe bağlı hesap ve Topluluk, kamera izinleri, şikâyet/engelleme, reklamlar ve hesap silme." data-desc-en="VibeCam Privacy Policy: Camera permissions, local GPU shader rendering, advertising, and user data protection details.">
 
   <!-- Header -->
   <header class="vc-header">
@@ -64,63 +64,80 @@
     <!-- TURKISH PRIVACY POLICY -->
     <div data-language="tr" lang="tr">
       <h1>Gizlilik Politikası</h1>
-      <p class="updated">Son Güncelleme: 8 Ekim 2026</p>
+      <p class="updated">Son Güncelleme: 16 Ekim 2026</p>
 
       <div class="info-callout">
-        <strong>Önemli Özet:</strong> VibeCam, fotoğraflarınızı, yüz hatlarınızı veya vizör akışınızı asla harici bir bulut sunucusuna yüklemez. Tüm matematik modelleri, görüntü efektleri ve 4K dışa aktarmalar %100 telefonunuzun kendi GPU çipinde yerel olarak işlenir.
+        <strong>Önemli Özet:</strong> Fotoğraflarınız düzenlenirken, yapay zekâ özelliklerinde ve Duo kamerada hiçbir zaman bir sunucuya yüklenmez; tüm görüntü işleme telefonunuzda yapılır. Hesap isteğe bağlıdır ve yalnızca Topluluk akışı içindir. Hesabınızı ve topluluktaki içeriğinizi uygulama içinden silebilirsiniz.
       </div>
 
       <p>
-        Bu Gizlilik Politikası, <strong>CodExa</strong> (Geliştirici: Erdinç TOPAL) tarafından sunulan <strong>VibeCam: Cyber Synth Camera</strong> ("Uygulama") mobil uygulamasını kullandığınızda kişisel verilerinizin nasıl korunduğunu, cihaz izinlerinin nasıl işlendiğini ve gizlilik haklarınızı açıklar.
+        Bu Gizlilik Politikası, <strong>CodExa</strong> (Geliştirici: Erdinç TOPAL) tarafından sunulan <strong>VibeCam</strong> ("Uygulama") mobil uygulamasını kullandığınızda hangi verilerin işlendiğini, cihaz izinlerinin nasıl kullanıldığını ve haklarınızı açıklar.
       </p>
 
       <h2>1. Toplanan ve İşlenen Veriler</h2>
-      <p>
-        VibeCam zorunlu bir kullanıcı hesabı, profil oluşturma veya e-posta ile kayıt süreci gerektirmez. Uygulama aşağıdaki veri kategorileriyle çalışır:
-      </p>
       <ul>
-        <li><strong>Fotoğraflar ve Kamera Görüntüleri:</strong> Yalnızca kullanıcının seçtiği veya kameradan anlık olarak çektiği fotoğraflar yerel shader motoru tarafından işlenir. Bu görseller CodExa sunucularına aktarılmaz, depolanmaz veya analiz edilmez.</li>
-        <li><strong>Cihaz İçi Tercihler ve Ayarlar:</strong> Kalan günlük ücretsiz sentez kredisi sayısı, son yenilenme tarihi, haptik titreşim tercihi, kompozisyon ızgarası durumu ve kaydedilen formül tohumları yalnızca cihazınızın yerel depolama alanında (iOS UserDefaults / Android SharedPreferences) tutulur.</li>
-        <li><strong>Teknik Cihaz Bilgileri:</strong> Uygulama kilitlenme raporları, işletim sistemi sürümü ve ekran çözünürlüğü gibi anonim teknik metrikler performans optimizasyonu amacıyla standart mağaza servisleri (Apple App Store / Google Play) üzerinden toplanabilir.</li>
+        <li><strong>Fotoğraflar ve kamera görüntüleri:</strong> Seçtiğiniz veya çektiğiniz fotoğraflar yalnızca cihazınızda işlenir. CodExa sunucularına veya üçüncü taraflara yüklenmez, saklanmaz ve analiz edilmez.</li>
+        <li><strong>Hesap (isteğe bağlı):</strong> Uygulamayı kullanmak için hesap gerekmez. Topluluk akışında paylaşmak veya oy vermek için Apple ile giriş, e-posta/şifre ya da misafir (anonim) giriş seçebilirsiniz. Giriş, Google'ın <strong>Firebase Authentication</strong> hizmetiyle yapılır; kullanıcı kimliği (UID), e-posta (e-posta ile girişte) ve görünen ad tutulur. Apple ile girişte Apple'ın paylaştığı ad ve (gizli röle olabilen) e-posta kullanılır.</li>
+        <li><strong>Topluluk içeriği (yalnızca siz paylaşırsanız):</strong> Görünen adınız, başlık, açıklama, formül parametreleri (model, tohum kodu, kaydırıcı değerleri), fotoğraf referansı ve beğeni/oylar Google'ın <strong>Cloud Firestore</strong> hizmetinde saklanır ve <strong>herkese açıktır</strong>. Fotoğraf dosyanızın kendisi yüklenmez.</li>
+        <li><strong>Şikâyetler ve engelleme:</strong> Bir gönderiyi bildirdiğinizde gönderi kimliği, yazar kimliği, seçtiğiniz neden, isteğe bağlı notunuz ve kendi kullanıcı kimliğiniz moderasyon için kaydedilir. Engellediğiniz kullanıcıların listesi yalnızca cihazınızda tutulur.</li>
+        <li><strong>Cihaz içi tercihler:</strong> Günlük kredi sayısı, haptik ve ızgara ayarları, kayıtlı formül tohumları ve topluluk kurallarını kabul ettiğiniz bilgisi cihazınızın yerel depolamasında kalır.</li>
+        <li><strong>Teknik bilgiler:</strong> Çökme raporları ve işletim sistemi sürümü gibi anonim metrikler Apple App Store ve Google Play'in standart servisleri üzerinden toplanabilir.</li>
       </ul>
 
-      <h2>2. Cihaz İzinleri ve Kullanım Amaçları</h2>
-      <p>VibeCam temel işlevlerini yerine getirebilmek için işletim sisteminden şu izinleri talep eder:</p>
+      <h2>2. Cihaz İzinleri</h2>
       <ul>
-        <li><strong>Kamera İzni (NSCameraUsageDescription / CAMERA):</strong> Canlı vizörde gerçek zamanlı 60 FPS Metal gölgelendirici efektlerini ve matematiksel rezonans dalgalarını önizleyebilmeniz ve fotoğraf çekebilmeniz için kullanılır. Kamera akışı asla kaydedilmez veya üçüncü taraflarla paylaşılmaz.</li>
-        <li><strong>Fotoğraf Galerisi Okuma/Yazma İzni (NSPhotoLibraryUsageDescription / READ_MEDIA_IMAGES):</strong> Düzenlemek istediğiniz fotoğrafları film rulosundan seçebilmeniz ve sentezlediğiniz yüksek çözünürlüklü 4K çıktıları fotoğraf albümünüze kaydedebilmeniz için zorunludur.</li>
-        <li><strong>Titreşim & Haptik Motoru (VIBRATE):</strong> Synthesizer kadranlarını çevirirken dokunsal geri bildirim sağlamak amacıyla kullanılır.</li>
+        <li><strong>Kamera:</strong> Canlı vizör, fotoğraf çekimi ve <strong>Duo</strong> için kullanılır. Duo, destekleyen iPhone'larda ön ve arka kamerayı aynı anda çalıştırır; akış kaydedilmez, yalnızca "çek" dediğiniz kareler işlenir ve cihazda kalır.</li>
+        <li><strong>Fotoğraflar:</strong> iOS'ta film rulosundan seçmek ve sonuçları kaydetmek için kullanılır. Android'de sistemin fotoğraf seçicisi kullanılır ve geniş depolama izni istenmez; sonuçlar sistemin medya deposuna kaydedilir.</li>
+        <li><strong>Titreşim:</strong> Kadranlarda dokunsal geri bildirim içindir.</li>
       </ul>
 
-      <h2>3. Reklamlar ve Üçüncü Taraf SDK'lar</h2>
+      <h2>3. Cihaz İçi Yapay Zekâ (Stüdyo)</h2>
       <p>
-        Uygulamanın ücretsiz sürümü Google AdMob reklam altyapısını kullanır. Google AdMob, reklamların gösterimi, sahteciliğin önlenmesi ve sıklık sınırlandırması için reklam tanımlayıcınızı (IDFA / GAID) ve yaklaşık konumunuzu işleyebilir:
+        Nesne silme, kesme, 4x netleştirme ve derinlik haritası cihazınızda çalışır: iOS'ta Apple Vision ve Core ML, Android'de Google ML Kit ve LiteRT kullanılır. Fotoğraflarınız bu işlemler için hiçbir yere gönderilmez.
       </p>
       <ul>
-        <li>Avrupa Ekonomik Alanı (AEA), Birleşik Krallık ve İsviçre kullanıcıları için Google UMP (User Messaging Platform) rıza onay mekanizması sunulur.</li>
-        <li>İzin tercihlerinizi dilediğiniz an cihaz ayarlarınızdan veya uygulamanın Ayarlar menüsünden güncelleyebilirsiniz.</li>
-        <li><strong>VibeCam PRO</strong> aboneliği satın alındığında tüm reklam SDK'ları devre dışı bırakılır ve sıfır reklam deneyimi sunulur.</li>
+        <li>Bazı özellikler için tek seferlik bir model dosyası indirilir (yaklaşık 5–100 MB). İndirme Hugging Face veya Qualcomm AI Hub'ın dağıtım altyapısı gibi herkese açık bir barındırıcıdan yapılır; her dosya indirmesinde olduğu gibi barındırıcı IP adresinizi görür. Fotoğraf, hesap veya cihaz kimliği gönderilmez. İndirmeden sonra özellikler çevrimdışı çalışır.</li>
+        <li>Android'de kesme (segmentasyon) modelini Google Play hizmetleri indirir ve yönetir.</li>
       </ul>
 
-      <h2>4. Uygulama İçi Satın Alımlar ve Abonelikler</h2>
+      <h2>4. Reklamlar ve Üçüncü Taraf SDK'lar</h2>
       <p>
-        VibeCam PRO haftalık, aylık veya yıllık otomatik yenilenen abonelik modelleri sunar. Tüm finansal işlemler ve ödeme güvenliği doğrudan <strong>Apple App Store (StoreKit)</strong> veya <strong>Google Play Billing</strong> güvencesiyle yürütülür. Kredi kartı veya fatura bilgileriniz CodExa sunucularına asla ulaşmaz.
+        Ücretsiz sürüm Google AdMob reklam altyapısını kullanabilir. AdMob, reklam gösterimi, sahteciliği önleme ve ölçüm için reklam tanımlayıcınızı (IDFA / reklam kimliği) ve yaklaşık konumunuzu işleyebilir.
+      </p>
+      <ul>
+        <li>Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre'de kişiselleştirilmiş reklamlar gösterilmeden önce Google UMP onay penceresi sunulur.</li>
+        <li>İzleme tercihlerinizi iOS Ayarlar &gt; Gizlilik &gt; İzleme veya Android Ayarlar üzerinden dilediğiniz an değiştirebilirsiniz.</li>
+        <li><strong>VibeCam PRO</strong> aboneliğinde reklamlar gösterilmez.</li>
+      </ul>
+
+      <h2>5. Uygulama İçi Satın Alımlar</h2>
+      <p>
+        VibeCam PRO, aylık veya yıllık otomatik yenilenen abonelik sunar. Ödemeler tamamen <strong>Apple App Store (StoreKit)</strong> veya <strong>Google Play Faturalandırma</strong> tarafından işlenir; kart ve fatura bilgileriniz CodExa'ya ulaşmaz.
       </p>
 
-      <h2>5. Çocukların Gizliliği</h2>
+      <h2>6. Topluluk ve Kullanıcı İçeriği</h2>
+      <ul>
+        <li>Topluluk akışına yalnızca kendi çalışmalarınızı paylaşabilirsiniz. Çıplaklık/cinsel içerik, nefret söylemi, taciz, şiddet veya yasa dışı içerik yasaktır; kuralları ihlal eden içerik kaldırılır ve hesaplar yasaklanabilir. İlk paylaşımdan önce bu kuralları kabul etmeniz istenir.</li>
+        <li>Her gönderide <strong>Bildir</strong> ve <strong>Üreticiyi engelle</strong> seçenekleri bulunur. Bildirdiğiniz gönderi sizin için anında gizlenir; bildirimleri <strong>24 saat içinde</strong> inceleriz. Engellediğiniz kullanıcıların gönderilerini bir daha görmezsiniz; engeli Topluluk ekranından kaldırabilirsiniz.</li>
+        <li>Uygunsuz içerik veya kullanıcı bildirmek için ayrıca <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a> adresine yazabilirsiniz.</li>
+      </ul>
+
+      <h2>7. Saklama ve Silme</h2>
       <p>
-        VibeCam 13 yaşın (veya yargı alanınızdaki geçerli asgari yaşın) altındaki çocuklardan bilerek herhangi bir kişisel veri toplamaz. Uygulama tüm aile bireyleri için güvenli bir yaratıcı araç olarak tasarlanmıştır.
+        Hesabınızı ve topluluktaki tüm gönderi ve oylarınızı <strong>Ayarlar &gt; Hesap &gt; Hesabı sil</strong> ile uygulama içinden kalıcı olarak silebilirsiniz. Ayrıntılar için <a href="delete-account.html">Hesap ve Veri Silme</a> sayfasına bakın. Gönderdiğiniz şikâyet kayıtları, hesabınız silindikten sonra size bağlanamaz hâle gelir ve yalnızca moderasyon için gerektiği süre tutulur. Uygulamayı sildiğinizde cihazdaki tüm yerel veriler de silinir.
       </p>
 
-      <h2>6. Veri Güvenliği ve Kullanıcı Hakları</h2>
+      <h2>8. Çocukların Gizliliği</h2>
       <p>
-        GDPR (Genel Veri Koruma Tüzüğü) ve CCPA (Kaliforniya Tüketici Gizliliği Yasası) uyarınca, cihazınızdaki veriler üzerinde tam kontrole sahipsiniz. Uygulamayı sildiğinizde cihazda depolanan tüm yerel ayarlar ve krediler kalıcı olarak silinir.
+        VibeCam 13 yaşın (veya yargı alanınızdaki asgari yaşın) altındaki çocuklardan bilerek kişisel veri toplamaz.
       </p>
 
-      <h2>7. İletişim</h2>
+      <h2>9. Güvenlik ve Haklarınız</h2>
       <p>
-        Gizlilik politikamız veya veri koruma uygulamalarımız hakkında sorularınız için bizimle iletişime geçebilirsiniz:
+        GDPR ve CCPA kapsamında verilerinize erişme, düzeltme ve silme hakkınız vardır. Bu hakları uygulama içi hesap silme ile veya aşağıdaki iletişim adresinden kullanabilirsiniz.
       </p>
+
+      <h2>10. İletişim</h2>
       <p>
         <strong>Geliştirici:</strong> Erdinç TOPAL (CodExa)<br>
         <strong>E-posta:</strong> <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a><br>
@@ -131,61 +148,80 @@
     <!-- ENGLISH PRIVACY POLICY -->
     <div data-language="en" lang="en" hidden>
       <h1>Privacy Policy</h1>
-      <p class="updated">Last Updated: October 8, 2026</p>
+      <p class="updated">Last Updated: October 16, 2026</p>
 
       <div class="info-callout">
-        <strong>Privacy Guarantee:</strong> VibeCam never uploads your photos, facial contours, or camera stream to cloud servers. All mathematical models, shaders, and 4K renders are processed 100% on-device using your smartphone's native GPU.
+        <strong>Summary:</strong> Your photos are never uploaded to a server while you edit, use the AI features or shoot with Duo; all image processing happens on your phone. An account is optional and only needed for the Community feed. You can delete your account and your community content from inside the app.
       </div>
 
       <p>
-        This Privacy Policy explains how <strong>CodExa</strong> (Developer: Erdinç TOPAL) handles your data and device permissions when you use the <strong>VibeCam: Cyber Synth Camera</strong> ("Application") mobile app.
+        This Privacy Policy explains what data <strong>CodExa</strong> (Developer: Erdinç TOPAL) processes when you use the <strong>VibeCam</strong> mobile app ("Application"), how device permissions are used and what your rights are.
       </p>
 
-      <h2>1. Data Collection and Processing</h2>
-      <p>
-        VibeCam does not require account creation, registration, or cloud logins. The application handles only the following local data:
-      </p>
+      <h2>1. Data We Collect and Process</h2>
       <ul>
-        <li><strong>Photos and Viewfinder Feed:</strong> Photos selected or captured by you are processed in real-time by the local shader engine. No images or biometric representations are transmitted, stored, or analyzed on remote servers.</li>
-        <li><strong>On-Device Preferences:</strong> Daily free credit counts, reset timestamps, haptic feedback toggles, rule-of-thirds grid settings, and saved formula seeds are stored locally in your device storage (iOS UserDefaults / Android SharedPreferences).</li>
-        <li><strong>Diagnostic Information:</strong> Anonymous crash reports and operating system versions may be gathered via standard platform telemetry (Apple App Store / Google Play Console) strictly for stability and bug fixes.</li>
+        <li><strong>Photos and camera images:</strong> Photos you select or take are processed only on your device. They are not uploaded to CodExa servers or third parties, stored or analyzed.</li>
+        <li><strong>Account (optional):</strong> No account is needed to use the app. To post or vote in the Community feed you can sign in with Apple, email/password or as a guest (anonymous). Sign-in runs on Google's <strong>Firebase Authentication</strong>; we keep a user ID (UID), your email (for email sign-in) and a display name. With Sign in with Apple we use the name and email (possibly a private relay address) that Apple shares.</li>
+        <li><strong>Community content (only if you share):</strong> Your display name, title, caption, formula parameters (model, seed code, slider values), a photo reference and likes/votes are stored in Google's <strong>Cloud Firestore</strong> and are <strong>public</strong>. Your photo file itself is not uploaded.</li>
+        <li><strong>Reports and blocking:</strong> When you report a post we record the post ID, the author's ID, the reason you chose, your optional note and your own user ID, for moderation. Your list of blocked creators stays on your device only.</li>
+        <li><strong>On-device preferences:</strong> Daily credits, haptic and grid settings, saved formula seeds and whether you accepted the community rules stay in your device's local storage.</li>
+        <li><strong>Technical data:</strong> Anonymous crash reports and OS versions may be collected through the standard Apple App Store and Google Play services.</li>
       </ul>
 
-      <h2>2. Device Permissions and Purpose</h2>
-      <p>VibeCam requests the following system permissions to operate:</p>
+      <h2>2. Device Permissions</h2>
       <ul>
-        <li><strong>Camera Permission (NSCameraUsageDescription / CAMERA):</strong> Used strictly to display the live 60 FPS viewfinder and apply real-time physical resonance shaders when taking pictures. The live stream is never recorded or broadcast.</li>
-        <li><strong>Photo Library Access (NSPhotoLibraryUsageDescription / READ_MEDIA_IMAGES):</strong> Used to import user-selected photos for processing and to export synthesized 4K renders back to your Photos library.</li>
-        <li><strong>Haptics & Vibration:</strong> Provides tactile feedback when turning virtual synthesizer dials and tweaking parameters.</li>
+        <li><strong>Camera:</strong> Used for the live viewfinder, taking photos and <strong>Duo</strong>. On supported iPhones Duo runs the front and rear cameras at the same time; the stream is not recorded, only the frames you capture are processed and they stay on your device.</li>
+        <li><strong>Photos:</strong> On iOS, to pick from your library and save results. On Android the system photo picker is used and no broad storage permission is requested; results are saved to the system media store.</li>
+        <li><strong>Vibration:</strong> Tactile feedback on dials.</li>
       </ul>
 
-      <h2>3. Advertising and Analytics</h2>
+      <h2>3. On-Device AI (Studio)</h2>
       <p>
-        The free tier of VibeCam utilizes Google AdMob to deliver advertisements. Google AdMob may process non-precise location and advertising identifiers (IDFA/GAID) for fraud prevention, measurement, and frequency capping:
+        Object removal, cutout, 4x enhancement and depth maps run on your device: Apple Vision and Core ML on iOS, Google ML Kit and LiteRT on Android. Your photos are not sent anywhere for these operations.
       </p>
       <ul>
-        <li>Google User Messaging Platform (UMP) consent dialogs are displayed to users in the EEA, UK, and Switzerland.</li>
-        <li>You can adjust tracking permissions anytime in iOS Settings &gt; Privacy &gt; Tracking or Android Settings.</li>
-        <li>When you upgrade to <strong>VibeCam PRO</strong>, all advertising SDKs are disabled for a completely ad-free experience.</li>
+        <li>Some features download a one-time model file (about 5–100 MB) from a public host such as Hugging Face or Qualcomm AI Hub's distribution infrastructure. As with any file download, the host sees your IP address; no photo, account or device identifier is sent. After the download the features work offline.</li>
+        <li>On Android, the cutout (segmentation) model is downloaded and managed by Google Play services.</li>
       </ul>
 
-      <h2>4. In-App Purchases & Subscriptions</h2>
+      <h2>4. Advertising and Third-Party SDKs</h2>
       <p>
-        VibeCam PRO offers auto-renewing subscriptions processed securely by <strong>Apple App Store (StoreKit)</strong> or <strong>Google Play Billing</strong>. CodExa never receives or stores your credit card numbers or banking credentials.
+        The free version may use Google AdMob. AdMob can process your advertising identifier (IDFA / advertising ID) and approximate location for ad delivery, fraud prevention and measurement.
+      </p>
+      <ul>
+        <li>In the EEA, UK and Switzerland a Google UMP consent prompt is shown before personalized ads.</li>
+        <li>You can change tracking choices at any time in iOS Settings &gt; Privacy &gt; Tracking or in Android settings.</li>
+        <li>Ads are not shown with a <strong>VibeCam PRO</strong> subscription.</li>
+      </ul>
+
+      <h2>5. In-App Purchases</h2>
+      <p>
+        VibeCam PRO offers monthly or yearly auto-renewing subscriptions. Payments are processed entirely by the <strong>Apple App Store (StoreKit)</strong> or <strong>Google Play Billing</strong>; your card and billing details never reach CodExa.
       </p>
 
-      <h2>5. Children's Privacy</h2>
+      <h2>6. Community and User Content</h2>
+      <ul>
+        <li>You may share only your own work in the Community feed. Nudity or sexual content, hate speech, harassment, violence and illegal content are prohibited; content that breaks the rules is removed and accounts can be banned. You are asked to accept these rules before your first post.</li>
+        <li>Every post has <strong>Report</strong> and <strong>Block creator</strong> options. A post you report is hidden for you immediately and we review reports <strong>within 24 hours</strong>. You will no longer see posts from creators you block, and you can unblock them from the Community screen.</li>
+        <li>You can also report inappropriate content or users by emailing <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a>.</li>
+      </ul>
+
+      <h2>7. Retention and Deletion</h2>
       <p>
-        VibeCam does not knowingly collect personal information from children under 13. The application is designed as a creative artistic tool suitable for general audiences.
+        You can permanently delete your account and all your community posts and votes in the app under <strong>Settings &gt; Account &gt; Delete account</strong>. See <a href="delete-account.html">Account &amp; Data Deletion</a> for details. Reports you filed can no longer be linked to you once your account is deleted and are kept only as long as needed for moderation. Uninstalling the app also removes all local data on the device.
       </p>
 
-      <h2>6. Security and User Rights</h2>
+      <h2>8. Children's Privacy</h2>
       <p>
-        Under GDPR and CCPA, you retain full ownership of your data. Because all image processing and storage occurs on your device, uninstalling the application permanently deletes all local application data.
+        VibeCam does not knowingly collect personal information from children under 13 (or the minimum age in your jurisdiction).
       </p>
 
-      <h2>7. Contact Information</h2>
-      <p>If you have any questions or inquiries regarding this Privacy Policy, please contact us at:</p>
+      <h2>9. Security and Your Rights</h2>
+      <p>
+        Under GDPR and CCPA you have the right to access, correct and delete your data. You can exercise these rights with in-app account deletion or through the contact address below.
+      </p>
+
+      <h2>10. Contact Information</h2>
       <p>
         <strong>Developer:</strong> Erdinç TOPAL (CodExa)<br>
         <strong>Email:</strong> <a href="mailto:exaque2@gmail.com">exaque2@gmail.com</a><br>

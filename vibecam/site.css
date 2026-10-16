@@ -1110,3 +1110,29 @@ body::before {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Portal override
+   The portal's brand-system.css paints every page cream with !important, but this
+   design (white headings, glass cards, neon accents) was built for a dark ground, so
+   headings and callouts became unreadable. Restore the dark ground for VibeCam pages only.
+   ========================================================================== */
+body {
+  background-color: var(--vc-bg) !important;
+  color: var(--vc-text) !important;
+}
+
+body:before {
+  background: none !important;
+}
+
+/* The shared portal bar and footer are designed for a light ground; keep them light so their
+   dark text stays readable above and below the dark VibeCam content. */
+.cx-brandbar {
+  background: rgba(250, 249, 245, 0.96) !important;
+  border-color: var(--cx-line) !important;
+}
+
+.cx-footer {
+  background: #faf9f5 !important;
+}
