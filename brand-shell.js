@@ -35,7 +35,8 @@
     ['V','Visual Timer: Odak','Odak & zaman yönetimi','visual-timer/index.html','live'],
     ['V','VouchKeep: Fiş ve Garanti','Satın alma & kanıt yönetimi','vouchkeep/index.html','live'],
     ['N','Nexus: Card Duel & Deckbuilder','Fantastik kart stratejisi & TCG','nexus-oathbound-realms/index.html','live'],
-    ['V','VibeCam: Cyber Synth Camera','Görsel sentezleyici & estetik kamera','vibecam/index.html','soon']
+    ['V','VibeCam: Cyber Synth Camera','Görsel sentezleyici & estetik kamera','vibecam/index.html','soon'],
+    ['N','Numbeats: Beat & Music Maker','Ritim oyunu & müzik yapıcı','numbeats/index.html','soon']
   ];
   const root = location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const makeGroup = (label, status) => {
