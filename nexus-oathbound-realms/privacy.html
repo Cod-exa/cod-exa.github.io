@@ -83,9 +83,9 @@
         Uygulamanın resmi kaynak kodundaki <code>PrivacyInfo.xcprivacy</code> manifest dosyası uyarınca:
       </p>
       <ul>
-        <li><strong>Toplanan Veri Türleri:</strong> <code>YOK</code> (<code>NSPrivacyCollectedDataTypes: []</code>). Oyun sunucularımıza adınız, soyadınız, konumunuz, fotoğraflarınız veya kişisel iletişim bilgileriniz aktarılmaz.</li>
+        <li><strong>Toplanan Veri Türleri:</strong> Yalnızca isteğe bağlı hesap açarsanız e-posta adresi ve hesap kimliği (Firebase Authentication ile, uygulama işlevi için, takip amacı olmadan). Çevrimiçi düello odalarında oyun durumu ve görünen adınız işlenir. Adınız, soyadınız, konumunuz veya fotoğraflarınız toplanmaz.</li>
         <li><strong>Kullanıcı Takibi (Tracking / IDFA):</strong> <code>YOK</code> (<code>NSPrivacyTracking: false</code>). Reklam tanımlayıcısı (IDFA) veya cihaz parmak izi ile kullanıcı takibi yapılmaz.</li>
-        <li><strong>Zorunlu Hesap Açma:</strong> Oyunu oynamak için bir kullanıcı hesabı veya şifre oluşturmanız gerekmez.</li>
+        <li><strong>Hesap Zorunlu Değil:</strong> Tek kişilik ve çevrimdışı oyun hesapsız oynanır. Hesap yalnızca çevrimiçi düello içindir; Apple ile giriş, e-posta/şifre veya misafir girişi kullanılabilir. Hesabınızı uygulamada Ayarlar → Hesap → Hesabı sil ile kalıcı olarak silebilirsiniz.</li>
       </ul>
 
       <h2>2. Cihaz İzinleri Durumu</h2>
@@ -109,6 +109,10 @@
       <h2>4. İnternet Bağlantısı ve Tek Kişilik Modlar</h2>
       <p>
         Nexus'un ana tek kişilik içerikleri (Geçit Seferi, Taktik Atölyesi, Antrenman Alanı ve Ustalık Ligi) <strong>%100 çevrimdışı (offline)</strong> olarak çalışacak şekilde tasarlanmıştır. Uçak modunda veya hücresel veri kapalıyken oyunu eksiksiz oynayabilirsiniz. iOS sürümü oyun sırasında internet bağlantısı kullanmaz, sunucuya veri göndermez ve reklam içermez.
+      </p>
+
+      <p>
+        <strong>Çevrimiçi düello (isteğe bağlı):</strong> Bu mod için giriş yapmanız ve internet bağlantısı gerekir. Oda kodu, destenizin kartları ve oyun durumu Google Firebase (Firestore) üzerinde oyun süresince saklanır; oda kapanınca silinir.
       </p>
 
       <h2>5. Satın Alma ve Reklamlar</h2>
@@ -146,9 +150,9 @@
         In strict compliance with Apple's <code>PrivacyInfo.xcprivacy</code> manifest requirements:
       </p>
       <ul>
-        <li><strong>Collected Data Types:</strong> <code>NONE</code> (<code>NSPrivacyCollectedDataTypes: []</code>). No personal names, locations, photos, or contact information are collected or uploaded.</li>
+        <li><strong>Collected Data Types:</strong> Only if you choose to create an account: your email address and an account ID (via Firebase Authentication, for app functionality, not for tracking). In online duel rooms the game state and your display name are processed. Your name, location or photos are not collected.</li>
         <li><strong>User Tracking (IDFA):</strong> <code>NONE</code> (<code>NSPrivacyTracking: false</code>). No advertising identifier (IDFA) or fingerprinting tracking is utilized.</li>
-        <li><strong>Mandatory Account Registration:</strong> Playing the game does not require creating an account or profile.</li>
+        <li><strong>Account Not Required:</strong> Single-player and offline play need no account. An account is only needed for online duels; you can sign in with Apple, email/password or as a guest. You can permanently delete your account in the app under Settings → Account → Delete account.</li>
       </ul>
 
       <h2>2. Device Hardware Permissions</h2>
@@ -172,6 +176,10 @@
       <h2>4. Offline Gameplay &amp; Connectivity</h2>
       <p>
         All single-player modes (Realm Crossing, Tactics Workshop, Training Grounds and Mastery League) are built to function <strong>100% offline</strong> without any cellular data or Wi-Fi connection. The iOS version does not use the internet during play, sends no data to any server and contains no ads.
+      </p>
+
+      <p>
+        <strong>Online duels (optional):</strong> This mode needs sign-in and an internet connection. The room code, your deck cards and the game state are stored on Google Firebase (Firestore) while the match runs and are removed when the room closes.
       </p>
 
       <h2>5. Purchases and Ads</h2>
