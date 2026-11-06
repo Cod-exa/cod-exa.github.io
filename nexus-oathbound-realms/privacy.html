@@ -68,10 +68,10 @@
     <!-- TURKISH PRIVACY POLICY -->
     <div data-language="tr" lang="tr">
       <h1>Gizlilik Politikası</h1>
-      <p class="updated">Son Güncelleme: 12 Ekim 2026 • Yürürlük Tarihi: 12 Ekim 2026</p>
+      <p class="updated">Son Güncelleme: 6 Kasım 2026 • Yürürlük Tarihi: 12 Ekim 2026</p>
 
       <div class="info-callout">
-        <strong>Önemli Özet:</strong> Nexus: Card Duel & Deckbuilder, iOS sürümünde <strong>hiçbir veri toplamaz</strong> (<code>NSPrivacyCollectedDataTypes: []</code>). Bu politika şu an iOS sürümünü (1.0) kapsar; Android sürümü yayınlanmadan önce bu sayfaya eklenecektir. Oyunda kullanıcı takibi (IDFA) yoktur. Kamera, mikrofon, konum veya rehber izinleri istenmez. Deste konfigürasyonlarınız ve maç ilerlemeniz %100 cihazınızın yerel depolama alanında tutulur.
+        <strong>Önemli Özet:</strong> Bu politika iOS ve Android sürümlerini kapsar. iOS sürümü reklam ve analitik içermez; hesap açmadıkça veri toplamaz. Android sürümü (Google Play) reklam (Google AdMob), uygulama analitiği (Firebase Analytics) ve Google Play üzerinden uygulama içi satın alma kullanır; ayrıntılar 6. bölümdedir. Kamera, mikrofon, konum veya rehber izinleri iki platformda da istenmez. Çevrimiçi düello ve isteğe bağlı hesap kullanıldığında ilgili veriler Google Firebase üzerinde işlenir.
       </div>
 
       <p>
@@ -112,15 +112,31 @@
       </p>
 
       <p>
-        <strong>Çevrimiçi düello (isteğe bağlı):</strong> Bu mod için giriş yapmanız ve internet bağlantısı gerekir. Oda kodu, destenizin kartları ve oyun durumu Google Firebase (Firestore) üzerinde oyun süresince saklanır; oda kapanınca silinir.
+        <strong>Çevrimiçi düello (isteğe bağlı):</strong> Bu mod için internet bağlantısı gerekir; hesabınız yoksa misafir olarak katılırsınız. Oda kodu, destenizin kartları, hamleleriniz ve bağlantı sinyallerinin zaman damgaları Google Firebase (Firestore) üzerinde saklanır. Rakibiniz e-postanızı veya hesap adınızı görmez; size cihazda üretilen bir oyuncu adı (ör. "Tideborn-8154") ve sıralama puanınız gösterilir.
       </p>
+      <ul>
+        <li><strong>Hakem sunucusu:</strong> Maç sonuçlarını Google Cloud Functions üzerinde çalışan bir hakem belirler. Hakem hamleleri oyun kurallarına göre kontrol eder; geçersiz hamle, süre aşımı veya maçı terk etme durumunda kararı verir. Hamleler ve oda bilgisi maçtan sonra otomatik silinir (genellikle maç başladıktan sonraki bir saat içinde).</li>
+        <li><strong>Sıralama tablosu:</strong> Hesapla oynayan oyuncular için oyuncu adı, puan, galibiyet ve yenilgi sayısı saklanır ve diğer oyunculara gösterilir. Misafir oyuncular sıralamaya girmez. Hesabınızı sildiğinizde sıralama kaydınız da silinir.</li>
+        <li><strong>Bilgisayar rakipler:</strong> Hızlı maçta 20–30 saniye içinde çevrimiçi bir oyuncu bulunamazsa, sizi bekletmemek için bilgisayar kontrollü bir rakiple eşleştirilirsiniz. Bu rakip oyun içinde diğer oyuncular gibi üretilmiş bir oyuncu adı ve puanla görünür. Bilgisayar rakiplerle oynanan maçlar sıralama tablosunu etkilemez ve sunucuya hamle gönderilmez.</li>
+      </ul>
 
       <h2>5. Satın Alma ve Reklamlar</h2>
       <p>
         iOS sürümü 1.0'da uygulama içi satın alma ve reklam yoktur.
       </p>
 
-      <h2>6. İletişim ve Telif Hakları</h2>
+      <h2>6. Android Sürümü (Google Play)</h2>
+      <p>Android sürümü (paket kimliği <code>com.codexa.nexus</code>) yukarıdakilere ek olarak şu hizmetleri kullanır:</p>
+      <ul>
+        <li><strong>Reklamlar (Google AdMob):</strong> Geçiş ve ödüllü reklamlar gösterilir; banner reklam yoktur. Google, reklam sunmak ve ölçmek için reklam kimliğini (Android Advertising ID), cihaz ve uygulama bilgilerini, IP adresini ve reklam etkileşimlerini işler. Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre'de reklam izni ilk açılışta Google'ın onay formuyla sorulur ve Ayarlar'dan değiştirilebilir. "Reklamları Kaldır" satın alındığında geçiş reklamları gösterilmez; ödüllü reklamlar her zaman isteğe bağlıdır. Ayrıntılar: <a href="https://policies.google.com/technologies/partner-sites">Google'ın iş ortağı sitelerdeki veri kullanımı</a>.</li>
+        <li><strong>Analitik (Firebase Analytics):</strong> Uygulamanın nasıl kullanıldığını anlamak ve sorunları gidermek için uygulama örneği kimliği, cihaz modeli, işletim sistemi sürümü, ülke ve uygulama içi kullanım olayları (oturum, ekran görüntüleme gibi) Google'a gönderilir. Adınız veya e-postanız bu verilere eklenmez.</li>
+        <li><strong>Uygulama içi satın almalar:</strong> Ödemeler Google Play Faturalandırma ile yapılır. Kart ve ödeme bilgilerinizi biz görmeyiz; satın alınan ürün ve sipariş bilgisi Google Play tarafından işlenir.</li>
+        <li><strong>Hesap ve bulut kaydı (isteğe bağlı):</strong> Google ile giriş yaparsanız e-posta adresiniz ve hesap kimliğiniz Firebase Authentication'da tutulur; deste, ilerleme ve oyun içi bakiyeniz cihazlar arasında taşınmak üzere Firestore'a kaydedilir. Hesabınızı uygulamada Ayarlar → Hesap → Hesabı sil ile sildiğinizde bulut kaydınız ve sıralama kaydınız da silinir.</li>
+        <li><strong>İzinler:</strong> İnternet erişimi, Google Play satın alma izni ve reklam kimliği izni (reklam SDK'sı tarafından). Kamera, mikrofon, konum, rehber veya depolama izni istenmez.</li>
+        <li><strong>Zorunlu güncellemeler:</strong> Google Play'de yeni bir sürüm varsa oyun açılırken Google Play'in güncelleme ekranı gösterilir; oyuna devam etmek için güncelleme gerekir. Bu kontrol Google Play tarafından yapılır ve ek veri toplamaz.</li>
+      </ul>
+
+      <h2>7. İletişim ve Telif Hakları</h2>
       <p>
         Gizlilik politikamızla ilgili her türlü soru ve talebiniz için doğrudan hak sahibine ulaşabilirsiniz:
       </p>
@@ -135,10 +151,10 @@
     <!-- ENGLISH PRIVACY POLICY -->
     <div data-language="en" lang="en" hidden>
       <h1>Privacy Policy</h1>
-      <p class="updated">Last Updated: October 12, 2026 • Effective Date: October 12, 2026</p>
+      <p class="updated">Last Updated: November 6, 2026 • Effective Date: October 12, 2026</p>
 
       <div class="info-callout">
-        <strong>Key Summary:</strong> Nexus: Card Duel & Deckbuilder does <strong>not collect any data</strong> in its iOS version (<code>NSPrivacyCollectedDataTypes: []</code>). This policy currently covers iOS version 1.0; the Android version will be added here before it is released. There is zero user tracking (NSPrivacyTracking: false). No camera, microphone, GPS, or contact permissions are required. Your deck setups and progress remain 100% on your device.
+        <strong>Key Summary:</strong> This policy covers the iOS and Android versions. The iOS version has no ads and no analytics and collects no data unless you create an account. The Android version (Google Play) uses ads (Google AdMob), app analytics (Firebase Analytics) and in-app purchases through Google Play; see section 6. Neither platform asks for camera, microphone, location or contact permissions. When you play online duels or use the optional account, the related data is processed on Google Firebase.
       </div>
 
       <p>
@@ -179,15 +195,31 @@
       </p>
 
       <p>
-        <strong>Online duels (optional):</strong> This mode needs sign-in and an internet connection. The room code, your deck cards and the game state are stored on Google Firebase (Firestore) while the match runs and are removed when the room closes.
+        <strong>Online duels (optional):</strong> This mode needs an internet connection; without an account you join as a guest. The room code, your deck cards, your moves and the timestamps of connection heartbeats are stored on Google Firebase (Firestore). Your opponent never sees your email or account name; they see a player name generated on your device (e.g. "Tideborn-8154") and your ladder points.
       </p>
+      <ul>
+        <li><strong>Referee server:</strong> Match results are decided by a referee running on Google Cloud Functions. It checks moves against the game rules and decides illegal moves, timeouts and abandoned matches. Moves and room data are deleted automatically after the match (usually within an hour of the match starting).</li>
+        <li><strong>Leaderboard:</strong> For players with an account, the player name, points, wins and losses are stored and shown to other players. Guests are not ranked. Deleting your account also deletes your leaderboard entry.</li>
+        <li><strong>Computer opponents:</strong> If no online player is found within 20–30 seconds in Quick Match, you are matched with a computer-controlled opponent so you do not have to wait. In the game this opponent appears like other players, with a generated player name and points. Matches against computer opponents do not affect the leaderboard and no moves are sent to the server.</li>
+      </ul>
 
       <h2>5. Purchases and Ads</h2>
       <p>
         iOS version 1.0 contains no in-app purchases and no ads.
       </p>
 
-      <h2>6. Developer Contact &amp; Copyright</h2>
+      <h2>6. Android Version (Google Play)</h2>
+      <p>In addition to the above, the Android version (package <code>com.codexa.nexus</code>) uses these services:</p>
+      <ul>
+        <li><strong>Ads (Google AdMob):</strong> Interstitial and rewarded ads are shown; there are no banner ads. To serve and measure ads, Google processes the advertising ID (Android Advertising ID), device and app information, IP address and ad interactions. In the European Economic Area, the UK and Switzerland, consent is asked on first launch with Google's consent form and can be changed in Settings. After buying "Remove Ads", interstitial ads are no longer shown; rewarded ads are always optional. Details: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>.</li>
+        <li><strong>Analytics (Firebase Analytics):</strong> To understand how the app is used and to fix problems, an app instance ID, device model, OS version, country and in-app usage events (such as sessions and screen views) are sent to Google. Your name or email is not attached to this data.</li>
+        <li><strong>In-app purchases:</strong> Payments are made through Google Play Billing. We never see your card or payment details; the purchased item and order information are processed by Google Play.</li>
+        <li><strong>Account and cloud save (optional):</strong> If you sign in with Google, your email address and account ID are kept in Firebase Authentication, and your decks, progress and in-game balance are saved to Firestore so they move between devices. Deleting your account in the app under Settings → Account → Delete account also deletes your cloud save and your leaderboard entry.</li>
+        <li><strong>Permissions:</strong> Internet access, the Google Play billing permission and the advertising ID permission (added by the ads SDK). No camera, microphone, location, contacts or storage permission is requested.</li>
+        <li><strong>Mandatory updates:</strong> When a newer version is available on Google Play, Google Play's update screen is shown at launch and the update is required to keep playing. Google Play performs this check; no extra data is collected.</li>
+      </ul>
+
+      <h2>7. Developer Contact &amp; Copyright</h2>
       <p>For inquiries regarding privacy or compliance, contact the copyright owner directly:</p>
       <ul>
         <li><strong>Developer &amp; Rights Owner:</strong> CodExa</li>
