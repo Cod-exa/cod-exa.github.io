@@ -1,5 +1,5 @@
 /**
- * VibeCam: Cyber Synth Camera — Multi-language Engine & i18n Integration
+ * CurveSight: Math in Photos — Multi-language Engine & i18n Integration
  * Supports CodExa language switching with Turkish and English content blocks.
  */
 (() => {
@@ -41,7 +41,7 @@
     const isEn = lang !== 'tr';
     const title = isEn ? (document.body.dataset.titleEn || document.body.dataset.titleTr) : document.body.dataset.titleTr;
     if (title) {
-      document.title = `${title} — VibeCam — CodExa`;
+      document.title = `${title} — CurveSight — CodExa`;
     }
     const desc = isEn ? (document.body.dataset.descEn || document.body.dataset.descTr) : document.body.dataset.descTr;
     if (desc) {
