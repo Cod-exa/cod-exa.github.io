@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tallystone — iOS &amp; iPadOS — CodExa</title>
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <style>
+    body { margin: 0; background: #0d1320; color: #e8edf7; font: 17px/1.7 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    main, nav, footer { max-width: 820px; margin: auto; padding: 24px; }
+    nav { display: flex; flex-wrap: wrap; gap: 18px; border-bottom: 1px solid #394355; }
+    nav a { color: #ffaaaa; text-decoration: none; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+    a { color: #ffaaaa; overflow-wrap: anywhere; }
+    h1 { font-size: clamp(26px, 5vw, 42px); line-height: 1.2; margin-bottom: 8px; }
+    h2 { margin-top: 40px; color: #ffc8c8; }
+    h3 { margin-top: 28px; }
+    ul { padding-left: 22px; }
+    li { margin: 8px 0; }
+    footer { border-top: 1px solid #394355; font-size: 14px; margin-top: 40px; color: #94a3b8; }
+    p { margin: 16px 0; }
+    .hero-header { display: flex; align-items: center; gap: 24px; margin: 32px 0 24px; flex-wrap: wrap; }
+    .hero-icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover; }
+    .badge-live { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: rgba(217, 119, 87, 0.18); border: 1px solid rgba(217, 119, 87, 0.4); color: #f6b69d; font-size: 13px; font-weight: 600; margin-top: 6px; }
+    .badge-live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #d97757; box-shadow: 0 0 8px #d97757; }
+    .store-buttons { display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0; }
+    .btn-store { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-store:hover { transform: translateY(-2px); text-decoration: none; }
+    .btn-apple { background: #0284c7; color: #ffffff; box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35); }
+  </style>
+</head>
+<body>
+  <nav aria-label="Navigation">
+    <a href="../index.html">← CodExa</a>
+    <a href="index.html" style="font-weight: 700; color: #fff;">Tallystone</a>
+    <a href="privacy.html">Privacy / Gizlilik</a>
+    <a href="terms.html">Terms / Koşullar</a>
+    <a href="support.html">Support / Destek</a>
+  </nav>
+
+  <main>
+    <div class="hero-header">
+      <img src="assets/app-icon.png" alt="Tallystone" class="hero-icon">
+      <div>
+        <h1>Tallystone</h1>
+        <div class="badge-live">iPhone &amp; iPad · Logic Puzzle</div>
+      </div>
+    </div>
+
+    <div class="store-buttons">
+      <a class="btn-store btn-apple" href="https://apps.apple.com/app/id6814122284" target="_blank" rel="noopener noreferrer">
+        View on the App Store ↗
+      </a>
+    </div>
+
+    <h2>Stone-split logic puzzles</h2>
+    <p>Tallystone is a calm logic puzzle about planning, not luck. Every board starts with a handful of numbered tiles and fixed dark stones. Swipe and every tile slides at once; equal tiles that meet merge into one. Stones never move and never merge, splitting a row or column into separate lanes. Finish with a single numbered tile.</p>
+    <p>No new tiles ever spawn. Every puzzle has a proven shortest route (par) computed by exhaustive search. When you finish a board, Tallystone displays your route alongside the shortest route arrow by arrow, and lets you replay the shortest route directly on the board.</p>
+    <ul>
+      <li>60 handcrafted puzzles across five chapters, from open boards to quarries with three stones</li>
+      <li>120 daily stone puzzles — the same board for everyone each day, with a local streak counter</li>
+      <li>Solver-backed hint showing the best next move and remaining distance, plus dead-end detection</li>
+      <li>Free undo; light and dark appearance; English, Turkish, German, Spanish, French and Japanese</li>
+    </ul>
+    <p>Tallystone is free with ads. A single one-time purchase, Tallystone Pro, removes all ads permanently. Progress stays on your device.</p>
+
+    <h2>Taşlarla bölünmüş mantık bulmacası</h2>
+    <p>Tallystone, şansın hiç olmadığı sakin bir planlama bulmacasıdır. Her tahta belirli sayıda numaralı taş ve sabit koyu taşlarla başlar. Kaydırdığınızda tüm sayılar aynı anda hareket eder; karşılaşan eşit sayılar birleşir. Koyu taşlar hareket etmez ve birleşmez; satırları iki ayrı yola böler. Amaç tahtada tek bir sayı bırakmaktır.</p>
+    <p>Tahtaya asla yeni sayı eklenmez. Her bulmacanın kapsamlı arama ile kanıtlanmış en kısa çözümü (par) vardır. Bulmacayı bitirdiğinizde kendi hamle dizinizi en kısa yolla adım adım karşılaştırabilir ve en kısa çözümü tahtada oynatabilirsiniz.</p>
+    <ul>
+      <li>Beş bölümde toplam 60 bulmaca ve 120 günlük taş bulmacası</li>
+      <li>Kalan en kısa hamleyi gösteren çözücü ipucu ve çıkmaz tespiti</li>
+      <li>Ücretsiz geri alma; açık ve koyu görünüm; Türkçe, İngilizce, Almanca, İspanyolca, Fransızca ve Japonca</li>
+    </ul>
+    <p>Tallystone reklamlarla ücretsizdir. Tek seferlik Tallystone Pro satın alımı tüm reklamları kalıcı olarak kaldırır. İlerlemeniz yalnızca cihazınızda saklanır.</p>
+  </main>
+
+  <footer>© 2026 CodExa</footer>
+</body>
+</html>
