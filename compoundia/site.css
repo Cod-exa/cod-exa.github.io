@@ -162,3 +162,5 @@ html[lang="en"] span[data-language="en"] { display: inline; }
   main.document { padding: 24px 18px; }
   h1 { font-size: 1.55rem; }
 }
+
+.lang-select { border: 1px solid var(--border); background: var(--paper); color: var(--emerald); font-weight: 700; font-size: 0.85rem; padding: 6px 10px; border-radius: 10px; cursor: pointer; }

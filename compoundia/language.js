@@ -1,97 +1,63 @@
-/**
- * RoboKinematics — Multi-language Engine
- * Supports CodExa language switching with Turkish and English content blocks.
- */
-(() => {
-  const SUPPORTED_LANGS = ['tr','en','de','zh','hi','es','fr','ar','pt','ru','id','bn','ur','ja','ko'];
-  const RTL_LANGS = ['ar', 'ur'];
+(function () {
+  const DATA = {"en": {"name": "English", "rtl": false, "nav": ["Home", "Privacy", "Terms", "Support & FAQ", "Data Deletion", "All Products"], "home_h1": "Invest in expected value, not luck.", "home_lead": "Compoundia turns portfolio management into a tactile financial mathematics board game powered by 2d6 probability distributions, live compound interest curves, and 3×3 magic-square matrix bingo.", "home_cta": "Built for Google Play and the App Store", "priv_h1": "Compoundia Privacy Policy", "priv_lead": "Compoundia: Cashflow Strategy requires no account, stores progress locally on your device, uses anonymized Firebase Analytics, and serves non-personalized Google AdMob ads (no banners).", "terms_h1": "Compoundia Terms of Use", "terms_lead": "Compoundia is an educational financial mathematics strategy game. All balances, yields, and loans are virtual; no gambling or financial advice.", "sup_h1": "How can we help?", "sup_lead": "For bug reports, scenario feedback, or device support, contact exaque2@gmail.com. All scenarios and math engines work offline.", "del_h1": "How to delete your data", "del_lead": "Compoundia does not create user accounts or store personal profiles on servers. Clear app storage or uninstall to remove local progress; email exaque2@gmail.com for analytics inquiries."}, "tr": {"name": "Türkçe", "rtl": false, "nav": ["Ana Sayfa", "Gizlilik", "Kullanım Koşulları", "Destek & SSS", "Veri Silme", "Tüm Ürünler"], "home_h1": "Şansa değil, beklenen değere yatırım yap.", "home_lead": "Compoundia, her hamleyi bileşik faiz, 2d6 olasılık dağılımı ve 3×3 sihirli matris bingo matematiğiyle yönettiğin stratejik bir finansal matematik masa oyunudur.", "home_cta": "Google Play ve App Store için hazırlandı", "priv_h1": "Compoundia Gizlilik Politikası", "priv_lead": "Compoundia hesap gerektirmez, ilerlemeyi cihazda saklar, anonim Firebase Analytics ve kişiselleştirilmemiş Google AdMob reklamları (bannersız) kullanır.", "terms_h1": "Compoundia Kullanım Koşulları", "terms_lead": "Compoundia eğitici bir finansal matematik strateji oyunudur. Tüm tutarlar sanaldır; kumar veya gerçek yatırım tavsiyesi içermez.", "sup_h1": "Nasıl yardımcı olabiliriz?", "sup_lead": "Hata bildirimi ve destek için exaque2@gmail.com adresine yazabilirsiniz. Tüm senaryolar çevrimdışı çalışır.", "del_h1": "Verilerinizi nasıl silebilirsiniz?", "del_lead": "Compoundia sunucuda kullanıcı profili tutmaz. Yerel verileri silmek için uygulama verilerini temizleyin veya uygulamayı kaldırın; talepler için exaque2@gmail.com."}, "de": {"name": "Deutsch", "rtl": false, "nav": ["Startseite", "Datenschutz", "Bedingungen", "Support & FAQ", "Datenlöschung", "Alle Produkte"], "home_h1": "Investiere in Erwartungswert, nicht in Glück.", "home_lead": "Compoundia verbindet 2W6-Wahrscheinlichkeiten, Zinseszinskurven und 3×3-Magisches-Quadrat-Bingo zu einem Finanzmathematik-Brettspiel.", "home_cta": "Verfügbar für Google Play und App Store", "priv_h1": "Compoundia Datenschutzerklärung", "priv_lead": "Kein Konto erforderlich. Spielstände bleiben lokal auf dem Gerät; anonyme Firebase Analytics und nicht-personalisierte AdMob-Anzeigen ohne Banner.", "terms_h1": "Compoundia Nutzungsbedingungen", "terms_lead": "Rein virtuelles Finanzmathematik-Strategiespiel zu Bildungszwecken; kein Glücksspiel, keine Anlageberatung.", "sup_h1": "Wie können wir helfen?", "sup_lead": "Support & Feedback: exaque2@gmail.com. Alle Szenarien sind offline spielbar.", "del_h1": "So löschst du deine Daten", "del_lead": "Keine Server-Konten. App-Daten löschen oder App deinstallieren entfernt alle lokalen Daten. Kontakt: exaque2@gmail.com."}, "ar": {"name": "العربية", "rtl": true, "nav": ["الرئيسية", "الخصوصية", "الشروط", "الدعم", "حذف البيانات", "كل المنتجات"], "home_h1": "استثمر في القيمة المتوقعة، لا في الحظ.", "home_lead": "تحول Compoundia إدارة المحافظ إلى لعبة لوحية للرياضيات المالية تعتمد على احتمالات 2d6 والفائدة المركبة وبينغو المصفوفة 3×3.", "home_cta": "مصمم لمتجر Google Play و App Store", "priv_h1": "سياسة الخصوصية — Compoundia", "priv_lead": "لا يتطلب التطبيق إنشاء حساب؛ يتم حفظ التقدم محلياً مع تحليلات Firebase مجهولة الهوية وإعلانات AdMob غير مخصصة بدون بانر.", "terms_h1": "شروط الاستخدام — Compoundia", "terms_lead": "لعبة تعليمية افتراضية للرياضيات المالية بدون قمار أو أموال حقيقية أو استشارات استثمارية.", "sup_h1": "كيف يمكننا مساعدتك؟", "sup_lead": "للدعم والاقتراحات تواصل عبر exaque2@gmail.com. تعمل جميع السيناريوهات دون إنترنت.", "del_h1": "كيفية حذف بياناتك", "del_lead": "لا نحتفظ بحسابات شخصية على الخوادم. امسح بيانات التطبيق أو أزل تثبيته لحذف التقدم المحلي."}, "zh": {"name": "中文 (简体)", "rtl": false, "nav": ["首页", "隐私政策", "使用条款", "支持与问答", "数据删除", "全部产品"], "home_h1": "投资期望值，而非盲目运气。", "home_lead": "Compoundia 将 2d6 概率分布、实时复利曲线与 3×3 洛书幻方宾果融入金融数学策略桌游。", "home_cta": "支持 Google Play 与 App Store", "priv_h1": "Compoundia 隐私政策", "priv_lead": "无需注册账号，进度仅存于本地设备；使用匿名 Firebase Analytics 及非个性化 AdMob 广告（无横幅广告）。", "terms_h1": "Compoundia 使用条款", "terms_lead": "纯虚拟金融数学教育策略游戏，不含赌博、真钱交易或现实投资建议。", "sup_h1": "需要帮助？", "sup_lead": "反馈与支持请联系 exaque2@gmail.com。所有关卡均可离线游玩。", "del_h1": "如何删除您的数据", "del_lead": "本应用不在服务器保存个人账号。清除应用数据或卸载即可删除本地进度。"}, "zh-TW": {"name": "中文 (繁體)", "rtl": false, "nav": ["首頁", "隱私權政策", "使用條款", "支援與問答", "資料刪除", "全部產品"], "home_h1": "投資期望值，而非盲目運氣。", "home_lead": "Compoundia 將 2d6 機率分布、即時複利曲線與 3×3 洛書幻方賓果融入金融數學策略桌遊。", "home_cta": "支援 Google Play 與 App Store", "priv_h1": "Compoundia 隱私權政策", "priv_lead": "無需註冊帳號，進度僅存於本機裝置；使用匿名 Firebase Analytics 與非個人化 AdMob 廣告（無橫幅）。", "terms_h1": "Compoundia 使用條款", "terms_lead": "純虛擬金融數學教育策略遊戲，不含賭博、真實金錢或投資建議。", "sup_h1": "需要協助？", "sup_lead": "支援與回饋請寄信至 exaque2@gmail.com。所有關卡皆可離線遊玩。", "del_h1": "如何刪除您的資料", "del_lead": "本應用不在伺服器儲存個人帳號。清除資料或移除安裝即可刪除本機紀錄。"}, "fr": {"name": "Français", "rtl": false, "nav": ["Accueil", "Confidentialité", "Conditions", "Support & FAQ", "Suppression", "Tous les produits"], "home_h1": "Investissez dans l’espérance, pas la chance.", "home_lead": "Compoundia transforme les mathématiques financières en jeu de plateau tactique : probabilités 2d6, intérêts composés et bingo matriciel 3×3.", "home_cta": "Conçu pour Google Play et l’App Store", "priv_h1": "Politique de confidentialité — Compoundia", "priv_lead": "Aucun compte requis. Données de jeu locales, Firebase Analytics anonymisé et publicités AdMob non personnalisées sans bannière.", "terms_h1": "Conditions d’utilisation — Compoundia", "terms_lead": "Simulation éducative virtuelle de mathématiques financières, sans jeu d’argent ni conseil financier.", "sup_h1": "Comment pouvons-nous vous aider ?", "sup_lead": "Contactez exaque2@gmail.com pour toute question. Tous les scénarios fonctionnent hors ligne.", "del_h1": "Comment supprimer vos données", "del_lead": "Aucun profil serveur. Effacez les données ou désinstallez l’application pour supprimer votre progression locale."}, "es": {"name": "Español", "rtl": false, "nav": ["Inicio", "Privacidad", "Términos", "Soporte y FAQ", "Eliminar Datos", "Todos los Productos"], "home_h1": "Invierte en valor esperado, no en suerte.", "home_lead": "Compoundia convierte las matemáticas financieras en un juego de mesa táctico con probabilidades 2d6, interés compuesto y bingo matriz 3×3.", "home_cta": "Creado para Google Play y App Store", "priv_h1": "Política de Privacidad — Compoundia", "priv_lead": "Sin cuentas de usuario. Progreso local en tu dispositivo, Firebase Analytics anónimo y anuncios AdMob no personalizados sin banners.", "terms_h1": "Términos de Uso — Compoundia", "terms_lead": "Simulación educativa virtual de matemáticas financieras; sin apuestas ni asesoramiento financiero real.", "sup_h1": "¿Cómo podemos ayudarte?", "sup_lead": "Escríbenos a exaque2@gmail.com. Todos los escenarios funcionan sin conexión.", "del_h1": "Cómo eliminar tus datos", "del_lead": "No almacenamos perfiles personales en servidores. Borra los datos o desinstala la app para eliminar el progreso local."}, "it": {"name": "Italiano", "rtl": false, "nav": ["Home", "Privacy", "Termini", "Supporto", "Eliminazione dati", "Tutti i prodotti"], "home_h1": "Investi nel valore atteso, non nella fortuna.", "home_lead": "Compoundia unisce probabilità 2d6, interesse composto e bingo matrice magica 3×3 in un gioco da tavolo di matematica finanziaria.", "home_cta": "Creato per Google Play e App Store", "priv_h1": "Informativa sulla Privacy — Compoundia", "priv_lead": "Nessun account richiesto. Progressi salvati sul dispositivo, Firebase Analytics anonimo e annunci AdMob non personalizzati senza banner.", "terms_h1": "Termini di Utilizzo — Compoundia", "terms_lead": "Gioco educativo virtuale di matematica finanziaria; nessun gioco d’azzardo né consulenza finanziaria.", "sup_h1": "Come possiamo aiutarti?", "sup_lead": "Scrivici a exaque2@gmail.com. Tutti gli scenari funzionano offline.", "del_h1": "Come eliminare i tuoi dati", "del_lead": "Nessun profilo su server. Cancella i dati o disinstalla l’app per rimuovere i progressi locali."}, "ja": {"name": "日本語", "rtl": false, "nav": ["ホーム", "プライバシー", "利用規約", "サポート", "データ削除", "製品一覧"], "home_h1": "運ではなく、期待値に投資しよう。", "home_lead": "Compoundiaは2d6確率分布・複利カーブ・3×3魔方陣ビンゴでポートフォリオを運用する金融数学ボードゲームです。", "home_cta": "Google Play / App Store 対応", "priv_h1": "Compoundia プライバシーポリシー", "priv_lead": "アカウント不要。進行状況は端末内に保存され、匿名のFirebase Analyticsとバナーなしの非パーソナライズAdMob広告を使用します。", "terms_h1": "Compoundia 利用規約", "terms_lead": "完全バーチャルの金融数学教育ゲームです。ギャンブルや投資助言は含まれません。", "sup_h1": "サポート・お問い合わせ", "sup_lead": "お問い合わせは exaque2@gmail.com まで。全シナリオがオフラインで動作します。", "del_h1": "データの削除方法", "del_lead": "サーバー上に個人プロフィールは保存しません。アプリのアンインストールでローカルデータが削除されます。"}, "ko": {"name": "한국어", "rtl": false, "nav": ["홈", "개인정보", "이용약관", "지원", "데이터 삭제", "모든 제품"], "home_h1": "운이 아닌 기댓값에 투자하세요.", "home_lead": "Compoundia는 2d6 확률 분포, 실시간 복리 곡선, 3×3 마방진 빙고를 결합한 금융 수학 전략 보드게임입니다.", "home_cta": "Google Play 및 App Store 지원", "priv_h1": "Compoundia 개인정보처리방침", "priv_lead": "계정 없이 이용 가능하며 진행 기록은 기기에만 저장됩니다. 익명 Firebase Analytics 및 배너 없는 비개인화 AdMob 광고를 사용합니다.", "terms_h1": "Compoundia 이용약관", "terms_lead": "교육용 가상 금융 수학 전략 게임이며 사행성이나 실제 투자 자문이 아닙니다.", "sup_h1": "도움이 필요하신가요?", "sup_lead": "문의: exaque2@gmail.com. 모든 시나리오는 오프라인에서 플레이할 수 있습니다.", "del_h1": "데이터 삭제 방법", "del_lead": "서버에 개인 계정을 저장하지 않습니다. 앱을 삭제하거나 저장 데이터를 지우면 로컬 기록이 삭제됩니다."}, "pt": {"name": "Português", "rtl": false, "nav": ["Início", "Privacidade", "Termos", "Suporte", "Excluir Dados", "Todos os Produtos"], "home_h1": "Invista no valor esperado, não na sorte.", "home_lead": "Compoundia une probabilidades 2d6, juros compostos e bingo matriz mágica 3×3 em um jogo de estratégia financeira.", "home_cta": "Feito para Google Play e App Store", "priv_h1": "Política de Privacidade — Compoundia", "priv_lead": "Sem conta obrigatória. Progresso local no dispositivo, Firebase Analytics anônimo e anúncios AdMob não personalizados sem banners.", "terms_h1": "Termos de Uso — Compoundia", "terms_lead": "Simulação educativa virtual de matemática financeira; sem apostas nem consultoria financeira.", "sup_h1": "Como podemos ajudar?", "sup_lead": "Envie e-mail para exaque2@gmail.com. Todos os cenários funcionam offline.", "del_h1": "Como excluir seus dados", "del_lead": "Não armazenamos perfis pessoais em servidores. Limpe os dados ou desinstale o app para remover o progresso local."}, "ru": {"name": "Русский", "rtl": false, "nav": ["Главная", "Конфиденциальность", "Условия", "Поддержка", "Удаление данных", "Все продукты"], "home_h1": "Инвестируйте в матожидание, а не в удачу.", "home_lead": "Compoundia объединяет вероятности 2d6, сложный процент и магическую матрицу 3×3 в настольной финансовой стратегии.", "home_cta": "Для Google Play и App Store", "priv_h1": "Политика конфиденциальности — Compoundia", "priv_lead": "Без регистрации. Прогресс хранится локально; используется анонимная Firebase Analytics и неперсонализированная реклама AdMob без баннеров.", "terms_h1": "Условия использования — Compoundia", "terms_lead": "Виртуальная образовательная игра по финансовой математике; без азартных игр и инвестсоветов.", "sup_h1": "Чем мы можем помочь?", "sup_lead": "Поддержка: exaque2@gmail.com. Все сценарии работают офлайн.", "del_h1": "Как удалить данные", "del_lead": "Серверные профили не создаются. Очистите данные приложения или удалите его с устройства."}, "hi": {"name": "हिन्दी", "rtl": false, "nav": ["होम", "गोपनीयता", "शर्तें", "सहायता", "डेटा हटाएँ", "सभी उत्पाद"], "home_h1": "भाग्य नहीं, अपेक्षित मान में निवेश करें।", "home_lead": "Compoundia 2d6 प्रायिकता, चक्रवृद्धि ब्याज और 3×3 मैजिक मैट्रिक्स बिंगो पर आधारित वित्तीय गणित रणनीति खेल है।", "home_cta": "Google Play और App Store के लिए निर्मित", "priv_h1": "Compoundia गोपनीयता नीति", "priv_lead": "खाते की आवश्यकता नहीं। प्रगति डिवाइस में सहेजी जाती है; अनाम Firebase Analytics और बिना बैनर के गैर-व्यक्तिगत AdMob विज्ञापन उपयोग होते हैं।", "terms_h1": "Compoundia उपयोग की शर्तें", "terms_lead": "यह एक शैक्षिक आभासी वित्तीय गणित खेल है; कोई जुआ या वास्तविक निवेश सलाह नहीं।", "sup_h1": "हम आपकी कैसे मदद कर सकते हैं?", "sup_lead": "सहायता के लिए exaque2@gmail.com पर लिखें। सभी परिदृश्य ऑफ़लाइन चलते हैं।", "del_h1": "अपना डेटा कैसे हटाएँ", "del_lead": "सर्वर पर कोई व्यक्तिगत खाता नहीं है। स्थानीय प्रगति हटाने के लिए ऐप डेटा साफ़ करें या ऐप अनइंस्टॉल करें।"}, "nl": {"name": "Nederlands", "rtl": false, "nav": ["Home", "Privacy", "Voorwaarden", "Ondersteuning", "Gegevens wissen", "Alle producten"], "home_h1": "Investeer in verwachtingswaarde, niet in geluk.", "home_lead": "Compoundia combineert 2d6-kansen, samengestelde rente en 3×3 magische matrix-bingo in een financieel bordspel.", "home_cta": "Gemaakt voor Google Play en App Store", "priv_h1": "Compoundia Privacybeleid", "priv_lead": "Geen account nodig. Voortgang lokaal opgeslagen, anonieme Firebase Analytics en niet-gepersonaliseerde AdMob-advertenties zonder banners.", "terms_h1": "Compoundia Gebruiksvoorwaarden", "terms_lead": "Virtueel educatief financieel-wiskundig spel; geen gokken of financieel advies.", "sup_h1": "Hoe kunnen we helpen?", "sup_lead": "Mail exaque2@gmail.com voor ondersteuning. Alle scenario’s werken offline.", "del_h1": "Gegevens verwijderen", "del_lead": "Geen serverprofielen. Wis app-gegevens of verwijder de app om lokale voortgang te wissen."}, "id": {"name": "Bahasa Indonesia", "rtl": false, "nav": ["Beranda", "Privasi", "Ketentuan", "Dukungan", "Hapus Data", "Semua Produk"], "home_h1": "Investasi pada nilai harapan, bukan keberuntungan.", "home_lead": "Compoundia memadukan peluang 2d6, bunga majemuk, dan bingo matriks ajaib 3×3 dalam permainan strategi matematika keuangan.", "home_cta": "Dirancang untuk Google Play & App Store", "priv_h1": "Kebijakan Privasi — Compoundia", "priv_lead": "Tanpa akun. Progres disimpan lokal, menggunakan Firebase Analytics anonim dan iklan AdMob non-personal tanpa banner.", "terms_h1": "Ketentuan Penggunaan — Compoundia", "terms_lead": "Simulasi edukasi matematika keuangan virtual; tanpa perjudian atau nasihat keuangan.", "sup_h1": "Ada yang bisa kami bantu?", "sup_lead": "Hubungi exaque2@gmail.com. Semua skenario dapat dimainkan offline.", "del_h1": "Cara menghapus data Anda", "del_lead": "Tidak ada profil di server. Hapus data aplikasi atau copot pemasangan untuk menghapus progres lokal."}, "pl": {"name": "Polski", "rtl": false, "nav": ["Start", "Prywatność", "Regulamin", "Wsparcie", "Usuwanie danych", "Wszystkie produkty"], "home_h1": "Inwestuj w wartość oczekiwaną, nie w szczęście.", "home_lead": "Compoundia łączy prawdopodobieństwo 2k6, procent składany i magiczną macierz 3×3 w grze strategicznej.", "home_cta": "Dla Google Play i App Store", "priv_h1": "Polityka prywatności — Compoundia", "priv_lead": "Bez konta. Postępy zapisywane lokalnie, anonimowe Firebase Analytics i niespersonalizowane reklamy AdMob bez banerów.", "terms_h1": "Regulamin — Compoundia", "terms_lead": "Wirtualna edukacyjna gra matematyczno-finansowa; bez hazardu i porad inwestycyjnych.", "sup_h1": "Jak możemy pomóc?", "sup_lead": "Napisz na exaque2@gmail.com. Wszystkie scenariusze działają offline.", "del_h1": "Jak usunąć dane", "del_lead": "Brak kont serwerowych. Wyczyść dane aplikacji lub odinstaluj ją, aby usunąć lokalny postęp."}, "ms": {"name": "Bahasa Melayu", "rtl": false, "nav": ["Utama", "Privasi", "Syarat", "Sokongan", "Padam Data", "Semua Produk"], "home_h1": "Labur pada nilai jangkaan, bukan nasib.", "home_lead": "Compoundia menggabungkan kebarangkalian 2d6, faedah kompaun dan bingo matriks ajaib 3×3 dalam permainan strategi kewangan.", "home_cta": "Dibina untuk Google Play & App Store", "priv_h1": "Dasar Privasi — Compoundia", "priv_lead": "Tiada akaun diperlukan. Kemajuan disimpan setempat, menggunakan Firebase Analytics tanpa nama dan iklan AdMob bukan peribadi tanpa sepanduk.", "terms_h1": "Syarat Penggunaan — Compoundia", "terms_lead": "Permainan simulasi pendidikan matematik kewangan maya; tiada perjudian atau nasihat kewangan.", "sup_h1": "Bagaimana kami boleh bantu?", "sup_lead": "E-mel exaque2@gmail.com. Semua senario berfungsi secara luar talian.", "del_h1": "Cara memadam data anda", "del_lead": "Tiada profil pelayan. Kosongkan data aplikasi atau nyahpasang untuk memadam kemajuan setempat."}, "th": {"name": "ไทย", "rtl": false, "nav": ["หน้าแรก", "ความเป็นส่วนตัว", "ข้อกำหนด", "ช่วยเหลือ", "ลบข้อมูล", "ผลิตภัณฑ์ทั้งหมด"], "home_h1": "ลงทุนด้วยค่าคาดหวัง ไม่ใช่แค่ดวง", "home_lead": "Compoundia ผสานความน่าจะเป็น 2d6 ดอกเบี้ยทบต้น และบิงโกเมทริกซ์มหัศจรรย์ 3×3 ในเกมกระดานคณิตศาสตร์การเงิน", "home_cta": "สร้างขึ้นสำหรับ Google Play และ App Store", "priv_h1": "นโยบายความเป็นส่วนตัว — Compoundia", "priv_lead": "ไม่ต้องสมัครบัญชี บันทึกข้อมูลบนเครื่อง ใช้ Firebase Analytics แบบไม่ระบุตัวตนและโฆษณา AdMob แบบไม่ปรับแต่งเฉพาะบุคคล (ไม่มีแบนเนอร์)", "terms_h1": "ข้อกำหนดการใช้งาน — Compoundia", "terms_lead": "เกมจำลองคณิตศาสตร์การเงินเพื่อการศึกษา ไม่มีการพนันหรือคำแนะนำการลงทุนจริง", "sup_h1": "ให้เราช่วยอะไรคุณได้บ้าง?", "sup_lead": "ติดต่อ exaque2@gmail.com ทุกด่านสามารถเล่นแบบออฟไลน์ได้", "del_h1": "วิธีลบข้อมูลของคุณ", "del_lead": "ไม่มีโปรไฟล์บนเซิร์ฟเวอร์ ล้างข้อมูลแอปหรือถอนการติดตั้งเพื่อลบความคืบหน้าในเครื่อง"}, "uk": {"name": "Українська", "rtl": false, "nav": ["Головна", "Конфіденційність", "Умови", "Підтримка", "Видалення даних", "Усі продукти"], "home_h1": "Інвестуйте в очікувану дохідність, а не в удачу.", "home_lead": "Compoundia поєднує ймовірності 2d6, складні відсотки та магічну матрицю 3×3 у настільній фінансовій стратегії.", "home_cta": "Створено для Google Play та App Store", "priv_h1": "Політика конфіденційності — Compoundia", "priv_lead": "Без облікового запису. Прогрес зберігається локально; анонімна Firebase Analytics та неперсоналізована реклама AdMob без банерів.", "terms_h1": "Умови використання — Compoundia", "terms_lead": "Віртуальна освітня гра з фінансової математики; без азартних ігор чи інвестпорад.", "sup_h1": "Чим ми можемо допомогти?", "sup_lead": "Пишіть на exaque2@gmail.com. Усі сценарії працюють офлайн.", "del_h1": "Як видалити ваші дані", "del_lead": "Серверних профілів немає. Очистіть дані застосунку або видаліть його з пристрою."}, "ur": {"name": "اردو", "rtl": true, "nav": ["ہوم", "رازداری", "شرائط", "مدد", "ڈیٹا حذف کریں", "تمام ایپس"], "home_h1": "قسمت نہیں، متوقع قدر میں سرمایہ کاری کریں۔", "home_lead": "Compoundia 2d6 امکانات، مرکب منافع اور 3×3 میٹرکس بنگو پر مبنی مالیاتی ریاضی کا اسٹریٹجی بورڈ گیم ہے۔", "home_cta": "Google Play اور App Store کے لیے تیار", "priv_h1": "رازداری کی پالیسی — Compoundia", "priv_lead": "اکاؤنٹ کی ضرورت نہیں؛ پیش رفت آپ کے آلے پر محفوظ رہتی ہے اور غیر ذاتی AdMob اشتہارات (بغیر بینر) اور گمنام Firebase Analytics استعمال ہوتے ہیں۔", "terms_h1": "استعمال کی شرائط — Compoundia", "terms_lead": "تعلیمی ورچوئل مالیاتی ریاضی کا کھیل؛ کوئی جوا یا حقیقی مالی مشورہ نہیں۔", "sup_h1": "ہم آپ کی کیسے مدد کر سکتے ہیں؟", "sup_lead": "مدد کے لیے exaque2@gmail.com پر ای میل کریں۔ تمام مراحل آف لائن چلتے ہیں۔", "del_h1": "اپنا ڈیٹا کیسے حذف کریں", "del_lead": "سرور پر کوئی ذاتی پروفائل نہیں۔ مقامی ڈیٹا حذف کرنے کے لیے ایپ ڈیٹا صاف کریں یا ایپ ان انسٹال کریں۔"}, "vi": {"name": "Tiếng Việt", "rtl": false, "nav": ["Trang chủ", "Bảo mật", "Điều khoản", "Hỗ trợ", "Xóa dữ liệu", "Tất cả sản phẩm"], "home_h1": "Đầu tư vào giá trị kỳ vọng, không phải may rủi.", "home_lead": "Compoundia kết hợp xác suất 2d6, lãi kép và bingo ma trận ma thuật 3×3 trong trò chơi chiến thuật toán tài chính.", "home_cta": "Dành cho Google Play và App Store", "priv_h1": "Chính sách bảo mật — Compoundia", "priv_lead": "Không cần tài khoản. Dữ liệu lưu cục bộ trên thiết bị, dùng Firebase Analytics ẩn danh và quảng cáo AdMob không cá nhân hóa (không banner).", "terms_h1": "Điều khoản sử dụng — Compoundia", "terms_lead": "Trò chơi giáo dục toán tài chính ảo; không cờ bạc hay tư vấn tài chính thực tế.", "sup_h1": "Chúng tôi có thể giúp gì?", "sup_lead": "Liên hệ exaque2@gmail.com. Mọi kịch bản đều hoạt động ngoại tuyến.", "del_h1": "Cách xóa dữ liệu của bạn", "del_lead": "Không lưu hồ sơ cá nhân trên máy chủ. Xóa dữ liệu ứng dụng hoặc gỡ cài đặt để xóa tiến độ cục bộ."}, "el": {"name": "Ελληνικά", "rtl": false, "nav": ["Αρχική", "Απόρρητο", "Όροι", "Υποστήριξη", "Διαγραφή", "Όλα τα προϊόντα"], "home_h1": "Επένδυσε στην αναμενόμενη αξία, όχι στην τύχη.", "home_lead": "Το Compoundia συνδυάζει πιθανότητες 2d6, ανατοκισμό και μαγική μήτρα 3×3 σε ένα επιτραπέζιο χρηματοοικονομικών μαθηματικών.", "home_cta": "Για Google Play και App Store", "priv_h1": "Πολιτική Απορρήτου — Compoundia", "priv_lead": "Δεν απαιτείται λογαριασμός. Τοπική αποθήκευση, ανώνυμο Firebase Analytics και μη εξατομικευμένες διαφημίσεις AdMob χωρίς banner.", "terms_h1": "Όροι Χρήσης — Compoundia", "terms_lead": "Εκπαιδευτικό εικονικό παιχνίδι χρηματοοικονομικών μαθηματικών· χωρίς τυχερά παίγνια ή επενδυτικές συμβουλές.", "sup_h1": "Πώς μπορούμε να βοηθήσουμε;", "sup_lead": "Επικοινωνήστε στο exaque2@gmail.com. Όλα τα σενάρια παίζονται εκτός σύνδεσης.", "del_h1": "Πώς να διαγράψετε τα δεδομένα σας", "del_lead": "Δεν αποθηκεύουμε προσωπικά προφίλ. Καθαρίστε τα δεδομένα ή απεγκαταστήστε την εφαρμογή."}};
+  const STORAGE_KEY = 'compoundia_site_lang';
+  const page = document.body.getAttribute('data-page') || 'home';
 
-  function normalizeLang(val) {
-    if (!val) return null;
-    const code = String(val).toLowerCase().split('-')[0];
-    return SUPPORTED_LANGS.includes(code) ? code : null;
-  }
-
-  function getCurrentLang() {
-    const urlParam = normalizeLang(new URLSearchParams(location.search).get('lang'));
-    if (urlParam) return urlParam;
-    try {
-      const stored = normalizeLang(localStorage.getItem('preferred_lang'));
-      if (stored) return stored;
-    } catch (e) {}
-    const nav = normalizeLang(navigator.language || (navigator.languages && navigator.languages[0]));
-    if (nav) return nav;
+  function detectLang() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && DATA[saved]) return saved;
+    const nav = (navigator.language || 'en');
+    if (DATA[nav]) return nav;
+    const base = nav.split('-')[0].toLowerCase();
+    if (base === 'zh') return nav.includes('TW') || nav.includes('HK') ? 'zh-TW' : 'zh';
+    if (DATA[base]) return base;
     return 'en';
   }
 
-  function applyLanguage(lang) {
-    if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
-    try { localStorage.setItem('preferred_lang', lang); } catch (e) {}
-
-    document.documentElement.lang = lang;
-    document.documentElement.dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
-
-    // Toggle content: 'tr' for Turkish, 'en' for all other languages as international fallback
-    const targetGroup = lang === 'tr' ? 'tr' : 'en';
-    document.querySelectorAll('[data-language]').forEach(el => {
-      el.hidden = el.dataset.language !== targetGroup;
+  function buildSelect(current) {
+    const container = document.querySelector('.lang-switch');
+    if (!container) return;
+    container.innerHTML = '';
+    const sel = document.createElement('select');
+    sel.id = 'langSelect';
+    sel.className = 'lang-select';
+    sel.setAttribute('aria-label', 'Language (23)');
+    Object.keys(DATA).forEach(code => {
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = DATA[code].name;
+      if (code === current) opt.selected = true;
+      sel.appendChild(opt);
     });
-
-    // Update document title & meta description
-    const isEn = lang !== 'tr';
-    const title = isEn ? (document.body.dataset.titleEn || document.body.dataset.titleTr) : document.body.dataset.titleTr;
-    if (title) {
-      document.title = `${title} — RoboKinematics — CodExa`;
-    }
-    const desc = isEn ? (document.body.dataset.descEn || document.body.dataset.descTr) : document.body.dataset.descTr;
-    if (desc) {
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute('content', desc);
-      const ogDesc = document.querySelector('meta[property="og:description"]');
-      if (ogDesc) ogDesc.setAttribute('content', desc);
-    }
-
-    // Update active state in language selector if present
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === (lang === 'tr' ? 'tr' : 'en'));
-    });
-
-    // Preserve language parameter on all internal navigation links
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-      if (link.classList.contains('i18n-item')) return;
-      try {
-        const url = new URL(href, location.href);
-        if (url.origin === location.origin) {
-          url.searchParams.set('lang', lang);
-          link.href = url.href;
-        }
-      } catch (e) {}
-    });
+    sel.addEventListener('change', () => applyLang(sel.value));
+    container.appendChild(sel);
   }
 
-  const initialLang = getCurrentLang();
-  applyLanguage(initialLang);
+  function applyLang(code) {
+    const d = DATA[code] || DATA.en;
+    localStorage.setItem(STORAGE_KEY, code);
+    document.documentElement.lang = code === 'tr' ? 'tr' : 'en';
+    document.documentElement.dir = d.rtl ? 'rtl' : 'ltr';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    applyLanguage(getCurrentLang());
+    // Update subnav & footer links
+    const navLinks = document.querySelectorAll('.cp-subnav a');
+    navLinks.forEach((a, i) => { if (d.nav[i]) a.textContent = d.nav[i]; });
 
-    // Bind language switcher buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const selected = btn.dataset.lang || 'tr';
-        applyLanguage(selected);
-      });
-    });
-  });
-
-  window.addEventListener('codexa:languagechange', (e) => {
-    if (e && e.detail && e.detail.lang) {
-      applyLanguage(e.detail.lang);
+    // Update active block H1 & lead for all 23 languages
+    const activeBlock = document.querySelector(code === 'tr' ? '[data-language="tr"]' : '[data-language="en"]');
+    if (activeBlock) {
+      const h1 = activeBlock.querySelector('h1');
+      const lead = activeBlock.querySelector('p.lead');
+      const cta = activeBlock.querySelector('.cp-cta');
+      if (h1 && d[page + '_h1']) h1.textContent = d[page + '_h1'];
+      if (lead && d[page + '_lead']) lead.textContent = d[page + '_lead'];
+      if (cta && d.home_cta) cta.textContent = d.home_cta;
     }
-  });
+    const sel = document.getElementById('langSelect');
+    if (sel && sel.value !== code) sel.value = code;
+  }
 
-  window.setRoboKinematicsLanguage = applyLanguage;
+  const initial = detectLang();
+  buildSelect(initial);
+  applyLang(initial);
 })();
